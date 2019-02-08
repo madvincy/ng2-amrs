@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -139,7 +139,33 @@ import { ZscoreService } from '../../shared/services/zscore.service';
 import { GroupEnrollmentModule } from '../group-enrollment/group-enrollment.module';
 import { VitalsDatasource } from './todays-vitals/vitals.datasource';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MatTableModule, MatFormFieldModule } from '@angular/material';
 import { PocHttpInteceptor } from 'src/app/shared/services/poc-http-interceptor';
+
+import { AddDrugOrdersComponent } from './drug-orders/add-drug-orders/add-drug-orders.component';
+import { DrugOrdersComponent } from './drug-orders/drug-orders/drug-orders.component';
+import { DrugOrderService } from './drug-orders/drug-order.service';
+import { DrugOrderSetComponent } from './drug-orders/drug-order-set/drug-order-set.component';
+import { A11yModule } from '@angular/cdk/a11y';
+import { CdkStepperModule } from '@angular/cdk/stepper';
+import { CdkTableModule } from '@angular/cdk/table';
+import { CdkTreeModule } from '@angular/cdk/tree';
+import {
+
+        MatToolbarModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatInputModule,
+        MatMenuModule,
+        MatListModule,
+} from '@angular/material';
+import { DrugsFilterPipe } from './drug-orders/drugs-filter.pipe';
+import { DrugSetFilterPipe } from './drug-orders/drug-order-set/drugSet-filter.pipe';
+import { DrugOrderSetDraftComponent } from './drug-orders/drug-order-set/drug-order-set-draft/drug-order-set-draft.component';
+import { EditDrugComponent } from './drug-orders/edit-drug/edit-drug.component';
+
+
 
 @NgModule({
   imports: [
@@ -151,10 +177,17 @@ import { PocHttpInteceptor } from 'src/app/shared/services/poc-http-interceptor'
     DataTableModule,
     SharedModule,
     InputTextModule,
+    MatTableModule,
     MessagesModule,
     InputTextareaModule,
     DropdownModule,
     ButtonModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatListModule,
+    MatToolbarModule,
     CalendarModule,
     NgamrsSharedModule,
     Ng2Bs3ModalModule,
@@ -181,6 +214,18 @@ import { PocHttpInteceptor } from 'src/app/shared/services/poc-http-interceptor'
     GroupEnrollmentModule
   ],
   exports: [
+    A11yModule,
+    CdkStepperModule,
+    CdkTableModule,
+    CdkTreeModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatToolbarModule,
     PatientInfoComponent,
     PatientEncountersComponent,
     PatientVitalsComponent,
@@ -202,6 +247,7 @@ import { PocHttpInteceptor } from 'src/app/shared/services/poc-http-interceptor'
     DraftedFormNavComponent,
     TodaysVitalsComponent,
     PatientRemindersComponent,
+
     OrderListComponent,
     PatientRelationshipsComponent,
     EditContactsComponent,
@@ -227,7 +273,8 @@ import { PocHttpInteceptor } from 'src/app/shared/services/poc-http-interceptor'
     OrderByAlphabetPipe,
     OrderByEncounterTimeAscPipe,
     EncounterTypeFilter,
-    PatientImagingComponent],
+    PatientImagingComponent,
+  ],
   declarations: [
     VisitSummaryComponent,
     PatientInfoComponent,
@@ -238,6 +285,8 @@ import { PocHttpInteceptor } from 'src/app/shared/services/poc-http-interceptor'
     LabOrdersComponent,
     ClinicalNotesComponent,
     EncounterListComponent,
+    DrugsFilterPipe,
+    DrugSetFilterPipe,
     VisitComponent,
     PatientBannerComponent,
     EditVisitTypeComponent,
@@ -248,6 +297,7 @@ import { PocHttpInteceptor } from 'src/app/shared/services/poc-http-interceptor'
     AddressComponent,
     PatientDemographicsComponent,
     FormentryComponent,
+
     LabTestOrdersComponent,
     DraftedFormNavComponent,
     TodaysVitalsComponent,
@@ -271,12 +321,19 @@ import { PocHttpInteceptor } from 'src/app/shared/services/poc-http-interceptor'
     VisitDetailsComponent,
     VisitStarterComponent,
     VisitEncountersPipe,
+
     PatientEncounterProviderPipe,
     OrderByAlphabetPipe,
     OrderByEncounterTimeAscPipe,
     EncounterTypeFilter,
     // ZeroVlPipe,
-    PatientImagingComponent],
+    PatientImagingComponent,
+    AddDrugOrdersComponent,
+    DrugOrdersComponent,
+    DrugOrderSetComponent,
+    OrderListComponent,
+    DrugOrderSetDraftComponent,
+    EditDrugComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -314,6 +371,11 @@ import { PocHttpInteceptor } from 'src/app/shared/services/poc-http-interceptor'
     PatientCareStatusResourceService,
     ZscoreService,
     VitalsDatasource,
-    TodayVisitService],
+    TodayVisitService,
+    DrugsFilterPipe,
+    DrugSetFilterPipe,
+    DrugOrderService
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PatientDashboardCommonModule { }
