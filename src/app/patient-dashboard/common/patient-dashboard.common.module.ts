@@ -140,6 +140,8 @@ import { GroupEnrollmentModule } from '../group-enrollment/group-enrollment.modu
 import { VitalsDatasource } from './todays-vitals/vitals.datasource';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PocHttpInteceptor } from 'src/app/shared/services/poc-http-interceptor';
+import { ProcedureOrdersComponent } from './procedure-orders/procedure-orders.component';
+
 
 @NgModule({
   imports: [
@@ -276,7 +278,8 @@ import { PocHttpInteceptor } from 'src/app/shared/services/poc-http-interceptor'
     OrderByEncounterTimeAscPipe,
     EncounterTypeFilter,
     // ZeroVlPipe,
-    PatientImagingComponent],
+    PatientImagingComponent,
+    ProcedureOrdersComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

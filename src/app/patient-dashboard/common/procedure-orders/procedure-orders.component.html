@@ -1,0 +1,174 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Drug Name</label>
+    <input #input type="search" [(ngModel)]="procedure"  (keyup)="getConceptsClass(input.value)" class="form-control" placeholder="Search desired Procedure..."/>
+        <div class="list-group" *ngIf="procedureList">
+          <button type="button" class="list-group-item" *ngFor="let pro of ProcedureResults" (click)="procedureChanged(procedure)">{{ pro.name }}</button>
+        </div>
+        <!-- <div *ngIf="error" class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> {{error}}
+        </div> -->
+      </div>
+    </div>
+  </div>
+<div class="row">
+  <div class="form-group pull-left status">
+    <select class="form-control" [(ngModel)]="selectedOrderStatus" (ngModelChange)="onOrderStatuChange(selectedOrderStatus)" required>
+      <option [value]='any'>ALL ORDERS</option>
+      <option *ngFor="let orderState of orderStatus" [value]="orderState"> {{ orderState }} </option>
+    </select>
+    
+  </div>
+  <div class="form-group pull-left search">
+    <input type="search" [(ngModel)]="searchText" class="form-control" placeholder="Type Procedure Name To Search...">
+  </div>
+
+  <div class="pull-right add">
+      <button *ngIf="!addOrders" type="button" class="btn btn-primary" (click)="addProc(true)"> <i class="fa fa-plus"></i> <b>Add Procedure</b></button>
+    <button *ngIf="addOrders" type="button" class="btn btn-danger" (click)="addProc(false)"><i class="fa fa-close"></i> </button>
+  </div>
+</div>
+<div class="loader" *ngIf="loadingDrugOrderStatus"><span><i class="fa fa-spinner fa-spin">
+
+</i>Loading...</span></div>
+<div class="alert alert-warning" *ngIf="!selectedOrders.length">
+  Patient has no Procedure orders at this time.
+</div>
+
+<div *ngIf="!addOrders">
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="pointer" (click)="sort('dateActivated')">Date Created <i class="fa" [ngClass]="{'fa-sort': column != 'dateActivated', 
+                                                     'fa-sort-asc': (column == 'dateActivated' && !isDesc), 
+                                                     'fa-sort-desc': (column == 'dateActivated' && isDesc) }"
+                                                     aria-hidden="true"> </i>
+          </th>
+          <th>Order number</th>
+          <th>Procedure Type</th>
+          <th>Ordered by</th>
+          <th>Results</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of selectedOrders  | paginate: { itemsPerPage: 10, currentPage: page }; let i = index;"> 
+          <td>{{ order.dateActivated | date:'dd/MM/yyyy' }}</td>
+          <td >{{ order.orderNumber }}</td>
+          <td >{{ order.display }}</td>
+          <td>{{ order.orderer.display }}</td>
+          <td>
+              <div *ngIf="imageSaved" class="alert alert-success alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>            Image saved successfully
+              </div>
+              <div *ngIf="imageUploadFailed" class="alert alert-danger alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>            Image not saved try again;
+              </div>
+              <label for="file">Choose File</label>
+            <file-uploader [(ngModel)]="dataModel"  (onClear)="clearPhoto()" cl (fileChanged)="onFileChange($event)"><i class="fa fa-upload"></i></file-uploader>
+          <td>
+            <button  _ngcontent-c16="" mat-raised-button="" style="background: #00a65a; color: white;"  title="Renew Order" class="bton" (click)="renewOrder(order)">RENEW</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <pagination-controls (pageChange)="page = $event" style="cursor: pointer;"></pagination-controls>
+  </div>
+</div>
+<p-dialog header="{{header}}" [(visible)]="display" closable="true" styleClass="edit-drugorder-dialog">
+  <div class="alert alert-success" *ngIf="showSuccessAlert" style="margin-top:10px">
+    <strong>Done!</strong> {{successAlert}}
+  </div>
+  <div class="alert alert-danger" *ngIf="showErrorAlert" style="margin-top:10px">
+    <strong>{{errorTitle}}</strong> {{errorAlert}}
+  </div>
+  <form name="nameForm">
+
+    <!-- displayrenew data -->
+    <div class="container-fluid" *ngIf="displayRenew">
+      <div class="row" id="edit-demographics-row">
+      <div *ngIf="errors" style="color: red !important">
+        <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <div *ngFor="let error of errors">{{error.message}}</div>
+        </div>
+      </div>
+      
+  
+      <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+          <div >
+              <b> Are You Sure You Want To Renew This Order ? </b>  
+              
+            </div>
+      
+      <button type="submit" class="btn btn-primary pull-right" (click)="processRenewOrder()">OK</button>
+      <button class="btn btn-danger pull-left" type="button" (click)="dismissDialog()">
+        <span>Cancel</span></button>
+      </div>
+      </div>
+      </div>
+        <!-- New Procedure -->
+    <div class="container-fluid" *ngIf="displayNew">
+      <div class="row" id="edit-demographics-row">
+      <div *ngIf="errors" style="color: red !important">
+        <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <div *ngFor="let error of errors">{{error.message}}</div>
+        </div>
+      </div>
+      
+  
+      <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+        <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+          <div class="form-group">
+            <label for="">Procedure</label>
+            <select class="form-control" [(ngModel)]="procedure" name="procedure">
+              <option *ngFor="let p of proc" [value]="p.uuid" > {{ p.display }}</option>
+            </select>
+          </div>
+     </div>
+
+     <!-- <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+
+        <div  class="form-group">
+          <label for="startDate">Starting Date <span>(Format: dd/mm/yyyy)</span></label><br>
+          <date-time-picker tabindex="0" [modelValue]="startDate" [id]="'startDate'"
+                            (onDateChange)="updateStartDate($event)"></date-time-picker>
+        </div>
+
+        </div> -->
+      
+      <button type="submit" class="btn btn-primary pull-right" (click)="saveOrder()">Submit</button>
+      <button class="btn btn-danger pull-left" type="button" (click)="dismissDialog()">
+        <span>Cancel</span></button>
+      </div>
+      </div>
+      </div>
+
+      <!-- display drug stopage details -->
+      <div class="container-fluid" *ngIf="displayStop">
+        <div class="row" id="edit-demographics-row">
+        <div *ngIf="errors" style="color: red !important">
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+              <div *ngFor="let error of errors">{{error.message}}</div>
+          </div>
+        </div>
+        
+    
+        <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <div>
+                  <b>Are You Sure You Want To Terminate This Drug Order ?</b>
+                
+              </div>
+        
+              <button class="btn btn-danger pull-left" type="button" (click)="dismissDialog()"><span>Cancel</span></button>
+              <button type="submit" class="btn btn-primary pull-right" (click)="processStopValue()">OK</button>
+          
+        </div>
+        </div>
+        </div>
+  </form>
+</p-dialog>
+
