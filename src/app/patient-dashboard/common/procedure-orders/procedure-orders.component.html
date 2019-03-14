@@ -1,17 +1,4 @@
-<div class="row">
-    <div class="col-md-12">
-      <div class="form-group">
-        <label>Drug Name</label>
-    <input #input type="search" [(ngModel)]="procedure"  (keyup)="getConceptsClass(input.value)" class="form-control" placeholder="Search desired Procedure..."/>
-        <div class="list-group" *ngIf="procedureList">
-          <button type="button" class="list-group-item" *ngFor="let pro of ProcedureResults" (click)="procedureChanged(procedure)">{{ pro.name }}</button>
-        </div>
-        <!-- <div *ngIf="error" class="alert alert-danger alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> {{error}}
-        </div> -->
-      </div>
-    </div>
-  </div>
+
 <div class="row">
   <div class="form-group pull-left status">
     <select class="form-control" [(ngModel)]="selectedOrderStatus" (ngModelChange)="onOrderStatuChange(selectedOrderStatus)" required>
@@ -60,6 +47,9 @@
           <td >{{ order.display }}</td>
           <td>{{ order.orderer.display }}</td>
           <td>
+              <!-- <a type="button" (click)="showResults(order.orderNumber)" data-target="#encounter_modal" data-toggle="modal">
+                  <span class="glyphicon text-primary glyphicon-eye-open"></span>
+              </a> -->
               <div *ngIf="imageSaved" class="alert alert-success alert-dismissible" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>            Image saved successfully
               </div>
@@ -67,9 +57,9 @@
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>            Image not saved try again;
               </div>
               <label for="file">Choose File</label>
-            <file-uploader [(ngModel)]="dataModel"  (onClear)="clearPhoto()" cl (fileChanged)="onFileChange($event)"><i class="fa fa-upload"></i></file-uploader>
+            <file-uploader [(ngModel)]="dataModel"  (onClear)="clearPhoto()" cl (fileChanged)="onFileChange($event, order.orderNumber )"><i class="fa fa-upload"></i></file-uploader>
           <td>
-            <button  _ngcontent-c16="" mat-raised-button="" style="background: #00a65a; color: white;"  title="Renew Order" class="bton" (click)="renewOrder(order)">RENEW</button>
+            <button  _ngcontent-c16="" mat-raised-button="" style="background: #00a65a; color: white;"  title="Renew Order" class="bton" (click)="renewOrder(order)">COPY</button>
           </td>
         </tr>
       </tbody>
@@ -91,11 +81,12 @@
     <!-- displayrenew data -->
     <div class="container-fluid" *ngIf="displayRenew">
       <div class="row" id="edit-demographics-row">
-      <div *ngIf="errors" style="color: red !important">
-        <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
-            <div *ngFor="let error of errors">{{error.message}}</div>
-        </div>
-      </div>
+          <div *ngIf="errors" style="color: red !important">
+              <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                  <div *ngFor="let error of errors">{{error.message}}</div>
+              </div>
+            </div>
+            
       
   
       <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
@@ -113,11 +104,12 @@
         <!-- New Procedure -->
     <div class="container-fluid" *ngIf="displayNew">
       <div class="row" id="edit-demographics-row">
-      <div *ngIf="errors" style="color: red !important">
-        <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
-            <div *ngFor="let error of errors">{{error.message}}</div>
-        </div>
-      </div>
+          <div *ngIf="errors" style="color: red !important">
+              <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                  <div *ngFor="let error of errors">{{error.message}}</div>
+              </div>
+            </div>
+            
       
   
       <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">

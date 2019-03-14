@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import * as _ from 'lodash';
+import * as Moment from 'moment';
 import { PatientService } from '../../services/patient.service';
 import { UserService } from 'src/app/openmrs-api/user.service';
 import { ProcedureOrdersService } from './procedure-orders.service';
@@ -10,6 +11,8 @@ import { UserDefaultPropertiesService } from 'src/app/user-default-properties';
 import { FileUploadResourceService } from 'src/app/etl-api/file-upload-resource.service';
 import { flatMap, take } from 'rxjs/operators';
 import { ConceptResourceService } from 'src/app/openmrs-api/concept-resource.service';
+import { ObsResourceService } from 'src/app/openmrs-api/obs-resource.service';
+import * as Tesseract from 'tesseract.js';
 
 
 @Component({
@@ -76,6 +79,9 @@ export class ProcedureOrdersComponent implements OnInit {
   private procedure: string;
   public procedureList = false;
   public procedureName: string;
+  public imageServerId: any;
+  public imageText: string;
+  public imageStatusValue: any;
 
   constructor(private patientService: PatientService,
     private userService: UserService,
@@ -84,7 +90,9 @@ export class ProcedureOrdersComponent implements OnInit {
     private encounterResourceService: EncounterResourceService,
     private userDefaultPropertiesService: UserDefaultPropertiesService,
     private fileUploadResourceService: FileUploadResourceService,
-    private conceptResourceService: ConceptResourceService ) { }
+    private conceptResourceService: ConceptResourceService,
+    private obsResourceService: ObsResourceService,
+  ) { }
 
   ngOnInit() {
     this.getCurrentlyLoadedPatient();
@@ -140,7 +148,12 @@ export class ProcedureOrdersComponent implements OnInit {
           this.procedureOrders = procedures.reverse();
           console.dir(this.procedureOrders);
           this.selectedOrders = this.procedureOrders;
-          console.log(this.selectedOrders, 'selected');
+          for (let i = 0; i < this.selectedOrders.length; i++) {
+            console.log(this.checkResults(this.selectedOrders[i].uuid), 'ranything');
+            // this.selectedOrders[i].status = this.checkResults(this.selectedOrders[i].uuid);
+        }
+        console.log(this.selectedOrders, 'selected');
+
           this.filterOrders(this.procedureOrders);
           this.procedureOrders.forEach((value) => {
             if (value.dateStopped) {
@@ -153,6 +166,9 @@ export class ProcedureOrdersComponent implements OnInit {
           this.loadingProcedureOrderStatus = false;
           this.isBusy = false;
         }
+
+        // check if procedure has results
+        // if so change  results to be viewable and add  edit  ability to actions column
       });
   }
   private filterOrders(orders) {
@@ -201,13 +217,13 @@ export class ProcedureOrdersComponent implements OnInit {
     let ProcedureResults: any[];
     const conceptClassesUuidArray = '8d490bf4-c2cc-11de-8d13-0010c6dffd0f';
     ProcedureResults = this.conceptResourceService.getConceptByConceptClassesUuid(searchText, conceptClassesUuidArray);
-    console.log (ProcedureResults, 'ayee');
+    console.log(ProcedureResults, 'ayee');
 
-}
-public procedureChanged(drug) {
-  this.procedureList = false;
-  this.procedureName = drug.name;
-}
+  }
+  public procedureChanged(drug) {
+    this.procedureList = false;
+    this.procedureName = drug.name;
+  }
 
   public addProc(show) {
     this.display = show;
@@ -225,6 +241,7 @@ public procedureChanged(drug) {
     const encounterPayLoad = {
       patient: this.patient.uuid,
       encounterType: '5ef97eed-18f5-40f6-9fbf-a11b1f06484a',
+      // encounterType: '6a664732-560c-4ad4-ac38-b59ebe330897',
       location: this.selectedLocation,
       encounterProviders: [{
         provider: this.provider,
@@ -257,7 +274,12 @@ public procedureChanged(drug) {
     let procedureOrderPayload;
 
     if (!this.procedure) {
-      this.error = 'Please Select A procedure';
+      this.errors.push({
+        message: 'Please Select A procedure'
+      });
+      setTimeout(() => {
+        this.errors = false;
+      }, 1000);
     } else {
       procedureOrderPayload = {
         patient: this.patient.uuid,
@@ -272,20 +294,67 @@ public procedureChanged(drug) {
     return procedureOrderPayload;
   }
 
-  public onFileChange(file) {
-    this.subscriptions.push(this.fileUploadResourceService.upload(file).pipe(flatMap((result: any) => {
-      const imageServerId = result;
-      console.log(imageServerId, 'salama sasa');
-      this.imageUploadFailed = false;
-      this.imageSaved = false;
-      return imageServerId;
-    })).pipe(take(1)).subscribe((patient) => {
-      this.imageSaved = true;
-      this.patientService.reloadCurrentPatient();
-      this.displaySuccessAlert();
-    }, (error) => {
-      this.imageUploadFailed = true;
-    }));
+  public onFileChange(file, orderNumber) {
+   this.fileUploadResourceService.upload(file).subscribe((result: any) => {
+      this.imageServerId = result.image;
+      console.log(this.imageServerId, 'salama sasa');
+      const obsPayload = {
+        obsDatetime: this.toDateString(new Date()),
+        encounter: 'a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7',
+        location: this.selectedLocation ,
+        concept: 'c7aae9ad-ce25-46fc-897c-d92b40cf61d0',
+        person: this.patient.uuid,
+        value: this.imageServerId,
+        order: orderNumber
+      };
+
+      console.log(obsPayload);
+
+
+      this.obsResourceService.saveObs(obsPayload).pipe(take(1)).subscribe(
+        (success) => {
+          if (success) {
+            console.log('success');
+          }
+        },
+        (error) => {
+          console.error('error', error);
+        }
+      );
+    },
+    (error) => {
+      console.error('error', error);
+    });
+
+    // const imageValue = this.subscriptions.push(this.fileUploadResourceService.upload(file).pipe(flatMap((result: any) => {
+    //   this.imageServerId = result.image;
+    //   this.imageUploadFailed = false;
+    //   this.imageSaved = false;
+    //   return result.image;
+    // })).pipe(take(1)).subscribe((patient) => {
+    //   this.imageSaved = true;
+
+    //   this.displaySuccessAlert();
+    // }, (error) => {
+    //   this.imageUploadFailed = true;
+    // }));
+    // converting image to text
+    // Tesseract.recognize(file)
+    //   .progress(result => {
+    //     console.log(result, 'IMAGE 2 TEXT');
+    //     if (result.status === 'recognizing text') {
+    //       // this.progress.set(result.progress);
+    //     }
+    //   })
+    //   .catch(e => {
+    //     alert(e);
+    //   })
+    //   .then(result => {
+    //     this.imageText = result.text;
+    //   });
+
+
+
   }
   private displaySuccessAlert() {
     this.imageSaved = true;
@@ -293,4 +362,36 @@ public procedureChanged(drug) {
       this.imageSaved = false;
     }, 3000);
   }
+  private toDateString(date: Date): string {
+    return Moment(date).utcOffset('+03:00').format();
+  }
+
+  checkResults(orderNumber) {
+    const patientUuId = this.patient.uuid;
+     this.obsResourceService.getObsPatientObsByOrder(patientUuId).subscribe((result: any) => {
+      result = result.results;
+      result.forEach((value) => {
+         this.checkValue(value, orderNumber);
+         console.error(this.checkValue(value, orderNumber));
+         return this.imageStatusValue;
+
+      });
+    },
+    (error) => {
+      console.error('error', error);
+    });
+  }
+  checkValue(value: any, orderNumber) {
+    if (value.order) {
+      if (value.order.uuid === orderNumber) {
+        console.log(value.order.orderNumber, 'imagePresents');
+        this.imageStatusValue = 1;
+      } else  {
+        this.imageStatusValue = 0;
+       }
+    } else {
+      this.imageStatusValue = 0;
+    }
+  }
+
 }

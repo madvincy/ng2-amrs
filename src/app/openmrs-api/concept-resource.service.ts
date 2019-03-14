@@ -54,6 +54,7 @@ export class ConceptResourceService {
     const response = this.searchConcept(searchText);
     response.pipe(take(1)).subscribe(
       (concepts) => {
+        console.log(concepts, 'tamutamu');
         filteredConceptResults =
           this.filterResultsByConceptClassesUuid(concepts, conceptClassesUuidArray);
       },
