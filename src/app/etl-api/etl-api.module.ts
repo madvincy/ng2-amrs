@@ -43,6 +43,8 @@ import { RadiologyImagingResourceService } from './radiology-imaging-resource.se
 import { HivEnhancedReportService } from './hiv-enhanced-program-report.service';
 import { KibanaDashboardListService } from './kibana-dashboard-list-service';
 import { HivDifferentiatedCareResourceService } from './hiv-differentiated-care-resource.service';
+import { SurgeResourceService } from './surge-resource.service';
+
 @NgModule({
   imports: [CommonModule, AppSettingsModule],
   declarations: [],
@@ -79,7 +81,8 @@ import { HivDifferentiatedCareResourceService } from './hiv-differentiated-care-
     RadiologyImagingResourceService,
     HivEnhancedReportService,
     KibanaDashboardListService,
-    HivDifferentiatedCareResourceService
+    HivDifferentiatedCareResourceService,
+    SurgeResourceService
   ],
   exports: []
 })

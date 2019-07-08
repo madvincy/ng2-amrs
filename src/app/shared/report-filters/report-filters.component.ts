@@ -1,22 +1,19 @@
 
-import {take} from 'rxjs/operators';
-
+import { take } from 'rxjs/operators';
 import {
   Component, OnInit, EventEmitter, ElementRef, forwardRef,
-  ViewEncapsulation, AfterViewInit, ChangeDetectorRef
+  ViewEncapsulation,
+  AfterViewInit,
+  ChangeDetectorRef
 } from '@angular/core';
 import { Output, Input } from '@angular/core';
 import { IndicatorResourceService } from '../../etl-api/indicator-resource.service';
 import * as Moment from 'moment';
 import * as _ from 'lodash';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import {
-  DataAnalyticsDashboardService
-} from '../../data-analytics-dashboard/services/data-analytics-dashboard.services';
+import { DataAnalyticsDashboardService } from '../../data-analytics-dashboard/services/data-analytics-dashboard.services';
 import { ProgramResourceService } from '../../openmrs-api/program-resource.service';
-import {
-  ProgramWorkFlowResourceService
-} from '../../openmrs-api/program-workflow-resource.service';
+import { ProgramWorkFlowResourceService } from '../../openmrs-api/program-workflow-resource.service';
 declare var jQuery;
 require('ion-rangeslider');
 import { DepartmentProgramsConfigService } from '../../etl-api/department-programs-config.service';
@@ -24,19 +21,21 @@ import { SelectDepartmentService } from './../services/select-department.service
 
 @Component({
   selector: 'report-filters',
- // styleUrls: ['report-filters.component.css'],
+  // styleUrls: ['report-filters.component.css'],
   templateUrl: 'report-filters.component.html',
-  styles: [`
-    ng-select > div > div.multiple input {
-      width: 100% !important;
-    }
-    .location-filter ng-select > div > div.multiple > div.option {
-      color: #fff !important;
-      border-color: #357ebd !important;
-      flex-shrink: initial;
-      background-color: #428bca !important;
-    }
-  `],
+  styles: [
+    `
+      ng-select > div > div.multiple input {
+        width: 100% !important;
+      }
+      .location-filter ng-select > div > div.multiple > div.option {
+        color: #fff !important;
+        border-color: #357ebd !important;
+        flex-shrink: initial;
+        background-color: #428bca !important;
+      }
+    `
+  ],
   encapsulation: ViewEncapsulation.None,
   providers: [
     {
@@ -102,25 +101,29 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
   @Output()
   public locationChange = new EventEmitter<any>();
   public locations: any;
+  @Output()
+  public startWeekChange = new EventEmitter<Date>();
 
   @Output()
-  public  endDateChange = new EventEmitter<Date>();
+  public endDateChange = new EventEmitter<Date>();
   private _startDate: Date;
   private _endDate: Date;
+  private _startWeek: Date;
   private _report: string;
   private _indicators: Array<any> = [];
   private _gender: Array<any> = [];
   private _programs: Array<any> = [];
   private _currentDepartment = '';
-  constructor(private indicatorResourceService: IndicatorResourceService,
-              private dataAnalyticsDashboardService: DataAnalyticsDashboardService,
-              private programResourceService: ProgramResourceService,
-              private programWorkFlowResourceService: ProgramWorkFlowResourceService,
-              private _departmentProgramService: DepartmentProgramsConfigService,
-              private _selectDepartmentService: SelectDepartmentService,
-              private elementRef: ElementRef,
-              private cd: ChangeDetectorRef) {
-  }
+  constructor(
+    private indicatorResourceService: IndicatorResourceService,
+    private dataAnalyticsDashboardService: DataAnalyticsDashboardService,
+    private programResourceService: ProgramResourceService,
+    private programWorkFlowResourceService: ProgramWorkFlowResourceService,
+    private _departmentProgramService: DepartmentProgramsConfigService,
+    private _selectDepartmentService: SelectDepartmentService,
+    private elementRef: ElementRef,
+    private cd: ChangeDetectorRef
+  ) { }
   public get startDate(): Date {
     return this._startDate;
   }
@@ -131,8 +134,8 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
   }
 
   // tslint:disable:no-shadowed-variable
-  public onChange = (_) => {};
-  public onTouched = () => {};
+  public onChange = _ => { };
+  public onTouched = () => { };
 
   @Input()
   public set endDate(v: Date) {
@@ -143,6 +146,15 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
     return this._endDate;
   }
   @Input()
+  public set startWeekString(v: Date) {
+    this._startWeek = v;
+    this.startWeekChange.emit(this._startWeek);
+  }
+  public get startWeekString() {
+    return this._startWeek;
+  }
+
+  @Input()
   public set reportName(v: string) {
     this._report = v;
   }
@@ -151,7 +163,7 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
   }
   @Input()
   public get selectedIndicators(): Array<any> {
-    return this._indicators ;
+    return this._indicators;
   }
   public set selectedIndicators(v: Array<any>) {
     this._indicators = v;
@@ -159,12 +171,11 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
   }
   @Input()
   public get selectedPrograms(): Array<any> {
-    return this._programs ;
+    return this._programs;
   }
   public set selectedPrograms(v: Array<any>) {
     this._programs = v;
     this.onProgramChange.emit(this._programs);
-
   }
   @Input()
   public get selectedGender(): Array<any> {
@@ -191,7 +202,7 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
   public ngOnInit() {
     this.renderFilterControls();
     if (this.start && this.end) {
-      this.onAgeChangeFinish.emit({ageFrom: this.start, ageTo: this.end});
+      this.onAgeChangeFinish.emit({ ageFrom: this.start, ageTo: this.end });
     }
 
     // this._gender = this._gender.length > 0 ? this._gender : this.genderOptions;
@@ -205,7 +216,6 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
       this._programs = this.programOptions;
     }
     this.getCachedLocations();
-
   }
   public isEnabled(control: string): boolean {
     return this.enabledControls.indexOf(control) > -1;
@@ -219,51 +229,55 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
     }
   }
   public getCurrentDepartment() {
-
     const department = this._selectDepartmentService.getUserSetDepartment();
     this._currentDepartment = department;
     this.getDepartmentPrograms(department);
   }
   public getDepartmentPrograms(department) {
-
-    this._departmentProgramService.getDepartmentPrograms(department).pipe(
-      take(1))
-      .subscribe((results) => {
+    this._departmentProgramService
+      .getDepartmentPrograms(department)
+      .pipe(take(1))
+      .subscribe(results => {
         if (results) {
-          this.programOptions = _.map(results, (result) => {
-            return {value: result.uuid, label: result.name};
+          this.programOptions = _.map(results, result => {
+            return { value: result.uuid, label: result.name };
           });
-
         }
       });
-
   }
-   public getCachedLocations() {
-      if (this._report === 'hiv-summary-report') {
-        this.dataAnalyticsDashboardService.getSelectedIndicatorLocations().pipe(take(1)).subscribe(
-          (data)  => {
-            if (data) {
-              this.locations = data.locations;
-            }
-          });
-      } else if (this._report === 'hiv-summary-monthly-report' ||
-      this._report === 'oncology-summary-monthly-report') {
-        this.dataAnalyticsDashboardService.getSelectedMonthlyIndicatorLocations().pipe(take(1)).subscribe(
-          (data)  => {
-            if (data) {
-              this.locations = data.locations;
-            }
-          });
-      } else {
-        this.dataAnalyticsDashboardService.getSelectedLocations().pipe(take(1)).subscribe(
-          (data)  => {
-            if (data) {
-              this.locations = data.locations;
-            }
-          });
-      }
-
-}
+  public getCachedLocations() {
+    if (this._report === 'hiv-summary-report') {
+      this.dataAnalyticsDashboardService
+        .getSelectedIndicatorLocations()
+        .pipe(take(1))
+        .subscribe(data => {
+          if (data) {
+            this.locations = data.locations;
+          }
+        });
+    } else if (
+      this._report === 'hiv-summary-monthly-report' ||
+      this._report === 'oncology-summary-monthly-report'
+    ) {
+      this.dataAnalyticsDashboardService
+        .getSelectedMonthlyIndicatorLocations()
+        .pipe(take(1))
+        .subscribe(data => {
+          if (data) {
+            this.locations = data.locations;
+          }
+        });
+    } else {
+      this.dataAnalyticsDashboardService
+        .getSelectedLocations()
+        .pipe(take(1))
+        .subscribe(data => {
+          if (data) {
+            this.locations = data.locations;
+          }
+        });
+    }
+  }
 
   public onIndicatorSelected(indicator) {
     this.selectedIndicators = indicator;
@@ -271,40 +285,42 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
 
   public getIndicators() {
     const indicators = [];
-    this.indicatorResourceService.getReportIndicators({
-     report: this.reportName
-   }).pipe(take(1)).subscribe(
-     (results: any[]) => {
-
-       for (const data of results) {
-         for (const r in data) {
-           if (data.hasOwnProperty(r)) {
-             const id = data.name;
-             const text = data.label;
-             data['value'] = id;
-             data['label'] = text;
-           }
-         }
-         indicators.push(data);
-       }
-       this.indicatorOptions = indicators;
-     }
-   );
-
+    this.indicatorResourceService
+      .getReportIndicators({
+        report: this.reportName
+      })
+      .pipe(take(1))
+      .subscribe((results: any[]) => {
+        for (const data of results) {
+          for (const r in data) {
+            if (data.hasOwnProperty(r)) {
+              const id = data.name;
+              const text = data.label;
+              data['value'] = id;
+              data['label'] = text;
+            }
+          }
+          indicators.push(data);
+        }
+        this.indicatorOptions = indicators;
+      });
   }
 
   public getPrograms() {
-    this.programResourceService.getPrograms().pipe(take(1)).subscribe((results: any[]) => {
+    this.programResourceService
+      .getPrograms()
+      .pipe(take(1))
+      .subscribe((results: any[]) => {
         if (results) {
-          this.programOptions = _.map(results, (result) => {
-            return {value: result.uuid, label: result.display};
+          this.programOptions = _.map(results, result => {
+            return { value: result.uuid, label: result.display };
           });
         }
       });
   }
 
   public selectAll() {
-    if (this.indicatorOptions .length > 0) {
+    if (this.indicatorOptions.length > 0) {
       if (this.selectedIndicatorTagsSelectedAll === false) {
         this.selectedIndicatorTagsSelectedAll = true;
         this.selectedIndicators = this.indicatorOptions;
@@ -313,11 +329,10 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
         this.selectedIndicators = [];
       }
     }
-
   }
 
   public selectAllPrograms() {
-    if (this.programOptions .length > 0) {
+    if (this.programOptions.length > 0) {
       if (this.selectedProgramTagsSelectedAll === false) {
         this.selectedProgramTagsSelectedAll = true;
         this.selectedPrograms = this.programOptions;
@@ -332,16 +347,20 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
       this.dataAnalyticsDashboardService.setSelectedIndicatorLocations(locs);
       return;
     }
-    if (this._report === 'hiv-summary-monthly-report' ||
-    this._report === 'oncology-summary-monthly-report') {
-      this.dataAnalyticsDashboardService.setSelectedMonthlyIndicatorLocations(locs);
+    if (
+      this._report === 'hiv-summary-monthly-report' ||
+      this._report === 'oncology-summary-monthly-report'
+    ) {
+      this.dataAnalyticsDashboardService.setSelectedMonthlyIndicatorLocations(
+        locs
+      );
       return;
     }
     this.dataAnalyticsDashboardService.setSelectedLocations(locs);
   }
   public onGenderSelected(selectedGender) {
     this.selectedGender = selectedGender;
-    this.onGenderChange.emit( this.selectedGender);
+    this.onGenderChange.emit(this.selectedGender);
   }
 
   public onPeriodChange($event) {
@@ -365,16 +384,16 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
       grid_num: 10,
       force_edges: true,
       keyboard: true,
-      onFinish: (data) => {
-        this.onAgeChangeFinish.emit({ageFrom: data.from, ageTo: data.to});
+      onFinish: data => {
+        this.onAgeChangeFinish.emit({ ageFrom: data.from, ageTo: data.to });
       },
-      onChange: (data) => {
-        this.value = {ageFrom: data.from, ageTo: data.to};
+      onChange: data => {
+        this.value = { ageFrom: data.from, ageTo: data.to };
       }
     });
     this.initialized = true;
   }
-  public  onSelectedIndicators(v: Array<any>) {
+  public onSelectedIndicators(v: Array<any>) {
     this._indicators = v;
     this.onIndicatorChange.emit(this._indicators);
   }
@@ -393,7 +412,14 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
     }
   }
 
- public registerOnChange(fn: (_: any) => void): void { this.onChange = fn; }
- public registerOnTouched(fn: () => void): void { this.onTouched = fn; }
+  public onStartWeekChange(event) {
+    this.startWeekChange.emit(event);
+  }
 
+  public registerOnChange(fn: (_: any) => void): void {
+    this.onChange = fn;
+  }
+  public registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
 }

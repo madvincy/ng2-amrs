@@ -40,6 +40,7 @@ import { ChangeDepartmentModule } from '../change-department/change-department.m
 import {
   Moh731MonthlyVizComponent
 } from './moh-731-monthly-viz/moh-731-monthly-viz.component';
+import { SurgeReportComponent } from './surge/surge-report.component';
 @NgModule({
   imports: [
     dataAnalyticsDashboardHivRouting,
@@ -68,7 +69,8 @@ import {
     Moh731ReportComponent,
     Moh731MonthlyVizComponent,
     HivCareComparativeAnalyticsComponent,
-    HivSummaryMonthlyIndicatorsComponent
+    HivSummaryMonthlyIndicatorsComponent,
+    SurgeReportComponent
   ],
   providers: [
     DataAnalyticsDashboardService,
