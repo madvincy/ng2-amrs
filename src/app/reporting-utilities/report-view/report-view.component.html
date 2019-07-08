@@ -1,0 +1,120 @@
+<div class="wrapper">
+
+  <div class="panel panel-info">
+    <div class="panel-heading" style="min-height: 50px!important">
+      <strong class="text-primary">
+        <span class="fa fa-file-pdf-o">
+        </span>
+        Surge Report
+        <div class="btn-group pull-right">
+          <button class="btn btn-primary" (click)="downloadPdf()" [disabled]="!gridOptions">
+            <i class="fa fa-download">
+            </i> Download Pdf
+          </button>
+        </div>
+      </strong>
+    </div>
+
+    <div *ngIf="displayTabluarFilters" class="row">
+      <div class="col-md-5 col-sm-12 padding">
+          <label for="">Search :</label>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+          <input #searchBoxL id="search-box-loc" [(ngModel)]="selectedResult" (ngModelChange)="searchIndicator()"
+            placeholder="search indicator" class="form-control" />
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 padding pull-right">
+        <div class="ui-grid-row ui-fluid">
+          <div class="ui-grid-col-12 pull-right">
+            <label for="">Filters :</label>
+            <p-multiSelect [options]="headers" [(ngModel)]="selectedIndicatorsList" (onChange)="selectedIndicators()">
+            </p-multiSelect>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="contentToConvert" class="panel-body" style="background-color: #ffffff; overflow-x:auto">
+     
+      <table>              
+                  <tbody  *ngFor= "let grid of gridOptions.columnDefs" >
+                 
+                        <tr>
+                            <td [attr.colspan]="gridOptions.rowData.length + 1" class="header" ><b>{{grid.headerName}}</b></td>
+                          </tr>
+                          
+                          <tr  *ngFor="let col of grid.children">
+        
+                              <th title="{{col.description}}"><i  *ngIf="col.headerName !== 'locations'" class="fa fa-info-circle "></i> &nbsp;&nbsp;{{col.headerName}} 
+                              </th>
+                              
+                       
+                          <td *ngFor="let val of col.value"  title="Click to View Patientlist" (click)="setCellSelection(col,val)" class="value" > {{val.value}}</td>
+                      
+                      
+                              
+                            <!-- <td  title="Click to View Patientlist" (click)="setCellSelection(col)" class="value" >{{col.value}} </td> -->
+                          </tr>
+                 
+                
+                  </tbody>
+             
+      </table>
+      
+    </div>
+    <!-- <div class="panel-footer" style="min-height: 50px">
+      <button class="btn btn-default pull-left" (click)="findPage('prev')" [disabled]="locationNumber<1">
+        <i class="fa fa-arrow-circle-o-left">
+        </i> Previous Page
+      </button>
+      <button class="btn btn-default pull-right" (click)="findPage('next')"
+        [disabled]="locationNumber === surgeWeeklyReportSummaryData.length">
+        Next Page <i class="fa fa-arrow-circle-o-right">
+        </i>
+      </button>
+    </div> -->
+  </div>
+</div>
+<!-- <div class="wrapper">
+  <div class="panel panel-info">
+
+    <div class="panel-heading" style="min-height: 50px!important">
+
+      <strong class="text-primary">
+					<span class="fa fa-file-pdf-o">
+
+					</span>
+         MOH 731 Report
+          <div class="btn-group pull-right">
+            <button class="btn btn-primary"
+                    (click)="downloadPdfView()" [disabled]="!pdfMakeProxy">
+              <i class="fa fa-download">
+              </i> Download Pdf
+            </button>
+          </div>
+        </strong>
+
+
+    </div>
+<div class="panel panel-info">
+<div class="panel-body" style="background-color: #ECF0F5">
+  <pdf-viewer [src]="pdfSrc"  [original-size]="false" [page]="page" style="display: block;"
+    [render-text]="false" [show-all]="false">
+
+  </pdf-viewer>
+
+</div>
+<div class="panel-footer" style="min-height: 50px">
+  <button class="btn btn-default pull-left" (click)="prevPage()" [disabled]="!pdfMakeProxy || page<2">
+      <i class="fa fa-arrow-circle-o-left">
+      </i> Previous Page
+    </button>
+  <button class="btn btn-default pull-right" (click)="nextPage()" [disabled]="!pdfMakeProxy || page>=numberOfPages">
+      Next Page <i class="fa fa-arrow-circle-o-right">
+    </i>
+    </button>
+</div>
+</div>
+</div>
+</div> -->
