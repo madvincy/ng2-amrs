@@ -1,5 +1,5 @@
 
-import {take} from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import {
   ClinicDashboardCacheService
@@ -19,11 +19,11 @@ export class DailyScheduleAppointmentsComponent implements OnInit, OnDestroy {
 
   @Input() public selectedDate: any;
   public filter: any = {
-     'programType': [],
-     'visitType': [],
-     'encounterType': []
+    'programType': [],
+    'visitType': [],
+    'encounterType': []
   };
-  public encodedParams: string =  encodeURI(JSON.stringify(this.filter));
+  public encodedParams: string = encodeURI(JSON.stringify(this.filter));
   public params: any = {
     'programType': [],
     'visitType': [],
@@ -33,10 +33,10 @@ export class DailyScheduleAppointmentsComponent implements OnInit, OnDestroy {
   public dailyAppointmentsPatientList: any[] = [];
   public loadingDailyAppointments = false;
   public dataLoaded = false;
-  public dataAppLoaded  = true;
+  public dataAppLoaded = true;
   public selectedClinic: any;
-  public nextStartIndex  = 0;
-  public fetchCount  = 0;
+  public nextStartIndex = 0;
+  public fetchCount = 0;
   public busyIndicator: any = {
     busy: false,
     message: 'Please wait...' // default message
@@ -52,8 +52,8 @@ export class DailyScheduleAppointmentsComponent implements OnInit, OnDestroy {
   private _data = new BehaviorSubject<any>([]);
   private subs: Subscription[] = [];
   constructor(private clinicDashboardCacheService: ClinicDashboardCacheService,
-              private dailyScheduleResource: DailyScheduleResourceService,
-              private route: ActivatedRoute) {
+    private dailyScheduleResource: DailyScheduleResourceService,
+    private route: ActivatedRoute) {
   }
 
   public ngOnInit() {
@@ -72,21 +72,21 @@ export class DailyScheduleAppointmentsComponent implements OnInit, OnDestroy {
       .queryParams
       .subscribe((params: any) => {
         if (params.programType) {
-            this.params = params;
-            if (params.resetFilter && params.resetFilter === 'true') {
-              this.dailyAppointmentsPatientList = [];
-            } else {
-              this.initParams();
-              const searchParams = this.getQueryParams();
-              this.getDailyAppointments(searchParams);
-              this.clinicDashboardCacheService.setDailyTabCurrentDate(params.startDate);
-            }
-        } else {
+          this.params = params;
+          if (params.resetFilter && params.resetFilter === 'true') {
             this.dailyAppointmentsPatientList = [];
+          } else {
+            this.initParams();
+            const searchParams = this.getQueryParams();
+            this.getDailyAppointments(searchParams);
+            this.clinicDashboardCacheService.setDailyTabCurrentDate(params.startDate);
+          }
+        } else {
+          this.dailyAppointmentsPatientList = [];
         }
       });
 
-      this.subs.push(routeSub);
+    this.subs.push(routeSub);
   }
 
   public ngOnDestroy(): void {
@@ -153,7 +153,7 @@ export class DailyScheduleAppointmentsComponent implements OnInit, OnDestroy {
     let visitType: any = [];
     let encounterType: any = [];
     if (this.params.programType.length > 0) {
-        programType = this.params.programType;
+      programType = this.params.programType;
     }
     if (this.params.visitType && this.params.visitType.length > 0) {
       visitType = this.params.visitType;

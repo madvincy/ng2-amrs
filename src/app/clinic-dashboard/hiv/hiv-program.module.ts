@@ -101,6 +101,7 @@ import { HivDifferentiatedCareComponent } from './hiv-differentiated-care-progra
 import {
     HivDifferentiatedCarePatientListComponent
 } from './hiv-differentiated-care-program/hiv-differentiated-care-program-patient-list/hiv-differentiated-care-patient-list.component';
+import { SurgeReportComponent } from './surge-report/surge-report.component';
 @NgModule({
     imports: [
         clinicDashboardHivRouting,
@@ -176,7 +177,8 @@ import {
         Moh731MonthlyVizComponent,
         ClinicKibanaVizComponent,
         HivDifferentiatedCareComponent,
-        HivDifferentiatedCarePatientListComponent
+        HivDifferentiatedCarePatientListComponent,
+        SurgeReportComponent
     ],
     providers: [
         ClinicalSummaryVisualizationService

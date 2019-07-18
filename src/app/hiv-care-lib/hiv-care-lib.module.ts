@@ -6,6 +6,9 @@ import { RouterModule } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular/main';
 import { ChartModule } from 'angular2-highcharts';
 import { DataListsModule } from '../shared/data-lists/data-lists.module';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { TabsModule } from 'ng2-bootstrap';
 import {
   AccordionModule, DataTableModule, SharedModule, TabViewModule,
   GrowlModule, PanelModule, ConfirmDialogModule, ConfirmationService,
@@ -19,6 +22,7 @@ import { EtlApi } from '../etl-api/etl-api.module';
 import { Moh731PatientListComponent } from './moh-731-report/moh-731-patientlist.component';
 import { DateTimePickerModule } from 'ngx-openmrs-formentry/';
 import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { MOHReportComponent } from './moh-731-report/moh-731-report-pdf-view.component';
 import { MOHReportService } from './moh-731-report/moh-731-report-pdf-view.service';
 import { LocationResourceService } from '../openmrs-api/location-resource.service';
@@ -87,6 +91,9 @@ import {
   ProgramWorkFlowResourceService
 } from '../openmrs-api/program-workflow-resource.service';
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
+import { SurgeReportTabularComponent } from './surge-report/surge-report-tabular.component';
+import { SurgeReportBaseComponent } from './surge-report/surge-report-base.component';
+import { SurgeReportPatientlistComponent } from './surge-report/surge-report-patientlist.component';
 export function highchartsFactory() {
   const hc = require('highcharts');
   const hcm = require('highcharts/highcharts-more');
@@ -119,9 +126,12 @@ export function highchartsFactory() {
     DropdownModule,
     ButtonModule,
     CalendarModule,
+    Ng2TableModule,
     ChartModule,
     ReportingUtilitiesModule,
     DataListsModule,
+    PaginationModule,
+    TabsModule,
     NgxMyDatePickerModule.forRoot(),
   ],
   exports: [
@@ -150,7 +160,10 @@ export function highchartsFactory() {
     VisualizationPatientListComponent,
     HivSummaryIndicatorsPatientListComponent,
     HivSummaryMonthlyTabularComponent,
-    HivMonthlySummaryIndicatorsPatientListComponent
+    HivMonthlySummaryIndicatorsPatientListComponent,
+    SurgeReportTabularComponent,
+    SurgeReportBaseComponent,
+    SurgeReportPatientlistComponent
   ],
   declarations: [
     Moh731TabularComponent,
@@ -176,7 +189,10 @@ export function highchartsFactory() {
     HivSummaryIndicatorsPatientListComponent,
     HivMonthlySummaryIndicatorBaseComponent,
     HivSummaryMonthlyTabularComponent,
-    HivMonthlySummaryIndicatorsPatientListComponent
+    HivMonthlySummaryIndicatorsPatientListComponent,
+    SurgeReportTabularComponent,
+    SurgeReportBaseComponent,
+    SurgeReportPatientlistComponent
   ],
   providers: [MOHReportService,
     LocationResourceService,
