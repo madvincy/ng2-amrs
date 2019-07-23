@@ -12,7 +12,7 @@ export class SurgeReportTabularComponent implements OnInit {
     columnDefs: []
   };
   @ViewChild('agGrid')
-    public agGrid: AgGridNg2;
+  public agGrid: AgGridNg2;
 
   private _sectionDefs: Array<any>;
   public get sectionDefs(): Array<any> {
@@ -48,7 +48,8 @@ export class SurgeReportTabularComponent implements OnInit {
       for (let j = 0; j < section.indicators.length; j++) {
         const child: any = {
           headerName: section.indicators[j].label,
-          field: section.indicators[j].indicator
+          field: section.indicators[j].indicator,
+          width: 250
         };
         created.children.push(child);
       }
@@ -64,7 +65,7 @@ export class SurgeReportTabularComponent implements OnInit {
   private setCellSelection() {
     this.gridOptions.rowSelection = 'single';
     this.gridOptions.onCellClicked = e => {
-      const selectedIndicator = {headerName : e.colDef.headerName , field : e.colDef.field};
+      const selectedIndicator = { headerName: e.colDef.headerName, field: e.colDef.field };
       this.indicatorSelected.emit(selectedIndicator);
     };
   }

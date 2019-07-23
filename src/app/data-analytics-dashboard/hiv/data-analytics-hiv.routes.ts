@@ -134,12 +134,12 @@ const routes: Routes = [
     path: 'surge',
     children: [
       {
-        path: '',
-        component: SurgeReportComponent
+        path: 'surge-report-patientlist',
+        component: SurgeReportPatientlistComponent
       },
       {
-        path: 'patient-list',
-        component: SurgeReportPatientlistComponent
+        path: '',
+        component: SurgeReportComponent
       }
     ]
   }

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { SurgeReportBaseComponent } from 'src/app/hiv-care-lib/surge-report/surge-report-base.component';
 import { Router, ActivatedRoute } from '@angular/router';
-import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
-import * as Moment from 'moment';
-import { DataAnalyticsDashboardService } from '../../services/data-analytics-dashboard.services';
+import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
+import * as Moment from 'moment';
+
+import { SurgeReportBaseComponent } from 'src/app/hiv-care-lib/surge-report/surge-report-base.component';
+import { DataAnalyticsDashboardService } from '../../services/data-analytics-dashboard.services';
+import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
 
 @Component({
   selector: 'surge-report',
@@ -13,7 +14,6 @@ import { take } from 'rxjs/operators';
 export class SurgeReportComponent extends SurgeReportBaseComponent implements OnInit {
 
   public enabledControls = 'weekControl,locationControl';
-
   constructor(
     public router: Router, public route: ActivatedRoute, public surgeReport: SurgeResourceService,
     private dataAnalyticsDashboardService: DataAnalyticsDashboardService) {
@@ -27,6 +27,7 @@ export class SurgeReportComponent extends SurgeReportBaseComponent implements On
     this.getLocationsSelected();
     this.setQueryParams(this.locationUuids);
     super.generateReport();
+
   }
 
   public setQueryParams(params: any) {
@@ -61,5 +62,15 @@ export class SurgeReportComponent extends SurgeReportBaseComponent implements On
       }
     }
     return selectedLocations;
+  }
+
+  public onTabChanged(val) {
+    if (this.currentView === 'daily') {
+      this.currentView = 'weekly';
+      this.enabledControls = 'weekControl,locationControl';
+    } else {
+      this.enabledControls = 'datesControl,locationControl';
+      this.currentView = 'daily';
+    }
   }
 }
