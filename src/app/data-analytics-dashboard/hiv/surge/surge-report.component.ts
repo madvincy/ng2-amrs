@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { SurgeReportBaseComponent } from 'src/app/hiv-care-lib/surge-report/surge-report-base.component';
 import { Router, ActivatedRoute } from '@angular/router';
-import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
-import * as Moment from 'moment';
-import { DataAnalyticsDashboardService } from '../../services/data-analytics-dashboard.services';
+import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
+import * as Moment from 'moment';
+
+import { SurgeReportBaseComponent } from 'src/app/hiv-care-lib/surge-report/surge-report-base.component';
+import { DataAnalyticsDashboardService } from '../../services/data-analytics-dashboard.services';
+import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
 
 @Component({
   selector: 'surge-report',
@@ -12,8 +13,7 @@ import { take } from 'rxjs/operators';
 })
 export class SurgeReportComponent extends SurgeReportBaseComponent implements OnInit {
 
-  public enabledControls = 'weekControl,locationControl';
-
+  public enabledControls = 'datesControl,locationControl';
   constructor(
     public router: Router, public route: ActivatedRoute, public surgeReport: SurgeResourceService,
     private dataAnalyticsDashboardService: DataAnalyticsDashboardService) {
@@ -26,7 +26,13 @@ export class SurgeReportComponent extends SurgeReportBaseComponent implements On
   public generateReport() {
     this.getLocationsSelected();
     this.setQueryParams(this.locationUuids);
-    super.generateReport();
+    if ( this.locationUuids.length > 0) {
+      super.generateReport();
+    } else {
+      this.errorMessage = 'Please select all report filters';
+      this.showInfoMessage = true;
+    }
+
   }
 
   public setQueryParams(params: any) {
@@ -35,6 +41,11 @@ export class SurgeReportComponent extends SurgeReportBaseComponent implements On
       'locationUuids': this.getSelectedLocations(this.locationUuids)
     };
     this.params = queryParams;
+    // store params in url
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: this.params
+    });
   }
 
   public getLocationsSelected() {
@@ -61,5 +72,17 @@ export class SurgeReportComponent extends SurgeReportBaseComponent implements On
       }
     }
     return selectedLocations;
+  }
+
+  public onTabChanged(val) {
+    if (val.index === 0) {
+      this.currentView = 'daily';
+      this.enabledControls = 'datesControl,locationControl';
+      this.getLocationsSelected();
+    } else if (val.index === 1) {
+      this.currentView = 'weekly';
+      this.enabledControls = 'weekControl,locationControl';
+      this.getLocationsSelected();
+    }
   }
 }

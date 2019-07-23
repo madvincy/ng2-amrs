@@ -22,9 +22,6 @@ export class SurgeResourceService {
   public getSurgeWeeklyReport(params: any): Observable<any> {
     return this.http.get(`${this.url}/surge-report?year_week=${params.year_week}&locationUuids=${params.locationUuids}`)
       .pipe(
-        map((response: Response) => {
-          return response;
-        }),
         catchError((err: any) => {
           const error: any = err;
           const errorObj = {
@@ -32,6 +29,9 @@ export class SurgeResourceService {
             message: error.statusText
           };
           return Observable.of(errorObj);
+        }),
+        map((response: Response) => {
+          return response;
         })
       );
   }

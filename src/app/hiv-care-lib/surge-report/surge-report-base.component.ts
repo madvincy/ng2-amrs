@@ -11,17 +11,37 @@ import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
   styleUrls: ['./surge-report-base.component.css']
 })
 export class SurgeReportBaseComponent implements OnInit {
-  public yearWeek: any;
   public params: any;
   public surgeWeeklyReportSummaryData: any = [];
   public columnDefs: any = [];
-  public enabledControls = 'weekControl';
+  public enabledControls = 'datesControl';
   public reportName = 'Surge Weekly Report';
+  public currentView = 'daily';
+  public isReleased = true;
+  public yearWeek: any = Moment(new Date()).format('YYYY-[W]WW');
 
   public statusError = false;
   public errorMessage = '';
   public showInfoMessage = false;
   public isLoading = false;
+
+  private _startDate: Date = Moment().subtract(1, 'year').toDate();
+  public get startDate(): Date {
+    return this._startDate;
+  }
+
+  public set startDate(v: Date) {
+    this._startDate = v;
+  }
+
+  private _endDate: Date = new Date();
+  public get endDate(): Date {
+    return this._endDate;
+  }
+
+  public set endDate(v: Date) {
+    this._endDate = v;
+  }
 
   public _locationUuids: any = [];
   public get locationUuids(): Array<string> {
@@ -48,13 +68,18 @@ export class SurgeReportBaseComponent implements OnInit {
   }
 
   public getSurgeWeeklyReport(params: any) {
-    this.surgeReport
-      .getSurgeWeeklyReport(params)
-      .subscribe(data => {
+    this.surgeReport.getSurgeWeeklyReport(params).subscribe(data => {
+      if (data.error) {
+        this.showInfoMessage = true;
+        this.errorMessage = `There has been an error while loading the report, please retry again`;
+        this.isLoading = false;
+      } else {
+        this.showInfoMessage = false;
         this.columnDefs = data.sectionDefinitions;
         this.surgeWeeklyReportSummaryData = data.result;
         this.isLoading = false;
-      });
+      }
+    });
   }
 
   public onIndicatorSelected(value) {
@@ -75,18 +100,38 @@ export class SurgeReportBaseComponent implements OnInit {
       'locationUuids': params.location_uuid
     };
     this.params = queryParams;
+    // store params in url
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: this.params
+    });
   }
 
   public generateReport() {
     this.route.parent.parent.params.subscribe((params: any) => {
-        this.setQueryParams(params);
+      this.setQueryParams(params);
     });
     this.isLoading = true;
-    this.getSurgeWeeklyReport(this.params);
+    if (this.currentView === 'daily') {
+      this.isLoading = false;
+      this.surgeWeeklyReportSummaryData = [];
+    } else {
+      this.getSurgeWeeklyReport(this.params);
+    }
   }
 
   public onStartWeekChange(event) {
-      this.yearWeek = event;
+    this.yearWeek = event;
+  }
+
+  public onTabChanged(val) {
+    if (val.index === 0) {
+      this.currentView = 'daily';
+      this.enabledControls = 'datesControl';
+    } else if (val.index === 1) {
+      this.currentView = 'weekly';
+      this.enabledControls = 'weekControl';
+    }
   }
 
 }
