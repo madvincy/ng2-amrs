@@ -13,7 +13,7 @@ import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
 })
 export class SurgeReportComponent extends SurgeReportBaseComponent implements OnInit {
 
-  public enabledControls = 'weekControl,locationControl';
+  public enabledControls = 'datesControl,locationControl';
   constructor(
     public router: Router, public route: ActivatedRoute, public surgeReport: SurgeResourceService,
     private dataAnalyticsDashboardService: DataAnalyticsDashboardService) {
@@ -36,6 +36,11 @@ export class SurgeReportComponent extends SurgeReportBaseComponent implements On
       'locationUuids': this.getSelectedLocations(this.locationUuids)
     };
     this.params = queryParams;
+    // store params in url
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: this.params
+    });
   }
 
   public getLocationsSelected() {

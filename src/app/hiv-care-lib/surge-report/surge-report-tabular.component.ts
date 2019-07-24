@@ -2,6 +2,8 @@ import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angu
 import { AgGridNg2 } from 'ag-grid-angular';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import { Subject } from 'rxjs';
+import { SearchService } from './search.service';
 
 
 
@@ -12,12 +14,11 @@ import html2canvas from 'html2canvas';
 })
 export class SurgeReportTabularComponent implements OnInit {
 
-  // public name = 'Table';
-  // public src = 'https://github.com/valor-software/ng2-table/tree/master/components/table';
-  // public ts: string = ts;
-  // public doc: string = doc;
-  // public titleDoc:string = titleDoc;
-  // public html:string = html;
+  searchTerm$ = new Subject<string>();
+  public test = [];
+  results: Object;
+  public headers = [];
+  public selectedIndicatorsList = [];
   public gridOptions: any = {
     columnDefs: []
   };
@@ -32,6 +33,7 @@ export class SurgeReportTabularComponent implements OnInit {
     this.setData(v);
   }
   public locationNumber = 0;
+  public selectedResult: string;
   public sectionIndicatorsValues: Array<any>;
   private _sectionDefs: Array<any>;
   public get sectionDefs(): Array<any> {
@@ -48,7 +50,12 @@ export class SurgeReportTabularComponent implements OnInit {
   public indicatorSelected = new EventEmitter();
   private _rowDefs: Array<any>;
 
-  constructor() { }
+  constructor(private searchService: SearchService) {
+    // this.searchService.search(this.searchTerm$)
+    //   .subscribe(results => {
+    //     this.results = results;
+    //   });
+  }
 
   ngOnInit() {
     console.log(this.surgeWeeklyReportSummaryData);
@@ -58,13 +65,46 @@ export class SurgeReportTabularComponent implements OnInit {
     this.sectionIndicatorsValues = sectionsData[0];
 
   }
+  public searchIndicator() {
+    this.setColumns(this.sectionDefs);
+    console.log(this.gridOptions);
+    if (this.selectedResult.length > 0) {
+      this.gridOptions.columnDefs.forEach(object => {
+        const make = {
+          headerName: '',
+          children: []
+        };
+        object.children.forEach(object2 => {
+          if (object2['headerName'].toLowerCase().match(this.selectedResult) !== null) {
+            make.headerName = object['headerName'];
+            make.children.push(object2);
+          }
+        });
+        if (make.headerName !== '') {
+          this.test.push(make);
+        }
+      });
+      this.gridOptions.columnDefs = [];
+      this.gridOptions.columnDefs = this.test;
+      console.log(this.test);
+      this.test = [];
+    } else {
+      this.setColumns(this.sectionDefs);
+    }
+  }
 
   public setColumns(sectionsData: Array<any>) {
+    this.headers = [];
     const defs = [];
     for (let i = 0; i < sectionsData.length; i++) {
       const section = sectionsData[i];
       const created: any = {};
       created.headerName = section.sectionTitle;
+      const header = {
+        label: section.sectionTitle ,
+        value: i
+      };
+      this.headers.push(header);
       created.children = [];
       // tslint:disable-next-line:prefer-for-of
       this.reportViewValues(section.indicators);
@@ -76,19 +116,14 @@ export class SurgeReportTabularComponent implements OnInit {
           indicatorValue = this.sectionIndicatorsValues[indicatorDefinition];
         }
         sectionIndicatorValues.push([indicatorValue]);
-        // for (const key in this.sectionIndicatorsValues) {
-        //   if (this.sectionIndicatorsValues[i][key].indexOf(toSearch) !== -1) {
-        //     console.log('found', this.sectionIndicatorsValues[i][key]);
-        //   }
-        // }
         const child: any = {
           headerName: section.indicators[j].label,
           field: section.indicators[j].indicator,
+          description: section.indicators[j].description,
           value: sectionIndicatorValues,
           width: 250
         };
         created.children.push(child);
-        // child[0];
       }
       defs.push(created);
     }
@@ -137,6 +172,7 @@ export class SurgeReportTabularComponent implements OnInit {
 
     const data = document.getElementById('contentToConvert');
     html2canvas(data).then(canvas => {
+      console.log(canvas);
       // Few necessary setting options
       const imgWidth = 208;
       const imgHeight = canvas.height * imgWidth / canvas.width;
@@ -146,5 +182,20 @@ export class SurgeReportTabularComponent implements OnInit {
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
       pdf.save('MYPdf.pdf'); // Generated PDF
     });
+  }
+  public selectedIndicators() {
+    this.setColumns(this.sectionDefs);
+    this.selectedIndicatorsList.push(0);
+    const value = [];
+    if (this.selectedIndicatorsList.length) {
+      this.selectedIndicatorsList.forEach( indicator => {
+        if (indicator !== 0) {
+          value.push(this.gridOptions.columnDefs[indicator]);
+        }
+      });
+      this.gridOptions.columnDefs = value;
+    } else {
+     this.setColumns(this.sectionDefs);
+    }
   }
 }

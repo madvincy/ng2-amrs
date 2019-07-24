@@ -11,14 +11,16 @@ import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
   styleUrls: ['./surge-report-base.component.css']
 })
 export class SurgeReportBaseComponent implements OnInit {
-  public yearWeek: any;
   public params: any;
+  public indicators: string;
+  public selectedIndicators = [];
   public surgeWeeklyReportSummaryData: any = [];
   public columnDefs: any = [];
-  public enabledControls = 'weekControl';
+  public enabledControls = 'datesControl';
   public reportName = 'Surge Weekly Report';
-  public currentView = 'weekly';
-  public isReleased = false;
+  public currentView = 'daily';
+  public isReleased = true;
+  public yearWeek: any = Moment(new Date()).format('YYYY-[W]WW');
 
   public statusError = false;
   public errorMessage = '';
@@ -43,6 +45,7 @@ export class SurgeReportBaseComponent implements OnInit {
   public set endDate(v: Date) {
     this._endDate = v;
   }
+
 
   public _locationUuids: any = [];
   public get locationUuids(): Array<string> {
@@ -69,14 +72,31 @@ export class SurgeReportBaseComponent implements OnInit {
   }
 
   public getSurgeWeeklyReport(params: any) {
-    this.surgeReport
-      .getSurgeWeeklyReport(params)
-      .subscribe(data => {
-        console.log(data, 'tets');
+    this.surgeReport.getSurgeWeeklyReport(params).subscribe(data => {
+      if (data.error) {
+        this.showInfoMessage = true;
+        this.errorMessage = `There has been an error while loading the report, please retry again`;
+        this.isLoading = false;
+      } else {
+        this.showInfoMessage = false;
         this.columnDefs = data.sectionDefinitions;
         this.surgeWeeklyReportSummaryData = data.result;
         this.isLoading = false;
-      });
+      }
+    });
+  }
+  public getSelectedIndicators(selectedIndicator) {
+    let indicators;
+    if (selectedIndicator) {
+      for (let i = 0; i < selectedIndicator.length; i++) {
+        if (i === 0) {
+          indicators = '' + selectedIndicator[i].value;
+        } else {
+          indicators = indicators + ',' + selectedIndicator[i].value;
+        }
+      }
+    }
+    return this.indicators = indicators;
   }
 
   public onIndicatorSelected(value) {
@@ -97,35 +117,37 @@ export class SurgeReportBaseComponent implements OnInit {
       'locationUuids': params.location_uuid
     };
     this.params = queryParams;
+    // store params in url
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: this.params
+    });
   }
 
   public generateReport() {
     this.route.parent.parent.params.subscribe((params: any) => {
-        this.setQueryParams(params);
+      this.setQueryParams(params);
     });
     this.isLoading = true;
     if (this.currentView === 'daily') {
       this.isLoading = false;
+      this.surgeWeeklyReportSummaryData = [];
     } else {
       this.getSurgeWeeklyReport(this.params);
     }
   }
 
   public onStartWeekChange(event) {
-    this.reportHead = {
-      week: event,
-      location: ''
-    };
-      this.yearWeek = event;
+    this.yearWeek = event;
   }
 
   public onTabChanged(val) {
-    if (this.currentView === 'daily') {
+    if (val.index === 0) {
+      this.currentView = 'daily';
+      this.enabledControls = 'datesControl';
+    } else if (val.index === 1) {
       this.currentView = 'weekly';
       this.enabledControls = 'weekControl';
-    } else {
-      this.enabledControls = 'datesControl';
-      this.currentView = 'daily';
     }
   }
 
