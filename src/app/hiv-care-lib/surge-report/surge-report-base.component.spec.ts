@@ -70,4 +70,8 @@ describe('SurgeReportBaseComponent', () => {
       expect(component).toBeTruthy();
     });
 
+    it('should inject surge report resource service', () => {
+
+    });
+
   });

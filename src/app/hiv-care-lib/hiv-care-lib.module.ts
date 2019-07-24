@@ -9,7 +9,7 @@ import { DataListsModule } from '../shared/data-lists/data-lists.module';
 import { TabsModule } from 'ng2-bootstrap';
 import {
   AccordionModule, DataTableModule, SharedModule, TabViewModule,
-  GrowlModule, PanelModule, ConfirmDialogModule, ConfirmationService,
+  GrowlModule, PanelModule, ConfirmDialogModule, ConfirmationService, MultiSelectModule,
   DialogModule, InputTextModule, MessagesModule, InputTextareaModule,
   DropdownModule, ButtonModule, CalendarModule
 } from 'primeng/primeng';
@@ -109,6 +109,7 @@ export function highchartsFactory() {
     NgamrsSharedModule,
     DateTimePickerModule,
     CommonModule,
+    MultiSelectModule,
     AccordionModule,
     DataTableModule,
     SharedModule,
