@@ -5,7 +5,7 @@ table {
 	}
 
 th { 
-	background: #3498db; 
+	background-color: #a5a2a2bd;
 	color: white; 
 	font-weight: bold; 
 	}
@@ -31,8 +31,8 @@ td, th {
 caption {
     padding-top: inherit;
     padding-bottom: 8px;
-    color: #ffffff;
-    background-color: dimgrey;
+	color: #ffffff;
+	background: #3498db;
 	font-size: medium;
 	font-weight: bold;
     text-align: center;

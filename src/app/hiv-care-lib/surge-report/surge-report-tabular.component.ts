@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { AgGridNg2 } from 'ag-grid-angular';
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
 
 
-declare const jsPDF: any;
 
 @Component({
   selector: 'surge-report-tabular',
@@ -30,6 +31,7 @@ export class SurgeReportTabularComponent implements OnInit {
     this._rowDefs = v;
     this.setData(v);
   }
+  public locationNumber = 0;
   public sectionIndicatorsValues: Array<any>;
   private _sectionDefs: Array<any>;
   public get sectionDefs(): Array<any> {
@@ -53,30 +55,27 @@ export class SurgeReportTabularComponent implements OnInit {
     this.setCellSelection();
   }
   public setData(sectionsData: any) {
-    console.log(sectionsData);
     this.sectionIndicatorsValues = sectionsData[0];
 
   }
 
   public setColumns(sectionsData: Array<any>) {
     const defs = [];
-    console.log(sectionsData);
     for (let i = 0; i < sectionsData.length; i++) {
       const section = sectionsData[i];
       const created: any = {};
       created.headerName = section.sectionTitle;
       created.children = [];
       // tslint:disable-next-line:prefer-for-of
+      this.reportViewValues(section.indicators);
       for (let j = 0; j < section.indicators.length; j++) {
-        console.log(section.indicators[j], 'swavinsy2');
         const sectionIndicatorValues = [];
         let indicatorValue = '-';
         const indicatorDefinition = section.indicators[j].indicator;
-        console.log(this.sectionIndicatorsValues[indicatorDefinition], 'swavinsy');
         if (this.sectionIndicatorsValues[indicatorDefinition] || this.sectionIndicatorsValues[indicatorDefinition] === 0) {
-            indicatorValue = this.sectionIndicatorsValues[indicatorDefinition];
+          indicatorValue = this.sectionIndicatorsValues[indicatorDefinition];
         }
-        sectionIndicatorValues.push([ indicatorValue ]);
+        sectionIndicatorValues.push([indicatorValue]);
         // for (const key in this.sectionIndicatorsValues) {
         //   if (this.sectionIndicatorsValues[i][key].indexOf(toSearch) !== -1) {
         //     console.log('found', this.sectionIndicatorsValues[i][key]);
@@ -85,49 +84,67 @@ export class SurgeReportTabularComponent implements OnInit {
         const child: any = {
           headerName: section.indicators[j].label,
           field: section.indicators[j].indicator,
-          value: sectionIndicatorValues
+          value: sectionIndicatorValues,
+          width: 250
         };
         created.children.push(child);
+        // child[0];
       }
       defs.push(created);
     }
-    console.log(defs);
 
     this.gridOptions.columnDefs = defs;
-    console.log(this.gridOptions);
 
     if (this.agGrid && this.agGrid.api) {
       this.agGrid.api.setColumnDefs(defs);
     }
-    console.log(this.surgeWeeklyReportSummaryData);
+    // console.log(this.surgeWeeklyReportSummaryData);
   }
+  public findPage(pageMove) {
+    console.log(this.locationNumber);
+    if (pageMove === 'next') {
+      const i = this.locationNumber + 1;
+      console.log(i);
+      this.locationNumber = i;
+      this.sectionIndicatorsValues = this.surgeWeeklyReportSummaryData[i];
+      this.setColumns(this.sectionDefs);
+    } else {
+      const i = this.locationNumber - 1;
+      if (i >= 0) {
+        this.sectionIndicatorsValues = this.surgeWeeklyReportSummaryData[i];
+        this.setColumns(this.sectionDefs);
+      }
 
-  private setCellSelection() {
-    this.gridOptions.rowSelection = 'single';
-    this.gridOptions.onCellClicked = e => {
-      const selectedIndicator = { headerName: e.colDef.headerName, field: e.colDef.field };
+    }
+  }
+  public reportViewValues(value) {
+
+  }
+  private setCellSelection(col?) {
+    console.log(col);
+    if (col) {
+      const selectedIndicator = { headerName: col.headerName, field: col.field };
       this.indicatorSelected.emit(selectedIndicator);
-    };
+    } else {
+      this.gridOptions.rowSelection = 'single';
+      this.gridOptions.onCellClicked = e => {
+        const selectedIndicator = { headerName: e.colDef.headerName, field: e.colDef.field };
+        this.indicatorSelected.emit(selectedIndicator);
+      };
+    }
   }
   public downloadPdf() {
 
-      const doc = new jsPDF('p', 'pt');
-      const res = doc.autoTableHtmlToJson(document.getElementById('example'));
-      doc.autoTable(res.columns, res.data, {margin: {top: 80}});
-      const header = function(data) {
-        doc.setFontSize(18);
-        doc.setTextColor(40);
-        doc.setFontStyle('normal');
-        doc.text('Testing Report', data.settings.margin.left, 50);
-      };
-      const options = {
-        beforePageContent: header,
-        margin: {
-          top: 80
-        },
-        startY: doc.autoTableEndPosY() + 20
-      };
-      doc.autoTable(res.columns, res.data, options);
-      doc.save('table.pdf');
+    const data = document.getElementById('contentToConvert');
+    html2canvas(data).then(canvas => {
+      // Few necessary setting options
+      const imgWidth = 208;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF
+      const position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.save('MYPdf.pdf'); // Generated PDF
+    });
   }
 }

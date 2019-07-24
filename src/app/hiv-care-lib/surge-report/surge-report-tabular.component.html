@@ -21,27 +21,27 @@
           
           
               </div>
-              <div class="panel-body" style="background-color: #ECF0F5">
-                  <div *ngFor= "let grid of gridOptions.columnDefs">
-                      <table id="example" class="fixed" style="width:100%">
+              <div id="contentToConvert" class="panel-body" style="background-color: #ECF0F5">
+                  <div  *ngFor= "let grid of gridOptions.columnDefs">
+                      <table  class="fixed" style="width:100%">
                           <caption>{{grid.headerName}}</caption>
                           <tr>
-                            <th>Indicator</th>
-                            <th>Value</th>
+                            <th></th>
+                            <th></th>
                           </tr>
                           <tr  *ngFor="let col of grid.children">
-                            <td>{{col.headerName}}</td>
-                            <td>{{col.value}}</td>
+                            <td (click)="setCellSelection(col)">{{col.headerName}}</td>
+                            <td (click)="setCellSelection(col)">{{col.value}}</td>
                           </tr>
                         </table>
                   </div>
               </div>
               <div class="panel-footer" style="min-height: 50px">
-                <button class="btn btn-default pull-left" (click)="prevPage()" [disabled]="!pdfMakeProxy || page<2">
+                <button class="btn btn-default pull-left" (click)="findPage('prev')" [disabled]="locationNumber<1">
                     <i class="fa fa-arrow-circle-o-left">
                     </i> Previous Page
                   </button>
-                <button class="btn btn-default pull-right" (click)="nextPage()" [disabled]="!pdfMakeProxy || page>=numberOfPages">
+                <button class="btn btn-default pull-right" (click)="findPage('next')" [disabled]="locationNumber === surgeWeeklyReportSummaryData.length">
                     Next Page <i class="fa fa-arrow-circle-o-right">
                   </i>
                   </button>

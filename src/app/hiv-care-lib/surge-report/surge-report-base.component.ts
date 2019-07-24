@@ -17,11 +17,32 @@ export class SurgeReportBaseComponent implements OnInit {
   public columnDefs: any = [];
   public enabledControls = 'weekControl';
   public reportName = 'Surge Weekly Report';
+  public currentView = 'weekly';
+  public isReleased = false;
 
   public statusError = false;
   public errorMessage = '';
   public showInfoMessage = false;
   public isLoading = false;
+  public reportHead: any;
+
+  private _startDate: Date = Moment().subtract(1, 'year').toDate();
+  public get startDate(): Date {
+    return this._startDate;
+  }
+
+  public set startDate(v: Date) {
+    this._startDate = v;
+  }
+
+  private _endDate: Date = new Date();
+  public get endDate(): Date {
+    return this._endDate;
+  }
+
+  public set endDate(v: Date) {
+    this._endDate = v;
+  }
 
   public _locationUuids: any = [];
   public get locationUuids(): Array<string> {
@@ -83,11 +104,29 @@ export class SurgeReportBaseComponent implements OnInit {
         this.setQueryParams(params);
     });
     this.isLoading = true;
-    this.getSurgeWeeklyReport(this.params);
+    if (this.currentView === 'daily') {
+      this.isLoading = false;
+    } else {
+      this.getSurgeWeeklyReport(this.params);
+    }
   }
 
   public onStartWeekChange(event) {
+    this.reportHead = {
+      week: event,
+      location: ''
+    };
       this.yearWeek = event;
+  }
+
+  public onTabChanged(val) {
+    if (this.currentView === 'daily') {
+      this.currentView = 'weekly';
+      this.enabledControls = 'weekControl';
+    } else {
+      this.enabledControls = 'datesControl';
+      this.currentView = 'daily';
+    }
   }
 
 }

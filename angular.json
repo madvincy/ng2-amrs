@@ -36,8 +36,6 @@
               "src/assets/slimScroll/jquery.slimscroll.js",
               "node_modules/ion-rangeslider/js/ion.rangeSlider.min.js",
               "src/assets/app.js",
-              "../node_modules/jspdf/dist/jspdf.min.js",
-              "../node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.js",
               "src/assets/blob-stream.js",
               "src/assets/pdfkit.js"
             ]

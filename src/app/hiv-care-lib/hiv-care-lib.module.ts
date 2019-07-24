@@ -6,8 +6,6 @@ import { RouterModule } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular/main';
 import { ChartModule } from 'angular2-highcharts';
 import { DataListsModule } from '../shared/data-lists/data-lists.module';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { TabsModule } from 'ng2-bootstrap';
 import {
   AccordionModule, DataTableModule, SharedModule, TabViewModule,
@@ -130,7 +128,6 @@ export function highchartsFactory() {
     ChartModule,
     ReportingUtilitiesModule,
     DataListsModule,
-    PaginationModule,
     TabsModule,
     NgxMyDatePickerModule.forRoot(),
   ],
