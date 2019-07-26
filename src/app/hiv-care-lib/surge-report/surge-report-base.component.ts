@@ -111,6 +111,7 @@ export class SurgeReportBaseComponent implements OnInit {
     this.route.parent.parent.params.subscribe((params: any) => {
       this.setQueryParams(params);
     });
+
     this.isLoading = true;
     if (this.currentView === 'daily') {
       this.isLoading = false;
