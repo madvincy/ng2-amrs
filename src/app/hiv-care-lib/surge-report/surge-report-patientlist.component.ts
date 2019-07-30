@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import * as _ from 'lodash';
 import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
 import * as moment from 'moment';
+import { Column } from 'ag-grid';
 
 @Component({
   selector: 'surge-report-patientlist',
@@ -41,9 +42,10 @@ export class SurgeReportPatientlistComponent implements OnInit {
   }
 
   private getPatientList(params: any) {
-    this.surgeResource.getSurgeWeeklyReportPatientList(params.indicators, params.year_week, params.locationUuids)
+    this.surgeResource.getSurgePatientList(params)
         .subscribe(
           (data) => {
+            this.isLoading = false;
             this.patientData = data.results.results;
             this.isLoading = false;
             this.hasLoadedAll = true;
@@ -68,7 +70,7 @@ export class SurgeReportPatientlistComponent implements OnInit {
       latest_vl_date: 'Latest VL Date',
       previous_vl: 'Previous VL',
       previous_vl_date: 'Prevoius VL Date',
-      baseline: 'Baseline status as at 31st may 2019',
+      baseline: 'Baseline status as at 11th may 2019',
       cur_status: 'Current Status',
       death_date: 'Death date',
       intervention_name: 'Intervention Name',
@@ -120,6 +122,20 @@ export class SurgeReportPatientlistComponent implements OnInit {
         cellRenderer: (column) => {
           return moment(column.value).format('YYYY-MM-DD');
         }
+      },
+      {
+        field: 'death_date',
+        cellRenderer: (column) => {
+          return column.value ? moment(column.value).format('YYYY-MM-DD') : column.value;
+        }
+      },
+      {
+        field : 'clinical_visit_number',
+        width: 250
+      },
+      {
+        field : 'baseline',
+        width : 250
       }
     );
   }

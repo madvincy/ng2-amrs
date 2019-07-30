@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AppSettingsService } from '../app-settings/app-settings.service';
-import { DataCacheService } from '../shared/services/data-cache.service';
 import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
@@ -15,12 +14,11 @@ export class SurgeResourceService {
 
   constructor(
     public http: HttpClient,
-    public appSettingsService: AppSettingsService,
-    public cacheService: DataCacheService
+    public appSettingsService: AppSettingsService
   ) { }
 
   public getSurgeWeeklyReport(params: any): Observable<any> {
-    return this.http.get(`${this.url}/surge-report?year_week=${params.year_week}&locationUuids=${params.locationUuids}`)
+    return this.http.get(`${this.url}surge-report?year_week=${params.year_week}&locationUuids=${params.locationUuids}`)
       .pipe(
         catchError((err: any) => {
           const error: any = err;
@@ -36,9 +34,10 @@ export class SurgeResourceService {
       );
   }
 
-  public getSurgeWeeklyReportPatientList(indicator: string, year_week: string, locationUuid: string): Observable<any> {
+  public getSurgePatientList(params: any): Observable<any> {
     return this.http.
-    get(`${this.url}/surge-report-patient-list?indicators=${indicator}&year_week=${year_week}&locationUuids=${locationUuid}`)
+    // tslint:disable-next-line: max-line-length
+    get(`${this.url}surge-report-patient-list?indicators=${params.indicators}&year_week=${params.year_week}&locationUuids=${params.locationUuids}`)
       .pipe(
         map((response: Response) => {
           return response;

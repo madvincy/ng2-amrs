@@ -16,10 +16,10 @@ export class SurgeReportBaseComponent implements OnInit {
   public selectedIndicators = [];
   public surgeWeeklyReportSummaryData: any = [];
   public columnDefs: any = [];
-  public enabledControls = 'datesControl';
+  public enabledControls = 'weekControl';
   public reportName = 'Surge Weekly Report';
-  public currentView = 'daily';
-  public isReleased = true;
+  public currentView = 'weekly';
+  public isReleased = false;
   public yearWeek: any = Moment(new Date()).format('YYYY-[W]WW');
 
   public statusError = false;
@@ -27,7 +27,7 @@ export class SurgeReportBaseComponent implements OnInit {
   public showInfoMessage = false;
   public isLoading = false;
   public reportHead: any;
-
+  public displayTabluarFilters: Boolean = false;
   private _startDate: Date = Moment().subtract(1, 'year').toDate();
   public get startDate(): Date {
     return this._startDate;
@@ -128,11 +128,13 @@ export class SurgeReportBaseComponent implements OnInit {
     this.route.parent.parent.params.subscribe((params: any) => {
       this.setQueryParams(params);
     });
+
     this.isLoading = true;
     if (this.currentView === 'daily') {
       this.isLoading = false;
       this.surgeWeeklyReportSummaryData = [];
     } else {
+      this.displayTabluarFilters = true;
       this.getSurgeWeeklyReport(this.params);
     }
   }

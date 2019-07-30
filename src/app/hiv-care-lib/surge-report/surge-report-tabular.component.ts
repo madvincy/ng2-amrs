@@ -14,6 +14,8 @@ import { SearchService } from './search.service';
 })
 export class SurgeReportTabularComponent implements OnInit {
 
+  @Input() displayTabluarFilters: Boolean;
+  public currentView = 'pdf';
   searchTerm$ = new Subject<string>();
   public test = [];
   results: Object;

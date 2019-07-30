@@ -13,7 +13,7 @@ import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
 })
 export class SurgeReportComponent extends SurgeReportBaseComponent implements OnInit {
 
-  public enabledControls = 'datesControl,locationControl';
+  public enabledControls = 'weekControl,locationControl';
   constructor(
     public router: Router, public route: ActivatedRoute, public surgeReport: SurgeResourceService,
     private dataAnalyticsDashboardService: DataAnalyticsDashboardService) {
