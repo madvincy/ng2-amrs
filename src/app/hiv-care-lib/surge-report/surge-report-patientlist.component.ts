@@ -42,7 +42,7 @@ export class SurgeReportPatientlistComponent implements OnInit {
   }
 
   private getPatientList(params: any) {
-    this.surgeResource.getSurgeWeeklyReportPatientList(params)
+    this.surgeResource.getSurgePatientList(params)
         .subscribe(
           (data) => {
             this.isLoading = false;

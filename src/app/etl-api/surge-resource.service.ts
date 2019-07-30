@@ -18,7 +18,7 @@ export class SurgeResourceService {
   ) { }
 
   public getSurgeWeeklyReport(params: any): Observable<any> {
-    return this.http.get(`${this.url}/surge-report?year_week=${params.year_week}&locationUuids=${params.locationUuids}`)
+    return this.http.get(`${this.url}surge-report?year_week=${params.year_week}&locationUuids=${params.locationUuids}`)
       .pipe(
         catchError((err: any) => {
           const error: any = err;
@@ -34,7 +34,7 @@ export class SurgeResourceService {
       );
   }
 
-  public getSurgeWeeklyReportPatientList(params: any): Observable<any> {
+  public getSurgePatientList(params: any): Observable<any> {
     return this.http.
     // tslint:disable-next-line: max-line-length
     get(`${this.url}/surge-report-patient-list?indicators=${params.indicators}&year_week=${params.year_week}&locationUuids=${params.locationUuids}`)

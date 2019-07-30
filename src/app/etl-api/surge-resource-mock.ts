@@ -18,7 +18,7 @@ export class SurgeResourceServiceMock extends SurgeResourceService {
         return subj.asObservable();
     }
 
-    public getSurgeWeeklyReportPatientList(params: any) {
+    public getSurgePatientList(params: any) {
         return Observable.of('data');
     }
 
