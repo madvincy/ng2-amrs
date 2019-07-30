@@ -27,7 +27,7 @@ export class SurgeReportBaseComponent implements OnInit {
   public showInfoMessage = false;
   public isLoading = false;
   public reportHead: any;
-
+  public displayTabluarFilters: Boolean = false;
   private _startDate: Date = Moment().subtract(1, 'year').toDate();
   public get startDate(): Date {
     return this._startDate;
@@ -134,6 +134,7 @@ export class SurgeReportBaseComponent implements OnInit {
       this.isLoading = false;
       this.surgeWeeklyReportSummaryData = [];
     } else {
+      this.displayTabluarFilters = true;
       this.getSurgeWeeklyReport(this.params);
     }
   }

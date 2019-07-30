@@ -37,7 +37,7 @@ export class SurgeResourceService {
   public getSurgePatientList(params: any): Observable<any> {
     return this.http.
     // tslint:disable-next-line: max-line-length
-    get(`${this.url}/surge-report-patient-list?indicators=${params.indicators}&year_week=${params.year_week}&locationUuids=${params.locationUuids}`)
+    get(`${this.url}surge-report-patient-list?indicators=${params.indicators}&year_week=${params.year_week}&locationUuids=${params.locationUuids}`)
       .pipe(
         map((response: Response) => {
           return response;
