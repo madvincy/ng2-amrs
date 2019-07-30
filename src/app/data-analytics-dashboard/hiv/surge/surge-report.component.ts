@@ -1,11 +1,15 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { take } from 'rxjs/operators';
+import * as rison from 'rison-node';
 import * as Moment from 'moment';
 
 import { SurgeReportBaseComponent } from 'src/app/hiv-care-lib/surge-report/surge-report-base.component';
 import { DataAnalyticsDashboardService } from '../../services/data-analytics-dashboard.services';
 import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
+
+
 
 @Component({
   selector: 'surge-report',
@@ -14,33 +18,53 @@ import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
 export class SurgeReportComponent extends SurgeReportBaseComponent implements OnInit {
 
   public enabledControls = 'weekControl,locationControl';
+
   constructor(
     public router: Router, public route: ActivatedRoute, public surgeReport: SurgeResourceService,
-    private dataAnalyticsDashboardService: DataAnalyticsDashboardService) {
+    private dataAnalyticsDashboardService: DataAnalyticsDashboardService, private location: Location) {
     super(router, route, surgeReport);
   }
 
   ngOnInit() {
+    this.yearWeek = Moment(new Date()).format('YYYY-[W]WW');
+    this.loadParametersFromUrl();
   }
 
   public generateReport() {
-    this.getLocationsSelected();
-    this.setQueryParams(this.locationUuids);
+    this.storeParamsInUrl();
     super.generateReport();
-
   }
 
-  public setQueryParams(params: any) {
-    const queryParams = {
-      'year_week': Moment(this.yearWeek).format('YYYYWW'),
-      'locationUuids': this.getSelectedLocations(this.locationUuids)
+  public storeParamsInUrl() {
+    this.getLocationsSelected();
+
+    const state = {
+      'year_week': this.yearWeek,
+      'locationUuids': this.getSelectedLocations(this.locationUuids),
+      'displayTabluarFilters': this.displayTabluarFilters
     };
-    this.params = queryParams;
-    // store params in url
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: this.params
-    });
+
+    const stateUrl = rison.encode(state);
+    const path = this.router.parseUrl(this.location.path());
+    path.queryParams = {
+      'state': stateUrl
+    };
+
+    this.params = state;
+    this.location.replaceState(path.toString());
+  }
+
+  public loadParametersFromUrl() {
+    const path = this.router.parseUrl(this.location.path());
+
+    if (path.queryParams['state']) {
+      const state = rison.decode(path.queryParams['state']);
+      this.yearWeek = state.year_week;
+    }
+
+    if (path.queryParams['state']) {
+      this.generateReport();
+    }
   }
 
   public getLocationsSelected() {

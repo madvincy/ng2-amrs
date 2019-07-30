@@ -70,7 +70,7 @@ export class SurgeReportPatientlistComponent implements OnInit {
       latest_vl_date: 'Latest VL Date',
       previous_vl: 'Previous VL',
       previous_vl_date: 'Prevoius VL Date',
-      baseline: 'Baseline status as at 11th may 2019',
+      // baseline: 'Baseline status as at 11th may 2019',
       cur_status: 'Current Status',
       active_to_ltfu_count: 'Active to LTFU Count',
       // death_date: 'Death date',
@@ -137,6 +137,14 @@ export class SurgeReportPatientlistComponent implements OnInit {
       {
         field : 'baseline',
         width : 250
+      },
+      {
+        field: 'cur_meds',
+        width: 400
+      },
+      {
+        field: 'arv_first_regimen',
+        width: 400
       }
     );
   }

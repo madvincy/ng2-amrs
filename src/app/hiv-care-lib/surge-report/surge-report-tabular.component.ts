@@ -3,9 +3,6 @@ import { AgGridNg2 } from 'ag-grid-angular';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
 import { Subject } from 'rxjs';
-import { SearchService } from './search.service';
-
-
 
 @Component({
   selector: 'surge-report-tabular',
@@ -52,15 +49,7 @@ export class SurgeReportTabularComponent implements OnInit {
   public indicatorSelected = new EventEmitter();
   private _rowDefs: Array<any>;
 
-  constructor(private searchService: SearchService) {
-    // this.searchService.search(this.searchTerm$)
-    //   .subscribe(results => {
-    //     this.results = results;
-    //   });
-  }
-
   ngOnInit() {
-    console.log(this.surgeWeeklyReportSummaryData);
     this.setCellSelection();
   }
   public setData(sectionsData: any) {
@@ -69,7 +58,6 @@ export class SurgeReportTabularComponent implements OnInit {
   }
   public searchIndicator() {
     this.setColumns(this.sectionDefs);
-    console.log(this.gridOptions);
     if (this.selectedResult.length > 0) {
       this.gridOptions.columnDefs.forEach(object => {
         const make = {
@@ -88,7 +76,6 @@ export class SurgeReportTabularComponent implements OnInit {
       });
       this.gridOptions.columnDefs = [];
       this.gridOptions.columnDefs = this.test;
-      console.log(this.test);
       this.test = [];
     } else {
       this.setColumns(this.sectionDefs);
@@ -123,7 +110,7 @@ export class SurgeReportTabularComponent implements OnInit {
           field: section.indicators[j].indicator,
           description: section.indicators[j].description,
           value: sectionIndicatorValues,
-          width: 350
+          width: 360
         };
         created.children.push(child);
       }
@@ -135,13 +122,10 @@ export class SurgeReportTabularComponent implements OnInit {
     if (this.agGrid && this.agGrid.api) {
       this.agGrid.api.setColumnDefs(defs);
     }
-    // console.log(this.surgeWeeklyReportSummaryData);
   }
   public findPage(pageMove) {
-    console.log(this.locationNumber);
     if (pageMove === 'next') {
       const i = this.locationNumber + 1;
-      console.log(i);
       this.locationNumber = i;
       this.sectionIndicatorsValues = this.surgeWeeklyReportSummaryData[i];
       this.setColumns(this.sectionDefs);
@@ -158,7 +142,6 @@ export class SurgeReportTabularComponent implements OnInit {
 
   }
   private setCellSelection(col?) {
-    console.log(col);
     if (col) {
       const selectedIndicator = { headerName: col.headerName, field: col.field };
       this.indicatorSelected.emit(selectedIndicator);
@@ -174,7 +157,6 @@ export class SurgeReportTabularComponent implements OnInit {
 
     const data = document.getElementById('contentToConvert');
     html2canvas(data).then(canvas => {
-      console.log(canvas);
       // Few necessary setting options
       const imgWidth = 208;
       const imgHeight = canvas.height * imgWidth / canvas.width;

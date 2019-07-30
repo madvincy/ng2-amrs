@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AppSettingsService } from '../app-settings/app-settings.service';
 import { catchError, map } from 'rxjs/operators';
+import * as Moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class SurgeResourceService {
   ) { }
 
   public getSurgeWeeklyReport(params: any): Observable<any> {
-    return this.http.get(`${this.url}surge-report?year_week=${params.year_week}&locationUuids=${params.locationUuids}`)
+    // tslint:disable-next-line: max-line-length
+    return this.http.get(`${this.url}surge-report?year_week=${Moment(params.year_week).format('YYYYWW')}&locationUuids=${params.locationUuids}`)
       .pipe(
         catchError((err: any) => {
           const error: any = err;
@@ -37,7 +39,7 @@ export class SurgeResourceService {
   public getSurgePatientList(params: any): Observable<any> {
     return this.http.
     // tslint:disable-next-line: max-line-length
-    get(`${this.url}surge-report-patient-list?indicators=${params.indicators}&year_week=${params.year_week}&locationUuids=${params.locationUuids}`)
+    get(`${this.url}surge-report-patient-list?indicators=${params.indicators}&year_week=${Moment(params.year_week).format('YYYYWW')}&locationUuids=${params.locationUuids}`)
       .pipe(
         map((response: Response) => {
           return response;

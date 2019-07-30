@@ -1,5 +1,7 @@
+import { Location } from '@angular/common';
 import * as _ from 'lodash';
 import * as Moment from 'moment';
+import * as rison from 'rison-node';
 
 import { Component, OnInit, Output, Input } from '@angular/core';
 import { ActivatedRoute, Router, Routes } from '@angular/router';
@@ -8,7 +10,7 @@ import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
 @Component({
   selector: 'surge-report-base',
   templateUrl: './surge-report-base.component.html',
-  styleUrls: ['./surge-report-base.component.css']
+  styleUrls: ['./surge-report-base.component.css'],
 })
 export class SurgeReportBaseComponent implements OnInit {
   public params: any;
@@ -66,9 +68,16 @@ export class SurgeReportBaseComponent implements OnInit {
     public router: Router,
     public route: ActivatedRoute,
     public surgeReport: SurgeResourceService
-  ) { }
+  ) {
+    this.route.queryParams.subscribe(
+      (data) => {
+        this.yearWeek = data.year_week;
+        this.displayTabluarFilters = data.displayTabluarFilters;
+      }
+    );
+   }
 
-  public ngOnInit() {
+  ngOnInit() {
   }
 
   public getSurgeWeeklyReport(params: any) {
@@ -111,24 +120,29 @@ export class SurgeReportBaseComponent implements OnInit {
     });
   }
 
-  public setQueryParams(params: any) {
+  public storeParamsInUrl() {
+    let param: string;
+    this.route.parent.parent.params.subscribe((params: any) => {
+      param = params.location_uuid;
+    });
+
     const queryParams = {
-      'year_week': Moment(this.yearWeek).format('YYYYWW'),
-      'locationUuids': params.location_uuid
+      'year_week': this.yearWeek,
+      'locationUuids': param,
+      'displayTabluarFilters': true
     };
+
     this.params = queryParams;
-    // store params in url
-    this.router.navigate([], {
+    console.log(this.params);
+     // store params in url
+     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: this.params
     });
   }
 
   public generateReport() {
-    this.route.parent.parent.params.subscribe((params: any) => {
-      this.setQueryParams(params);
-    });
-
+    this.storeParamsInUrl();
     this.isLoading = true;
     if (this.currentView === 'daily') {
       this.isLoading = false;
