@@ -12,6 +12,8 @@ import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
 })
 export class SurgeReportBaseComponent implements OnInit {
   public params: any;
+  public indicators: string;
+  public selectedIndicators = [];
   public surgeWeeklyReportSummaryData: any = [];
   public columnDefs: any = [];
   public enabledControls = 'datesControl';
@@ -24,6 +26,7 @@ export class SurgeReportBaseComponent implements OnInit {
   public errorMessage = '';
   public showInfoMessage = false;
   public isLoading = false;
+  public reportHead: any;
 
   private _startDate: Date = Moment().subtract(1, 'year').toDate();
   public get startDate(): Date {
@@ -42,6 +45,7 @@ export class SurgeReportBaseComponent implements OnInit {
   public set endDate(v: Date) {
     this._endDate = v;
   }
+
 
   public _locationUuids: any = [];
   public get locationUuids(): Array<string> {
@@ -80,6 +84,19 @@ export class SurgeReportBaseComponent implements OnInit {
         this.isLoading = false;
       }
     });
+  }
+  public getSelectedIndicators(selectedIndicator) {
+    let indicators;
+    if (selectedIndicator) {
+      for (let i = 0; i < selectedIndicator.length; i++) {
+        if (i === 0) {
+          indicators = '' + selectedIndicator[i].value;
+        } else {
+          indicators = indicators + ',' + selectedIndicator[i].value;
+        }
+      }
+    }
+    return this.indicators = indicators;
   }
 
   public onIndicatorSelected(value) {

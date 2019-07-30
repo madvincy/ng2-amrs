@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular/main';
 import { ChartModule } from 'angular2-highcharts';
 import { DataListsModule } from '../shared/data-lists/data-lists.module';
+import { TabsModule } from 'ng2-bootstrap';
 import {
   AccordionModule, DataTableModule, SharedModule, TabViewModule,
-  GrowlModule, PanelModule, ConfirmDialogModule, ConfirmationService,
+  GrowlModule, PanelModule, ConfirmDialogModule, ConfirmationService, MultiSelectModule,
   DialogModule, InputTextModule, MessagesModule, InputTextareaModule,
   DropdownModule, ButtonModule, CalendarModule
 } from 'primeng/primeng';
@@ -17,8 +18,9 @@ import { Moh731ReportFiltersComponent } from './moh-731-report/moh-731-report-fi
 import { Moh731ReportBaseComponent } from './moh-731-report/moh-731-report-base.component';
 import { EtlApi } from '../etl-api/etl-api.module';
 import { Moh731PatientListComponent } from './moh-731-report/moh-731-patientlist.component';
-import { DateTimePickerModule } from 'ngx-openmrs-formentry/dist/ngx-formentry/';
+import { DateTimePickerModule } from 'ngx-openmrs-formentry/';
 import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { MOHReportComponent } from './moh-731-report/moh-731-report-pdf-view.component';
 import { MOHReportService } from './moh-731-report/moh-731-report-pdf-view.service';
 import { LocationResourceService } from '../openmrs-api/location-resource.service';
@@ -107,6 +109,7 @@ export function highchartsFactory() {
     NgamrsSharedModule,
     DateTimePickerModule,
     CommonModule,
+    MultiSelectModule,
     AccordionModule,
     DataTableModule,
     SharedModule,
@@ -122,9 +125,11 @@ export function highchartsFactory() {
     DropdownModule,
     ButtonModule,
     CalendarModule,
+    Ng2TableModule,
     ChartModule,
     ReportingUtilitiesModule,
     DataListsModule,
+    TabsModule,
     NgxMyDatePickerModule.forRoot(),
   ],
   exports: [

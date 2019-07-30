@@ -26,12 +26,7 @@ export class SurgeReportComponent extends SurgeReportBaseComponent implements On
   public generateReport() {
     this.getLocationsSelected();
     this.setQueryParams(this.locationUuids);
-    if ( this.locationUuids.length > 0) {
-      super.generateReport();
-    } else {
-      this.errorMessage = 'Please select all report filters';
-      this.showInfoMessage = true;
-    }
+    super.generateReport();
 
   }
 
@@ -75,14 +70,12 @@ export class SurgeReportComponent extends SurgeReportBaseComponent implements On
   }
 
   public onTabChanged(val) {
-    if (val.index === 0) {
-      this.currentView = 'daily';
-      this.enabledControls = 'datesControl,locationControl';
-      this.getLocationsSelected();
-    } else if (val.index === 1) {
+    if (this.currentView === 'daily') {
       this.currentView = 'weekly';
       this.enabledControls = 'weekControl,locationControl';
-      this.getLocationsSelected();
+    } else {
+      this.enabledControls = 'datesControl,locationControl';
+      this.currentView = 'daily';
     }
   }
 }

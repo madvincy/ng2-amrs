@@ -1,0 +1,44 @@
+table { 
+	width: 750px; 
+	border-collapse: collapse; 
+	margin:5px auto;
+	}
+
+th { 
+	background-color: #a5a2a2bd;
+	color: white; 
+	font-weight: bold; 
+	}
+table.fixed { table-layout:fixed; }
+table.fixed td { overflow: hidden; }
+
+td, th { 
+	padding: 10px; 
+	border: 1px solid #ccc; 
+	text-align: left; 
+	font-size: 18px;
+	}
+
+.labels tr td {
+	background-color: #2cc16a;
+	font-weight: bold;
+	color: #fff;
+}
+
+.label tr td label {
+	display: block;
+}
+caption {
+    padding-top: inherit;
+    padding-bottom: 8px;
+	color: #ffffff;
+	background: #3498db;
+	font-size: medium;
+	font-weight: bold;
+    text-align: center;
+}
+
+
+[data-toggle="toggle"] {
+	display: none;
+}
