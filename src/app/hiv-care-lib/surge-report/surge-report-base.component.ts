@@ -16,10 +16,10 @@ export class SurgeReportBaseComponent implements OnInit {
   public selectedIndicators = [];
   public surgeWeeklyReportSummaryData: any = [];
   public columnDefs: any = [];
-  public enabledControls = 'datesControl';
+  public enabledControls = 'weekControl';
   public reportName = 'Surge Weekly Report';
-  public currentView = 'daily';
-  public isReleased = true;
+  public currentView = 'weekly';
+  public isReleased = false;
   public yearWeek: any = Moment(new Date()).format('YYYY-[W]WW');
 
   public statusError = false;
