@@ -20,7 +20,7 @@ export class SurgeReportTabularComponent implements OnInit {
   public test = [];
   results: Object;
   public headers = [];
-  public selectedIndicatorsList = [];
+  public selectedIndicatorsList = [0];
   public gridOptions: any = {
     columnDefs: []
   };
@@ -123,7 +123,7 @@ export class SurgeReportTabularComponent implements OnInit {
           field: section.indicators[j].indicator,
           description: section.indicators[j].description,
           value: sectionIndicatorValues,
-          width: 250
+          width: 350
         };
         created.children.push(child);
       }
@@ -187,13 +187,10 @@ export class SurgeReportTabularComponent implements OnInit {
   }
   public selectedIndicators() {
     this.setColumns(this.sectionDefs);
-    this.selectedIndicatorsList.push(0);
     const value = [];
     if (this.selectedIndicatorsList.length) {
       this.selectedIndicatorsList.forEach( indicator => {
-        if (indicator !== 0) {
           value.push(this.gridOptions.columnDefs[indicator]);
-        }
       });
       this.gridOptions.columnDefs = value;
     } else {

@@ -57,7 +57,7 @@ export class SurgeReportPatientlistComponent implements OnInit {
     const extraColumns = {
       phone_number: 'Phone',
       enrollment_date: 'Date Enrolled',
-      clinical_visit_number: 'Encounter Number since enrollment',
+      clinical_visit_num: 'Encounter Number since enrollment',
       last_appointment: 'Last Encounter Type',
       encounter_date: 'Last Encounter Date',
       prev_rtc_date: 'Last RTC Date',
@@ -72,15 +72,16 @@ export class SurgeReportPatientlistComponent implements OnInit {
       previous_vl_date: 'Prevoius VL Date',
       baseline: 'Baseline status as at 11th may 2019',
       cur_status: 'Current Status',
-      death_date: 'Death date',
-      intervention_name: 'Intervention Name',
-      intervention_date: 'Intervention Date',
-      education: 'Level of Education',
-      occupation: 'Occupation',
-      marital_status: 'Marital Status',
+      active_to_ltfu_count: 'Active to LTFU Count',
+      // death_date: 'Death date',
+      // intervention_name: 'Intervention Name',
+      // intervention_date: 'Intervention Date',
+      // education: 'Level of Education',
+      // occupation: 'Occupation',
+      // marital_status: 'Marital Status',
       nearest_center: 'Estate/Nearest Center',
-      ward: 'Ward',
-      county: 'County',
+      // ward: 'Ward',
+      // county: 'County',
     };
 
     for (const indicator in extraColumns) {
