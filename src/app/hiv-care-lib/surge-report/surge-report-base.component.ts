@@ -22,7 +22,7 @@ export class SurgeReportBaseComponent implements OnInit {
   public reportName = 'Surge Weekly Report';
   public currentView = 'weekly';
   public isReleased = false;
-  public yearWeek: any = Moment(new Date()).format('YYYY-[W]WW');
+  public yearWeek: any;
 
   public statusError = false;
   public errorMessage = '';
@@ -71,7 +71,7 @@ export class SurgeReportBaseComponent implements OnInit {
   ) {
     this.route.queryParams.subscribe(
       (data) => {
-        this.yearWeek = data.year_week;
+        this.yearWeek === undefined ? this.yearWeek = Moment(new Date()).format('YYYY-[W]WW') : this.yearWeek = data.year_week;
         this.displayTabluarFilters = data.displayTabluarFilters;
       }
     );
