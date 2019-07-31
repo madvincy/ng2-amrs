@@ -71,14 +71,14 @@ export class SurgeReportBaseComponent implements OnInit {
   ) {
     this.route.queryParams.subscribe(
       (data) => {
-        this.yearWeek === undefined ? this.yearWeek = Moment(new Date()).format('YYYY-[W]WW') : this.yearWeek = data.year_week;
+        data.year_week === undefined ? this.yearWeek = Moment(new Date()).format('YYYY-[W]WW') : this.yearWeek = data.year_week;
         this.displayTabluarFilters = data.displayTabluarFilters;
       }
     );
    }
 
-  ngOnInit() {
-  }
+   ngOnInit() {
+   }
 
   public getSurgeWeeklyReport(params: any) {
     this.surgeReport.getSurgeWeeklyReport(params).subscribe(data => {
@@ -120,12 +120,7 @@ export class SurgeReportBaseComponent implements OnInit {
     });
   }
 
-  public storeParamsInUrl() {
-    let param: string;
-    this.route.parent.parent.params.subscribe((params: any) => {
-      param = params.location_uuid;
-    });
-
+  public storeParamsInUrl(param) {
     const queryParams = {
       'year_week': this.yearWeek,
       'locationUuids': param,
@@ -133,7 +128,6 @@ export class SurgeReportBaseComponent implements OnInit {
     };
 
     this.params = queryParams;
-    console.log(this.params);
      // store params in url
      this.router.navigate([], {
       relativeTo: this.route,
@@ -142,7 +136,10 @@ export class SurgeReportBaseComponent implements OnInit {
   }
 
   public generateReport() {
-    this.storeParamsInUrl();
+    this.route.parent.parent.params.subscribe((params: any) => {
+      this.storeParamsInUrl(params.location_uuid);
+    });
+    this.surgeWeeklyReportSummaryData = [];
     this.isLoading = true;
     if (this.currentView === 'daily') {
       this.isLoading = false;

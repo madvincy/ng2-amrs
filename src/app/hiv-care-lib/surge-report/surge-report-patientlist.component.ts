@@ -115,7 +115,7 @@ export class SurgeReportPatientlistComponent implements OnInit {
       {
         field: 'prev_rtc_date',
         cellRenderer: (column) => {
-          return moment(column.value).format('YYYY-MM-DD');
+          return column.value !== null ? moment(column.value).format('YYYY-MM-DD') : column.value;
         }
       },
       {
