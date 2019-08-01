@@ -121,7 +121,7 @@ export class SurgeReportTabularComponent implements OnInit {
     if (this.agGrid && this.agGrid.api) {
       this.agGrid.api.setColumnDefs(defs);
     }
-    console.log(this.gridOptions.columnDefs);
+    console.log('report data' , this.gridOptions.columnDefs);
   }
   public findPage(pageMove) {
     if (pageMove === 'next') {

@@ -103,8 +103,4 @@ describe('SurgeReportTabularComponent', () => {
 
 
   });
-
-  it('should generate report view columns, rows and display the report data', () => {
-
-  });
 });
