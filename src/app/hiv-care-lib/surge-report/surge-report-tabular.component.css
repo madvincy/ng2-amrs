@@ -42,3 +42,6 @@ caption {
 [data-toggle="toggle"] {
 	display: none;
 }
+.padding{
+	margin:2.5px
+}

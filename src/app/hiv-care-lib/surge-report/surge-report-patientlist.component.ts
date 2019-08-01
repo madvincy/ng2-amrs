@@ -24,7 +24,7 @@ export class SurgeReportPatientlistComponent implements OnInit {
   public hasError = false;
 
   constructor(private router: Router, private route: ActivatedRoute,
-     private _location: Location, private surgeResource: SurgeResourceService) { }
+     private _location: Location, public surgeResource: SurgeResourceService) { }
 
   ngOnInit() {
     this.addExtraColumns();

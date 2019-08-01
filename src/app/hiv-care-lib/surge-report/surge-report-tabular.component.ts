@@ -17,7 +17,7 @@ export class SurgeReportTabularComponent implements OnInit {
   public test = [];
   results: Object;
   public headers = [];
-  public selectedIndicatorsList = [0];
+  public selectedIndicatorsList = [];
   public gridOptions: any = {
     columnDefs: []
   };
@@ -96,7 +96,6 @@ export class SurgeReportTabularComponent implements OnInit {
       this.headers.push(header);
       created.children = [];
       // tslint:disable-next-line:prefer-for-of
-      this.reportViewValues(section.indicators);
       for (let j = 0; j < section.indicators.length; j++) {
         const sectionIndicatorValues = [];
         let indicatorValue = '-';
@@ -122,6 +121,7 @@ export class SurgeReportTabularComponent implements OnInit {
     if (this.agGrid && this.agGrid.api) {
       this.agGrid.api.setColumnDefs(defs);
     }
+    console.log(this.gridOptions.columnDefs);
   }
   public findPage(pageMove) {
     if (pageMove === 'next') {
@@ -138,9 +138,7 @@ export class SurgeReportTabularComponent implements OnInit {
 
     }
   }
-  public reportViewValues(value) {
 
-  }
   private setCellSelection(col?) {
     if (col) {
       const selectedIndicator = { headerName: col.headerName, field: col.field };

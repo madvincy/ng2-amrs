@@ -18,16 +18,21 @@
         </div>
 
         <div *ngIf="displayTabluarFilters" class="row">
-          <div class="ui-grid-row ui-fluid">
-            <div class="pull-left" style="margin: 20px">
+          <div class="col-md-5 col-sm-12 padding">
+              <label for="">Search :</label>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
               <input #searchBoxL id="search-box-loc" [(ngModel)]="selectedResult" (ngModelChange)="searchIndicator()"
-                placeholder="search indicator " /><button><i class="fa fa-search"></i></button>
+                placeholder="search indicator" class="form-control" />
             </div>
-
-            <div class="ui-grid-col-6 pull-right">
-              Filters *:
-              <p-multiSelect [options]="headers" [(ngModel)]="selectedIndicatorsList" (onChange)="selectedIndicators()">
-              </p-multiSelect>
+          </div>
+          <div class="col-md-6 col-sm-12 padding pull-right">
+            <div class="ui-grid-row ui-fluid">
+              <div class="ui-grid-col-12 pull-right">
+                <label for="">Filters *:</label>
+                <p-multiSelect [options]="headers" [(ngModel)]="selectedIndicatorsList" (onChange)="selectedIndicators()">
+                </p-multiSelect>
+              </div>
             </div>
           </div>
         </div>

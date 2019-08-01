@@ -24,7 +24,7 @@ const weeklyQueryParams = {
   'locationUuids': '294efcca-cf90-40da-8abb-1e082866388d'
 };
 
-fdescribe('SurgeReportBaseComponent', () => {
+describe('SurgeReportBaseComponent', () => {
   let component: SurgeReportBaseComponent;
   let fixture: ComponentFixture<SurgeReportBaseComponent>;
   // tslint:disable-next-line: prefer-const
