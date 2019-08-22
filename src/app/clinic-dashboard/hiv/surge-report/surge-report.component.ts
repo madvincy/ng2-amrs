@@ -10,7 +10,7 @@ import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
 export class SurgeReportComponent extends SurgeReportBaseComponent implements OnInit {
 
   public params: any;
-  public surgeWeeklyReportSummaryData: any = [];
+  public surgeReportSummaryData: any = [];
   public columnDefs: any = [];
 
   public statusError = false;
@@ -27,12 +27,25 @@ export class SurgeReportComponent extends SurgeReportBaseComponent implements On
   ngOnInit() {
     this.route.queryParams.subscribe(
       (params: any) => {
-        if (params) {
-          if (params.year_week) {
-            this.isLoading = true;
-            this.params = params;
-            this.getSurgeWeeklyReport(params);
-          }
+        switch (params.currentView) {
+          case 'daily':
+            if (params) {
+              if (params._date) {
+                this.isLoading = true;
+                this.params = params;
+                this.getSurgeDailyReport(params);
+              }
+            }
+            break;
+          case 'weekly':
+            if (params) {
+              if (params.year_week) {
+                this.isLoading = true;
+                this.params = params;
+                this.getSurgeWeeklyReport(params);
+              }
+            }
+            break;
         }
       },
       error => {

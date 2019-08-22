@@ -48,6 +48,8 @@ import { SelectDepartmentService } from './../services/select-department.service
 export class ReportFiltersComponent implements OnInit, ControlValueAccessor, AfterViewInit {
   @Input() public start: number;
   @Input() public end: number;
+  @Input()
+  public selectedYearWeek: any;
   /* tslint:disable:no-output-on-prefix */
   @Output() public onAgeChange = new EventEmitter<any>();
   @Output() public onAgeChangeFinish = new EventEmitter<any>();
@@ -59,6 +61,7 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
   @Output() public onProgramChange = new EventEmitter<any>();
   @Output() public onIndicatorChange = new EventEmitter<any>();
   @Output() public onDateChange = new EventEmitter<any>();
+  @Output() public onYearWeekChange = new EventEmitter<any>();
   public genderOptions: Array<any> = [
     {
       value: 'F',
@@ -113,17 +116,17 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
   private _indicators: Array<any> = [];
   private _gender: Array<any> = [];
   private _programs: Array<any> = [];
+  private _surgeWeeks: any;
   private _currentDepartment = '';
-  constructor(
-    private indicatorResourceService: IndicatorResourceService,
-    private dataAnalyticsDashboardService: DataAnalyticsDashboardService,
-    private programResourceService: ProgramResourceService,
-    private programWorkFlowResourceService: ProgramWorkFlowResourceService,
-    private _departmentProgramService: DepartmentProgramsConfigService,
-    private _selectDepartmentService: SelectDepartmentService,
-    private elementRef: ElementRef,
-    private cd: ChangeDetectorRef
-  ) { }
+  constructor(private indicatorResourceService: IndicatorResourceService,
+              private dataAnalyticsDashboardService: DataAnalyticsDashboardService,
+              private programResourceService: ProgramResourceService,
+              private programWorkFlowResourceService: ProgramWorkFlowResourceService,
+              private _departmentProgramService: DepartmentProgramsConfigService,
+              private _selectDepartmentService: SelectDepartmentService,
+              private elementRef: ElementRef,
+              private cd: ChangeDetectorRef) {
+}
   public get startDate(): Date {
     return this._startDate;
   }
@@ -152,6 +155,15 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
   }
   public get startWeekString() {
     return this._startWeek;
+  }
+
+  @Input()
+  public set surgeWeeks(v: any) {
+    this._surgeWeeks = v;
+  }
+
+  public get surgeWeeks() {
+    return this._surgeWeeks;
   }
 
   @Input()
@@ -247,31 +259,23 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
   }
   public getCachedLocations() {
     if (this._report === 'hiv-summary-report') {
-      this.dataAnalyticsDashboardService
-        .getSelectedIndicatorLocations()
-        .pipe(take(1))
-        .subscribe(data => {
+      this.dataAnalyticsDashboardService.getSelectedIndicatorLocations().pipe(take(1)).subscribe(
+        (data)  => {
           if (data) {
             this.locations = data.locations;
           }
         });
-    } else if (
-      this._report === 'hiv-summary-monthly-report' ||
-      this._report === 'oncology-summary-monthly-report'
-    ) {
-      this.dataAnalyticsDashboardService
-        .getSelectedMonthlyIndicatorLocations()
-        .pipe(take(1))
-        .subscribe(data => {
+    } else if (this._report === 'hiv-summary-monthly-report' ||
+    this._report === 'oncology-summary-monthly-report') {
+      this.dataAnalyticsDashboardService.getSelectedMonthlyIndicatorLocations().pipe(take(1)).subscribe(
+        (data)  => {
           if (data) {
             this.locations = data.locations;
           }
         });
     } else {
-      this.dataAnalyticsDashboardService
-        .getSelectedLocations()
-        .pipe(take(1))
-        .subscribe(data => {
+      this.dataAnalyticsDashboardService.getSelectedLocations().pipe(take(1)).subscribe(
+        (data)  => {
           if (data) {
             this.locations = data.locations;
           }
@@ -414,6 +418,9 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
 
   public onStartWeekChange(event) {
     this.startWeekChange.emit(event);
+  }
+  public yearWeekChange(value) {
+    this.onYearWeekChange.emit(value);
   }
 
   public registerOnChange(fn: (_: any) => void): void {

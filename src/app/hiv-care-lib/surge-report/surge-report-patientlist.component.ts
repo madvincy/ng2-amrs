@@ -12,7 +12,7 @@ import { Column } from 'ag-grid';
   templateUrl: './surge-report-patientlist.component.html',
   styleUrls: ['./surge-report-patientlist.component.css']
 })
-export class SurgeReportPatientlistComponent implements OnInit {
+export class SurgeReportPatientListComponent implements OnInit {
 
   public params: any;
   public patientData: any;
@@ -42,14 +42,28 @@ export class SurgeReportPatientlistComponent implements OnInit {
   }
 
   private getPatientList(params: any) {
-    this.surgeResource.getSurgeWeeklyPatientList(params)
-        .subscribe(
-          (data) => {
-            this.isLoading = false;
-            this.patientData = data.results.results;
-            this.hasLoadedAll = true;
-          }
-        );
+    switch (params.currentView) {
+      case 'daily':
+        this.surgeResource.getSurgeDailyReportPatientList(params)
+          .subscribe(
+            (data) => {
+              this.isLoading = false;
+              this.patientData = data.results.results;
+              this.hasLoadedAll = true;
+            }
+          );
+        break;
+      case 'weekly':
+        this.surgeResource.getSurgeWeeklyPatientList(params)
+          .subscribe(
+            (data) => {
+              this.isLoading = false;
+              this.patientData = data.results.results;
+              this.hasLoadedAll = true;
+            }
+          );
+        break;
+    }
   }
 
   public addExtraColumns() {
@@ -61,6 +75,8 @@ export class SurgeReportPatientlistComponent implements OnInit {
       encounter_date: 'Last Encounter Date',
       prev_rtc_date: 'Last RTC Date',
       days_since_rtc_date: 'Days missed since RTC',
+      cur_status: 'Current Status',
+      death_date: 'Death Date',
       arv_first_regimen_start_date: 'First ARV regimen start date',
       arv_first_regimen: 'AVR first regimen',
       cur_meds: 'Current Regimen',
@@ -69,18 +85,8 @@ export class SurgeReportPatientlistComponent implements OnInit {
       latest_vl_date: 'Latest VL Date',
       previous_vl: 'Previous VL',
       previous_vl_date: 'Prevoius VL Date',
-      // baseline: 'Baseline status as at 11th may 2019',
-      cur_status: 'Current Status',
       active_to_ltfu_count: 'Active to LTFU Count',
-      // death_date: 'Death date',
-      // intervention_name: 'Intervention Name',
-      // intervention_date: 'Intervention Date',
-      // education: 'Level of Education',
-      // occupation: 'Occupation',
-      // marital_status: 'Marital Status',
-      nearest_center: 'Estate/Nearest Center',
-      // ward: 'Ward',
-      // county: 'County',
+      nearest_center: 'Estate/Nearest Center'
     };
 
     for (const indicator in extraColumns) {

@@ -17,7 +17,7 @@ import { SurgeResourceService } from 'src/app/etl-api/surge-resource.service';
 })
 export class SurgeReportComponent extends SurgeReportBaseComponent implements OnInit {
 
-  public enabledControls = 'weekControl,locationControl';
+  public enabledControls = 'dayControl,locationControl';
 
   constructor(
     public router: Router, public route: ActivatedRoute, public surgeReport: SurgeResourceService,
@@ -26,7 +26,6 @@ export class SurgeReportComponent extends SurgeReportBaseComponent implements On
   }
 
   ngOnInit() {
-    this.yearWeek = Moment(new Date()).format('YYYY-[W]WW');
     this.loadParametersFromUrl();
   }
 
@@ -37,12 +36,25 @@ export class SurgeReportComponent extends SurgeReportBaseComponent implements On
 
   public storeParamsInUrl() {
     this.setSelectedLocation();
-
-    const state = {
-      'year_week': this.yearWeek,
-      'locationUuids': this.getSelectedLocations(this.locationUuids),
-      'displayTabluarFilters': this.displayTabluarFilters
-    };
+    let state = {};
+    switch (this.currentView) {
+      case 'daily':
+          state = {
+          '_date': Moment(this.startDate).format('YYYY-MM-DD'),
+          'locationUuids': this.getSelectedLocations(this.locationUuids),
+          'displayTabluarFilters': this.displayTabluarFilters,
+          'currentView': this.currentView
+          };
+        break;
+      case 'weekly':
+         state = {
+          'year_week': this.yearWeek,
+          'locationUuids': this.getSelectedLocations(this.locationUuids),
+          'displayTabluarFilters': this.displayTabluarFilters,
+          'currentView': this.currentView
+        };
+        break;
+    }
 
     const stateUrl = rison.encode(state);
     const path = this.router.parseUrl(this.location.path());
@@ -59,8 +71,20 @@ export class SurgeReportComponent extends SurgeReportBaseComponent implements On
 
     if (path.queryParams['state']) {
       const state = rison.decode(path.queryParams['state']);
-      this.yearWeek = state.year_week;
-      this.generateReport();
+      switch (state.currentView) {
+        case 'daily':
+          this.currentView = 'daily';
+          this.startDate = Moment(state._date).format('MM-DD-YYYY');
+          this.generateReport();
+          break;
+        case 'weekly':
+          this.currentView = 'weekly';
+          this.enabledControls = 'weekControl,locationControl';
+          console.log(state.yearWeek);
+          this.yearWeek = state.year_week;
+          this.generateReport();
+          break;
+      }
     }
 
   }
@@ -74,30 +98,19 @@ export class SurgeReportComponent extends SurgeReportBaseComponent implements On
       });
   }
 
-  private getSelectedLocations(locationUuids: any): string {
-    if (!locationUuids || locationUuids.length === 0) {
-      return '';
-    }
-
-    let selectedLocations = '';
-
-    for (let i = 0; i < locationUuids.length; i++) {
-      if (i === 0) {
-        selectedLocations = selectedLocations + (locationUuids[0] as any).value;
-      } else {
-        selectedLocations = selectedLocations + ',' + (locationUuids[i] as any).value;
-      }
-    }
-    return selectedLocations;
+  private getSelectedLocations(locationUuids: Array<any>): string {
+    return locationUuids.map(location => location.value).join(',');
   }
 
   public onTabChanged(val) {
     if (this.currentView === 'daily') {
       this.currentView = 'weekly';
       this.enabledControls = 'weekControl,locationControl';
+      this.surgeReportSummaryData = [];
     } else {
-      this.enabledControls = 'datesControl,locationControl';
+      this.enabledControls = 'dayControl,locationControl';
       this.currentView = 'daily';
+      this.surgeReportSummaryData = [];
     }
   }
 }

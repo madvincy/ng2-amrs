@@ -89,7 +89,7 @@ import {
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 import { SurgeReportTabularComponent } from './surge-report/surge-report-tabular.component';
 import { SurgeReportBaseComponent } from './surge-report/surge-report-base.component';
-import { SurgeReportPatientlistComponent } from './surge-report/surge-report-patientlist.component';
+import { SurgeReportPatientListComponent } from './surge-report/surge-report-patientlist.component';
 export function highchartsFactory() {
   const hc = require('highcharts');
   const hcm = require('highcharts/highcharts-more');
@@ -157,7 +157,7 @@ export function highchartsFactory() {
     HivMonthlySummaryIndicatorsPatientListComponent,
     SurgeReportTabularComponent,
     SurgeReportBaseComponent,
-    SurgeReportPatientlistComponent
+    SurgeReportPatientListComponent
   ],
   declarations: [
     Moh731TabularComponent,
@@ -186,7 +186,7 @@ export function highchartsFactory() {
     HivMonthlySummaryIndicatorsPatientListComponent,
     SurgeReportTabularComponent,
     SurgeReportBaseComponent,
-    SurgeReportPatientlistComponent
+    SurgeReportPatientListComponent
   ],
   providers: [MOHReportService,
     LocationResourceService,

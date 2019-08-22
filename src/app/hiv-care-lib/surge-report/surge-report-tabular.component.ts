@@ -152,7 +152,6 @@ export class SurgeReportTabularComponent implements OnInit {
       };
     }
   }
-
   public selectedIndicators() {
     this.setColumns(this.sectionDefs);
     const value = [];

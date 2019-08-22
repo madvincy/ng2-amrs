@@ -62,7 +62,7 @@ import {
 } from '../../kibana-lib';
 import { HivDifferentiatedCareComponent } from './hiv-differentiated-care-program/hiv-differentiated-care-program.component';
 import { SurgeReportComponent } from './surge-report/surge-report.component';
-import { SurgeReportPatientlistComponent } from 'src/app/hiv-care-lib/surge-report/surge-report-patientlist.component';
+import { SurgeReportPatientListComponent } from 'src/app/hiv-care-lib/surge-report/surge-report-patientlist.component';
 
 const routes: Routes = [
     {
@@ -193,7 +193,7 @@ const routes: Routes = [
     },
     {
         path: 'surge-reports/surge-report-patientlist',
-        component: SurgeReportPatientlistComponent
+        component: SurgeReportPatientListComponent
     }
 ];
 

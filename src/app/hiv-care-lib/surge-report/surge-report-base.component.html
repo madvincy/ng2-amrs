@@ -7,14 +7,14 @@
 <p-tabView (onChange)="onTabChanged($event)">
     <div *ngIf="isReleased">
         <p-tabPanel header=" Daily" leftIcon="fa-calendar-o " [selected]="currentView === 'daily'">
-            <report-filters [enabledControls]="enabledControls" [startWeekString]="yearWeek" [reportName]="reportName"
-                (startWeekChange)="onStartWeekChange($event)" (generateReport)="generateReport()">
+            <report-filters [enabledControls]="enabledControls" (startDateChange)= "onStartDateChange($event)"
+            [startDate]="startDate" [endDate]="startDate" [reportName]="reportName" (generateReport)="generateReport()">
             </report-filters>
         </p-tabPanel>
     </div>
     <p-tabPanel header=" Weekly" leftIcon="fa-calendar" [selected]="currentView != 'daily'">
         <report-filters [enabledControls]="enabledControls" [startWeekString]="yearWeek" [reportName]="reportName"
-            (startWeekChange)="onStartWeekChange($event)" (generateReport)="generateReport()">
+            [selectedYearWeek]="yearWeek" (onYearWeekChange)="onYearWeekChange($event)"  [surgeWeeks]="calendarWeeks" (generateReport)="generateReport()">
         </report-filters>
     </p-tabPanel>
 </p-tabView>
@@ -29,6 +29,7 @@
         <small>{{errorMessage}}</small>
     </p>
 </div>
-<surge-report-tabular [surgeWeeklyReportSummaryData]="surgeWeeklyReportSummaryData" [sectionDefs]="columnDefs" 
+<surge-report-tabular [surgeReportSummaryData]="surgeReportSummaryData" [sectionDefs]="columnDefs" 
     (indicatorSelected)="onIndicatorSelected($event)" [displayTabluarFilters] = "displayTabluarFilters">
 </surge-report-tabular>
+    

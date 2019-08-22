@@ -23,7 +23,7 @@ import {
   DashboardsViewerComponent
 } from '../../kibana-lib';
 import { SurgeReportComponent } from './surge/surge-report.component';
-import { SurgeReportPatientlistComponent } from 'src/app/hiv-care-lib/surge-report/surge-report-patientlist.component';
+import { SurgeReportPatientListComponent } from 'src/app/hiv-care-lib/surge-report/surge-report-patientlist.component';
 
 const routes: Routes = [
   {
@@ -135,7 +135,7 @@ const routes: Routes = [
     children: [
       {
         path: 'surge-report-patientlist',
-        component: SurgeReportPatientlistComponent
+        component: SurgeReportPatientListComponent
       },
       {
         path: '',

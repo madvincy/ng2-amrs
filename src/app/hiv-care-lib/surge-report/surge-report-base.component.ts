@@ -16,12 +16,12 @@ export class SurgeReportBaseComponent implements OnInit {
   public params: any;
   public indicators: string;
   public selectedIndicators = [];
-  public surgeWeeklyReportSummaryData: any = [];
+  public surgeReportSummaryData: any = [];
   public columnDefs: any = [];
-  public enabledControls = 'weekControl';
+  public enabledControls = 'dayControl';
   public reportName = 'Surge Weekly Report';
-  public currentView = 'weekly';
-  public isReleased = false;
+  public currentView = 'daily';
+  public isReleased = true;
   public yearWeek: any;
 
   public statusError = false;
@@ -30,23 +30,9 @@ export class SurgeReportBaseComponent implements OnInit {
   public isLoading = false;
   public reportHead: any;
   public displayTabluarFilters: Boolean = false;
-  private _startDate: Date = Moment().subtract(1, 'year').toDate();
-  public get startDate(): Date {
-    return this._startDate;
-  }
-
-  public set startDate(v: Date) {
-    this._startDate = v;
-  }
-
-  private _endDate: Date = new Date();
-  public get endDate(): Date {
-    return this._endDate;
-  }
-
-  public set endDate(v: Date) {
-    this._endDate = v;
-  }
+  public calendarWeeks = [];
+  public selectedYearWeek: any;
+  public startDate: any;
 
 
   public _locationUuids: any = [];
@@ -69,16 +55,28 @@ export class SurgeReportBaseComponent implements OnInit {
     public route: ActivatedRoute,
     public surgeReport: SurgeResourceService
   ) {
+    this.generateSurgeWeeks();
     this.route.queryParams.subscribe(
       (data) => {
-        data.year_week === undefined ? this.yearWeek = Moment(new Date()).format('YYYY-[W]WW') : this.yearWeek = data.year_week;
+        data.year_week === undefined ? this.yearWeek = Moment(new Date())
+          .subtract(1, 'week').format('YYYY-[W]WW') : this.yearWeek = data.year_week;
         this.displayTabluarFilters = data.displayTabluarFilters;
+
+        data._date === undefined ? this.startDate = Moment(new Date()).format('MM-DD-YYYY') :
+          this.startDate = Moment(data._date).format('MM-DD-YYYY');
+
+        if (data.currentView === undefined) {
+          this.currentView = 'daily';
+        } else {
+          this.currentView = data.currentView;
+          this.currentView === 'daily' ? this.enabledControls = 'dayControl' : this.enabledControls = 'weekControl';
+        }
       }
     );
-   }
+  }
 
-   ngOnInit() {
-   }
+  ngOnInit() {
+  }
 
   public getSurgeWeeklyReport(params: any) {
     this.isLoading = true;
@@ -90,11 +88,28 @@ export class SurgeReportBaseComponent implements OnInit {
       } else {
         this.showInfoMessage = false;
         this.columnDefs = data.sectionDefinitions;
-        this.surgeWeeklyReportSummaryData = data.result;
+        this.surgeReportSummaryData = data.result;
         this.isLoading = false;
       }
     });
   }
+
+  public getSurgeDailyReport(params: any) {
+    this.isLoading = true;
+    this.surgeReport.getSurgeDailyReport(params).subscribe(data => {
+      if (data.error) {
+        this.showInfoMessage = true;
+        this.errorMessage = `There has been an error while loading the report, please retry again`;
+        this.isLoading = false;
+      } else {
+        this.showInfoMessage = false;
+        this.columnDefs = data.sectionDefinitions;
+        this.surgeReportSummaryData = data.result;
+        this.isLoading = false;
+      }
+    });
+  }
+
   public getSelectedIndicators(selectedIndicator) {
     let indicators;
     if (selectedIndicator) {
@@ -110,28 +125,55 @@ export class SurgeReportBaseComponent implements OnInit {
   }
 
   public onIndicatorSelected(value) {
-    console.log(value);
-    this.router.navigate(['surge-report-patientlist'], {
-      relativeTo: this.route,
-      queryParams: {
-        indicators: value.field,
-        indicatorHeader: value.headerName,
-        year_week: this.params.year_week,
-        locationUuids: value.location
-      }
-    });
+    switch (this.currentView) {
+      case 'daily':
+        this.router.navigate(['surge-report-patientlist'], {
+          relativeTo: this.route,
+          queryParams: {
+            indicators: value.field,
+            indicatorHeader: value.headerName,
+            _date: Moment(this.startDate).format('YYYY-MM-DD'),
+            locationUuids: this.params.locationUuids,
+            currentView: this.currentView
+          }
+        });
+        break;
+      case 'weekly':
+        this.router.navigate(['surge-report-patientlist'], {
+          relativeTo: this.route,
+          queryParams: {
+            indicators: value.field,
+            indicatorHeader: value.headerName,
+            year_week: this.params.year_week,
+            locationUuids: this.params.locationUuids,
+            currentView: this.currentView
+          }
+        });
+    }
   }
 
   public storeParamsInUrl(param) {
-    const queryParams = {
-      'year_week': this.yearWeek,
-      'locationUuids': param,
-      'displayTabluarFilters': true
-    };
 
-    this.params = queryParams;
-     // store params in url
-     this.router.navigate([], {
+    switch (this.currentView) {
+      case 'daily':
+        this.params = {
+          '_date': Moment(this.startDate).format('YYYY-MM-DD'),
+          'locationUuids': param,
+          'displayTabluarFilters': true,
+          'currentView': this.currentView
+        };
+        break;
+      case 'weekly':
+        this.params = {
+          'year_week': this.yearWeek,
+          'locationUuids': param,
+          'displayTabluarFilters': true,
+          'currentView': this.currentView
+        };
+        break;
+    }
+    // store params in url
+    this.router.navigate([], {
       relativeTo: this.route,
       queryParams: this.params
     });
@@ -141,27 +183,46 @@ export class SurgeReportBaseComponent implements OnInit {
     this.route.parent.parent.params.subscribe((params: any) => {
       this.storeParamsInUrl(params.location_uuid);
     });
-    this.surgeWeeklyReportSummaryData = [];
+    this.surgeReportSummaryData = [];
     if (this.currentView === 'daily') {
-      this.isLoading = false;
-      this.surgeWeeklyReportSummaryData = [];
+      this.displayTabluarFilters = true;
+      this.getSurgeDailyReport(this.params);
     } else {
       this.displayTabluarFilters = true;
       this.getSurgeWeeklyReport(this.params);
     }
   }
 
-  public onStartWeekChange(event) {
-    this.yearWeek = event;
+  public onYearWeekChange(value) {
+    this.yearWeek = value.yearWeek;
+  }
+
+  public onStartDateChange(value) {
+    this.startDate = Moment(value).format('MM-DD-YYYY');
   }
 
   public onTabChanged(val) {
     if (val.index === 0) {
       this.currentView = 'daily';
-      this.enabledControls = 'datesControl';
+      this.enabledControls = 'dayControl';
+      this.surgeReportSummaryData = [];
     } else if (val.index === 1) {
       this.currentView = 'weekly';
       this.enabledControls = 'weekControl';
+      this.surgeReportSummaryData = [];
+    }
+  }
+  public generateSurgeWeeks() {
+    for (let i = 0; i <= 72; i++) {
+      const date = Moment(new Date('2019-12-29')).subtract(i, 'week');
+      this.calendarWeeks.push(
+        {
+          yearWeek: Moment(date).format('YYYY-[W]WW'),
+          name: Moment(date).format('[Week] WW, YYYY')
+            + ' From ' + Moment(date).format('ddd-DD MMM-YYYY') + ' To '
+            + Moment(date).add(6, 'day').format('ddd-DD MMM-YYYY')
+        }
+      );
     }
   }
 

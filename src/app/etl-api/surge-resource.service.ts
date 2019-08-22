@@ -54,4 +54,41 @@ export class SurgeResourceService {
         })
       );
   }
+
+  public getSurgeDailyReport(params: any): Observable<any> {
+    return this.http
+      .get(`${this.url}surge-daily-report?_date=${params._date}&locationUuids=${params.locationUuids}`)
+      .pipe(
+        map((response: Response) => {
+          return response;
+        }),
+        catchError((err: Error) => {
+          const error: any = err;
+          const errorObj = {
+            error: error.status,
+            message: error.statusText
+          };
+          return Observable.of(errorObj);
+        })
+      );
+  }
+
+  public getSurgeDailyReportPatientList(params: any): Observable<any> {
+    return this.http
+      // tslint:disable-next-line: max-line-length
+      .get(`${this.url}surge-daily-report-patient-list?indicators=${params.indicators}&_date=${params._date}&locationUuids=${params.locationUuids}`)
+      .pipe(
+        map((response: Response) => {
+          return response;
+        }),
+        catchError((err: Error) => {
+          const error: any = err;
+          const errorObj = {
+            error: error.status,
+            message: error.statusText
+          };
+          return Observable.of(errorObj);
+        })
+      );
+  }
 }
