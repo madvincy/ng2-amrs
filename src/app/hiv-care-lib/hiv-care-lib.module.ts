@@ -86,6 +86,17 @@ import {
 import {
   ProgramWorkFlowResourceService
 } from '../openmrs-api/program-workflow-resource.service';
+import {
+   HeiIndicatorsReportComponent
+} from './hei-indicators-report/hei-indicators-report.component';
+import {
+   HeiIndicatorsFilterComponent
+} from './hei-indicators-report/hei-indicators-filter.component';
+import {
+  HeiIndicatorsTabularComponent
+} from './hei-indicators-report/hei-indicators-tabular-component';
+import { HeiIndicatorsPatientListComponent } from './hei-indicators-report/hei-indicators-patient-list.component';
+import { HeiIndicatorsPdfViewComponent } from './hei-indicators-report/hei-indicators-pdf-view.component';
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 export function highchartsFactory() {
   const hc = require('highcharts');
@@ -150,7 +161,12 @@ export function highchartsFactory() {
     VisualizationPatientListComponent,
     HivSummaryIndicatorsPatientListComponent,
     HivSummaryMonthlyTabularComponent,
-    HivMonthlySummaryIndicatorsPatientListComponent
+    HivMonthlySummaryIndicatorsPatientListComponent,
+    HeiIndicatorsReportComponent,
+    HeiIndicatorsFilterComponent,
+    HeiIndicatorsTabularComponent,
+    HeiIndicatorsPatientListComponent,
+    HeiIndicatorsPdfViewComponent
   ],
   declarations: [
     Moh731TabularComponent,
@@ -176,7 +192,12 @@ export function highchartsFactory() {
     HivSummaryIndicatorsPatientListComponent,
     HivMonthlySummaryIndicatorBaseComponent,
     HivSummaryMonthlyTabularComponent,
-    HivMonthlySummaryIndicatorsPatientListComponent
+    HivMonthlySummaryIndicatorsPatientListComponent,
+    HeiIndicatorsReportComponent,
+    HeiIndicatorsFilterComponent,
+    HeiIndicatorsTabularComponent,
+    HeiIndicatorsPatientListComponent,
+    HeiIndicatorsPdfViewComponent
   ],
   providers: [MOHReportService,
     LocationResourceService,

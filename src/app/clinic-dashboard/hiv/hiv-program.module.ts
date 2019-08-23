@@ -97,6 +97,9 @@ import {
 import { DefaulterListComponent } from '../general/defaulter-list/defaulter-list.component';
 import { GeneralModule } from '../general/general.module';
 import { ChangeDepartmentModule } from '../change-department/change-department.module';
+import {
+    ClinicDashboardHeiReportComponent
+} from './clinic-dashboard-hei-indicators-report/clinic-dashboard-hei-report.component';
 @NgModule({
     imports: [
         clinicDashboardHivRouting,
@@ -140,7 +143,8 @@ import { ChangeDepartmentModule } from '../change-department/change-department.m
         IndicatorSelectComponent,
         DateRangeComponent,
         RangeSliderComponent,
-        RouterModule
+        RouterModule,
+        ClinicDashboardHeiReportComponent
     ],
     declarations: [
         Moh731ReportComponent,
@@ -170,7 +174,8 @@ import { ChangeDepartmentModule } from '../change-department/change-department.m
         HivEnhancedPatientListComponent,
         DefaulterListComponent,
         Moh731MonthlyVizComponent,
-        ClinicKibanaVizComponent
+        ClinicKibanaVizComponent,
+        ClinicDashboardHeiReportComponent
     ],
     providers: [
         ClinicalSummaryVisualizationService
