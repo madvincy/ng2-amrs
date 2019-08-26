@@ -64,6 +64,10 @@ import { HivDifferentiatedCareComponent } from './hiv-differentiated-care-progra
 import { SurgeReportComponent } from './surge-report/surge-report.component';
 import { SurgeReportPatientListComponent } from 'src/app/hiv-care-lib/surge-report/surge-report-patientlist.component';
 
+import {
+    ClinicDashboardHeiReportComponent
+} from './clinic-dashboard-hei-indicators-report/clinic-dashboard-hei-report.component';
+import { HeiIndicatorsPatientListComponent } from './../../hiv-care-lib/hei-indicators-report/hei-indicators-patient-list.component';
 const routes: Routes = [
     {
         path: 'landing-page',
@@ -194,7 +198,19 @@ const routes: Routes = [
     {
         path: 'surge-reports/surge-report-patientlist',
         component: SurgeReportPatientListComponent
-    }
+    },
+    { path: 'hei-report',
+    children: [
+     {
+         path: '',
+         component: ClinicDashboardHeiReportComponent
+     },
+     {
+         path: 'patient-list',
+         component: HeiIndicatorsPatientListComponent
+     }
+ ]
+ },
 ];
 
 export const clinicDashboardHivRouting: ModuleWithProviders =

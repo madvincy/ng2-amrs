@@ -23,6 +23,7 @@ export class SurgeReportBaseComponent implements OnInit {
   public currentView = 'daily';
   public isReleased = true;
   public yearWeek: any;
+  public currentViewBelow = 'pdf';
 
   public statusError = false;
   public errorMessage = '';
@@ -133,7 +134,7 @@ export class SurgeReportBaseComponent implements OnInit {
             indicators: value.field,
             indicatorHeader: value.headerName,
             _date: Moment(this.startDate).format('YYYY-MM-DD'),
-            locationUuids: this.params.locationUuids,
+            locationUuids: value.location,
             currentView: this.currentView
           }
         });
@@ -145,7 +146,7 @@ export class SurgeReportBaseComponent implements OnInit {
             indicators: value.field,
             indicatorHeader: value.headerName,
             year_week: this.params.year_week,
-            locationUuids: this.params.locationUuids,
+            locationUuids: value.location,
             currentView: this.currentView
           }
         });

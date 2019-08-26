@@ -12,20 +12,17 @@ export class SurgeReportTabularComponent implements OnInit {
   @Input() displayTabluarFilters: Boolean;
   public currentView = 'pdf';
   searchTerm$ = new Subject<string>();
-  public test = [];
   results: Object;
-  public headers = [];
-  public selectedIndicatorsList = [];
   public gridOptions: any = {
     columnDefs: []
   };
   @ViewChild('agGrid')
   public agGrid: AgGridNg2;
-  public get surgeWeeklyReportSummaryData(): Array<any> {
+  public get surgeReportSummaryData(): Array<any> {
     return this._rowDefs;
   }
-  @Input('surgeWeeklyReportSummaryData')
-  public set surgeWeeklyReportSummaryData(v: Array<any>) {
+  @Input('surgeReportSummaryData')
+  public set surgeReportSummaryData(v: Array<any>) {
     this._rowDefs = v;
     this.setData(v);
   }
@@ -54,45 +51,15 @@ export class SurgeReportTabularComponent implements OnInit {
     this.sectionIndicatorsValues = sectionsData;
 
   }
-  public searchIndicator() {
-    this.setColumns(this.sectionDefs);
-    if (this.selectedResult.length > 0) {
-      this.gridOptions.columnDefs.forEach(object => {
-        const make = {
-          headerName: '',
-          children: []
-        };
-        object.children.forEach(object2 => {
-          if (object2['headerName'].toLowerCase().match(this.selectedResult) !== null) {
-            make.headerName = object['headerName'];
-            make.children.push(object2);
-          }
-        });
-        if (make.headerName !== '') {
-          this.test.push(make);
-        }
-      });
-      this.gridOptions.columnDefs = [];
-      this.gridOptions.columnDefs = this.test;
-      this.test = [];
-    } else {
-      this.setColumns(this.sectionDefs);
-    }
-  }
+
 
   public setColumns(sectionsData: Array<any>) {
-    this.headers = [];
     const defs = [];
     const locations = ['locations'];
     for (let i = 0; i < sectionsData.length; i++) {
       const section = sectionsData[i];
       const created: any = {};
       created.headerName = section.sectionTitle;
-      const header = {
-        label: section.sectionTitle,
-        value: i
-      };
-      this.headers.push(header);
       created.children = [];
       for (let j = 0; j < section.indicators.length; j++) {
         const sectionIndicatorValues = [];
@@ -125,43 +92,12 @@ export class SurgeReportTabularComponent implements OnInit {
       this.agGrid.api.setColumnDefs(defs);
     }
   }
-  public findPage(pageMove) {
-    if (pageMove === 'next') {
-      const i = this.locationNumber + 1;
-      this.locationNumber = i;
-      this.sectionIndicatorsValues = this.surgeWeeklyReportSummaryData[i];
-      this.setColumns(this.sectionDefs);
-    } else {
-      const i = this.locationNumber - 1;
-      if (i >= 0) {
-        this.sectionIndicatorsValues = this.surgeWeeklyReportSummaryData[i];
-        this.setColumns(this.sectionDefs);
-      }
 
-    }
-  }
-
-  private setCellSelection(selectedInd?) {
-    if (selectedInd) {
-      this.indicatorSelected.emit(selectedInd);
-    } else {
+  private setCellSelection() {
       this.gridOptions.rowSelection = 'single';
       this.gridOptions.onCellClicked = e => {
         const selectedIndicator = { headerName: e.colDef.headerName, field: e.colDef.field, location: e.data.location_uuid };
         this.indicatorSelected.emit(selectedIndicator);
       };
-    }
-  }
-  public selectedIndicators() {
-    this.setColumns(this.sectionDefs);
-    const value = [];
-    if (this.selectedIndicatorsList.length) {
-      this.selectedIndicatorsList.forEach(indicator => {
-        value.push(this.gridOptions.columnDefs[indicator]);
-      });
-      this.gridOptions.columnDefs = value;
-    } else {
-      this.setColumns(this.sectionDefs);
-    }
   }
 }

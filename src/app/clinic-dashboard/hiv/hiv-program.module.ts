@@ -102,6 +102,10 @@ import {
     HivDifferentiatedCarePatientListComponent
 } from './hiv-differentiated-care-program/hiv-differentiated-care-program-patient-list/hiv-differentiated-care-patient-list.component';
 import { SurgeReportComponent } from './surge-report/surge-report.component';
+import {
+    ClinicDashboardHeiReportComponent
+} from './clinic-dashboard-hei-indicators-report/clinic-dashboard-hei-report.component';
+import { ReportingUtilitiesModule } from 'src/app/reporting-utilities/reporting-utilities.module';
 @NgModule({
     imports: [
         clinicDashboardHivRouting,
@@ -130,6 +134,7 @@ import { SurgeReportComponent } from './surge-report/surge-report.component';
         DepartmentProgramFilterModule,
         ChangeDepartmentModule,
         GeneralModule,
+        ReportingUtilitiesModule,
         KibanaLibModule
     ],
     exports: [
@@ -145,7 +150,8 @@ import { SurgeReportComponent } from './surge-report/surge-report.component';
         IndicatorSelectComponent,
         DateRangeComponent,
         RangeSliderComponent,
-        RouterModule
+        RouterModule,
+        ClinicDashboardHeiReportComponent
     ],
     declarations: [
         Moh731ReportComponent,
@@ -178,7 +184,8 @@ import { SurgeReportComponent } from './surge-report/surge-report.component';
         ClinicKibanaVizComponent,
         HivDifferentiatedCareComponent,
         HivDifferentiatedCarePatientListComponent,
-        SurgeReportComponent
+        SurgeReportComponent,
+        ClinicDashboardHeiReportComponent
     ],
     providers: [
         ClinicalSummaryVisualizationService

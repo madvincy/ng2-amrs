@@ -15,7 +15,7 @@
       </strong>
     </div>
 
-    <div *ngIf="displayTabluarFilters" class="row">
+    <div  class="row">
       <div class="col-md-5 col-sm-12 padding">
           <label for="">Search :</label>
         <div class="input-group">
@@ -41,7 +41,8 @@
                   <tbody  *ngFor= "let grid of gridOptions.columnDefs" >
                  
                         <tr>
-                            <td [attr.colspan]="gridOptions.rowData.length + 1" class="header" ><b>{{grid.headerName}}</b></td>
+                            <!-- <td [attr.colspan]="gridOptions.rowData.length + 1" class="header" ><b>{{grid.headerName}}</b></td> -->
+                            <td [attr.colspan]="sectionIndicatorsValues .length + 1" class="header" ><b>{{grid.headerName}}</b></td>
                           </tr>
                           
                           <tr  *ngFor="let col of grid.children">
@@ -54,7 +55,6 @@
                       
                       
                               
-                            <!-- <td  title="Click to View Patientlist" (click)="setCellSelection(col)" class="value" >{{col.value}} </td> -->
                           </tr>
                  
                 
@@ -63,20 +63,9 @@
       </table>
       
     </div>
-    <!-- <div class="panel-footer" style="min-height: 50px">
-      <button class="btn btn-default pull-left" (click)="findPage('prev')" [disabled]="locationNumber<1">
-        <i class="fa fa-arrow-circle-o-left">
-        </i> Previous Page
-      </button>
-      <button class="btn btn-default pull-right" (click)="findPage('next')"
-        [disabled]="locationNumber === surgeWeeklyReportSummaryData.length">
-        Next Page <i class="fa fa-arrow-circle-o-right">
-        </i>
-      </button>
-    </div> -->
   </div>
 </div>
-<!-- <div class="wrapper">
+<div class="wrapper">
   <div class="panel panel-info">
 
     <div class="panel-heading" style="min-height: 50px!important">
@@ -117,4 +106,4 @@
 </div>
 </div>
 </div>
-</div> -->
+</div>

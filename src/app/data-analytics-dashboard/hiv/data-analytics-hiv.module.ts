@@ -41,6 +41,7 @@ import {
   Moh731MonthlyVizComponent
 } from './moh-731-monthly-viz/moh-731-monthly-viz.component';
 import { SurgeReportComponent } from './surge/surge-report.component';
+import { ReportingUtilitiesModule } from 'src/app/reporting-utilities/reporting-utilities.module';
 @NgModule({
   imports: [
     dataAnalyticsDashboardHivRouting,
@@ -54,6 +55,7 @@ import { SurgeReportComponent } from './surge/surge-report.component';
     DataEntryStatisticsModule,
     PatientProgramEnrollmentModule,
     ChangeDepartmentModule,
+    ReportingUtilitiesModule,
     KibanaLibModule
   ],
   exports: [
