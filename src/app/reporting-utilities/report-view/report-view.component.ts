@@ -314,7 +314,3 @@ export class ReportViewComponent implements OnInit, OnChanges {
       .download((this.reportDetails.reportName) + '.pdf');
   }
 }
-
-
-
-
