@@ -105,6 +105,8 @@ import { RetentionReportComponent } from './retention-report/retention-report.co
 import { RetentionReportResourceService } from './../etl-api/retention-report-resource.service';
 import { RetentionReportTabularComponent } from './retention-report/retention-report-tabular.component';
 import { RetentionIndicatorDefComponent } from './retention-report/retention-indicator-definitions.component';
+import { ChartAbstractionPatientlistComponent } from './dqa-reports/chart-abstraction-patientlist/chart-abstraction-patientlist.component';
+import { DqaReportsComponent } from './dqa-reports/dqa-reports/dqa-reports.component';
 
 @NgModule({
   imports: [
@@ -204,7 +206,9 @@ import { RetentionIndicatorDefComponent } from './retention-report/retention-ind
     RetentionReportFiltersComponent,
     RetentionReportComponent,
     RetentionReportTabularComponent,
-    RetentionIndicatorDefComponent
+    RetentionIndicatorDefComponent,
+    ChartAbstractionPatientlistComponent,
+    DqaReportsComponent
   ],
   providers: [MOHReportService,
     LocationResourceService,
