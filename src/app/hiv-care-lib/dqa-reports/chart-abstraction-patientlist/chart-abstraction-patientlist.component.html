@@ -12,26 +12,24 @@
 </h3>
 <hr />
 <patient-list [extraColumns]="extraColumns" [overrideColumns]="overrideColumns" [data]="patientData"></patient-list>
-<div *ngIf='hasLoadedAll'>
-  <div *ngIf="previousButton" class="button">
-    <button class="btn btn-primary" [ladda]='isLoading' data-size="xs" data-color="green" (click)="loadMoreDQAList('prev')">
-      <span class=""></span>Previous</button>
-  </div>
-  <div class="button">
-    <button class="btn btn-primary" [ladda]='isLoading' data-size="xs" data-color="blue" (click)="loadMoreDQAList('next')">
-      <span class=""></span>Next</button>
-  </div>
-  <div class="button">
-      <button class="btn btn-primary" [ladda]='isLoading' data-size="xs" data-color="grey" (click)="loadMoreDQAList('all')">
-        <span class=""></span>Load all</button>
-    </div>
-</div>
 <div *ngIf="patientData">
   <p class="bg-info" style="padding:4px;">
     <b>
-      <span style="color:green;" class="glyphicon glyphicon-ok">All records loaded {{'[ ' + patientData.length + ' ]'}}</span></b>
-  <p>
+      <span style="color:green;" class="glyphicon glyphicon-ok">All records loaded
+        {{'[ ' + patientData.length + ' ]'}}</span></b>
+    <p>
+</div>
+<div style="display: inline-block;" *ngIf='hasLoadedAll'>
+
+    <button style=" width: 80px;" [ladda]='isLoading' data-size="xs" data-color="blue" (click)="loadMoreDQAList('next')">
+      <span class=""></span>Next</button>
+
+    <button style="margin-left: 20px; width: 80px;" [ladda]='isLoading' data-size="xs" data-color="grey"
+      (click)="loadMoreDQAList('all')">
+      <span class=""></span>Load all</button>
+
+
 </div>
 <div *ngIf="hasError">
-<p class="alert-error alert">Error loading patient list.</p>
+  <p class="alert-error alert">Error loading patient list.</p>
 </div>

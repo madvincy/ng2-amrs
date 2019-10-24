@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DqaChartAbstractionService } from 'src/app/etl-api/dqa-chart-abstraction.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import moment = require('moment');
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-chart-abstraction-patientlist',
@@ -11,7 +11,7 @@ import moment = require('moment');
 export class ChartAbstractionPatientlistComponent implements OnInit {
   public extraColumns: Array<any> = [];
   public params: any;
-  public patientData: any;
+  public patientData: Array<any> = [];
   public nextStartIndex = 0;
   public overrideColumns: Array<any> = [];
   public hasLoadedAll = false;
@@ -19,7 +19,8 @@ export class ChartAbstractionPatientlistComponent implements OnInit {
   public previousButton = false;
   public isLoading = true;
 
-  constructor(public dqaResource: DqaChartAbstractionService, private router: Router, private route: ActivatedRoute, ) { }
+  constructor(public dqaResource: DqaChartAbstractionService,
+    private _location: Location, private route: ActivatedRoute, ) { }
 
   ngOnInit() {
     let requestParams: any;
@@ -45,7 +46,7 @@ export class ChartAbstractionPatientlistComponent implements OnInit {
     this.dqaResource.getDqaChartAbstractionReport(params)
       .subscribe(
         (data) => {
-          this.patientData = data.results.results;
+          this.patientData = this.patientData.concat(data);
           this.isLoading = false;
           console.log(this.allDataLoaded);
           if (this.allDataLoaded) {
@@ -80,7 +81,6 @@ export class ChartAbstractionPatientlistComponent implements OnInit {
     }
   }
   public loadMoreDQAList(option) {
-    this.previousButton = true;
     this.isLoading = true;
     let loadMoreParams: any;
     loadMoreParams = {
@@ -88,32 +88,21 @@ export class ChartAbstractionPatientlistComponent implements OnInit {
       limit: 300,
       offset: 0
     };
-    if (this.nextStartIndex > 300 && option === 'prev') {
-      this.nextStartIndex -= this.patientData.length;
-      loadMoreParams.offset = this.nextStartIndex;
-      this.getPatientList(loadMoreParams);
-    }
     if (option === 'next') {
       this.nextStartIndex += this.patientData.length;
       loadMoreParams.offset = this.nextStartIndex;
       this.getPatientList(loadMoreParams);
     }
     if (option === 'all') {
-      loadMoreParams.limit = 200000000000;
+      loadMoreParams.limit = 2000000000;
       this.nextStartIndex = 0;
       loadMoreParams.offset = this.nextStartIndex;
+      this.patientData = [];
       this.getPatientList(loadMoreParams);
       this.allDataLoaded = true;
     }
-
-
-    // this.cacheDefaulterListParam(loadMoreParams);
-    //   return params;
   }
   public goBack() {
-    this.route.parent.parent.params.subscribe((params) => {
-      const locationUuid = params['location_uuid'];
-      this.router.navigate(['clinic-dashboard/' + locationUuid + '/hiv/dqa-reports']);
-    });
+    this._location.back();
   }
 }

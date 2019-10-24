@@ -13,6 +13,7 @@ import { DataAnalyticsDashboardService } from 'src/app/data-analytics-dashboard/
 export class DqaReportBaseComponent implements OnInit {
   public enabledControls = 'locationControl';
   public _locationUuids: any = [];
+  public showPatientList = false;
   public get locationUuids(): Array<string> {
     return this._locationUuids;
   }
@@ -36,16 +37,15 @@ export class DqaReportBaseComponent implements OnInit {
       (data) => {
         if (data) {
           console.log(data);
-          this.router.navigate(['dqa-report-patientlist'], {
+          this.router.navigate([], {
             relativeTo: this.route,
             queryParams: {
-              // reportId: reportName.id,
               locationUuids: this.getSelectedLocations(data.locations)
             }
           });
+          this.showPatientList = true;
         }
       });
-    // const uuids = this.getSelectedLocations(this.locationUuids);
   }
   private getSelectedLocations(locationUuids: Array<any>): string {
     return locationUuids.map(location => location.value).join(',');
