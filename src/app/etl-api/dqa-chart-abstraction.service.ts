@@ -21,23 +21,32 @@ export class DqaChartAbstractionService {
   }
 
   public getDqaChartAbstractionReport(params: any): Observable<any> {
-    return of(this.testData());
-    // tslint:disable-next-line: max-line-length
-    // const requestUrl = this.url + 'dqa-report';
-    // return this.http.get(requestUrl, {
-    // }).pipe(
-    //   map((response: Response) => {
-    //     console.log('RESPONSE', response);
-    //     return response;
-    //   }), catchError((err: any) => {
-    //     console.log('Err', err);
-    //     const error: any = err;
-    //     const errorObj = {
-    //       'error': error.status,
-    //       'message': error.statusText
-    //     };
-    //     return of(errorObj);
-    //   }));
+    console.log('params', params);
+  //   if (!params.offset) {
+  //     params.offset = '1';
+  // }
+  // if (!params.limit) {
+  //     params.limit = '300';
+  // }
+    // return of(this.testData());
+    // const requestUrl = this.url + 'report?locationUuids=' + params.locationUuids + '&limit=' + params.limit + '&offset=' + params.offset;
+    // tslint:disable-next-line: comment-format
+    const sampleUrl = this.url + 'dqa-report?locationUuids=' + params.locations + '&limit=' + params.limit + '&offset=' + params.offset;
+
+    return this.http.get(sampleUrl, {
+    }).pipe(
+      map((response: Response) => {
+        console.log('RESPONSE', response);
+        return response;
+      }), catchError((err: any) => {
+        console.log('Err', err);
+        const error: any = err;
+        const errorObj = {
+          'error': error.status,
+          'message': error.statusText
+        };
+        return of(errorObj);
+      }));
   }
 
 

@@ -27,6 +27,7 @@ import { SurgeReportPatientListComponent } from 'src/app/hiv-care-lib/surge-repo
 import { DqaReportsComponent } from 'src/app/hiv-care-lib/dqa-reports/dqa-reports/dqa-reports.component';
 // tslint:disable-next-line:max-line-length
 import { ChartAbstractionPatientlistComponent } from 'src/app/hiv-care-lib/dqa-reports/chart-abstraction-patientlist/chart-abstraction-patientlist.component';
+import { DqaReportBaseComponent } from 'src/app/hiv-care-lib/dqa-reports/dqa-report-base/dqa-report-base.component';
 
 const routes: Routes = [
   {
@@ -150,12 +151,23 @@ const routes: Routes = [
     path: 'dqa',
     children: [
       {
-        path: 'dqa-report-patientlist',
-        component: ChartAbstractionPatientlistComponent
+        path: 'dqa-filter',
+        children: [
+          {
+            path: '',
+            component: DqaReportBaseComponent
+          },
+          {
+            path: 'dqa-report-patientlist',
+            component: ChartAbstractionPatientlistComponent
+          }
+
+        ]
       },
       {
         path: '',
-        component: DqaReportsComponent
+        component: DqaReportsComponent,
+        data : { multipleLocation : true }
       }
     ]
   }
