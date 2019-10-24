@@ -1,7 +1,7 @@
 <div>
   <button class="btn btn-primary" (click)="goBack()">
     <span class="glyphicon glyphicon-arrow-left"></span>
-    <span>Go back to tabular view</span>
+    <span> Back</span>
   </button>
 </div>
 <div class="loader" *ngIf="isLoading">
@@ -12,8 +12,21 @@
 </h3>
 <hr />
 <patient-list [extraColumns]="extraColumns" [overrideColumns]="overrideColumns" [data]="patientData"></patient-list>
-
 <div *ngIf='hasLoadedAll'>
+  <div *ngIf="previousButton" class="button">
+    <button class="btn btn-primary" [ladda]='isLoading' data-size="xs" data-color="green" (click)="loadMoreDQAList('prev')">
+      <span class=""></span>Previous</button>
+  </div>
+  <div class="button">
+    <button class="btn btn-primary" [ladda]='isLoading' data-size="xs" data-color="blue" (click)="loadMoreDQAList('next')">
+      <span class=""></span>Next</button>
+  </div>
+  <div class="button">
+      <button class="btn btn-primary" [ladda]='isLoading' data-size="xs" data-color="grey" (click)="loadMoreDQAList('all')">
+        <span class=""></span>Load all</button>
+    </div>
+</div>
+<div *ngIf="patientData">
   <p class="bg-info" style="padding:4px;">
     <b>
       <span style="color:green;" class="glyphicon glyphicon-ok">All records loaded {{'[ ' + patientData.length + ' ]'}}</span></b>
