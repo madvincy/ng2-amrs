@@ -31,14 +31,14 @@
   color: #999999;
 }
 .skin-black-light .main-header .navbar .sidebar-toggle {
-  color: #333333;
+  color: #58c356;
 }
 .skin-black-light .main-header .navbar .sidebar-toggle:hover {
   color: #999999;
   background: #ffffff;
 }
 .skin-black-light .main-header .navbar > .sidebar-toggle {
-  color: #333;
+  color: #58c356;
   border-right: 1px solid #eee;
 }
 .skin-black-light .main-header .navbar .navbar-nav > li > a {

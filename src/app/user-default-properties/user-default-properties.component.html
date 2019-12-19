@@ -29,7 +29,7 @@
         <div class="clear clearfix">&nbsp;</div>
       </div>
       <!-- Select department -->
-      <div class="form-group" style="margin-top: -20px;">
+      <!-- <div class="form-group" style="margin-top: -20px;">
         <label for="department">Which Patients Do You Want To See?</label><br />
         <mat-radio-group class="vertical-radio-group" [ngModel]="selectedDepartment" (ngModelChange)="selectDepartment($event)">
           <mat-radio-button class="vertical-radio-button" name="" *ngFor="let department of departments;"
@@ -38,12 +38,12 @@
           </mat-radio-button>
         </mat-radio-group>
       </div>
-      <div class="clear">&nbsp;</div>
+      <div class="clear">&nbsp;</div> -->
 
     </div>
     <!--<retrospective-data-entry-settings></retrospective-data-entry-settings>-->
     <div style="margin-top: -15px;">
-      <button [disabled]="disable || !selectedDepartment" class="btn btn-info previous"
+      <button [disabled]="disable" class="btn btn-info previous"
         (click)="goToPatientSearch()">Done
         <span class="glyphicon glyphicon-chevron-right"></span>
         <i *ngIf="isLoading" class="fa fa-spinner fa-spin fa-1x fa-fw"></i>

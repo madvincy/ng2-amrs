@@ -110,7 +110,7 @@ export class UserDefaultPropertiesComponent implements OnInit {
       if (department !== null) {
         this.selectedDepartment = department[0].itemName;
       } else {
-        this.selectedDepartment = 'HIV';
+        this.selectedDepartment = 'HEMATO-ONCOLOGY';
         setTimeout(() => {
           this.selectDepartment(this.selectedDepartment);
         }, 1000);

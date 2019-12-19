@@ -31,12 +31,6 @@
           "isSideBarOpen": false
         },
         {
-          "url": "defaulter-list",
-          "label": "Defaulter List",
-          "icon": "fa fa-list",
-          "isSideBarOpen": false
-        },
-        {
           "url": "program-enrollment",
           "label": "Program Enrollment",
           "icon": "fa fa-list-alt",
@@ -47,130 +41,6 @@
           "label": "Groups Manager",
           "icon": "fa fa-users",
           "isSideBarOpen": true
-        },
-        {
-          "url": "department-select",
-          "label": "Change Department",
-          "icon": "fa fa-exchange",
-          "isSideBarOpen": false,
-          "isDistinct": true
-        }
-      ]
-    },
-    {
-      "departmentName": "HIV",
-      "baseRoute": "hiv",
-      "alias": "hiv",
-      "routes": [
-        {
-          "url": "daily-schedule",
-          "label": "Daily Schedule",
-          "icon": "fa fa-calendar-o",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "monthly-schedule",
-          "label": "Monthly Schedule",
-          "icon": "fa fa-calendar",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "hiv-comparative-chart",
-          "label": "Clinical Visualization",
-          "icon": "fa fa-line-chart",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "patient-status-change-visualization",
-          "label": "Patient Care Status",
-          "icon": "fa fa-bar-chart",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "moh-731-report",
-          "label": "MOH 731 Reports",
-          "icon": "glyphicon glyphicon-equalizer",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "hiv-viz",
-          "label": "HIV Visualization",
-          "icon": "fa fa-line-chart",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "hiv-summary-indicator-report",
-          "label": "HIV Summary Indicators",
-          "icon": "fa fa-file-pdf-o",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "clinic-lab-orders",
-          "label": "Lab Test Orders",
-          "icon": "icon-i-pathology",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "defaulter-list",
-          "label": "Defaulter List",
-          "icon": "fa fa-list",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "program-enrollment",
-          "label": "Program Enrollment",
-          "icon": "fa fa-list-alt",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "retention-report",
-          "label": "Retention Report",
-          "icon": "fa fa-file",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "group-manager",
-          "label": "Groups Manager",
-          "icon": "fa fa-users",
-          "isSideBarOpen": true
-        },
-        {
-          "url": "patients-requiring-vl",
-          "label": "Patients Requiring VL",
-          "icon": "icon-i-laboratory",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "viremia-reports",
-          "label": "Viremia Report",
-          "icon": "fa fa-cart-plus",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "hiv-differentiated-care",
-          "label": "Differentiated Care",
-          "icon": "fa fa-th-list",
-          "isSideBarOpen": false
-        },
-
-        {
-          "url": "surge-reports",
-          "label": "Surge Reports",
-          "icon": "fa fa-area-chart",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "dqa-reports",
-          "label": "DQA Reports",
-          "icon": "fa fa-pie-chart",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "department-select",
-          "label": "Change Department",
-          "icon": "fa fa-exchange",
-          "isSideBarOpen": false,
-          "isDistinct": true
         }
       ]
     },
@@ -202,57 +72,6 @@
           "label": "Patient Referral",
           "icon": "fa fa-file-pdf-o",
           "isSideBarOpen": false
-        },
-        {
-          "url": "department-select",
-          "label": "Change Department",
-          "icon": "fa fa-exchange",
-          "isSideBarOpen": false,
-          "isDistinct": true
-        }
-      ]
-    },
-    {
-      "departmentName": "CDM",
-      "baseRoute": "cdm",
-      "alias": "cdm",
-      "routes": [
-        {
-          "url": "daily-schedule",
-          "label": "Daily Schedule",
-          "icon": "fa fa-calendar-o",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "monthly-schedule",
-          "label": "Monthly Schedule",
-          "icon": "fa fa-calendar",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "program-enrollment",
-          "label": "Program Enrollment",
-          "icon": "fa fa-list-alt",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "referral/patient-referral-report",
-          "label": "Patient Referral",
-          "icon": "fa fa-file-pdf-o",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "referral/patient-referral-report-strengths",
-          "label": "Referral tracking Patient list",
-          "icon": "fa fa-file-pdf-o",
-          "isSideBarOpen": false
-        },
-        {
-          "url": "department-select",
-          "label": "Change Department",
-          "icon": "fa fa-exchange",
-          "isSideBarOpen": false,
-          "isDistinct": true
         }
       ]
     }

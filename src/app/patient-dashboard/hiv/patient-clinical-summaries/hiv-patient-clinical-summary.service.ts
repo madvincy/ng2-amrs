@@ -15,7 +15,7 @@ export class HivPatientClinicalSummaryService {
     return Observable.create((observer: Subject<any>) => {
       const data: any = this.data;
       const patient: Patient = data.patient;
-      this._getLogo('./assets/img/ampath.png', (letterHead) => {
+      this._getLogo('./assets/img/ici.png', (letterHead) => {
         observer.next({
           pageSize: 'LETTER',
           pageMargins: 42,
