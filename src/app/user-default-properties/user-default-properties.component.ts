@@ -86,16 +86,20 @@ export class UserDefaultPropertiesComponent implements OnInit {
   }
 
   private getDepartmentsLocations() {
-    this.departmentProgramService.getDartmentProgramsConfig().pipe(take(1)).subscribe((results) => {
-      if (results) {
-        this.mapDepartments(results);
-        this.setDepartmentLocation();
-      }
-      this.currentLocation = this.propertyLocationService.getCurrentUserDefaultLocationObject();
-      if (!this.currentLocation) {
-        this.disable = true;
-      }
-    });
+    this.currentLocation = this.propertyLocationService.getCurrentUserDefaultLocationObject();
+    if (!this.currentLocation) {
+      this.disable = true;
+    }
+    // this.departmentProgramService.getDartmentProgramsConfig().pipe(take(1)).subscribe((results) => {
+    //   if (results) {
+    //     this.mapDepartments(results);
+    //     this.setDepartmentLocation();
+    //   }
+    //   this.currentLocation = this.propertyLocationService.getCurrentUserDefaultLocationObject();
+    //   if (!this.currentLocation) {
+    //     this.disable = true;
+    //   }
+    // });
   }
 
   private setDepartmentLocation() {
