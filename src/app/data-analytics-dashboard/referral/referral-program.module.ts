@@ -10,7 +10,7 @@ import { DataListsModule } from '../../shared/data-lists/data-lists.module';
 import { analyticsPatientReferralProgramRouting } from './referral-program.routes';
 import { PatientProgramService } from '../../patient-dashboard/programs/patient-programs.service';
 import { ProgramService } from '../../patient-dashboard/programs/program.service';
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { ProgramManagerModule } from '../../program-manager/program-manager.module';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { ProgramManagerModule } from '../../program-manager/program-manager.modu
     CommonModule,
     FormsModule,
     ProgramManagerModule,
-    NgamrsSharedModule
+    NgicimrsSharedModule
   ],
   exports: [],
   declarations: [],

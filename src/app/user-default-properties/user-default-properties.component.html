@@ -28,17 +28,17 @@
         </ul>
         <div class="clear clearfix">&nbsp;</div>
       </div>
-      <!-- Select department -->
-      <!-- <div class="form-group" style="margin-top: -20px;">
-        <label for="department">Which Patients Do You Want To See?</label><br />
-        <mat-radio-group class="vertical-radio-group" [ngModel]="selectedDepartment" (ngModelChange)="selectDepartment($event)">
-          <mat-radio-button class="vertical-radio-button" name="" *ngFor="let department of departments;"
-            [value]="department.itemName" color="primary">
-            {{ department?.itemName }} Patients
+      <!-- Select  service-->
+      <div class="form-group" style="margin-top: -20px;">
+        <label for="department">Which Services Do You Want To See?</label><br />
+        <mat-radio-group class="vertical-radio-group" [ngModel]="selectedService" (ngModelChange)="selectMedicalService($event)">
+          <mat-radio-button class="vertical-radio-button" name="" *ngFor="let service of medicalServices;"
+            [value]="service.itemName" color="primary">
+            {{ service?.itemName }} Patients
           </mat-radio-button>
         </mat-radio-group>
       </div>
-      <div class="clear">&nbsp;</div> -->
+      <div class="clear">&nbsp;</div>
 
     </div>
     <!--<retrospective-data-entry-settings></retrospective-data-entry-settings>-->

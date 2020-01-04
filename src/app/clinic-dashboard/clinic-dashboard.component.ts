@@ -24,6 +24,7 @@ export class ClinicDashboardComponent implements OnInit {
   public selectedLocation: any = {};
   public selectingLocation = true;
   public selectedDepartment: any;
+  public selectedServiceOffered: any;
   public showLocationFilter = true;
 
   constructor(private locationResourceService: LocationResourceService,
@@ -38,7 +39,8 @@ export class ClinicDashboardComponent implements OnInit {
   public ngOnInit() {
     this.hideShowLocationFilter();
     this.getLocations();
-    this.getUserDepartment();
+    // this.getUserDepartment();
+    this.getUserServiceOffering();
     this.router.events
     .filter(event => event instanceof NavigationEnd)
     .subscribe((event) => {
@@ -49,12 +51,22 @@ export class ClinicDashboardComponent implements OnInit {
   public getUserDepartment() {
     let department = this.localStorageService.getItem('userDefaultDepartment');
     if (department === '[""]') {
-      department = undefined;
+      department = 'HEMATO-ONCOLOGY';
     }
-    if (!department) {
+    // if (!department) {
+    //   this.router.navigate(['/user-default-properties']);
+    // }
+    this.selectedDepartment = JSON.parse(department);
+  }
+  public getUserServiceOffering() {
+    let service = this.localStorageService.getItem('userDefaultServiceOffered');
+    if (service === '[""]') {
+      service = undefined;
+    }
+    if (!service) {
       this.router.navigate(['/user-default-properties']);
     }
-    this.selectedDepartment = JSON.parse(department);
+    this.selectedServiceOffered = JSON.parse(service);
   }
 
   public hideShowLocationFilter() {

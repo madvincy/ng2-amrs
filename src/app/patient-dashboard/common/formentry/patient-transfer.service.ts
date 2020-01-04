@@ -38,7 +38,7 @@ export class PatientTransferService {
       }
 
       if (this.componentRef.formUuid === '4f8b3fc4-7262-45f7-81b0-7bed31655fcd') {
-        // patient care status in transfer out form is non-ampath
+        // patient care status in transfer out form is non-ici
         if (_.first(patientCareStatus).control.value === 'a8aaf3e2-1350-11df-a1f1-0026b9348838' ||
         _.first(patientCareStatus).control.value === '67cd2f9f-228e-417d-94c4-d77e1a6c3453') {
           // all active programs should be stopped
@@ -48,7 +48,7 @@ export class PatientTransferService {
           });
         }
 
-        // patient care status in transfer out form is ampath
+        // patient care status in transfer out form is ici
         if (_.first(patientCareStatus).control.value === 'a89c2e5c-1350-11df-a1f1-0026b9348838') {
           _.merge(queryParams, {
             change: this.selectSetDepartmentService.getUserSetDepartment(),
@@ -127,10 +127,10 @@ export class PatientTransferService {
        */
       // give some time for the hidden options to be shown
       setTimeout(() => {
-        let transferLocation = this.searchNodeByQuestionId('transfered_out_to_ampath');
-        // care status is non-ampath
+        let transferLocation = this.searchNodeByQuestionId('transfered_out_to_ici');
+        // care status is non-ici
         if (_.first(careStatus).control.value === 'a8aaf3e2-1350-11df-a1f1-0026b9348838') {
-          transferLocation = this.searchNodeByQuestionId('transfered_out_to_non_ampath');
+          transferLocation = this.searchNodeByQuestionId('transfered_out_to_non_ici');
         }
         if (transferLocation.length > 0) {
           transferLocation[0].control.setValue(localStorage.getItem('transferLocation'));
@@ -164,8 +164,8 @@ export class PatientTransferService {
     }
     if (answer.length > 0 && !_.isEmpty(_.first(answer).control.value)) {
       return _.includes([
-        'a89c2f42-1350-11df-a1f1-0026b9348838', // AMPATH
-        'a89c301e-1350-11df-a1f1-0026b9348838', // Non-AMPATH
+        'a89c2f42-1350-11df-a1f1-0026b9348838', // ICI
+        'a89c301e-1350-11df-a1f1-0026b9348838', // Non-ICI
         'a8a17d80-1350-11df-a1f1-0026b9348838' // MCH/PMTCT
       ], _.first(answer).control.value);
     }
@@ -177,7 +177,7 @@ export class PatientTransferService {
      *  Only load the transfer out form from return or initial forms only
      */
     return !_.includes([
-      '4f8b3fc4-7262-45f7-81b0-7bed31655fcd', // AMPATH POC Transfer Out Form
+      '4f8b3fc4-7262-45f7-81b0-7bed31655fcd', // ICI POC Transfer Out Form
     ], this.componentRef.formUuid);
   }
 
@@ -193,10 +193,10 @@ export class PatientTransferService {
     const careStatus = this.getPatientStatusQuestion();
     if (careStatus.length > 0) {
       localStorage.setItem('careStatus', this.mapCareStatus(_.first(careStatus).control.value));
-      let transferLocation = this.searchNodeByQuestionId('transfered_out_to_ampath');
-      // care status is non-ampath
+      let transferLocation = this.searchNodeByQuestionId('transfered_out_to_ici');
+      // care status is non-ici
       if (_.first(careStatus).control.value === 'a89c301e-1350-11df-a1f1-0026b9348838') {
-        transferLocation = this.searchNodeByQuestionId('transfered_out_to_non_ampath');
+        transferLocation = this.searchNodeByQuestionId('transfered_out_to_non_ici');
       }
       if (transferLocation.length > 0) {
         localStorage.setItem('transferLocation', _.first(transferLocation).control.value);
@@ -211,10 +211,10 @@ export class PatientTransferService {
   private mapCareStatus(key: string): string {
     // concept Uuids are not consistent hence this map. mapping return forms options to transfer out form options
     const map = {
-      'a89c2f42-1350-11df-a1f1-0026b9348838': 'a89c2e5c-1350-11df-a1f1-0026b9348838', // AMPATH
-      'a89c2e5c-1350-11df-a1f1-0026b9348838': 'a89c2e5c-1350-11df-a1f1-0026b9348838', // AMPATH map to itself in defaulter tracing form
-      'a89c301e-1350-11df-a1f1-0026b9348838': 'a8aaf3e2-1350-11df-a1f1-0026b9348838', // Non-AMPATH
-      '67cd2f9f-228e-417d-94c4-d77e1a6c3453': 'a8aaf3e2-1350-11df-a1f1-0026b9348838', // Non-AMPATH defaulter tracing form
+      'a89c2f42-1350-11df-a1f1-0026b9348838': 'a89c2e5c-1350-11df-a1f1-0026b9348838', // ICI
+      'a89c2e5c-1350-11df-a1f1-0026b9348838': 'a89c2e5c-1350-11df-a1f1-0026b9348838', // ICI map to itself in defaulter tracing form
+      'a89c301e-1350-11df-a1f1-0026b9348838': 'a8aaf3e2-1350-11df-a1f1-0026b9348838', // Non-ICI
+      '67cd2f9f-228e-417d-94c4-d77e1a6c3453': 'a8aaf3e2-1350-11df-a1f1-0026b9348838', // Non-ICI defaulter tracing form
       'a8a17d80-1350-11df-a1f1-0026b9348838': '1f09e809-8ea3-45e6-a71f-16e6a0d72390', // MCH/PMTCT
       '1f09e809-8ea3-45e6-a71f-16e6a0d72390': '1f09e809-8ea3-45e6-a71f-16e6a0d72390'  // MCH/PMTCT map to itself in defaulter tracing form
     };
@@ -222,7 +222,7 @@ export class PatientTransferService {
   }
 
   private setTransferLocation() {
-    const transferLocation = this.searchNodeByQuestionId('transfered_out_to_ampath');
+    const transferLocation = this.searchNodeByQuestionId('transfered_out_to_ici');
     if (transferLocation.length > 0) {
       localStorage.setItem('transferLocation', _.first(transferLocation).control.value);
     }

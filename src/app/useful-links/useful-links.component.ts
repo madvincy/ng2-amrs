@@ -15,23 +15,23 @@ export class UsefulLinksComponent implements OnInit {
 
   public _links = [
     {
-      url: 'https://wiki.ampath.or.ke/display/POC/Versions+Of+POC+Troubleshooting+Manual',
+      url: 'https://wiki.ici.or.ke/display/POC/Versions+Of+POC+Troubleshooting+Manual',
       title: 'POC General Troubleshooting Manual (PDF)'
     },
     {
-      url: 'https://wiki.ampath.or.ke/display/ACPS/AMPATH+Clinical+Protocols+and+SOPs',
-      title: 'AMPATH Clinical Protocols and SOPs'
+      url: 'https://wiki.ici.or.ke/display/ACPS/ICI+Clinical+Protocols+and+SOPs',
+      title: 'ICI Clinical Protocols and SOPs'
     },
     {
-      url: 'https://wiki.ampath.or.ke/display/ATG/AMPATH+TB+Guidelines+Home',
+      url: 'https://wiki.ici.or.ke/display/ATG/ICI+TB+Guidelines+Home',
       title: 'TB Guidelines '
     },
     {
-      url: 'https://wiki.ampath.or.ke/display/POC/POC+Release+Notes',
+      url: 'https://wiki.ici.or.ke/display/POC/POC+Release+Notes',
       title: 'POC Release Notes '
     },
     {
-      url: 'https://wiki.ampath.or.ke/display/POC/AMPATHPlus+Master+Facility+List+-+MFL',
+      url: 'https://wiki.ici.or.ke/display/POC/ICIPlus+Master+Facility+List+-+MFL',
       title: 'MFL Wiki'
     }
   ];

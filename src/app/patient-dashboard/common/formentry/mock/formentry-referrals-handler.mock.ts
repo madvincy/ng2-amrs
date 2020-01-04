@@ -61,8 +61,8 @@ export const testReferralInfo = {
 export const testPatient2 = new Patient({
   allIdentifiers: '880730066-3',
   commonIdentifiers: {
-    ampathMrsUId: '880730066-3',
-    amrsMrn: '',
+    iciMrsUId: '880730066-3',
+    icimrsMrn: '',
     cCC: '',
     kenyaNationalId: ''
   },
@@ -192,8 +192,8 @@ export const testPatient2 = new Patient({
 export const testPatient3 = new Patient({
   allIdentifiers: '880730066-3',
   commonIdentifiers: {
-    ampathMrsUId: '880730066-3',
-    amrsMrn: '',
+    iciMrsUId: '880730066-3',
+    icimrsMrn: '',
     cCC: '',
     kenyaNationalId: ''
   },
@@ -473,24 +473,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -512,7 +512,7 @@ export let programVisitConfigs = {
       {
         'uuid': '33d13ffb-5f0e-427e-ab80-637491fb6526',
         'name': 'Adult HIV Initial Visit ',
-        'allowedIf': 'age >= 20 && programLocation === intendedVisitLocationUuid && isFirstAMPATHHIVVisit',
+        'allowedIf': 'age >= 20 && programLocation === intendedVisitLocationUuid && isFirstICIHIVVisit',
         // tslint:disable-next-line: max-line-length
         'message': 'Patient has to be 20yrs and above, in the location he enrolled into the HIV Care and Treatment program and there must not be prior clinical encounter.',
         'encounterTypes': [
@@ -546,7 +546,7 @@ export let programVisitConfigs = {
         'uuid': '0ae56e8a-93ed-4071-82f1-0eaf3eb592ff',
         'name': 'Adult Transfer In Visit ',
         // tslint:disable-next-line: max-line-length
-        'allowedIf': 'age >= 20 && programLocation === intendedVisitLocationUuid && !isFirstAMPATHHIVVisit && previousHIVClinicallocation !== programLocation',
+        'allowedIf': 'age >= 20 && programLocation === intendedVisitLocationUuid && !isFirstICIHIVVisit && previousHIVClinicallocation !== programLocation',
         // tslint:disable-next-line: max-line-length
         'message': 'Patient has to be 20yrs and above , patient\'s program location should be equal to the last HIV clinical encounter location and should not be the first clinical encounter',
         'encounterTypes': [
@@ -575,7 +575,7 @@ export let programVisitConfigs = {
       {
         'uuid': 'd4ac2aa5-2899-42fb-b08a-d40161815b48',
         'name': 'Adult HIV Return Visit ',
-        'allowedIf': 'age >= 20 && programLocation === intendedVisitLocationUuid && !isFirstAMPATHHIVVisit',
+        'allowedIf': 'age >= 20 && programLocation === intendedVisitLocationUuid && !isFirstICIHIVVisit',
         // tslint:disable-next-line: max-line-length
         'message': 'Patient has to be 20yrs and above, in the location he enrolled into the HIV Care and Treatment program  and there must be a prior clinical encounter.',
         'encounterTypes': [
@@ -616,7 +616,7 @@ export let programVisitConfigs = {
       {
         'uuid': '18faa058-4eea-4339-a959-84b3e5cb30be',
         'name': 'Pediatric HIV Initial Visit ',
-        'allowedIf': 'age <= 14 && programLocation === intendedVisitLocationUuid && isFirstAMPATHHIVVisit',
+        'allowedIf': 'age <= 14 && programLocation === intendedVisitLocationUuid && isFirstICIHIVVisit',
         // tslint:disable-next-line: max-line-length
         'message': 'Patient has to be 14rs and below ,in the location he enrolled into the HIV Care and Treatment program and there must not be prior clinical encounter.',
         'encounterTypes': [
@@ -650,7 +650,7 @@ export let programVisitConfigs = {
         'uuid': '2e67b87c-8843-45b7-a380-3a0e8bd58e4d',
         'name': 'Pediatric Transfer In Visit ',
         // tslint:disable-next-line: max-line-length
-        'allowedIf': 'age <= 14 && programLocation === intendedVisitLocationUuid && !isFirstAMPATHHIVVisit && previousHIVClinicallocation !== programLocation',
+        'allowedIf': 'age <= 14 && programLocation === intendedVisitLocationUuid && !isFirstICIHIVVisit && previousHIVClinicallocation !== programLocation',
         'encounterTypes': [
           {
             'uuid': 'a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7',
@@ -677,7 +677,7 @@ export let programVisitConfigs = {
       {
         'uuid': 'edb7c6aa-fc69-4470-936d-3d484d3708aa',
         'name': 'Pediatric HIV Return Visit ',
-        'allowedIf': 'age <= 14 && programLocation === intendedVisitLocationUuid && !isFirstAMPATHHIVVisit',
+        'allowedIf': 'age <= 14 && programLocation === intendedVisitLocationUuid && !isFirstICIHIVVisit',
         // tslint:disable-next-line: max-line-length
         'message': 'Patient has to be 14yrs and below, in the location enrolled into the HIV Care and Treatment program and it must not be the initial clinical encounter.',
         'encounterTypes': [
@@ -710,7 +710,7 @@ export let programVisitConfigs = {
       {
         'uuid': '03f5b165-c577-4e1e-b7ae-acfc3ba18ebf',
         'name': 'Youth HIV Initial Visit ',
-        'allowedIf': 'age >= 10 && age <= 24 && programLocation === intendedVisitLocationUuid && isFirstAMPATHHIVVisit',
+        'allowedIf': 'age >= 10 && age <= 24 && programLocation === intendedVisitLocationUuid && isFirstICIHIVVisit',
         // tslint:disable-next-line: max-line-length
         'message': 'Patient has to between 10 and 24yrs , in the location he enrolled into the HIV Care and Treatment program and must not have a prior clinical encounter',
         'encounterTypes': [
@@ -744,7 +744,7 @@ export let programVisitConfigs = {
         'uuid': 'b27e13f7-7118-4c0d-b9d6-b759495991d6',
         'name': 'Youth Transfer In Visit ',
         // tslint:disable-next-line: max-line-length
-        'allowedIf': 'age >= 10 && age <= 24 && programLocation === intendedVisitLocationUuid && !isFirstAMPATHHIVVisit && previousHIVClinicallocation !== programLocation',
+        'allowedIf': 'age >= 10 && age <= 24 && programLocation === intendedVisitLocationUuid && !isFirstICIHIVVisit && previousHIVClinicallocation !== programLocation',
         // tslint:disable-next-line: max-line-length
         'message': 'Patient has to between 10 and 24yrs , in the location he enrolled into the HIV Care and Treatment program, must have a prior clinical encounter.The program location should be different from the previous encounter location',
         'encounterTypes': [
@@ -773,7 +773,7 @@ export let programVisitConfigs = {
       {
         'uuid': '824cf3e6-dd16-4767-ba41-2e04dede349e',
         'name': 'Youth HIV Return Visit ',
-        'allowedIf': 'age >= 10 && age <= 24 && programLocation === intendedVisitLocationUuid && !isFirstAMPATHHIVVisit',
+        'allowedIf': 'age >= 10 && age <= 24 && programLocation === intendedVisitLocationUuid && !isFirstICIHIVVisit',
         // tslint:disable-next-line: max-line-length
         'message': 'Patient has to between 10 and 24yrs , in the location he enrolled into the HIV Care and Treatment program and must have a prior clinical encounter',
         'encounterTypes': [
@@ -806,7 +806,7 @@ export let programVisitConfigs = {
       {
         'uuid': '43ec2bb7-ec8e-4a66-a29d-db6281399ea5',
         'name': 'Between Care Visit ',
-        'allowedIf': 'programLocation !== intendedVisitLocationUuid && !isFirstAMPATHHIVVisit',
+        'allowedIf': 'programLocation !== intendedVisitLocationUuid && !isFirstICIHIVVisit',
         // tslint:disable-next-line: max-line-length
         'message': 'Patient has to be in a different location from location he was enrolled into HIV care and treatment program and must have a prior clinical encounter',
         'encounterTypes': [
@@ -838,7 +838,7 @@ export let programVisitConfigs = {
       },
       {
         'uuid': '578a6132-4686-4190-809f-3f8f49bdd1c6',
-        'allowedIf': 'programLocation === intendedVisitLocationUuid && isFirstAMPATHHIVVisit',
+        'allowedIf': 'programLocation === intendedVisitLocationUuid && isFirstICIHIVVisit',
         'name': 'Linkage Visit',
         'encounterTypes': [
           {
@@ -1066,7 +1066,7 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
@@ -1080,7 +1080,7 @@ export let programVisitConfigs = {
         'incompatible': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ]
@@ -1304,24 +1304,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -1465,7 +1465,7 @@ export let programVisitConfigs = {
       {
         'uuid': '9ff9cf16-1f9c-4e9b-8471-de19ce1906e6',
         'message': 'Patient must have no prior clinical encounter.',
-        'allowedIf': 'age >= 0 && age <= 2 && programLocation === intendedVisitLocationUuid && isFirstAMPATHHIVVisit',
+        'allowedIf': 'age >= 0 && age <= 2 && programLocation === intendedVisitLocationUuid && isFirstICIHIVVisit',
         'name': 'Pediatric PMTCT Initial Visit',
         'encounterTypes': [
           {
@@ -1538,24 +1538,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -1630,13 +1630,13 @@ export let programVisitConfigs = {
         'enrollment': [
 
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
 
         ],
-        'nonAmpath': [
+        'nonIci': [
 
         ]
       }
@@ -1666,20 +1666,20 @@ export let programVisitConfigs = {
         'enrollment': [
 
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -1727,24 +1727,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -1856,24 +1856,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -1989,24 +1989,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -2101,24 +2101,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -2192,24 +2192,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -2307,7 +2307,7 @@ export let programVisitConfigs = {
       {
         'uuid': '380d79a7-6fb0-41bf-be3d-aa3d25da187c',
         'name': 'Standard HIV Visit for Differentiated Care ',
-        'allowedIf': 'age >= 10 && programLocation === intendedVisitLocationUuid && !isFirstAMPATHHIVVisit',
+        'allowedIf': 'age >= 10 && programLocation === intendedVisitLocationUuid && !isFirstICIHIVVisit',
         'encounterTypes': [
           {
             'uuid': 'a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7',
@@ -2384,24 +2384,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -3023,24 +3023,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -3141,24 +3141,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -3259,24 +3259,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -3453,24 +3453,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -3620,24 +3620,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -3711,24 +3711,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -3789,24 +3789,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]
@@ -3893,24 +3893,24 @@ export let programVisitConfigs = {
         'enrollment': [
           {
             'uuid': 'ae35ed69-e07c-4209-93ce-f23733aa816b',
-            'name': 'AMPATH POC Know Your Status Form v1.0',
+            'name': 'ICI POC Know Your Status Form v1.0',
             'required': false
           }
         ],
-        'intraAmpath': [
+        'intraIci': [
 
         ],
         'discharge': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ],
-        'nonAmpath': [
+        'nonIci': [
           {
             'uuid': '9765992c-6279-46cc-915b-452a73e7dab5',
-            'name': 'AMPATH POC HIV Exit Care Form v1.1',
+            'name': 'ICI POC HIV Exit Care Form v1.1',
             'required': true
           }
         ]

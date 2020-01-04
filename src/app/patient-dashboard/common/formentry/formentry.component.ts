@@ -696,7 +696,7 @@ export class FormentryComponent implements OnInit, OnDestroy {
       // Find and set a provider uuid to be used when updating orders as orderer
       this.setProviderUuid();
 
-      // prefill transferOut details in AMPATH POC Transfer Out Form (4f8b3fc4-7262-45f7-81b0-7bed31655fcd)
+      // prefill transferOut details in ICI POC Transfer Out Form (4f8b3fc4-7262-45f7-81b0-7bed31655fcd)
       if (this.formUuid === '4f8b3fc4-7262-45f7-81b0-7bed31655fcd') {
         this.patientTransferService.prefillTransferOptions();
       }

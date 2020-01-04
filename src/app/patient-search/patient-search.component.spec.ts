@@ -50,8 +50,8 @@ class MockActivatedRoute {
 const results: any = [
   {
     'commonIdentifiers': {
-      'ampathMrsUId': '',
-      'amrsMrn': '',
+      'iciMrsUId': '',
+      'icimrsMrn': '',
       'cCC': '',
       'kenyaNationalId': '00140012'
 

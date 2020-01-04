@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GroupEnrollmentSummaryComponent } from './group-enrollment-summary.component';
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { GroupManagerModule } from '../../group-manager/group-manager.module';
 import { GroupEnrollmentComponent } from './group-enrollment/group-enrollment.component';
 
@@ -12,7 +12,7 @@ import { GroupEnrollmentComponent } from './group-enrollment/group-enrollment.co
     ],
     imports: [
         CommonModule,
-        NgamrsSharedModule,
+        NgicimrsSharedModule,
         GroupManagerModule
      ],
     providers: [],

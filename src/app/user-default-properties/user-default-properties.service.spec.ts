@@ -21,7 +21,7 @@ describe('User Default Service Unit Tests', () => {
   let httpMock: HttpTestingController;
   let userSettings: UserDefaultPropertiesMockService;
   let appSettings: AppSettingsService;
-  const getUrl = 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location?v=default';
+  const getUrl = 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location?v=default';
 
   beforeEach(() => {
     TestBed.configureTestingModule({

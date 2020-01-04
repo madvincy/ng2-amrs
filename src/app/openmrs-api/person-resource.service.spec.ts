@@ -45,7 +45,7 @@ describe('Service: PersonResourceService Unit Tests', () => {
       { // Editing existing person name
         uuid: '0cfcb36e-a92f-4b71-b37e-2eedd24abe31',
         middleName: 'Test',
-        familyName2: 'Ampath Tester'
+        familyName2: 'Ici Tester'
       }],
     attributes: [
       // when creating new or updating, Api handles updates automatically

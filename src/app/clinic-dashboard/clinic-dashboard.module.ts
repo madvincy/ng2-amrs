@@ -7,7 +7,7 @@ import { ChartModule } from 'angular2-highcharts';
 import { CalendarModule } from 'angular-calendar';
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 import { MatTabsModule, MatSlideToggleModule } from '@angular/material';
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { OpenmrsApi } from '../openmrs-api/openmrs-api.module';
 import { ClinicDashboardCacheService } from './services/clinic-dashboard-cache.service';
 import { EtlApi } from '../etl-api/etl-api.module';
@@ -72,7 +72,7 @@ import { ClinicRoutesFactory
     OpenmrsApi,
     EtlApi,
     Angulartics2Module,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     ChartModule,
     CalendarModule.forRoot(),
     MatTabsModule,
@@ -91,7 +91,7 @@ import { ClinicRoutesFactory
     OpenmrsApi,
     EtlApi,
     Angulartics2Module,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     CalendarModule.forRoot(),
     AgGridModule.withComponents([]),
     NgxMyDatePickerModule.forRoot(),

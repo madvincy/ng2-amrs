@@ -14,6 +14,7 @@ import {
 } from '../../user-default-properties/user-default-properties.service';
 import { PatientProgramResourceService } from '../../etl-api/patient-program-resource.service';
 import { LocalStorageService } from '../../utils/local-storage.service';
+import { ServicesOfferedProgramsConfigService } from 'src/app/etl-api/services-offered-programs-config.service';
 
 @Component({
   selector: 'program-summary',
@@ -25,7 +26,8 @@ export class ProgramSummaryComponent extends ProgramManagerBaseComponent impleme
     public programService: ProgramService,
     public router: Router,
     public route: ActivatedRoute,
-    public departmentProgramService: DepartmentProgramsConfigService,
+    // public departmentProgramService: DepartmentProgramsConfigService,
+    public _servicesOfferedService: ServicesOfferedProgramsConfigService,
     public userDefaultPropertiesService: UserDefaultPropertiesService,
     public patientProgramResourceService: PatientProgramResourceService,
     public cdRef: ChangeDetectorRef,
@@ -34,13 +36,13 @@ export class ProgramSummaryComponent extends ProgramManagerBaseComponent impleme
       programService,
       router,
       route,
-      departmentProgramService,
+      _servicesOfferedService,
       userDefaultPropertiesService,
       patientProgramResourceService, cdRef, localStorageService);
   }
 
   public ngOnInit() {
-    this.getDepartmentConf();
+    this.getServiceOfferedConf();
     this.loadPatientProgramConfig().pipe(take(1)).subscribe((loaded) => {
       if (loaded) {
         this.mapEnrolledProgramsToDepartment();

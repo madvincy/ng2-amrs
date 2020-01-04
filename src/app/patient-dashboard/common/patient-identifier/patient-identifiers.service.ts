@@ -41,8 +41,8 @@ export class PatientIdentifierService {
   public commonIdentifierTypes() {
     return [
       'KENYAN NATIONAL ID NUMBER',
-      'AMRS Medical Record Number',
-      'AMRS Universal ID',
+      'ICIMRS Medical Record Number',
+      'ICIMRS Universal ID',
       'CCC Number',
       'MTRH Hospital Number',
       'HEI',
@@ -58,11 +58,11 @@ export class PatientIdentifierService {
         val: '58a47054-1359-11df-a1f1-0026b9348838'
       },
       {
-        label: 'AMRS Medical Record Number', format: null, checkdigit: 1,
+        label: 'ICIMRS Medical Record Number', format: null, checkdigit: 1,
         val: '58a46e2e-1359-11df-a1f1-0026b9348838'
       },
       {
-        label: 'AMRS Universal ID', format: null, checkdigit: 1,
+        label: 'ICIMRS Universal ID', format: null, checkdigit: 1,
         val: '58a4732e-1359-11df-a1f1-0026b9348838'
       },
       {

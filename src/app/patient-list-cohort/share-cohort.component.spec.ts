@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 import { ConfirmDialogModule, DialogModule } from 'primeng/primeng';
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { CohortListService } from './cohort-list.service';
 import { UserService } from '../openmrs-api/user.service';
 import { CohortResourceService } from '../openmrs-api/cohort-resource.service';
@@ -69,7 +69,7 @@ describe('ShareCohortListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [NgamrsSharedModule, ConfirmDialogModule, DialogModule, CommonModule,
+      imports: [NgicimrsSharedModule, ConfirmDialogModule, DialogModule, CommonModule,
         FormsModule, NgxPaginationModule, HttpClientTestingModule, BrowserAnimationsModule,
         RouterTestingModule.withRoutes([
           { path: 'add-cohort-list', component: DummyComponent }

@@ -71,16 +71,16 @@ describe('Form Order Metadata Service', () => {
     describe('get form order metadata', () => {
         const forms = [
             {
-                'name': 'Ampath POC Triage Encounter Form'
+                'name': 'Ici POC Triage Encounter Form'
             },
             {
-                'name': 'AMPATH POC Adult Return Visit Form'
+                'name': 'ICI POC Adult Return Visit Form'
             },
             {
-                'name': 'AMPATH POC Resistance Clinic Encounter Form'
+                'name': 'ICI POC Resistance Clinic Encounter Form'
             },
             {
-                'name': 'AMPATH POC Pediatric Return Visit Form'
+                'name': 'ICI POC Pediatric Return Visit Form'
             }];
         it('should call the right endpoint', () => {
 

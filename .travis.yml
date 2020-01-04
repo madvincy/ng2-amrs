@@ -19,7 +19,7 @@ addons:
     - sshpass
     - google-chrome-stable
 after_success:
-- mv dist/ngx-amrs $TRAVIS_BRANCH
+- mv dist/ngx-icimrs $TRAVIS_BRANCH
 - tar -czf build.tgz $TRAVIS_BRANCH
 - export SSHPASS=$DEPLOY_PASS
 - sshpass -e scp -o stricthostkeychecking=no build.tgz $DEPLOY_USER@$DEPLOY_HOST:./

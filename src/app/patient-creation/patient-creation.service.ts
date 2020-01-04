@@ -96,8 +96,8 @@ export class PatientCreationService {
     public commonIdentifierTypes() {
         return [
             'KENYAN NATIONAL ID NUMBER',
-            'AMRS Universal ID',
-            'AMRS Medical Record Number',
+            'ICIMRS Universal ID',
+            'ICIMRS Medical Record Number',
             'CCC Number'
         ];
     }
@@ -115,15 +115,15 @@ export class PatientCreationService {
     private identifierTypeFormat() {
         return [
             {
-                label: 'AMRS Medical Record Number', format: null, checkdigit: 1,
+                label: 'ICIMRS Medical Record Number', format: null, checkdigit: 1,
                 val: '58a46e2e-1359-11df-a1f1-0026b9348838'
             },
             {
-                label: 'AMRS Medical Record1', format: null, checkdigit: 1,
+                label: 'ICIMRS Medical Record1', format: null, checkdigit: 1,
                 val: 'df6840a6-47e9-4f7a-9112-0ca6fd783941'
             },
             {
-                label: 'AMRS Universal ID', format: null, checkdigit: 1,
+                label: 'ICIMRS Universal ID', format: null, checkdigit: 1,
                 val: '58a4732e-1359-11df-a1f1-0026b9348838'
             },
             {
@@ -131,7 +131,7 @@ export class PatientCreationService {
                 val: 'f2d6ff1a-8440-4d35-a150-1d4b5a930c5e'
             },
             {
-                label: 'AMPATH Staff PF Number', format: '^AM-\\d{4,5}$', checkdigit: null,
+                label: 'ICI Staff PF Number', format: '^AM-\\d{4,5}$', checkdigit: null,
                 val: 'c700c468-57b4-45c5-8912-318770c8856d'
             },
             {

@@ -4,7 +4,7 @@ import { DateTimePickerModule } from 'ngx-openmrs-formentry';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 
 import { GenderSelectComponent } from './gender-selector.component';
-import { NgamrsSharedModule } from 'src/app/shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from 'src/app/shared/ngicimrs-shared.module';
 
 
 describe('Gender-selector component Tests', () => {
@@ -15,7 +15,7 @@ describe('Gender-selector component Tests', () => {
         TestBed.configureTestingModule({
             imports: [DateTimePickerModule,
                 NgxMyDatePickerModule.forRoot(),
-                NgamrsSharedModule
+                NgicimrsSharedModule
             ],
             declarations: [GenderSelectComponent]
         }).compileComponents();

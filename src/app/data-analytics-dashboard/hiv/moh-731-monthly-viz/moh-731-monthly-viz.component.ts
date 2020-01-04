@@ -18,6 +18,6 @@ export class Moh731MonthlyVizComponent extends KibanaVizComponent {
         super(route, location, router);
         this.height = '1680';
         // tslint:disable-next-line:max-line-length
-        this.kibanaVizUrl = 'https://ngx.ampath.or.ke/app/kibana#/dashboard/489e2c50-9509-11e8-a012-810dc09c435e?embed=true&_g=()';
+        this.kibanaVizUrl = 'https://mrs.intercancer.com/app/kibana#/dashboard/489e2c50-9509-11e8-a012-810dc09c435e?embed=true&_g=()';
     }
 }

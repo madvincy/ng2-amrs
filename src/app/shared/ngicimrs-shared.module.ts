@@ -146,11 +146,11 @@ import { KibanaVizComponent } from './kibana-viz/kibana-viz.component';
     }
   ],
 })
-export class NgamrsSharedModule {
+export class NgicimrsSharedModule {
 
   public static forRoot(): ModuleWithProviders {
     return {
-      ngModule: NgamrsSharedModule,
+      ngModule: NgicimrsSharedModule,
       providers: [AuthenticationService, SessionService,
         SessionStorageService, UserDefaultPropertiesService]
     };

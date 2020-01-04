@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 import { Moh731PatientListComponent } from './moh-731-patientlist.component';
 import { DataListsModule } from '../../shared/data-lists/data-lists.module';
 import { AgGridModule } from 'ag-grid-angular';
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { Moh731ReportBaseComponent } from './moh-731-report-base.component';
 import {
   DateTimePickerModule
@@ -71,7 +71,7 @@ describe('Component: Moh731PatientListComponent', () => {
         Moh731PatientListComponent
       ],
       imports: [
-        NgamrsSharedModule,
+        NgicimrsSharedModule,
         CommonModule,
         EtlApi,
         AgGridModule,

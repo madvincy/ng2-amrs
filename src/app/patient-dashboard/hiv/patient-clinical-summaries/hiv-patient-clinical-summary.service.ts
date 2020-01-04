@@ -46,7 +46,7 @@ export class HivPatientClinicalSummaryService {
               },
 
               {
-                text: 'Ampath Clinical Summary',
+                text: 'Ici Clinical Summary',
                 style: 'mainHeader',
                 alignment: 'center'
               }, {
@@ -243,11 +243,11 @@ export class HivPatientClinicalSummaryService {
 
             columns: [{
               columns: [{
-                text: 'AMRS UID:',
+                text: 'ICIMRS UID:',
                 width: 43,
                 bold: true,
               }, {
-                text: patient.commonIdentifiers.ampathMrsUId || 'N/A',
+                text: patient.commonIdentifiers.iciMrsUId || 'N/A',
                 width: '*',
                 alignment: 'left',
                 color: '#2a2a2a',
@@ -255,11 +255,11 @@ export class HivPatientClinicalSummaryService {
 
             }, {
               columns: [{
-                text: 'AMRS MRN:',
+                text: 'ICIMRS MRN:',
                 width: 47,
                 bold: true,
               }, {
-                text: patient.commonIdentifiers.amrsMrn || 'N/A',
+                text: patient.commonIdentifiers.icimrsMrn || 'N/A',
                 width: '*',
                 alignment: 'left',
                 color: '#2a2a2a',

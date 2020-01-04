@@ -10,7 +10,7 @@ import {
   PatientCreationResourceService
 } from '../openmrs-api/patient-creation-resource.service';
 import { Patient } from '../models/patient.model';
-import { httpClient } from '../shared/ngamrs- .module';
+import { httpClient } from '../shared/ngicimrs- .module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('Service: PatientCreation', () => {

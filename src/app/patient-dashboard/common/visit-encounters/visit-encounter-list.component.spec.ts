@@ -93,7 +93,7 @@ const mockEncounterResponse = [{
         'links': [
           {
             'rel': 'self',
-            'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/user/uuid'
+            'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/user/uuid'
           }
         ]
       },
@@ -117,7 +117,7 @@ const mockEncounterResponse = [{
     'display': 'Location-1',
     'links': [{
       'rel': 'self',
-      'uri': 'https://amrs.ampath.or.ke:8443/amrs/uuid'
+      'uri': 'https://icimrs.ici.or.ke:8443/icimrs/uuid'
     }]
   },
   'encounterType': {
@@ -196,7 +196,7 @@ const visitEncounterGrouping = [{
             'links': [
               {
                 'rel': 'self',
-                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/user/uuid'
+                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/user/uuid'
               }
             ]
           },
@@ -220,7 +220,7 @@ const visitEncounterGrouping = [{
         'display': 'Location-1',
         'links': [{
           'rel': 'self',
-          'uri': 'https://amrs.ampath.or.ke:8443/amrs/uuid'
+          'uri': 'https://icimrs.ici.or.ke:8443/icimrs/uuid'
         }
         ]
       },

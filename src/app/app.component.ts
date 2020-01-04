@@ -12,7 +12,7 @@ export const AgGridLicence: any = undefined;
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  public title = 'Ampath POC';
+  public title = 'Ici POC';
   private routes: any[];
   constructor(public appState: AppState,
     public dataCache: DataCacheService,

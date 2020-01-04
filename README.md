@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/AMPATH/ng2-amrs.svg?branch=master)](https://travis-ci.org/AMPATH/ng2-amrs)
+[![Build Status](https://travis-ci.org/ICI/ng2-icimrs.svg?branch=master)](https://travis-ci.org/ICI/ng2-icimrs)
 
-# Ng2Amrs
+# Ng2Icimrs
 
-This is the point of care system used by Ampath Clinics. It should be compatible with most openmrs versions but it is tested against platform 2.0.2 with the REST module. It also requires https://github.com/AMPATH/etl-rest-server for all features to work properly.
+This is the point of care system used by Ici Clinics. It should be compatible with most openmrs versions but it is tested against platform 2.0.2 with the REST module. It also requires https://github.com/ICI/etl-rest-server for all features to work properly.
 
 ## Development server
 

@@ -10,7 +10,7 @@
       {
         "uuid": "33d13ffb-5f0e-427e-ab80-637491fb6526",
         "name": "Adult HIV Initial Visit ",
-        "allowedIf": "age >= 20 && programLocation === intendedVisitLocationUuid && isFirstAMPATHHIVVisit",
+        "allowedIf": "age >= 20 && programLocation === intendedVisitLocationUuid && isFirstICIHIVVisit",
         "encounterTypes": [
           {
             "uuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7",
@@ -29,7 +29,7 @@
       {
         "uuid": "0ae56e8a-93ed-4071-82f1-0eaf3eb592ff",
         "name": "Adult Transfer In Visit ",
-        "allowedIf": "age >= 20 && programLocation === intendedVisitLocationUuid && !isFirstAMPATHHIVVisit && previousHIVClinicallocation !== programLocation",
+        "allowedIf": "age >= 20 && programLocation === intendedVisitLocationUuid && !isFirstICIHIVVisit && previousHIVClinicallocation !== programLocation",
         "encounterTypes": [
           {
             "uuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7",
@@ -44,7 +44,7 @@
       {
         "uuid": "d4ac2aa5-2899-42fb-b08a-d40161815b48",
         "name": "Adult HIV Return Visit ",
-        "allowedIf": "age >= 20 && programLocation === intendedVisitLocationUuid && !isFirstAMPATHHIVVisit",
+        "allowedIf": "age >= 20 && programLocation === intendedVisitLocationUuid && !isFirstICIHIVVisit",
         "encounterTypes": [
           {
             "uuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7",
@@ -63,7 +63,7 @@
       {
         "uuid": "18faa058-4eea-4339-a959-84b3e5cb30be",
         "name": "Pediatric HIV Initial Visit ",
-        "allowedIf": "age <= 14 && programLocation === intendedVisitLocationUuid && isFirstAMPATHHIVVisit",
+        "allowedIf": "age <= 14 && programLocation === intendedVisitLocationUuid && isFirstICIHIVVisit",
         "encounterTypes": [
           {
             "uuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7",
@@ -82,7 +82,7 @@
       {
         "uuid": "2e67b87c-8843-45b7-a380-3a0e8bd58e4d",
         "name": "Pediatric Transfer In Visit ",
-        "allowedIf": "age <= 14 && programLocation === intendedVisitLocationUuid && !isFirstAMPATHHIVVisit && previousHIVClinicallocation !== programLocation",
+        "allowedIf": "age <= 14 && programLocation === intendedVisitLocationUuid && !isFirstICIHIVVisit && previousHIVClinicallocation !== programLocation",
         "encounterTypes": [
           {
             "uuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7",
@@ -101,7 +101,7 @@
       {
         "uuid": "edb7c6aa-fc69-4470-936d-3d484d3708aa",
         "name": "Pediatric HIV Return Visit ",
-        "allowedIf": "age <= 14 && programLocation === intendedVisitLocationUuid && !isFirstAMPATHHIVVisit",
+        "allowedIf": "age <= 14 && programLocation === intendedVisitLocationUuid && !isFirstICIHIVVisit",
         "encounterTypes": [
           {
             "uuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7",
@@ -120,7 +120,7 @@
       {
         "uuid": "03f5b165-c577-4e1e-b7ae-acfc3ba18ebf",
         "name": "Youth HIV Initial Visit ",
-        "allowedIf": "age >= 10 && age <= 20 && programLocation === intendedVisitLocationUuid && isFirstAMPATHHIVVisit",
+        "allowedIf": "age >= 10 && age <= 20 && programLocation === intendedVisitLocationUuid && isFirstICIHIVVisit",
         "encounterTypes": [
           {
             "uuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7",
@@ -139,7 +139,7 @@
       {
         "uuid": "b27e13f7-7118-4c0d-b9d6-b759495991d6",
         "name": "Youth Transfer In Visit ",
-        "allowedIf": "age >= 10 && age <= 20 && programLocation === intendedVisitLocationUuid && !isFirstAMPATHHIVVisit && previousHIVClinicallocation !== programLocation",
+        "allowedIf": "age >= 10 && age <= 20 && programLocation === intendedVisitLocationUuid && !isFirstICIHIVVisit && previousHIVClinicallocation !== programLocation",
         "encounterTypes": [
           {
             "uuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7",
@@ -158,7 +158,7 @@
       {
         "uuid": "824cf3e6-dd16-4767-ba41-2e04dede349e",
         "name": "Youth HIV Return Visit ",
-        "allowedIf": "age >= 10 && age <= 20 && programLocation === intendedVisitLocationUuid && !isFirstAMPATHHIVVisit",
+        "allowedIf": "age >= 10 && age <= 20 && programLocation === intendedVisitLocationUuid && !isFirstICIHIVVisit",
         "encounterTypes": [
           {
             "uuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7",
@@ -195,7 +195,7 @@
       {
         "uuid": "43ec2bb7-ec8e-4a66-a29d-db6281399ea5",
         "name": "Between Care Visit ",
-        "allowedIf": "programLocation !== intendedVisitLocationUuid && !isFirstAMPATHHIVVisit",
+        "allowedIf": "programLocation !== intendedVisitLocationUuid && !isFirstICIHIVVisit",
         "encounterTypes": [
           {
             "uuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7",

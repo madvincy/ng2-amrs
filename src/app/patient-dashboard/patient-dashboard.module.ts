@@ -21,7 +21,7 @@ import { PatientDashboardCommonModule } from './common/patient-dashboard.common.
 import { PatientDashboardHivModule } from './hiv/patient-dashboard-hiv.module';
 import { PatientSearchModule } from '../patient-search/patient-search.module';
 import { PatientProgramService } from './programs/patient-programs.service';
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { PatientDashboardCdmModule } from './cdm/patient-dashboard-cdm.module';
 import { PatientDashboardOncologyModule } from './oncology/patient-dashboard-oncology.module';
 import {
@@ -51,7 +51,7 @@ import { PatientRegistrationModule } from '../patient-creation/patient-creation.
     TabViewModule,
     PanelModule,
     LabOrderSearchModule,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     NgSelectModule,
     PatientDashboardCdmModule,
     PatientDashboardOncologyModule,

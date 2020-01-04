@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GroupEnrollmentComponent } from './group-enrollment.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { NgamrsSharedModule } from 'src/app/shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from 'src/app/shared/ngicimrs-shared.module';
 
 describe('GroupEnrollmentComponent', () => {
   let component: GroupEnrollmentComponent;
@@ -12,7 +12,7 @@ describe('GroupEnrollmentComponent', () => {
     TestBed.configureTestingModule({
       providers: [
         HttpClientTestingModule,
-        NgamrsSharedModule
+        NgicimrsSharedModule
       ],
       declarations: [GroupEnrollmentComponent]
     })

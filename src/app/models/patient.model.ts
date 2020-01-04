@@ -88,11 +88,11 @@ export class Patient extends BaseModel {
       let filteredIdentifiers: any;
       const identifier = this._identifier;
       const kenyaNationalId = this.getIdentifierByType(identifier, 'KENYAN NATIONAL ID NUMBER');
-      const amrsMrn = this.getIdentifierByType(identifier, 'AMRS Medical Record Number');
-      const ampathMrsUId = this.getIdentifierByType(identifier, 'AMRS Universal ID');
+      const icimrsMrn = this.getIdentifierByType(identifier, 'ICIMRS Medical Record Number');
+      const iciMrsUId = this.getIdentifierByType(identifier, 'ICIMRS Universal ID');
       const cCC = this.getIdentifierByType(identifier, 'CCC Number');
-      if ((kenyaNationalId) === undefined && (amrsMrn) === undefined &&
-        (ampathMrsUId) === undefined && (cCC) === undefined) {
+      if ((kenyaNationalId) === undefined && (icimrsMrn) === undefined &&
+        (iciMrsUId) === undefined && (cCC) === undefined) {
         if ((this._identifier[0].identifier)) {
           filteredIdentifiers = {'default': this._identifier[0].identifier};
         } else {
@@ -101,8 +101,8 @@ export class Patient extends BaseModel {
       } else {
         filteredIdentifiers = {
           'kenyaNationalId': kenyaNationalId,
-          'amrsMrn': amrsMrn,
-          'ampathMrsUId': ampathMrsUId,
+          'icimrsMrn': icimrsMrn,
+          'iciMrsUId': iciMrsUId,
           'cCC': cCC
         };
       }
@@ -122,12 +122,12 @@ export class Patient extends BaseModel {
       const identifiers = this._identifier;
 
       const kenyaNationalId = this.getAllIdentifiersByType(identifiers, 'KENYAN NATIONAL ID NUMBER');
-      const amrsMrn = this.getAllIdentifiersByType(identifiers, 'AMRS Medical Record Number');
-      const ampathMrsUId = this.getAllIdentifiersByType(identifiers, 'AMRS Universal ID');
+      const icimrsMrn = this.getAllIdentifiersByType(identifiers, 'ICIMRS Medical Record Number');
+      const iciMrsUId = this.getAllIdentifiersByType(identifiers, 'ICIMRS Universal ID');
       const cCC = this.getAllIdentifiersByType(identifiers, 'CCC Number');
 
-      if ((kenyaNationalId) === undefined && (amrsMrn) === undefined &&
-        (ampathMrsUId) === undefined && (cCC) === undefined) {
+      if ((kenyaNationalId) === undefined && (icimrsMrn) === undefined &&
+        (iciMrsUId) === undefined && (cCC) === undefined) {
         if ((this._identifier[0].identifier)) {
           filteredIdentifiers = {'default': this._identifier[0].identifier};
         } else {
@@ -136,8 +136,8 @@ export class Patient extends BaseModel {
       } else {
         filteredIdentifiers = {
           'kenyaNationalId': this._fromArrayToCommaSeparatedString(kenyaNationalId),
-          'amrsMrn': this._fromArrayToCommaSeparatedString(amrsMrn),
-          'ampathMrsUId': this._fromArrayToCommaSeparatedString(ampathMrsUId),
+          'icimrsMrn': this._fromArrayToCommaSeparatedString(icimrsMrn),
+          'iciMrsUId': this._fromArrayToCommaSeparatedString(iciMrsUId),
           'cCC': this._fromArrayToCommaSeparatedString(cCC)
         };
       }

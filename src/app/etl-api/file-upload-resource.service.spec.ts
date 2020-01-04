@@ -4,7 +4,7 @@ import { FileUploadResourceService } from './file-upload-resource.service';
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 class MockAppsettings {
     getEtlRestbaseurl() {
-        return 'etl.ampath.or.ke';
+        return 'etl.ici.or.ke';
     }
 }
 describe('FileUploadResourceService', () => {

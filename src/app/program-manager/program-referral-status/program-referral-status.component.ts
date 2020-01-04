@@ -4,11 +4,12 @@ import * as _ from 'lodash';
 import { BehaviorSubject, Observable, forkJoin } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-import { DepartmentProgramsConfigService } from '../../etl-api/department-programs-config.service';
+// import { DepartmentProgramsConfigService } from '../../etl-api/department-programs-config.service';
 import { LocalStorageService } from '../../utils/local-storage.service';
 import { LocationResourceService } from '../../openmrs-api/location-resource.service';
 import { PatientReferralService } from '../../program-manager/patient-referral.service';
 import { ProgramResourceService } from '../../openmrs-api/program-resource.service';
+import { ServicesOfferedProgramsConfigService } from 'src/app/etl-api/services-offered-programs-config.service';
 
 @Component({
   selector: 'program-referral-status',
@@ -16,7 +17,8 @@ import { ProgramResourceService } from '../../openmrs-api/program-resource.servi
   styleUrls: []
 })
 export class ProgramReferralStatusComponent implements OnInit {
-  public department: string;
+  // public department: string;
+  public medicalService: string;
   public referralLocation: string;
   public selectedProgram: string;
   public isValidReferral = true;
@@ -36,7 +38,8 @@ export class ProgramReferralStatusComponent implements OnInit {
   }
 
   constructor(
-    private departmentProgramService: DepartmentProgramsConfigService,
+    // private departmentProgramService: DepartmentProgramsConfigService,
+    public _servicesOfferedService: ServicesOfferedProgramsConfigService,
     private localStorageService: LocalStorageService,
     private locationResourceService: LocationResourceService,
     private patientReferralService: PatientReferralService,
@@ -162,7 +165,7 @@ export class ProgramReferralStatusComponent implements OnInit {
 
   private saveReferralData(): void {
     if (this.status.selectedProgram) {
-      this.departmentProgramService.getDartmentProgramsConfig()
+      this._servicesOfferedService.getserviceOfferedProgramsConfig()
         .subscribe(results => {
           if (results) {
             this.saveProgramAndDepartment(results);
@@ -183,9 +186,9 @@ export class ProgramReferralStatusComponent implements OnInit {
       });
       if (departmentProgram) {
         const currentPmData = this.localStorageService.getObject('pm-data') || {};
-        this.department = config.name;
+        this.medicalService = config.name;
         this.localStorageService.setObject('pm-data', _.merge(currentPmData, {
-          department: config.name
+          medicalService: config.name
         }, this.status));
       }
     });

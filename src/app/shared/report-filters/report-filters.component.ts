@@ -16,8 +16,11 @@ import { ProgramResourceService } from '../../openmrs-api/program-resource.servi
 import { ProgramWorkFlowResourceService } from '../../openmrs-api/program-workflow-resource.service';
 declare var jQuery;
 require('ion-rangeslider');
+import { from } from 'rxjs';
 import { DepartmentProgramsConfigService } from '../../etl-api/department-programs-config.service';
+import { ServicesOfferedProgramsConfigService } from '../../etl-api/services-offered-programs-config.service';
 import { SelectDepartmentService } from './../services/select-department.service';
+import { SelectServiceOfferedService } from './../services/select-service-offered.service';
 
 @Component({
   selector: 'report-filters',
@@ -115,16 +118,19 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
   private _gender: Array<any> = [];
   private _programs: Array<any> = [];
   private _surgeWeeks: any;
-  private _currentDepartment = '';
+  // private _currentDepartment = '';
+  private _currentService = '';
   constructor(private indicatorResourceService: IndicatorResourceService,
-              private dataAnalyticsDashboardService: DataAnalyticsDashboardService,
-              private programResourceService: ProgramResourceService,
-              private programWorkFlowResourceService: ProgramWorkFlowResourceService,
-              private _departmentProgramService: DepartmentProgramsConfigService,
-              private _selectDepartmentService: SelectDepartmentService,
-              private elementRef: ElementRef,
-              private cd: ChangeDetectorRef) {
-}
+    private dataAnalyticsDashboardService: DataAnalyticsDashboardService,
+    private programResourceService: ProgramResourceService,
+    private programWorkFlowResourceService: ProgramWorkFlowResourceService,
+    // private _departmentProgramService: DepartmentProgramsConfigService,
+    // private _selectDepartmentService: SelectDepartmentService,
+    private _serviceOfferedProgramsService: ServicesOfferedProgramsConfigService,
+    private _selectServiceOfferedService: SelectServiceOfferedService,
+    private elementRef: ElementRef,
+    private cd: ChangeDetectorRef) {
+  }
   public get startDate(): Date {
     return this._startDate;
   }
@@ -135,8 +141,8 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
   }
 
   // tslint:disable:no-shadowed-variable
-  public onChange = (_) => {};
-  public onTouched = () => {};
+  public onChange = (_) => { };
+  public onTouched = () => { };
 
   @Input()
   public set endDate(v: Date) {
@@ -235,17 +241,17 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
       this.getIndicators();
     }
     if (this.isEnabled('programsControl')) {
-      this.getCurrentDepartment();
+      this.getCurrentService();
     }
   }
-  public getCurrentDepartment() {
-    const department = this._selectDepartmentService.getUserSetDepartment();
-    this._currentDepartment = department;
-    this.getDepartmentPrograms(department);
+  public getCurrentService() {
+    const service = this._selectServiceOfferedService.getUserSetServiceOffered();
+    this._currentService = service;
+    this.getSelectedServicePrograms(service);
   }
-  public getDepartmentPrograms(department) {
-    this._departmentProgramService
-      .getDepartmentPrograms(department)
+  public getSelectedServicePrograms(service) {
+    this._serviceOfferedProgramsService
+      .getServicePrograms(service)
       .pipe(take(1))
       .subscribe(results => {
         if (results) {
@@ -255,32 +261,49 @@ export class ReportFiltersComponent implements OnInit, ControlValueAccessor, Aft
         }
       });
   }
+  // public getCurrentDepartment() {
+  //   const department = this._selectDepartmentService.getUserSetDepartment();
+  //   this._currentDepartment = department;
+  //   this.getDepartmentPrograms(department);
+  // }
+  // public getDepartmentPrograms(department) {
+  //   this._departmentProgramService
+  //     .getDepartmentPrograms(department)
+  //     .pipe(take(1))
+  //     .subscribe(results => {
+  //       if (results) {
+  //         this.programOptions = _.map(results, result => {
+  //           return { value: result.uuid, label: result.name };
+  //         });
+  //       }
+  //     });
+  // }
   public getCachedLocations() {
     if (this._report === 'hiv-summary-report') {
       this.dataAnalyticsDashboardService.getSelectedIndicatorLocations().pipe(take(1)).subscribe(
-        (data)  => {
+        (data) => {
           if (data) {
             this.locations = data.locations;
           }
         });
     } else if (this._report === 'hiv-summary-monthly-report' ||
-    this._report === 'oncology-summary-monthly-report') {
+      this._report === 'oncology-summary-monthly-report') {
       this.dataAnalyticsDashboardService.getSelectedMonthlyIndicatorLocations().pipe(take(1)).subscribe(
-        (data)  => {
+        (data) => {
           if (data) {
             this.locations = data.locations;
           }
         });
     } else {
       this.dataAnalyticsDashboardService.getSelectedLocations().pipe(take(1)).subscribe(
-        (data)  => {
+        (data) => {
           if (data) {
             this.locations = data.locations;
           }
         });
     }
 
-}
+  }
 
   public onIndicatorSelected(indicator) {
     this.selectedIndicators = indicator;

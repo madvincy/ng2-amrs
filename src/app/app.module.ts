@@ -10,7 +10,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { LoginGuard } from './shared/guards/login.guard';
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2Piwik } from 'angulartics2/piwik';
-import { NgamrsSharedModule } from './shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from './shared/ngicimrs-shared.module';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -74,7 +74,7 @@ interface StoreType {
     CommonModule,
     CookieModule.forRoot(),
     ModalModule.forRoot(),
-    NgamrsSharedModule.forRoot(),
+    NgicimrsSharedModule.forRoot(),
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES, { paramsInheritanceStrategy: 'always', useHash: true, enableTracing: false }),

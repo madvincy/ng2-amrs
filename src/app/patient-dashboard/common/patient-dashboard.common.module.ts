@@ -18,7 +18,7 @@ import { NgxFileUploaderModule } from 'ngx-file-uploader';
 import { DateTimePickerModule } from 'ngx-openmrs-formentry';
 
 
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { EtlApi } from '../../etl-api/etl-api.module';
 import { PatientInfoComponent } from './patient-info/patient-info.component';
 import {
@@ -188,7 +188,7 @@ import { EditDrugComponent } from './drug-orders/edit-drug/edit-drug.component';
     MatListModule,
     MatToolbarModule,
     CalendarModule,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     Ng2Bs3ModalModule,
     OpenmrsApi,
     UtilsModule,

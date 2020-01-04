@@ -147,8 +147,8 @@ public ngOnInit() {
     const order = this.order;
     const obs = order.encounter.obs;
     const locationUuid = order.encounter.location.uuid;
-    const patientIdentifier = this.searchIdentifiers.ampathMrsUId ?
-      this.searchIdentifiers.ampathMrsUId : this.searchIdentifiers.default;
+    const patientIdentifier = this.searchIdentifiers.iciMrsUId ?
+      this.searchIdentifiers.iciMrsUId : this.searchIdentifiers.default;
     const patientName = this.person.display;
     const dateReceived = this.dateReceived ? this.dateReceived : new Date();
 
@@ -334,6 +334,6 @@ public ngOnInit() {
   }
 
   private setDefaultLocation() {
-    this.selectedLabLocation = 'ampath';
+    this.selectedLabLocation = 'ici';
   }
 }

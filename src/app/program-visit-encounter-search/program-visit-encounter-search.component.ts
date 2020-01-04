@@ -214,24 +214,24 @@ public setFiltersFromUrlParams(params, mapObj) {
     public hideFilter() {
         this.showFilters = false;
     }
-    public getCurrentDepartment() {
+    // public getCurrentDepartment() {
 
-      this.selectDepartmentService.getDepartment().subscribe((d) => {
-        this.myDepartment = d;
-        this.getDepartmentPrograms(d);
-      });
+    //   this.selectDepartmentService.getDepartment().subscribe((d) => {
+    //     this.myDepartment = d;
+    //     this.getDepartmentPrograms(d);
+    //   });
 
-    }
-    public getDepartmentPrograms(department) {
+    // }
+    // public getDepartmentPrograms(department) {
 
-        this._departmentProgramService.getDepartmentPrograms(department).pipe(
-        take(1))
-        .subscribe((result) => {
-            this.departmentPrograms = result;
-            this.loadProgramFilter(result);
-        });
+    //     this._departmentProgramService.getDepartmentPrograms(department).pipe(
+    //     take(1))
+    //     .subscribe((result) => {
+    //         this.departmentPrograms = result;
+    //         this.loadProgramFilter(result);
+    //     });
 
-    }
+    // }
     public getProgramVisitsConfig() {
       return new Promise((resolve, reject) => {
 
@@ -240,7 +240,7 @@ public setFiltersFromUrlParams(params, mapObj) {
         .subscribe((response) => {
           if (response) {
             this.programVisitsConfig = JSON.parse(JSON.stringify(response));
-            this.getCurrentDepartment();
+            // this.getCurrentDepartment();
             this.setProgramVisitEncounterMaps();
             resolve('success');
           }

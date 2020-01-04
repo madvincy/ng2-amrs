@@ -3,8 +3,8 @@ import { LocalStorageService } from '../utils/local-storage.service';
 
 @Injectable()
 export class AppSettingsService {
-  public static readonly DEFAULT_OPENMRS_SERVER_URL = 'https://ngx.ampath.or.ke/amrs';
-  public static readonly DEFAULT_ETL_SERVER_URL = 'https://ngx.ampath.or.ke/etl-latest/etl';
+  public static readonly DEFAULT_OPENMRS_SERVER_URL = 'https://ngx.iciMPA.or.ke/icimrs';
+  public static readonly DEFAULT_ETL_SERVER_URL = 'https://mrs.intercancer.com/etl-latest/etl';
   public static readonly OPENMRS_LIST_STORAGE_KEY = 'appSettings.openmrsServersList';
   public static readonly ETL_LIST_STORAGE_KEY = 'appSettings.etlServersList';
   public static readonly OPENMRS_SERVER_KEY = 'appSettings.openmrsServer';
@@ -15,35 +15,35 @@ export class AppSettingsService {
 
   private _openmrsServerUrls = [
     'http://localhost:8080/openmrs',
-    // 'https://test2.ampath.or.ke:8443/amrs',
-    // 'https://amrs.ampath.or.ke:8443/amrs'
-    'https://ngx.ampath.or.ke/amrs',
-    'https://ngx.ampath.or.ke/test-amrs'
+    // 'https://test2.ici.or.ke:8443/icimrs',
+    // 'https://icimrs.ici.or.ke:8443/icimrs'
+    'https://mrs.intercancer.com/icimrs',
+    'https://mrs.intercancer.com/test-icimrs'
   ];
 
   private _etlServerUrls = [
     'http://localhost:8002/etl',
-    // 'https://test1.ampath.or.ke:8002/etl',
-    // 'https://test2.ampath.or.ke:8002/etl',
-    // 'https://amrsreporting.ampath.or.ke:8002/etl',
+    // 'https://test1.ici.or.ke:8002/etl',
+    // 'https://test2.ici.or.ke:8002/etl',
+    // 'https://icimrsreporting.ici.or.ke:8002/etl',
     '/etl-server-test-worcester/etl',
-    'https://ngx.ampath.or.ke/etl-latest/etl'
+    'https://mrs.intercancer.com/etl-latest/etl'
   ];
 
   private templates = [
     {
-      name: 'AMRS POC',
-      amrsUrl: '/amrs',
+      name: 'ICIMRS POC',
+      icimrsUrl: '/icimrs',
       etlUrl: '/etl-latest/etl'
     },
     {
-      name: 'AMRS POC Beta',
-      amrsUrl: '/amrs',
-      etlUrl: 'https://ngx.ampath.or.ke/etl-server-beta/etl'
+      name: 'ICIMRS POC Beta',
+      icimrsUrl: '/icimrs',
+      etlUrl: 'https://mrs.intercancer.com/etl-server-beta/etl'
     },
     {
-      name: 'AMRS Test',
-      amrsUrl: '/test-amrs',
+      name: 'ICIMRS Test',
+      icimrsUrl: '/test-icimrs',
       etlUrl: '/etl-server-test-worcester/etl'
     }
   ];

@@ -4,7 +4,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
 import { ButtonsModule } from 'ngx-bootstrap';
-import { NgamrsSharedModule } from 'src/app/shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from 'src/app/shared/ngicimrs-shared.module';
 import { GroupDetailSummaryComponent } from './group-detail-summary.component';
 import { MatCardModule, MatRadioModule } from '@angular/material';
 import { PatientSearchComponent } from 'src/app/patient-search/patient-search.component';
@@ -32,7 +32,7 @@ describe('Group Detail Component Tests', () => {
                 FormsModule,
                 AgGridModule,
                 ButtonsModule,
-                NgamrsSharedModule,
+                NgicimrsSharedModule,
                 MatCardModule,
                 MatRadioModule,
                 CommonModule,

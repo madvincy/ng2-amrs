@@ -23,7 +23,7 @@ export class LocationResourceService {
    * @param {boolean} [forceRefresh]
    * @returns
    *
-   * @memberOf AmrsDataService
+   * @memberOf IcimrsDataService
    */
   public getLocations(forceRefresh?: boolean) {
     // If the Subject was NOT subscribed before OR if forceRefresh is requested

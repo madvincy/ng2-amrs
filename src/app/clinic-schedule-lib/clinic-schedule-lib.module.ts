@@ -12,7 +12,7 @@ import {
 } from 'ngx-openmrs-formentry/';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { EtlApi } from '../etl-api/etl-api.module';
 import { DataListsModule } from '../shared/data-lists/data-lists.module';
 import { MonthlyScheduleBaseComponent } from './monthly-schedule/monthly-schedule.component';
@@ -40,7 +40,7 @@ import {
     // MatNativeDateModule,
     // MatSlideToggleModule,
     ProgramVisitEncounterSearchModule,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     CalendarModule,
     RouterModule,
     NgxMyDatePickerModule.forRoot()

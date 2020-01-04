@@ -9,6 +9,7 @@ import * as _ from 'lodash';
 import {
     DepartmentProgramsConfigService
 } from '../etl-api/department-programs-config.service';
+import { ServicesOfferedProgramsConfigService } from '../etl-api/services-offered-programs-config.service';
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'feedback',
@@ -19,16 +20,18 @@ import {
 export class FeedBackComponent implements OnInit, OnDestroy {
     public success = false;
     public error = false;
-    public programDepartments: any = [];
+    // public programDepartments: any = [];
+    public programMedicalServices: any = [];
     public department: string;
     public selectedDepartment: string;
-    public departmentIsSelected = false;
+    public selectedMedicalService: string;
+    public medicalServiceIsSelected = false;
     public payload = {
         name: '',
         phone: '',
         message: '',
         location: '',
-        department: ''
+        medicalService: ''
     };
     public busy: Subscription;
     public errorMessage = '';
@@ -36,14 +39,17 @@ export class FeedBackComponent implements OnInit, OnDestroy {
     public r1 = /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))/;
     public r2 = /(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/;
     public patterns = new RegExp(this.r1.source + this.r2.source);
-    public departmentConf: any[];
+    // public departmentConf: any[];
+    public medicalServiceConf: any[];
     constructor(private feedBackService: FeedBackService,
         private userService: UserService,
         private userDefaultPropertiesService: UserDefaultPropertiesService,
-        private departmentProgramService: DepartmentProgramsConfigService) { }
+        public _servicesOfferedService: ServicesOfferedProgramsConfigService,
+        ) { }
 
     public ngOnInit() {
-        this.getDepartmentConf();
+        // this.getDepartmentConf();
+        this.getMedicalServiceOfferedConf();
     }
 
     public ngOnDestroy() {
@@ -58,7 +64,7 @@ export class FeedBackComponent implements OnInit, OnDestroy {
         const location = this.userDefaultPropertiesService.getCurrentUserDefaultLocationObject()
             || {};
         this.payload.location = location.display || 'Default location not set';
-        this.payload.department = this.selectedDepartment || 'Department not selected';
+        this.payload.medicalService = this.selectedMedicalService || 'Medical Sevice not selected';
         this.busy = this.feedBackService.postFeedback(this.payload).pipe(take(1)).subscribe((res) => {
             this.success = true;
             console.log('this.payload', this.payload.phone);
@@ -67,7 +73,7 @@ export class FeedBackComponent implements OnInit, OnDestroy {
                 phone: '',
                 message: '',
                 location: '',
-                department: ''
+                medicalService: ''
             };
         }, (error) => {
             console.log('Error');
@@ -86,20 +92,36 @@ export class FeedBackComponent implements OnInit, OnDestroy {
     public dismissError() {
         this.error = false;
     }
-    public getDepartmentConf() {
-        this.departmentProgramService.getDartmentProgramsConfig().pipe(
+    // public getDepartmentConf() {
+    //     this.departmentProgramService.getDartmentProgramsConfig().pipe(
+    //         take(1)).subscribe((results) => {
+    //             console.log('results===', results); if (results) {
+    //                 this.departmentConf = results;
+    //                 this._filterDepartmentConfigByName();
+    //             }
+    //         });
+
+    // }
+        public getMedicalServiceOfferedConf() {
+        this._servicesOfferedService.getserviceOfferedProgramsConfig().pipe(
             take(1)).subscribe((results) => {
                 console.log('results===', results); if (results) {
-                    this.departmentConf = results;
-                    this._filterDepartmentConfigByName();
+                    this.medicalServiceConf = results;
+                    this._filterMedicalServiceConfigByName();
                 }
             });
 
     }
-    public getSelectedDepartment(dep) {
-        this.selectedDepartment = dep;
-        if (dep) {
-            this.departmentIsSelected = true;
+    // public getSelectedDepartment(dep) {
+    //     this.selectedDepartment = dep;
+    //     if (dep) {
+    //         this.departmentIsSelected = true;
+    //     }
+    // }
+    public getSelectedMedicalService(medService) {
+        this.selectedDepartment = medService;
+        if (medService) {
+            this.medicalServiceIsSelected = true;
         }
     }
 
@@ -123,8 +145,8 @@ export class FeedBackComponent implements OnInit, OnDestroy {
         return val === null || val === undefined || val === ''
             || val === 'null' || val === 'undefined';
     }
-    private _filterDepartmentConfigByName() {
-        this.programDepartments = _.map(this.departmentConf, (config: any) => {
+    private _filterMedicalServiceConfigByName() {
+        this.programMedicalServices = _.map(this.medicalServiceConf, (config: any) => {
             return { name: config.name };
         });
     }

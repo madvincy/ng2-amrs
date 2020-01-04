@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 
 // This Module's Components
 import { DashboardsViewerComponent } from './dashboards-viewer/dashboards-viewer.component';
@@ -11,7 +11,7 @@ import { DashboardListComponent } from './dashboard-list/dashboard-list.componen
 @NgModule({
     imports: [
         CommonModule,
-        NgamrsSharedModule
+        NgicimrsSharedModule
     ],
     declarations: [
         DashboardsViewerComponent,

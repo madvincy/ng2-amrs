@@ -157,18 +157,18 @@ export class HivProgramSnapshotComponent implements OnInit {
       '9083': 'SELF DISENGAGED FROM CARE',
       '6101': 'CONTINUE WITH CARE',
       '1285': 'TRANSFER CARE TO OTHER CENTER',
-      '1286': 'TRANSFER TO AMPATH FACILITY',
-      '1287': 'TRANSFER TO NON-AMPATH FACILITY',
-      '9068': 'TRANSFER TO AMPATH FACILITY, NON-AMRS',
+      '1286': 'TRANSFER TO ICI FACILITY',
+      '1287': 'TRANSFER TO NON-ICI FACILITY',
+      '9068': 'TRANSFER TO ICI FACILITY, NON-ICIMRS',
       '9504': 'TRANSFER TO MATERNAL CHILD HEALTH',
       '1594': 'PATIENT TRANSFERRED OUT',
-      '9578': 'ENROLL IN AMPATH FACILITY',
+      '9578': 'ENROLL IN ICI FACILITY',
       '9164': 'ENROLL CARE IN ANOTHER HEALTH FACILITY',
-      '1732': 'AMPATH CLINIC TRANSFER',
+      '1732': 'ICI CLINIC TRANSFER',
       '9579': 'CONTINUE CARE IN OTHER FACILITY',
       '9580': 'FOLLOW-UP CARE PLAN, NOT SURE',
       '5622': 'OTHER',
-      '10502': 'NON AMPATH CLINIC TRANSFER'
+      '10502': 'NON ICI CLINIC TRANSFER'
     };
 
     /*
@@ -189,8 +189,8 @@ export class HivProgramSnapshotComponent implements OnInit {
     }
 
     // if patient is a Transfer Out, apply a yellow background to their snapshot summary
-    if ((this.hasTransferEncounter && this.isNonAmpathTransferOut(care_status_id))
-        || this.isIntraAmpathTransferFromCurrentLocation(care_status_id)) {
+    if ((this.hasTransferEncounter && this.isNonIciTransferOut(care_status_id))
+        || this.isIntraIciTransferFromCurrentLocation(care_status_id)) {
       this.showYellowBackground();
     }
 
@@ -235,13 +235,13 @@ export class HivProgramSnapshotComponent implements OnInit {
     return this.hasSubsequentClinicalEncounter ? true : false;
   }
 
-  private isNonAmpathTransferOut(care_status_id) {
+  private isNonIciTransferOut(care_status_id) {
     return care_status_id === 1287 || care_status_id === 5622 || care_status_id === 10502;
   }
 
-  private isIntraAmpathTransferFromCurrentLocation(care_status_id) {
-    const intraAmpathTransferOutConceptIds = [1285, 1286, 9068, 9504];
-    if (intraAmpathTransferOutConceptIds.includes(care_status_id) && this.hasMatchingLocation()) {
+  private isIntraIciTransferFromCurrentLocation(care_status_id) {
+    const intraIciTransferOutConceptIds = [1285, 1286, 9068, 9504];
+    if (intraIciTransferOutConceptIds.includes(care_status_id) && this.hasMatchingLocation()) {
       return true;
     }
 

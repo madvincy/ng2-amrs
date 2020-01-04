@@ -6,7 +6,7 @@ import {
   InputTextModule, AccordionModule, SliderModule, PanelModule, MenuModule, MessagesModule,
   GrowlModule, InputTextareaModule, DropdownModule, ButtonModule, MultiSelectModule, CalendarModule
 } from 'primeng/primeng';
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { OpenmrsApi } from '../openmrs-api/openmrs-api.module';
 import { EtlApi } from '../etl-api/etl-api.module';
 import { ReportFilterComponent } from './report-filter/report-filter.component';
@@ -29,7 +29,7 @@ export function highchartsFactory() {
 
 @NgModule({
   imports: [
-    CommonModule, RouterModule, InputTextModule, AccordionModule, NgamrsSharedModule,
+    CommonModule, RouterModule, InputTextModule, AccordionModule, NgicimrsSharedModule,
     SliderModule, PanelModule, MenuModule, MessagesModule,
     GrowlModule, InputTextareaModule, DropdownModule,
     ButtonModule, FormsModule, ReactiveFormsModule, MultiSelectModule,

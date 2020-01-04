@@ -57,8 +57,8 @@ export class ProgramManagerService {
         this.toOpenmrsDateFormat(program.dateCompleted || new Date()), location ,
         program.enrolledProgram._openmrsModel.uuid);
       /*
-      * if intra-ampath, unenroll and enroll in the new location
-      * Ampath
+      * if intra-ici, unenroll and enroll in the new location
+      * Ici
       */
       if (theChange === 'location' || (theChange === 'transfer' && newLoc)) {
         const enrollPayload = this.programService.createEnrollmentPayload(

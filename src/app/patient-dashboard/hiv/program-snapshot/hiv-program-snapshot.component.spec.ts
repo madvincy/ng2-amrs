@@ -114,7 +114,7 @@ class FakeEncounterResourceService {
           uuid: '8d5b27bc-c2cc-11de-8d13-0010c6dffd0f'
         },
         form: {
-          name: 'AMPATH POC Adult Return Visit Form v1.5',
+          name: 'ICI POC Adult Return Visit Form v1.5',
           uuid: 'e44b0612-33d6-4ea7-8334-a8286876146b'
         },
         location: {
@@ -155,8 +155,8 @@ class FakeEncounterResourceService {
 const testPatient = new Patient({
   allIdentifiers: '742403208-9,99966667',
   commonIdentifiers: {
-    ampathMrsUId: '742403208-9',
-    amrsMrn: '',
+    iciMrsUId: '742403208-9',
+    icimrsMrn: '',
     cCC: '',
     kenyaNationalId: ''
   },
@@ -169,7 +169,7 @@ const testPatient = new Patient({
         uuid: '8d5b2be0-c2cc-11de-8d13-0010c6dffd0f'
       },
       form: {
-        name: 'AMPATH POC Adult Return Visit Form v1.5',
+        name: 'ICI POC Adult Return Visit Form v1.5',
         uuid: 'bcb914ea-1e03-4c7f-9fd5-1baba5841e78'
       },
       location: {

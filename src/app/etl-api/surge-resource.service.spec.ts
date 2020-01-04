@@ -21,7 +21,7 @@ describe('SurgeResourceService()', () => {
         results: []
     };
 
-    const mockUrl = 'https://ngx.ampath.or.ke/etl-latest/etl/';
+    const mockUrl = 'https://mrs.intercancer.com/etl-latest/etl/';
 
     beforeEach(() => {
         TestBed.configureTestingModule({

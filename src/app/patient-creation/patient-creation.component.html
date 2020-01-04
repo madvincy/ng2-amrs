@@ -379,12 +379,12 @@
               <td>{{ (i + 1)+ (page - 1) * 10 }}</td>
               <td>
                 <span *ngIf="patient.searchIdentifiers.kenyaNationalId"> {{patient.searchIdentifiers.kenyaNationalId}}
-                        <span *ngIf="patient.searchIdentifiers.amrsMrn || patient.searchIdentifiers.ampathMrsUId">,</span>
+                        <span *ngIf="patient.searchIdentifiers.icimrsMrn || patient.searchIdentifiers.iciMrsUId">,</span>
                 </span>
-                <span *ngIf="patient.searchIdentifiers.amrsMrn">{{patient.searchIdentifiers.amrsMrn}}
-                          <span *ngIf="patient.searchIdentifiers.ampathMrsUId">,</span>
+                <span *ngIf="patient.searchIdentifiers.icimrsMrn">{{patient.searchIdentifiers.icimrsMrn}}
+                          <span *ngIf="patient.searchIdentifiers.iciMrsUId">,</span>
                 </span>
-                <span *ngIf="patient.searchIdentifiers.ampathMrsUId">{{patient.searchIdentifiers.ampathMrsUId}}
+                <span *ngIf="patient.searchIdentifiers.iciMrsUId">{{patient.searchIdentifiers.iciMrsUId}}
                           <span *ngIf="patient.searchIdentifiers.cCC">,</span>
                 </span>
                 <span *ngIf="patient.searchIdentifiers.cCC">{{patient.searchIdentifiers.cCC}}</span>

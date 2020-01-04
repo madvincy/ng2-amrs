@@ -197,8 +197,8 @@ export const testVitals2 = [
 export const testPatient1 = new Patient({
   allIdentifiers: '297400783-9',
   commonIdentifiers: {
-    ampathMrsUId: '297400783-9',
-    amrsMrn: '',
+    iciMrsUId: '297400783-9',
+    icimrsMrn: '',
     cCC: '',
     kenyaNationalId: ''
   },
@@ -228,8 +228,8 @@ export const testPatient1 = new Patient({
 export const testPatient2 = new Patient({
   allIdentifiers: '0000000-0,56665-88884',
   commonIdentifiers: {
-    ampathMrsUId: '0000000-0',
-    amrsMrn: '',
+    iciMrsUId: '0000000-0',
+    icimrsMrn: '',
     cCC: '56665-88884',
     kenyaNationalId: ''
   },
@@ -242,7 +242,7 @@ export const testPatient2 = new Patient({
         uuid: 'a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7'
       },
       form: {
-        name: 'AMPATH POC Triage Encounter Form v1.2',
+        name: 'ICI POC Triage Encounter Form v1.2',
         uuid: '0c2088e2-bf82-4ea8-b5f4-1a02de6976ca'
       },
       location: {

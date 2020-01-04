@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PocHttpInteceptor } from 'src/app/shared/services/poc-http-interceptor';
 
@@ -26,7 +26,7 @@ import { OncologyProgramSnapshotComponent
   imports: [
     CommonModule,
     FormsModule,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     HttpClientModule,
     PanelModule,
     TabsModule.forRoot(),

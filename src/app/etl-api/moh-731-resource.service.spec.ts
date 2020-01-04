@@ -80,7 +80,7 @@ describe('Moh731ResourceService Tests', () => {
                         });
                 });
 
-            const req = httpMok.expectOne('https://ngx.ampath.or.ke/etl-latest/etl' +
+            const req = httpMok.expectOne('https://mrs.intercancer.com/etl-latest/etl' +
               '/MOH-731-report?locationUuids=uuid-1,uuid-2&startDate=2017-01-01'
                 + '&endDate=2017-03-01&reportName=MOH-731-report-2017&isAggregated=true');
             expect(req.request.method).toBe('GET');

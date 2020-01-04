@@ -22,7 +22,7 @@ import { DataListsModule } from '../../shared/data-lists/data-lists.module';
 import { DialogModule, CalendarModule } from 'primeng/primeng';
 import { CacheModule } from 'ionic-cache/dist/cache.module';
 import { DataCacheService } from '../../shared/services/data-cache.service';
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 import { CommonModule } from '@angular/common';
 import { Angulartics2Module } from 'angulartics2';
@@ -86,7 +86,7 @@ describe('Component: DailySchedule', () => {
         DialogModule,
         CalendarModule,
         DataListsModule,
-        NgamrsSharedModule,
+        NgicimrsSharedModule,
         CacheModule.forRoot(),
         CommonModule, Angulartics2Module,
         RouterTestingModule,

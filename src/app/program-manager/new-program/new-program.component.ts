@@ -9,9 +9,6 @@ import { ProgramManagerBaseComponent } from '../base/program-manager-base.compon
 import { PatientService } from '../../patient-dashboard/services/patient.service';
 import { ProgramService } from '../../patient-dashboard/programs/program.service';
 import {
-  DepartmentProgramsConfigService
-} from '../../etl-api/department-programs-config.service';
-import {
   UserDefaultPropertiesService
 } from '../../user-default-properties/user-default-properties.service';
 
@@ -21,6 +18,7 @@ import { RoutesProviderService } from '../../shared/dynamic-route/route-config-p
 import { CommunityGroupMemberService } from '../../openmrs-api/community-group-member-resource.service';
 import { LocationResourceService } from '../../openmrs-api/location-resource.service';
 import { RisonService } from '../../shared/services/rison-service';
+import { ServicesOfferedProgramsConfigService } from 'src/app/etl-api/services-offered-programs-config.service';
 
 @Component({
   selector: 'new-program',
@@ -49,13 +47,13 @@ export class NewProgramComponent extends ProgramManagerBaseComponent implements 
     public programService: ProgramService,
     public router: Router,
     public route: ActivatedRoute,
-    public departmentProgramService: DepartmentProgramsConfigService,
     public userDefaultPropertiesService: UserDefaultPropertiesService,
     public patientProgramResourceService: PatientProgramResourceService,
     public cdRef: ChangeDetectorRef,
     public localStorageService: LocalStorageService,
     private routesProviderService: RoutesProviderService,
     private programManagerService: ProgramManagerService,
+    public _servicesOfferedService: ServicesOfferedProgramsConfigService,
     private locationResourceService: LocationResourceService,
     private groupMemberService: CommunityGroupMemberService, private risonService: RisonService) {
     super(
@@ -63,7 +61,7 @@ export class NewProgramComponent extends ProgramManagerBaseComponent implements 
       programService,
       router,
       route,
-      departmentProgramService,
+      _servicesOfferedService,
       userDefaultPropertiesService,
       patientProgramResourceService, cdRef, localStorageService);
     this.maxDate = moment().format('YYYY-MM-DD');
@@ -74,15 +72,15 @@ export class NewProgramComponent extends ProgramManagerBaseComponent implements 
     this.showForms = false;
     this.isButtonVisible = true;
     this.route.params.subscribe((params) => {
-      this.getDepartmentConf();
+      this.getServiceOfferedConf();
       this.loadPatientProgramConfig().pipe(take(1)).subscribe((loaded) => {
         if (loaded) {
           this.setUserDefaultLocation();
           this.loaded = true;
           this.getCurrentPatientGroups(this.patient.uuid);
-          const dept = JSON.parse(this.localStorageService.getItem('userDefaultDepartment'));
-          this.department = dept[0].itemName;
-          this.selectDepartment(dept[0].itemName);
+          const medserve = JSON.parse(this.localStorageService.getItem('userDefaultServiceOffered'));
+          this.medicalService = medserve[0].itemName;
+          this.selectMedicalService(medserve[0].itemName);
           console.log('Group', this.route.snapshot.queryParams.program);
           if (this.route.snapshot.queryParams.program) {
             this.selectProgram(this.route.snapshot.queryParams.program);
@@ -101,13 +99,13 @@ export class NewProgramComponent extends ProgramManagerBaseComponent implements 
     });
   }
 
-  public selectDepartment(value) {
+  public selectMedicalService(value) {
     // remove any error message before validating again
     this.removeMessage();
     this.addToStepInfo({
-      department: value
+      medicalService: value
     });
-    this.department = value;
+    this.medicalService = value;
     this.goToProgram();
   }
 
@@ -128,21 +126,21 @@ export class NewProgramComponent extends ProgramManagerBaseComponent implements 
   }
 
   public goToProgram() {
-    if (this.department) {
+    if (this.medicalService) {
       this.removeMessage();
-      this.availableDepartmentPrograms = _.orderBy(this.getProgramsByDepartmentName(),
+      this.availableServicesOfferedPrograms = _.orderBy(this.getProgramsByMedicalServiceName(),
         ['name'], ['asc']);
-      if (this.availableDepartmentPrograms.length === 0) {
-        this.showMessage('No Active programs in this department');
+      if (this.availableServicesOfferedPrograms.length === 0) {
+        this.showMessage('No Active programs in this Medical Service');
       } else {
         this.tick().then(() => {
           this.nextStep = true;
           this.currentStep++;
-          this.title = 'Start ' + this.department + ' Program';
+          this.title = 'Start ' + this.medicalService + ' Program';
         });
       }
     } else {
-      this.showMessage('Please select a department to continue');
+      this.showMessage('Please select a Medical Service to continue');
     }
   }
 
@@ -370,7 +368,7 @@ export class NewProgramComponent extends ProgramManagerBaseComponent implements 
   public deserializeStepInfo() {
     const stepInfo = this.localStorageService.getObject('pm-data');
     if (stepInfo) {
-      this.department = stepInfo.department;
+      this.medicalService = stepInfo.medicalService;
       this.selectedProgram = stepInfo.selectedProgram;
       this.program = this.selectedProgram.programUuid;
       this.dateEnrolled = stepInfo.dateEnrolled || this.dateEnrolled;
@@ -381,7 +379,7 @@ export class NewProgramComponent extends ProgramManagerBaseComponent implements 
       this.isReferral = stepInfo.isReferral || false;
       this.programVisitConfig =
         stepInfo.programVisitConfig || this.allPatientProgramVisitConfigs[this.program];
-      this.availableDepartmentPrograms = this.getProgramsByDepartmentName();
+      this.availableServicesOfferedPrograms = this.getProgramsByMedicalServiceName();
     } else {
       console.log('Going Back to new');
       this.currentStep = 1;

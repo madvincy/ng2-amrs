@@ -58,8 +58,8 @@ export class LabOrdersSearchHelperService {
           value: 'alupe'
       },
       {
-          name: 'Ampath',
-          value: 'ampath'
+          name: 'Ici',
+          value: 'ici'
       }
     ];
   }
@@ -247,11 +247,11 @@ export class LabOrdersSearchHelperService {
         let filteredIdentifiers: any;
         const identifier = identifiers;
         const kenyaNationalId = this.getIdentifierByType(identifier, 'KENYAN NATIONAL ID NUMBER');
-        const amrsMrn = this.getIdentifierByType(identifier, 'AMRS Medical Record Number');
-        const ampathMrsUId = this.getIdentifierByType(identifier, 'AMRS Universal ID');
+        const icimrsMrn = this.getIdentifierByType(identifier, 'ICIMRS Medical Record Number');
+        const iciMrsUId = this.getIdentifierByType(identifier, 'ICIMRS Universal ID');
         const cCC = this.getIdentifierByType(identifier, 'CCC Number');
-        if ((kenyaNationalId) === undefined && (amrsMrn) === undefined &&
-          (ampathMrsUId) === undefined && (cCC) === undefined) {
+        if ((kenyaNationalId) === undefined && (icimrsMrn) === undefined &&
+          (iciMrsUId) === undefined && (cCC) === undefined) {
           if ((identifiers[0].identifier)) {
             filteredIdentifiers = {'default': identifiers[0].identifier};
           } else {
@@ -260,8 +260,8 @@ export class LabOrdersSearchHelperService {
         } else {
           filteredIdentifiers = {
             'kenyaNationalId': kenyaNationalId,
-            'amrsMrn': amrsMrn,
-            'ampathMrsUId': ampathMrsUId,
+            'icimrsMrn': icimrsMrn,
+            'iciMrsUId': iciMrsUId,
             'cCC': cCC
           };
         }

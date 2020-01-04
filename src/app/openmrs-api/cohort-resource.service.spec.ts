@@ -37,7 +37,7 @@ describe('Service : CohortResourceService Unit Tests', () => {
         'links': [
             {
                 'rel': 'self',
-                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/cohort/uuid'
+                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/cohort/uuid'
             }
         ]
     };
@@ -60,11 +60,11 @@ describe('Service : CohortResourceService Unit Tests', () => {
             'link': [
                 {
                     'rel': 'self',
-                    'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/cohort/uuid'
+                    'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/cohort/uuid'
                 },
                 {
                     'rel': 'full',
-                    'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/cohort/uuid'
+                    'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/cohort/uuid'
                 }
             ]
         },

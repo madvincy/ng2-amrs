@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { IndicatorSelectComponent } from './indicator-selector.component';
-import { NgamrsSharedModule } from 'src/app/shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from 'src/app/shared/ngicimrs-shared.module';
 
 describe('Indicator-range component Tests', () => {
     let comp: IndicatorSelectComponent;
@@ -9,7 +9,7 @@ describe('Indicator-range component Tests', () => {
     beforeEach(async() => {
         TestBed.configureTestingModule({
             imports: [
-                NgamrsSharedModule
+                NgicimrsSharedModule
             ],
             declarations: [IndicatorSelectComponent]
         }).compileComponents();

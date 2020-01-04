@@ -18,7 +18,7 @@ import { UserDefaultPropertiesService } from '../../../../user-default-propertie
 import { VisitResourceService } from '../../../../openmrs-api/visit-resource.service';
 import { DataCacheService } from '../../../../shared/services/data-cache.service';
 import { UserDefaultPropertiesModule } from '../../../../user-default-properties/user-default-properties.module';
-import { NgamrsSharedModule } from '../../../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../../../shared/ngicimrs-shared.module';
 import { PatientDashboardModule } from '../../../patient-dashboard.module';
 import { PatientProgramResourceService } from '../../../../etl-api/patient-program-resource.service';
 import { TodayVisitService } from '../today-visit.service';
@@ -189,7 +189,7 @@ describe('VisitStarterComponent', () => {
         RetrospectiveDataEntryModule,
         DialogModule,
         FormsModule,
-        NgamrsSharedModule,
+        NgicimrsSharedModule,
         PatientDashboardModule,
         HttpClientTestingModule,
         BrowserAnimationsModule,

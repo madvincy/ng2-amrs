@@ -6,7 +6,7 @@ import { HttpTestingController, HttpClientTestingModule } from '@angular/common/
 class MockAppSettingsService {
     constructor() { }
     getEtlServer(): string {
-        return 'https://etl.ampath.or.ke/etl';
+        return 'https://etl.ici.or.ke/etl';
     }
 
 }
@@ -60,7 +60,7 @@ describe('PatientCareStatusResource', () => {
                 expect(response.result).toBeTruthy();
                 expect(response.result[0].monthly_patient_care_status).toBe('active');
             });
-            const req = httpMock.expectOne('https://etl.ampath.or.ke/etl'
+            const req = httpMock.expectOne('https://etl.ici.or.ke/etl'
                 + '/patient/patient_uuid/monthly-care-status?'
                 + 'startDate=date1&endDate=date2');
             expect(req.request.method).toBe('GET');
@@ -89,7 +89,7 @@ describe('PatientCareStatusResource', () => {
                 expect(response.result).toBeTruthy();
                 expect(response.result[0].patient_daily_care_status).toBe('ltfu');
             });
-            const req = httpMock.expectOne('https://etl.ampath.or.ke/etl'
+            const req = httpMock.expectOne('https://etl.ici.or.ke/etl'
                 + '/patient/patient_uuid/daily-care-status?'
                 + 'referenceDate=date1');
             expect(req.request.method).toBe('GET');

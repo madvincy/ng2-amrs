@@ -14,7 +14,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patientidentifiertype/f2d6ff1a-8440-4d35-a150-1d4b5a930c5e"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patientidentifiertype/f2d6ff1a-8440-4d35-a150-1d4b5a930c5e"
             }
           ]
         },
@@ -24,7 +24,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -33,11 +33,11 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/80b4d26d-b81f-4bf6-af5f-76aad6933d04"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/80b4d26d-b81f-4bf6-af5f-76aad6933d04"
           },
           {
             "rel": "full",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/80b4d26d-b81f-4bf6-af5f-76aad6933d04?v=full"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/80b4d26d-b81f-4bf6-af5f-76aad6933d04?v=full"
           }
         ],
         "resourceVersion": "1.8"
@@ -52,7 +52,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patientidentifiertype/f2d6ff1a-8440-4d35-a150-1d4b5a930c5e"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patientidentifiertype/f2d6ff1a-8440-4d35-a150-1d4b5a930c5e"
             }
           ]
         },
@@ -62,7 +62,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -71,11 +71,11 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/2403f710-0ef0-4e78-a051-7c7c19b4e2c5"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/2403f710-0ef0-4e78-a051-7c7c19b4e2c5"
           },
           {
             "rel": "full",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/2403f710-0ef0-4e78-a051-7c7c19b4e2c5?v=full"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/2403f710-0ef0-4e78-a051-7c7c19b4e2c5?v=full"
           }
         ],
         "resourceVersion": "1.8"
@@ -90,7 +90,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patientidentifiertype/f2d6ff1a-8440-4d35-a150-1d4b5a930c5e"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patientidentifiertype/f2d6ff1a-8440-4d35-a150-1d4b5a930c5e"
             }
           ]
         },
@@ -100,7 +100,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -109,11 +109,11 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/0c0903c3-5819-4999-83d5-b56fc2daa949"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/0c0903c3-5819-4999-83d5-b56fc2daa949"
           },
           {
             "rel": "full",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/0c0903c3-5819-4999-83d5-b56fc2daa949?v=full"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/0c0903c3-5819-4999-83d5-b56fc2daa949?v=full"
           }
         ],
         "resourceVersion": "1.8"
@@ -128,7 +128,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patientidentifiertype/58a489c2-1359-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patientidentifiertype/58a489c2-1359-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -138,7 +138,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -147,26 +147,26 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/28b6f999-9d05-4ced-8535-456a4ac772d5"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/28b6f999-9d05-4ced-8535-456a4ac772d5"
           },
           {
             "rel": "full",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/28b6f999-9d05-4ced-8535-456a4ac772d5?v=full"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/28b6f999-9d05-4ced-8535-456a4ac772d5?v=full"
           }
         ],
         "resourceVersion": "1.8"
       },
       {
-        "display": "AMRS Universal ID = 135023852-1",
+        "display": "ICIMRS Universal ID = 135023852-1",
         "uuid": "b5a35556-fa22-4f57-ba8e-7023be3c6d82",
         "identifier": "135023852-1",
         "identifierType": {
           "uuid": "58a4732e-1359-11df-a1f1-0026b9348838",
-          "display": "AMRS Universal ID",
+          "display": "ICIMRS Universal ID",
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patientidentifiertype/58a4732e-1359-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patientidentifiertype/58a4732e-1359-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -176,7 +176,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
             }
           ]
         },
@@ -185,11 +185,11 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/b5a35556-fa22-4f57-ba8e-7023be3c6d82"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/b5a35556-fa22-4f57-ba8e-7023be3c6d82"
           },
           {
             "rel": "full",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/b5a35556-fa22-4f57-ba8e-7023be3c6d82?v=full"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/b5a35556-fa22-4f57-ba8e-7023be3c6d82?v=full"
           }
         ],
         "resourceVersion": "1.8"
@@ -204,7 +204,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patientidentifiertype/58a47054-1359-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patientidentifiertype/58a47054-1359-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -214,7 +214,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -223,11 +223,11 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/5193f84c-a0ae-4b1c-b8bb-e7fcd31262c2"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/5193f84c-a0ae-4b1c-b8bb-e7fcd31262c2"
           },
           {
             "rel": "full",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/5193f84c-a0ae-4b1c-b8bb-e7fcd31262c2?v=full"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/5193f84c-a0ae-4b1c-b8bb-e7fcd31262c2?v=full"
           }
         ],
         "resourceVersion": "1.8"
@@ -242,7 +242,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patientidentifiertype/58a47054-1359-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patientidentifiertype/58a47054-1359-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -252,7 +252,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -261,26 +261,26 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/c8e1bfde-1705-418f-9d2d-06363fc329ec"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/c8e1bfde-1705-418f-9d2d-06363fc329ec"
           },
           {
             "rel": "full",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/c8e1bfde-1705-418f-9d2d-06363fc329ec?v=full"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/c8e1bfde-1705-418f-9d2d-06363fc329ec?v=full"
           }
         ],
         "resourceVersion": "1.8"
       },
       {
-        "display": "AMRS Medical Record Number = 338344298-9",
+        "display": "ICIMRS Medical Record Number = 338344298-9",
         "uuid": "f38e6d03-d5a1-4b64-a781-89fba9a1e12d",
         "identifier": "338344298-9",
         "identifierType": {
           "uuid": "58a46e2e-1359-11df-a1f1-0026b9348838",
-          "display": "AMRS Medical Record Number",
+          "display": "ICIMRS Medical Record Number",
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patientidentifiertype/58a46e2e-1359-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patientidentifiertype/58a46e2e-1359-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -290,7 +290,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -299,26 +299,26 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/f38e6d03-d5a1-4b64-a781-89fba9a1e12d"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/f38e6d03-d5a1-4b64-a781-89fba9a1e12d"
           },
           {
             "rel": "full",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/f38e6d03-d5a1-4b64-a781-89fba9a1e12d?v=full"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/f38e6d03-d5a1-4b64-a781-89fba9a1e12d?v=full"
           }
         ],
         "resourceVersion": "1.8"
       },
       {
-        "display": "Old AMPATH Medical Record Number = 421563079-1",
+        "display": "Old ICI Medical Record Number = 421563079-1",
         "uuid": "43614bcf-66f5-4219-937f-14daad24d365",
         "identifier": "421563079-1",
         "identifierType": {
           "uuid": "58a46a32-1359-11df-a1f1-0026b9348838",
-          "display": "Old AMPATH Medical Record Number",
+          "display": "Old ICI Medical Record Number",
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patientidentifiertype/58a46a32-1359-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patientidentifiertype/58a46a32-1359-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -328,7 +328,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -337,26 +337,26 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/43614bcf-66f5-4219-937f-14daad24d365"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/43614bcf-66f5-4219-937f-14daad24d365"
           },
           {
             "rel": "full",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/43614bcf-66f5-4219-937f-14daad24d365?v=full"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/43614bcf-66f5-4219-937f-14daad24d365?v=full"
           }
         ],
         "resourceVersion": "1.8"
       },
       {
-        "display": "Old AMPATH Medical Record Number = 123654789-0",
+        "display": "Old ICI Medical Record Number = 123654789-0",
         "uuid": "59407000-73f9-4dc8-bb6a-c91e30063651",
         "identifier": "123654789-0",
         "identifierType": {
           "uuid": "58a46a32-1359-11df-a1f1-0026b9348838",
-          "display": "Old AMPATH Medical Record Number",
+          "display": "Old ICI Medical Record Number",
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patientidentifiertype/58a46a32-1359-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patientidentifiertype/58a46a32-1359-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -366,7 +366,7 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/08fec33a-1352-11df-a1f1-0026b9348838"
             }
           ]
         },
@@ -375,11 +375,11 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/59407000-73f9-4dc8-bb6a-c91e30063651"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/59407000-73f9-4dc8-bb6a-c91e30063651"
           },
           {
             "rel": "full",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/59407000-73f9-4dc8-bb6a-c91e30063651?v=full"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382/identifier/59407000-73f9-4dc8-bb6a-c91e30063651?v=full"
           }
         ],
         "resourceVersion": "1.8"
@@ -388,7 +388,7 @@
   },
   "form": {
     "uuid": "9416746d-1e9f-47e8-aa2d-035aab6f3824",
-    "name": "AMPATH POC Adult Initial Visit Form v0.01"
+    "name": "ICI POC Adult Initial Visit Form v0.01"
   },
   "location": {
     "uuid": "18c343eb-b353-462a-9139-b16606e6b6c2",
@@ -396,7 +396,7 @@
     "links": [
       {
         "rel": "self",
-        "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
+        "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
       }
     ]
   },
@@ -406,7 +406,7 @@
     "links": [
       {
         "rel": "self",
-        "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/encountertype/8d5b27bc-c2cc-11de-8d13-0010c6dffd0f"
+        "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/encountertype/8d5b27bc-c2cc-11de-8d13-0010c6dffd0f"
       }
     ]
   },
@@ -416,7 +416,7 @@
     "links": [
       {
         "rel": "self",
-        "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person/ef59ac9d-9cca-46c5-ab04-b4d708584e13"
+        "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person/ef59ac9d-9cca-46c5-ab04-b4d708584e13"
       }
     ]
   },
@@ -437,7 +437,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a895776a-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a895776a-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -506,7 +506,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899b35c-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899b35c-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -539,7 +539,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a890eb28-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a890eb28-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -560,7 +560,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8a6ce8e-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8a6ce8e-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -581,7 +581,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899e890-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899e890-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -602,7 +602,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899ea48-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899ea48-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -623,7 +623,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -644,7 +644,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/1c4a75d0-cc91-4752-b0a5-4b833326ff7a"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/1c4a75d0-cc91-4752-b0a5-4b833326ff7a"
           }
         ]
       },
@@ -665,7 +665,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8989396-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8989396-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -722,7 +722,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a01149c4-7f0e-4d27-8f42-dc019e3330ec"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a01149c4-7f0e-4d27-8f42-dc019e3330ec"
           }
         ]
       },
@@ -743,7 +743,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89d2852-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89d2852-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -764,7 +764,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/drug/162724df-5a66-4ae3-bbf6-5dc6dbba4ebb"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/drug/162724df-5a66-4ae3-bbf6-5dc6dbba4ebb"
           }
         ]
       },
@@ -790,7 +790,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89c1fd4-1350-11df-a1f1-0026b9348838"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89c1fd4-1350-11df-a1f1-0026b9348838"
               }
             ]
           },
@@ -800,7 +800,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
               }
             ]
           },
@@ -812,7 +812,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/247ac3fc-b91a-421b-b635-7d1762a055c0"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/247ac3fc-b91a-421b-b635-7d1762a055c0"
               }
             ]
           },
@@ -825,7 +825,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
               }
             ]
           },
@@ -836,7 +836,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
               }
             ]
           },
@@ -854,11 +854,11 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838/name/a94357d6-1350-11df-a1f1-0026b9348838"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838/name/a94357d6-1350-11df-a1f1-0026b9348838"
                 },
                 {
                   "rel": "full",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838/name/a94357d6-1350-11df-a1f1-0026b9348838?v=full"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838/name/a94357d6-1350-11df-a1f1-0026b9348838?v=full"
                 }
               ],
               "resourceVersion": "1.9"
@@ -869,7 +869,7 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f"
                 }
               ]
             },
@@ -879,7 +879,7 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/conceptclass/8d492ee0-c2cc-11de-8d13-0010c6dffd0f"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/conceptclass/8d492ee0-c2cc-11de-8d13-0010c6dffd0f"
                 }
               ]
             },
@@ -893,7 +893,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838/name/a94357d6-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838/name/a94357d6-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               }
@@ -905,7 +905,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838/description/a900220e-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838/description/a900220e-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               }
@@ -917,7 +917,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838/mapping/34d3626d-35d4-4508-a569-a0fb3d1b16c0"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838/mapping/34d3626d-35d4-4508-a569-a0fb3d1b16c0"
                   }
                 ]
               },
@@ -927,7 +927,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838/mapping/ba01f678-ca1d-4659-97ff-0fafbe9371f2"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838/mapping/ba01f678-ca1d-4659-97ff-0fafbe9371f2"
                   }
                 ]
               }
@@ -937,11 +937,11 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838"
               },
               {
                 "rel": "full",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838?v=full"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838?v=full"
               }
             ],
             "resourceVersion": "1.11"
@@ -952,11 +952,11 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/9de47f59-a19c-4b48-aa0e-309dd416a635"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/9de47f59-a19c-4b48-aa0e-309dd416a635"
             },
             {
               "rel": "full",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/9de47f59-a19c-4b48-aa0e-309dd416a635?v=full"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/9de47f59-a19c-4b48-aa0e-309dd416a635?v=full"
             }
           ],
           "resourceVersion": "1.11"
@@ -978,7 +978,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89c3d8e-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89c3d8e-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -1004,7 +1004,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/2c363a0e-7cf9-42cd-9778-1301b09c4484"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/2c363a0e-7cf9-42cd-9778-1301b09c4484"
               }
             ]
           },
@@ -1014,7 +1014,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
               }
             ]
           },
@@ -1026,7 +1026,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/0f35af11-92ea-46ac-8001-87257391691f"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/0f35af11-92ea-46ac-8001-87257391691f"
               }
             ]
           },
@@ -1039,7 +1039,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
               }
             ]
           },
@@ -1050,7 +1050,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
               }
             ]
           },
@@ -1068,11 +1068,11 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838"
                 },
                 {
                   "rel": "full",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838?v=full"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838?v=full"
                 }
               ],
               "resourceVersion": "1.9"
@@ -1083,7 +1083,7 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f"
                 }
               ]
             },
@@ -1093,7 +1093,7 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/conceptclass/8d492774-c2cc-11de-8d13-0010c6dffd0f"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/conceptclass/8d492774-c2cc-11de-8d13-0010c6dffd0f"
                 }
               ]
             },
@@ -1107,7 +1107,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               }
@@ -1119,7 +1119,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/description/a90f4734-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/description/a90f4734-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               }
@@ -1131,7 +1131,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/mapping/a7c3c497-f857-4230-89a9-b3b6d4b25f8d"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/mapping/a7c3c497-f857-4230-89a9-b3b6d4b25f8d"
                   }
                 ]
               },
@@ -1141,7 +1141,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/mapping/e6ef886b-2ab7-4cdc-9f6d-f272fad1b8c1"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/mapping/e6ef886b-2ab7-4cdc-9f6d-f272fad1b8c1"
                   }
                 ]
               }
@@ -1151,11 +1151,11 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838"
               },
               {
                 "rel": "full",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838?v=full"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838?v=full"
               }
             ],
             "resourceVersion": "1.11"
@@ -1166,11 +1166,11 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/f44a380e-1b45-4562-866f-42202a288f63"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/f44a380e-1b45-4562-866f-42202a288f63"
             },
             {
               "rel": "full",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/f44a380e-1b45-4562-866f-42202a288f63?v=full"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/f44a380e-1b45-4562-866f-42202a288f63?v=full"
             }
           ],
           "resourceVersion": "1.11"
@@ -1192,7 +1192,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899b35c-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899b35c-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -1213,7 +1213,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899e890-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899e890-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -1234,7 +1234,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899b35c-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899b35c-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -1255,7 +1255,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8ad3a26-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8ad3a26-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -1276,7 +1276,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8957184-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8957184-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -1297,7 +1297,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89a76fc-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89a76fc-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -1318,7 +1318,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8962bec-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8962bec-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -1351,7 +1351,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -1377,7 +1377,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/479decbd-e964-41c3-9576-98b39089ebd3"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/479decbd-e964-41c3-9576-98b39089ebd3"
               }
             ]
           },
@@ -1387,7 +1387,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
               }
             ]
           },
@@ -1399,7 +1399,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/2e3e653c-993f-4f85-abf7-4b9691b40c81"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/2e3e653c-993f-4f85-abf7-4b9691b40c81"
               }
             ]
           },
@@ -1412,7 +1412,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
               }
             ]
           },
@@ -1423,7 +1423,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
               }
             ]
           },
@@ -1441,11 +1441,11 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838"
                 },
                 {
                   "rel": "full",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838?v=full"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838?v=full"
                 }
               ],
               "resourceVersion": "1.9"
@@ -1456,7 +1456,7 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f"
                 }
               ]
             },
@@ -1466,7 +1466,7 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/conceptclass/8d492774-c2cc-11de-8d13-0010c6dffd0f"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/conceptclass/8d492774-c2cc-11de-8d13-0010c6dffd0f"
                 }
               ]
             },
@@ -1480,7 +1480,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               }
@@ -1492,7 +1492,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/description/a90f4734-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/description/a90f4734-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               }
@@ -1504,7 +1504,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/mapping/a7c3c497-f857-4230-89a9-b3b6d4b25f8d"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/mapping/a7c3c497-f857-4230-89a9-b3b6d4b25f8d"
                   }
                 ]
               },
@@ -1514,7 +1514,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/mapping/e6ef886b-2ab7-4cdc-9f6d-f272fad1b8c1"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/mapping/e6ef886b-2ab7-4cdc-9f6d-f272fad1b8c1"
                   }
                 ]
               }
@@ -1524,11 +1524,11 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838"
               },
               {
                 "rel": "full",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838?v=full"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838?v=full"
               }
             ],
             "resourceVersion": "1.11"
@@ -1539,11 +1539,11 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/cb2e75d1-4ac7-4da6-bd27-cc620e280b38"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/cb2e75d1-4ac7-4da6-bd27-cc620e280b38"
             },
             {
               "rel": "full",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/cb2e75d1-4ac7-4da6-bd27-cc620e280b38?v=full"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/cb2e75d1-4ac7-4da6-bd27-cc620e280b38?v=full"
             }
           ],
           "resourceVersion": "1.11"
@@ -1577,7 +1577,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/8f8a715d-e49a-4b2c-aa3a-83fa9d7a4254"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/8f8a715d-e49a-4b2c-aa3a-83fa9d7a4254"
           }
         ]
       },
@@ -1598,7 +1598,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8a8259a-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8a8259a-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -1624,7 +1624,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899e5f2-1350-11df-a1f1-0026b9348838"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899e5f2-1350-11df-a1f1-0026b9348838"
               }
             ]
           },
@@ -1634,7 +1634,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
               }
             ]
           },
@@ -1646,7 +1646,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/6b0c1b4a-323d-4336-9134-04d61f683e37"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/6b0c1b4a-323d-4336-9134-04d61f683e37"
               }
             ]
           },
@@ -1659,7 +1659,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
               }
             ]
           },
@@ -1670,7 +1670,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
               }
             ]
           },
@@ -1682,11 +1682,11 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/cb68e01b-e746-4dc4-8028-bffecd07e840"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/cb68e01b-e746-4dc4-8028-bffecd07e840"
             },
             {
               "rel": "full",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/cb68e01b-e746-4dc4-8028-bffecd07e840?v=full"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/cb68e01b-e746-4dc4-8028-bffecd07e840?v=full"
             }
           ],
           "resourceVersion": "1.11"
@@ -1708,7 +1708,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8971e12-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8971e12-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -1729,7 +1729,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89b289a-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89b289a-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -1750,7 +1750,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8afdd08-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8afdd08-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -1783,7 +1783,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -1809,7 +1809,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a894b1cc-1350-11df-a1f1-0026b9348838"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a894b1cc-1350-11df-a1f1-0026b9348838"
               }
             ]
           },
@@ -1819,7 +1819,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
               }
             ]
           },
@@ -1831,7 +1831,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/293b0f53-eb00-4fc8-8f50-950f6fc1f8d5"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/293b0f53-eb00-4fc8-8f50-950f6fc1f8d5"
               }
             ]
           },
@@ -1844,7 +1844,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
               }
             ]
           },
@@ -1855,7 +1855,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
               }
             ]
           },
@@ -1873,11 +1873,11 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/feb48308-a56f-4754-8e8f-8c1698e570cb/name/3e566bc2-ebbc-424d-8de7-a701a51d2e1a"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/feb48308-a56f-4754-8e8f-8c1698e570cb/name/3e566bc2-ebbc-424d-8de7-a701a51d2e1a"
                 },
                 {
                   "rel": "full",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/feb48308-a56f-4754-8e8f-8c1698e570cb/name/3e566bc2-ebbc-424d-8de7-a701a51d2e1a?v=full"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/feb48308-a56f-4754-8e8f-8c1698e570cb/name/3e566bc2-ebbc-424d-8de7-a701a51d2e1a?v=full"
                 }
               ],
               "resourceVersion": "1.9"
@@ -1888,7 +1888,7 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f"
                 }
               ]
             },
@@ -1898,7 +1898,7 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/conceptclass/8d490dfc-c2cc-11de-8d13-0010c6dffd0f"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/conceptclass/8d490dfc-c2cc-11de-8d13-0010c6dffd0f"
                 }
               ]
             },
@@ -1912,7 +1912,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/feb48308-a56f-4754-8e8f-8c1698e570cb/name/3e566bc2-ebbc-424d-8de7-a701a51d2e1a"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/feb48308-a56f-4754-8e8f-8c1698e570cb/name/3e566bc2-ebbc-424d-8de7-a701a51d2e1a"
                   }
                 ]
               },
@@ -1922,7 +1922,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/feb48308-a56f-4754-8e8f-8c1698e570cb/name/695b79d2-fe25-4917-9d80-8cda1c530da2"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/feb48308-a56f-4754-8e8f-8c1698e570cb/name/695b79d2-fe25-4917-9d80-8cda1c530da2"
                   }
                 ]
               }
@@ -1934,7 +1934,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/feb48308-a56f-4754-8e8f-8c1698e570cb/description/a2ee8786-41a4-434a-b373-a9f0904a3112"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/feb48308-a56f-4754-8e8f-8c1698e570cb/description/a2ee8786-41a4-434a-b373-a9f0904a3112"
                   }
                 ]
               }
@@ -1945,11 +1945,11 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/feb48308-a56f-4754-8e8f-8c1698e570cb"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/feb48308-a56f-4754-8e8f-8c1698e570cb"
               },
               {
                 "rel": "full",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/feb48308-a56f-4754-8e8f-8c1698e570cb?v=full"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/feb48308-a56f-4754-8e8f-8c1698e570cb?v=full"
               }
             ],
             "resourceVersion": "1.11"
@@ -1960,11 +1960,11 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/abb84500-877b-4209-99f4-1671cbf0f4c1"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/abb84500-877b-4209-99f4-1671cbf0f4c1"
             },
             {
               "rel": "full",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/abb84500-877b-4209-99f4-1671cbf0f4c1?v=full"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/abb84500-877b-4209-99f4-1671cbf0f4c1?v=full"
             }
           ],
           "resourceVersion": "1.11"
@@ -1986,7 +1986,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899e890-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899e890-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -2007,7 +2007,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899e0ac-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899e0ac-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -2028,7 +2028,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899b50a-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899b50a-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -2049,7 +2049,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8a0a91e-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8a0a91e-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -2070,7 +2070,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89b7908-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -2108,7 +2108,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/115c744a-cf54-469f-bd5f-820352ffe9be"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/115c744a-cf54-469f-bd5f-820352ffe9be"
               }
             ]
           },
@@ -2118,7 +2118,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
               }
             ]
           },
@@ -2130,7 +2130,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/7f5ec75c-c8c7-4dda-bff1-86f133115552"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/7f5ec75c-c8c7-4dda-bff1-86f133115552"
               }
             ]
           },
@@ -2143,7 +2143,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
               }
             ]
           },
@@ -2154,7 +2154,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
               }
             ]
           },
@@ -2172,11 +2172,11 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838"
                 },
                 {
                   "rel": "full",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838?v=full"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838?v=full"
                 }
               ],
               "resourceVersion": "1.9"
@@ -2187,7 +2187,7 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f"
                 }
               ]
             },
@@ -2197,7 +2197,7 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/conceptclass/8d492774-c2cc-11de-8d13-0010c6dffd0f"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/conceptclass/8d492774-c2cc-11de-8d13-0010c6dffd0f"
                 }
               ]
             },
@@ -2211,7 +2211,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/name/a95df35c-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               }
@@ -2223,7 +2223,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/description/a90f4734-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/description/a90f4734-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               }
@@ -2235,7 +2235,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/mapping/a7c3c497-f857-4230-89a9-b3b6d4b25f8d"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/mapping/a7c3c497-f857-4230-89a9-b3b6d4b25f8d"
                   }
                 ]
               },
@@ -2245,7 +2245,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/mapping/e6ef886b-2ab7-4cdc-9f6d-f272fad1b8c1"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838/mapping/e6ef886b-2ab7-4cdc-9f6d-f272fad1b8c1"
                   }
                 ]
               }
@@ -2255,11 +2255,11 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838"
               },
               {
                 "rel": "full",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838?v=full"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8b0f882-1350-11df-a1f1-0026b9348838?v=full"
               }
             ],
             "resourceVersion": "1.11"
@@ -2270,11 +2270,11 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/e59e3784-16ea-4d81-b106-be379540410a"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/e59e3784-16ea-4d81-b106-be379540410a"
             },
             {
               "rel": "full",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/e59e3784-16ea-4d81-b106-be379540410a?v=full"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/e59e3784-16ea-4d81-b106-be379540410a?v=full"
             }
           ],
           "resourceVersion": "1.11"
@@ -2296,7 +2296,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899ea48-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899ea48-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -2353,7 +2353,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899b50a-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899b50a-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -2374,7 +2374,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8a4cdfa-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8a4cdfa-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -2407,7 +2407,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a89c3d8e-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a89c3d8e-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -2428,7 +2428,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8a67a60-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8a67a60-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -2454,7 +2454,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/30fc0cea-b6c7-48cc-bbfb-4eb53170ce41"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/30fc0cea-b6c7-48cc-bbfb-4eb53170ce41"
               }
             ]
           },
@@ -2464,7 +2464,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
               }
             ]
           },
@@ -2476,7 +2476,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/a83e799d-2327-4461-af17-4e3aba0412ed"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/a83e799d-2327-4461-af17-4e3aba0412ed"
               }
             ]
           },
@@ -2489,7 +2489,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
               }
             ]
           },
@@ -2500,7 +2500,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
               }
             ]
           },
@@ -2518,11 +2518,11 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838/name/a941cdb2-1350-11df-a1f1-0026b9348838"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838/name/a941cdb2-1350-11df-a1f1-0026b9348838"
                 },
                 {
                   "rel": "full",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838/name/a941cdb2-1350-11df-a1f1-0026b9348838?v=full"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838/name/a941cdb2-1350-11df-a1f1-0026b9348838?v=full"
                 }
               ],
               "resourceVersion": "1.9"
@@ -2533,7 +2533,7 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f"
                 }
               ]
             },
@@ -2543,7 +2543,7 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/conceptclass/8d492774-c2cc-11de-8d13-0010c6dffd0f"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/conceptclass/8d492774-c2cc-11de-8d13-0010c6dffd0f"
                 }
               ]
             },
@@ -2557,7 +2557,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838/name/a941cdb2-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838/name/a941cdb2-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               }
@@ -2569,7 +2569,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838/description/a8fef514-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838/description/a8fef514-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               }
@@ -2581,7 +2581,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838/mapping/884356a8-6cd2-4ec6-b744-84fb7bde4a21"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838/mapping/884356a8-6cd2-4ec6-b744-84fb7bde4a21"
                   }
                 ]
               },
@@ -2591,7 +2591,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838/mapping/7dd226b3-c2c8-41e3-b513-c92d1f1bd632"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838/mapping/7dd226b3-c2c8-41e3-b513-c92d1f1bd632"
                   }
                 ]
               }
@@ -2601,11 +2601,11 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838"
               },
               {
                 "rel": "full",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838?v=full"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899b42e-1350-11df-a1f1-0026b9348838?v=full"
               }
             ],
             "resourceVersion": "1.11"
@@ -2616,11 +2616,11 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/d6351d6f-d2a9-4143-b6d7-a3e13ad38eb9"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/d6351d6f-d2a9-4143-b6d7-a3e13ad38eb9"
             },
             {
               "rel": "full",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/d6351d6f-d2a9-4143-b6d7-a3e13ad38eb9?v=full"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/d6351d6f-d2a9-4143-b6d7-a3e13ad38eb9?v=full"
             }
           ],
           "resourceVersion": "1.11"
@@ -2654,7 +2654,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8ad3b02-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8ad3b02-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -2675,7 +2675,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a899e0ac-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a899e0ac-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -2708,7 +2708,7 @@
         "links": [
           {
             "rel": "self",
-            "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a8a19c20-1350-11df-a1f1-0026b9348838"
+            "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a8a19c20-1350-11df-a1f1-0026b9348838"
           }
         ]
       },
@@ -2758,7 +2758,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/1682a920-c93d-4aad-b9cb-4a2b2c41ff1a"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/1682a920-c93d-4aad-b9cb-4a2b2c41ff1a"
               }
             ]
           },
@@ -2768,7 +2768,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient/3a8cd157-38d4-4a50-9121-ab15c7459382"
               }
             ]
           },
@@ -2780,7 +2780,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/724be95d-d54e-4dcf-8cb2-51e1657f586a"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/724be95d-d54e-4dcf-8cb2-51e1657f586a"
               }
             ]
           },
@@ -2793,7 +2793,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location/18c343eb-b353-462a-9139-b16606e6b6c2"
               }
             ]
           },
@@ -2804,7 +2804,7 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/encounter/faae84ae-81fe-421f-b2ef-5a766fd9b97f"
               }
             ]
           },
@@ -2822,11 +2822,11 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a93ff8fc-1350-11df-a1f1-0026b9348838"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a93ff8fc-1350-11df-a1f1-0026b9348838"
                 },
                 {
                   "rel": "full",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a93ff8fc-1350-11df-a1f1-0026b9348838?v=full"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a93ff8fc-1350-11df-a1f1-0026b9348838?v=full"
                 }
               ],
               "resourceVersion": "1.9"
@@ -2837,7 +2837,7 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/conceptdatatype/8d4a4c94-c2cc-11de-8d13-0010c6dffd0f"
                 }
               ]
             },
@@ -2847,7 +2847,7 @@
               "links": [
                 {
                   "rel": "self",
-                  "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/conceptclass/8d490dfc-c2cc-11de-8d13-0010c6dffd0f"
+                  "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/conceptclass/8d490dfc-c2cc-11de-8d13-0010c6dffd0f"
                 }
               ]
             },
@@ -2861,7 +2861,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a958dde0-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a958dde0-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               },
@@ -2871,7 +2871,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a954ecb2-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a954ecb2-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               },
@@ -2881,7 +2881,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a958dc32-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a958dc32-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               },
@@ -2891,7 +2891,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a9591db4-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a9591db4-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               },
@@ -2901,7 +2901,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a93ff8fc-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a93ff8fc-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               },
@@ -2911,7 +2911,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a958dd04-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a958dd04-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               },
@@ -2921,7 +2921,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a95b3284-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a95b3284-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               },
@@ -2931,7 +2931,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a9589b8c-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/name/a9589b8c-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               }
@@ -2943,7 +2943,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/description/a8f8219e-1350-11df-a1f1-0026b9348838"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/description/a8f8219e-1350-11df-a1f1-0026b9348838"
                   }
                 ]
               }
@@ -2955,7 +2955,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/mapping/2a2141cb-ecc4-4ee0-858c-fd2e14f74bfb"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/mapping/2a2141cb-ecc4-4ee0-858c-fd2e14f74bfb"
                   }
                 ]
               },
@@ -2965,7 +2965,7 @@
                 "links": [
                   {
                     "rel": "self",
-                    "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/mapping/a76759e7-cee2-4837-99ca-41bf1d45bd68"
+                    "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838/mapping/a76759e7-cee2-4837-99ca-41bf1d45bd68"
                   }
                 ]
               }
@@ -2975,11 +2975,11 @@
             "links": [
               {
                 "rel": "self",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838"
               },
               {
                 "rel": "full",
-                "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838?v=full"
+                "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/concept/a897df3c-1350-11df-a1f1-0026b9348838?v=full"
               }
             ],
             "resourceVersion": "1.11"
@@ -2990,11 +2990,11 @@
           "links": [
             {
               "rel": "self",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/c67348de-3307-4390-92f8-93ff6d1d71a5"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/c67348de-3307-4390-92f8-93ff6d1d71a5"
             },
             {
               "rel": "full",
-              "uri": "https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/obs/c67348de-3307-4390-92f8-93ff6d1d71a5?v=full"
+              "uri": "https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/obs/c67348de-3307-4390-92f8-93ff6d1d71a5?v=full"
             }
           ],
           "resourceVersion": "1.11"

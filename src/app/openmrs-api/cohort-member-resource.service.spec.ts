@@ -37,7 +37,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
         'links': [
             {
                 'rel': 'self',
-                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/cohort/uuid'
+                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/cohort/uuid'
             }
         ]
     };
@@ -56,11 +56,11 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
             'link': [
                 {
                     'rel': 'self',
-                    'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/cohort/uuid'
+                    'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/cohort/uuid'
                 },
                 {
                     'rel': 'full',
-                    'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/cohort/uuid'
+                    'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/cohort/uuid'
                 }
             ]
         },
@@ -149,7 +149,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                     'links': [
                         {
                             'rel': 'self',
-                            'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                            'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                         }
                     ]
                 },
@@ -159,7 +159,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                     'links': [
                         {
                             'rel': 'self',
-                            'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                            'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                         }
                     ]
                 },
@@ -170,7 +170,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                         'links': [
                             {
                                 'rel': 'self',
-                                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                             }
                         ]
                     },
@@ -180,7 +180,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                         'links': [
                             {
                                 'rel': 'self',
-                                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                             }
                         ]
                     },
@@ -190,7 +190,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                         'links': [
                             {
                                 'rel': 'self',
-                                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                             }
                         ]
                     }
@@ -201,11 +201,11 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                 'links': [
                     {
                         'rel': 'self',
-                        'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                        'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                     },
                     {
                         'rel': 'full',
-                        'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                        'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                     }
                 ],
                 'resourceVersion': '1.11'
@@ -214,11 +214,11 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
             'links': [
                 {
                     'rel': 'self',
-                    'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient'
+                    'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient'
                 },
                 {
                     'rel': 'full',
-                    'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient'
+                    'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient'
                 }
             ],
             'resourceVersion': '1.8'
@@ -226,11 +226,11 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
         'links': [
             {
                 'rel': 'self',
-                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/cohort'
+                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/cohort'
             },
             {
                 'rel': 'full',
-                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/cohort'
+                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/cohort'
             }
         ],
         'resourceVersion': '1.8'
@@ -258,7 +258,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                     'links': [
                         {
                             'rel': 'self',
-                            'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                            'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                         }
                     ]
                 },
@@ -268,7 +268,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                     'links': [
                         {
                             'rel': 'self',
-                            'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                            'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                         }
                     ]
                 },
@@ -279,7 +279,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                         'links': [
                             {
                                 'rel': 'self',
-                                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                             }
                         ]
                     },
@@ -289,7 +289,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                         'links': [
                             {
                                 'rel': 'self',
-                                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                             }
                         ]
                     },
@@ -299,7 +299,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                         'links': [
                             {
                                 'rel': 'self',
-                                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                             }
                         ]
                     }
@@ -310,11 +310,11 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                 'links': [
                     {
                         'rel': 'self',
-                        'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                        'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                     },
                     {
                         'rel': 'full',
-                        'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person/'
+                        'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person/'
                     }
                 ],
                 'resourceVersion': '1.11'
@@ -323,11 +323,11 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
             'links': [
                 {
                     'rel': 'self',
-                    'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient'
+                    'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient'
                 },
                 {
                     'rel': 'full',
-                    'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient'
+                    'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient'
                 }
             ],
             'resourceVersion': '1.8'
@@ -335,11 +335,11 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
         'links': [
             {
                 'rel': 'self',
-                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/cohort'
+                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/cohort'
             },
             {
                 'rel': 'full',
-                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/cohort'
+                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/cohort'
             }
         ],
         'resourceVersion': '1.8'
@@ -371,7 +371,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                     'links': [
                         {
                             'rel': 'self',
-                            'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                            'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                         }
                     ]
                 },
@@ -381,7 +381,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                     'links': [
                         {
                             'rel': 'self',
-                            'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                            'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                         }
                     ]
                 },
@@ -392,7 +392,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                         'links': [
                             {
                                 'rel': 'self',
-                                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                             }
                         ]
                     },
@@ -402,7 +402,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                         'links': [
                             {
                                 'rel': 'self',
-                                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                             }
                         ]
                     },
@@ -412,7 +412,7 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                         'links': [
                             {
                                 'rel': 'self',
-                                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                             }
                         ]
                     }
@@ -423,11 +423,11 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
                 'links': [
                     {
                         'rel': 'self',
-                        'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                        'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                     },
                     {
                         'rel': 'full',
-                        'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/person'
+                        'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/person'
                     }
                 ],
                 'resourceVersion': '1.11'
@@ -436,11 +436,11 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
             'links': [
                 {
                     'rel': 'self',
-                    'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient'
+                    'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient'
                 },
                 {
                     'rel': 'full',
-                    'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/patient'
+                    'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/patient'
                 }
             ],
             'resourceVersion': '1.8'
@@ -448,11 +448,11 @@ describe('Service : CohortMemberResourceService Unit Tests', () => {
         'links': [
             {
                 'rel': 'self',
-                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/cohort'
+                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/cohort'
             },
             {
                 'rel': 'full',
-                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/cohort'
+                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/cohort'
             }
         ],
         'resourceVersion': '1.8'

@@ -13,7 +13,7 @@ import { CacheService } from 'ionic-cache';
 import { VisitDetailsComponent } from './visit-details.component';
 import { DataCacheService } from '../../../../shared/services/data-cache.service';
 import { UserDefaultPropertiesModule } from '../../../../user-default-properties/user-default-properties.module';
-import { NgamrsSharedModule } from '../../../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../../../shared/ngicimrs-shared.module';
 import { PatientDashboardModule } from '../../../patient-dashboard.module';
 import { VisitResourceService } from '../../../../openmrs-api/visit-resource.service';
 import {
@@ -132,7 +132,7 @@ describe('VisitDetailsComponent: ', () => {
         UserDefaultPropertiesModule,
         DialogModule,
         FormsModule,
-        NgamrsSharedModule,
+        NgicimrsSharedModule,
         PatientDashboardModule,
         BrowserAnimationsModule,
         HttpClientTestingModule

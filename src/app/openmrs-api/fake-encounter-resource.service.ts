@@ -26,7 +26,7 @@ export class FakeEncounterResourceService {
         },
         'form': {
           'uuid': '4710fa02-46ee-421d-a951-9eb012e2e950',
-          'name': 'AMPATH Pediatric Return Visit Form 4.4 with Mother-Baby Link'
+          'name': 'ICI Pediatric Return Visit Form 4.4 with Mother-Baby Link'
         },
         'location': {
           'uuid': '08feb5b6-1352-11df-a1f1-0026b9348838',
@@ -34,7 +34,7 @@ export class FakeEncounterResourceService {
           'links': [
             {
               'rel': 'self',
-              'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/'
+              'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/'
             }
           ]
         }
@@ -50,7 +50,7 @@ export class FakeEncounterResourceService {
       },
       'form': {
         'uuid': '4710fa02-46ee-421d-a951-9eb012e2e950',
-        'name': 'AMPATH Pediatric Return Visit Form 4.4 with Mother-Baby Link'
+        'name': 'ICI Pediatric Return Visit Form 4.4 with Mother-Baby Link'
       },
       'location': {
         'uuid': '08feb5b6-1352-11df-a1f1-0026b9348838',
@@ -58,7 +58,7 @@ export class FakeEncounterResourceService {
         'links': [
           {
             'rel': 'self',
-            'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/'
+            'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/'
           }
         ]
       }
@@ -74,7 +74,7 @@ export class FakeEncounterResourceService {
           'links': [
             {
               'rel': 'self',
-              'uri': 'https://amrs.ampath.or.ke:8443/'
+              'uri': 'https://icimrs.ici.or.ke:8443/'
             }
           ]
         },
@@ -84,7 +84,7 @@ export class FakeEncounterResourceService {
           'links': [
             {
               'rel': 'self',
-              'uri': 'https://amrs.ampath.or.ke:8443/'
+              'uri': 'https://icimrs.ici.or.ke:8443/'
             }
           ]
         }
@@ -101,7 +101,7 @@ export class FakeEncounterResourceService {
           'links': [
             {
               'rel': 'self',
-              'uri': 'https://amrs.ampath.or.ke:8443/'
+              'uri': 'https://icimrs.ici.or.ke:8443/'
             }
           ]
         },
@@ -111,7 +111,7 @@ export class FakeEncounterResourceService {
           'links': [
             {
               'rel': 'self',
-              'uri': 'https://amrs.ampath.or.ke:8443/'
+              'uri': 'https://icimrs.ici.or.ke:8443/'
             }
           ]
         }
@@ -128,7 +128,7 @@ export class FakeEncounterResourceService {
           'links': [
             {
               'rel': 'self',
-              'uri': 'https://amrs.ampath.or.ke:8443/'
+              'uri': 'https://icimrs.ici.or.ke:8443/'
             }
           ]
         },
@@ -138,7 +138,7 @@ export class FakeEncounterResourceService {
           'links': [
             {
               'rel': 'self',
-              'uri': 'https://amrs.ampath.or.ke:8443/'
+              'uri': 'https://icimrs.ici.or.ke:8443/'
             }
           ]
         }

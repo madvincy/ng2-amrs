@@ -13,7 +13,7 @@ import { RoutesProviderService } from '../shared/dynamic-route/route-config-prov
 import { of } from 'rxjs';
 import { StaticNavBarComponent, SideNavigationComponent } from '../navigation';
 import { MOTDNotificationComponent } from '../Motd/motd-notification.component';
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { MatSidenavModule } from '@angular/material';
 import { MainDashboardModule } from './main-dashboard.module';
 import { SessionService } from '../openmrs-api/session.service';
@@ -36,7 +36,7 @@ describe('Component: MainDashboard', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        NgamrsSharedModule,
+        NgicimrsSharedModule,
         MatSidenavModule,
         MainDashboardModule,
         HttpClientTestingModule,

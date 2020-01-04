@@ -6,7 +6,7 @@ self.addEventListener('fetch', (event) => {
   let path = url.pathname;
   let searchParams = getUrlParams(url.search);
 
-  if (path === '/amrs/ws/rest/v1/patient') {
+  if (path === '/icimrs/ws/rest/v1/patient') {
     event.respondWith(
       fetch(event.request).then((response) => {
         self.console.log(response);

@@ -2,7 +2,7 @@ import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 import { ClinicDashboardComponent } from './clinic-dashboard.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CacheService } from 'ionic-cache';
 import { CacheStorageService } from 'ionic-cache/dist/cache-storage';
@@ -30,7 +30,7 @@ describe('clinic-dashboard component tests', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [
-                RouterTestingModule.withRoutes(routes), FormsModule, NgamrsSharedModule,
+                RouterTestingModule.withRoutes(routes), FormsModule, NgicimrsSharedModule,
                 HttpClientTestingModule
 
             ],

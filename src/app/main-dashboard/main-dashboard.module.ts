@@ -14,7 +14,7 @@ import {
 } from '../useful-links';
 import { DataListsModule } from '../shared/data-lists/data-lists.module';
 import { PatientDashboardModule } from '../patient-dashboard/patient-dashboard.module';
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { MainDashboardGuard } from './main-dashboard.guard';
 import { UserService } from '../openmrs-api/user.service';
 import { AppState } from '../app.service';
@@ -35,7 +35,7 @@ import { RetrospectiveDataEntryModule
     FormsModule,
     dashboardRouting,
     NavigationModule,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     AgGridModule.withComponents([]),
     DataListsModule,
     LabOrderSearchModule,

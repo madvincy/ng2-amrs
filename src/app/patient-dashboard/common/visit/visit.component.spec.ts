@@ -16,7 +16,7 @@ import * as moment from 'moment';
 import { CacheService } from 'ionic-cache';
 
 import { PatientDashboardModule } from '../../patient-dashboard.module';
-import { NgamrsSharedModule } from '../../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../../shared/ngicimrs-shared.module';
 import { UserDefaultPropertiesModule } from '../../../user-default-properties/user-default-properties.module';
 
 import { VisitComponent } from './visit.component';
@@ -125,7 +125,7 @@ xdescribe('Component: Visit', () => {
         UserDefaultPropertiesModule,
         DialogModule,
         FormsModule,
-        NgamrsSharedModule,
+        NgicimrsSharedModule,
         PatientDashboardModule,
         BrowserAnimationsModule
       ]

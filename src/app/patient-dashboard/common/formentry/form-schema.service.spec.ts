@@ -18,7 +18,7 @@ describe('Service: FormSchemaService', () => {
     display: 'Adult Return Visit Form v0.01',
     resources: [
       {
-        dataType: 'AmpathJsonSchema',
+        dataType: 'IciJsonSchema',
         name: 'json schema',
         uuid: '57991389-dbd4-4d15-8802-4b1ac560fb57',
         valueReference: 'adult-return-formClobData-uuid',

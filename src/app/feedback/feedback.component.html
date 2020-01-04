@@ -60,9 +60,9 @@
               *
             </div>
             <div style="display:inline-block; width: 98%;">
-              <select class="form-control" [ngModel]="department" [ngModelOptions]="{standalone:true}" (ngModelChange)="getSelectedDepartment($event)">
+              <select class="form-control" [ngModel]="department" [ngModelOptions]="{standalone:true}" (ngModelChange)="getSelectedMedicalService($event)">
                 <option [ngValue]="undefined" disabled selected="selected" hidden style="color: gray">Please select department</option>
-                <option *ngFor="let d of programDepartments" [ngValue]="d.name">{{d.name}}</option>
+                <option *ngFor="let ms of programMedicalServices" [ngValue]="ms.name">{{ms.name}}</option>
               </select>
             </div>
           </div>

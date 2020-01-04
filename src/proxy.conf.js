@@ -2,9 +2,9 @@ const PROXY_CONFIG = [
     {
         context: [
             "/etl-server-test-internal5",
-            "/amrs"
+            "/icimrs"
         ],
-        target: "https://ngx.ampath.or.ke",
+        target: "https://mrs.intercancer.com",
         secure: false
     },
     {

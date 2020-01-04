@@ -1,7 +1,7 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed, async, inject, ComponentFixture } from '@angular/core/testing';
 import { ChartModule } from 'angular2-highcharts';
-import { NgamrsSharedModule } from '../../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../../shared/ngicimrs-shared.module';
 import { AgGridModule } from 'ag-grid-angular';
 import { PatientStatusChangeVisualizationComponent } from './patient-status-change-visualization.component';
 import { PatientStatuChangeVisualizationService } from './patient-status-change-visualization.service';
@@ -25,7 +25,7 @@ describe('MonthlyScheduleComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [ChartModule, AgGridModule, MatSlideToggleModule, FormsModule,
-                NgamrsSharedModule, DateTimePickerModule, RouterTestingModule
+                NgicimrsSharedModule, DateTimePickerModule, RouterTestingModule
             ],
             declarations: [PatientStatusChangeVisualizationComponent,
             DashboardFiltersComponent, IndicatorSelectComponent, GenderSelectComponent,

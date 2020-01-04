@@ -144,13 +144,13 @@ export class DepartmentProgramFilterComponent implements OnInit, OnDestroy, Afte
     }
     if (isClinicDashboard === -1) {
         this.showDepartmentFilter = true;
-        this.getDepartmentConfig().then((success) => {
-        });
+        // this.getDepartmentConfig().then((success) => {
+        // });
     } else {
        this.showDepartmentFilter = false;
-       this.getDepartmentConfig();
+      //  this.getDepartmentConfig();
        // if clinic dashboard do not show departments only programs
-       this.getDefaultDepartment();
+      //  this.getDefaultDepartment();
     }
 
     resolve('success');
@@ -259,53 +259,53 @@ export class DepartmentProgramFilterComponent implements OnInit, OnDestroy, Afte
 
   }
 
-  public getDefaultDepartment() {
+  // public getDefaultDepartment() {
 
-    const defaultDepartment: any = JSON.parse(this.localStorageService.getItem('userDefaultDepartment'));
-    if (defaultDepartment) {
+  //   const defaultDepartment: any = JSON.parse(this.localStorageService.getItem('userDefaultDepartment'));
+  //   if (defaultDepartment) {
 
-      this.currentDepartment = defaultDepartment[0].itemName;
-      this.getDepartmentPrograms(defaultDepartment[0].itemName);
+  //     this.currentDepartment = defaultDepartment[0].itemName;
+  //     this.getDepartmentPrograms(defaultDepartment[0].itemName);
 
-    }
+  //   }
 
-  }
+  // }
 
-  public getDepartmentPrograms(department) {
+  // public getDepartmentPrograms(department) {
 
-    const programs = [];
+  //   const programs = [];
 
-    this._departmentProgramService.getDepartmentPrograms(department).pipe(
-      take(1))
-      .subscribe((result) => {
-          this.departmentPrograms = result;
-          this.programs = result.map((program: any) => {
-            const specificProgram = {
-              id: program.uuid,
-              itemName: program.name
-            };
-            this.programMap.set(program.uuid, specificProgram);
-            return specificProgram;
-          });
-      });
+  //   this._departmentProgramService.getDepartmentPrograms(department).pipe(
+  //     take(1))
+  //     .subscribe((result) => {
+  //         this.departmentPrograms = result;
+  //         this.programs = result.map((program: any) => {
+  //           const specificProgram = {
+  //             id: program.uuid,
+  //             itemName: program.name
+  //           };
+  //           this.programMap.set(program.uuid, specificProgram);
+  //           return specificProgram;
+  //         });
+  //     });
 
-  }
+  // }
 
 
-  public getDepartmentConfig() {
+  // public getDepartmentConfig() {
 
-    return new Promise((resolve, reject) => {
-      this.departmentProgramService.getDartmentProgramsConfig().pipe(
-        take(1)).subscribe((results) => {
-          if (results) {
-            this.departmenProgramtConfig = results;
-            this.loadAllDepartments();
-            resolve('sucesss');
-          }
-        });
-    });
+  //   return new Promise((resolve, reject) => {
+  //     this.departmentProgramService.getDartmentProgramsConfig().pipe(
+  //       take(1)).subscribe((results) => {
+  //         if (results) {
+  //           this.departmenProgramtConfig = results;
+  //           this.loadAllDepartments();
+  //           resolve('sucesss');
+  //         }
+  //       });
+  //   });
 
-  }
+  // }
 
   public loadAllDepartments() {
 

@@ -90,7 +90,7 @@ describe('Moh731ReportBaseComponent:', () => {
         (done) => {
             const fakeReply: any = {
                 result: [{
-                    location: 'ampath',
+                    location: 'ici',
                     indicator1: 10,
                     indicator2: 2,
                     indicator3: 3,

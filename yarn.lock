@@ -5175,9 +5175,9 @@ ngx-cookie@^4.0.2:
   dependencies:
     tslib "^1.9.0"
 
-"ngx-file-uploader@git+https://github.com/Ampath/ngx-file-uploader.git#0.0.8":
+"ngx-file-uploader@git+https://github.com/Ici/ngx-file-uploader.git#0.0.8":
   version "0.0.8"
-  resolved "git+https://github.com/Ampath/ngx-file-uploader.git#590321b7a62a2e91bac9355a1871fc713d29c3a3"
+  resolved "git+https://github.com/Ici/ngx-file-uploader.git#590321b7a62a2e91bac9355a1871fc713d29c3a3"
 
 "ngx-file-uploader@git+https://github.com/enyachoke/ngx-file-uploader.git#0.0.9":
   version "0.0.9"
@@ -5187,9 +5187,9 @@ ngx-mydatepicker@^0.1.0:
   version "0.1.15"
   resolved "https://registry.yarnpkg.com/ngx-mydatepicker/-/ngx-mydatepicker-0.1.15.tgz#d1d566b1bf6b666d3d1efe8bb9d3d99ca2d8d1ee"
 
-"ngx-openmrs-formentry@git+https://github.com/AMPATH/ngx-openmrs-formentry.git#v2.9.6":
+"ngx-openmrs-formentry@git+https://github.com/ICI/ngx-openmrs-formentry.git#v2.9.6":
   version "2.9.4"
-  resolved "git+https://github.com/AMPATH/ngx-openmrs-formentry.git#e7801ec14311b0abf9d7f366bfa795ad6504be8b"
+  resolved "git+https://github.com/ICI/ngx-openmrs-formentry.git#e7801ec14311b0abf9d7f366bfa795ad6504be8b"
   dependencies:
     "@angular/animations" "^6.0.2"
     "@angular/cdk" "^6.0.0"
@@ -5213,7 +5213,7 @@ ngx-mydatepicker@^0.1.0:
     moment "^2.17.1"
     ngx-bootstrap next
     ngx-cookie "^4.0.2"
-    ngx-file-uploader "git+https://github.com/Ampath/ngx-file-uploader.git#0.0.8"
+    ngx-file-uploader "git+https://github.com/Ici/ngx-file-uploader.git#0.0.8"
     reflect-metadata "^0.1.9"
     rxjs "^6.0.0"
     rxjs-compat "^6.2.1"

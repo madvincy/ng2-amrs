@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
 
 import { TodayVisitService, VisitsEvent } from './today-visit.service';
 import { PatientProgramResourceService } from '../../../etl-api/patient-program-resource.service';
-import { NgamrsSharedModule } from '../../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../../shared/ngicimrs-shared.module';
 import { UserDefaultPropertiesModule } from '../../../user-default-properties/user-default-properties.module';
 import { VisitResourceService } from '../../../openmrs-api/visit-resource.service';
 import { PatientService } from '../../services/patient.service';
@@ -192,7 +192,7 @@ describe('Service: TodayVisit', () => {
       imports: [
         RouterTestingModule,
         HttpClientTestingModule,
-        NgamrsSharedModule,
+        NgicimrsSharedModule,
         UserDefaultPropertiesModule,
       ]
     });

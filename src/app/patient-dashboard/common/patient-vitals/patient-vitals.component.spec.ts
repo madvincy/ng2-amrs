@@ -122,8 +122,8 @@ const testVitals = [
 const testPatient1 = new Patient({
   allIdentifiers: '297400783-9',
   commonIdentifiers: {
-    ampathMrsUId: '297400783-9',
-    amrsMrn: '',
+    iciMrsUId: '297400783-9',
+    icimrsMrn: '',
     cCC: '',
     kenyaNationalId: ''
   },

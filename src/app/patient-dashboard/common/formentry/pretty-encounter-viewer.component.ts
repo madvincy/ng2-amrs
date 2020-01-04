@@ -61,7 +61,7 @@ export class PrettyEncounterViewerComponent implements OnInit {
               name: this.patient.person.display || '',
               age: this.patient.person.age,
               birthdate: this.patient.person.birthdate,
-              mui: this.patient.searchIdentifiers.ampathMrsUId || '',
+              mui: this.patient.searchIdentifiers.iciMrsUId || '',
               nid: this.patient.searchIdentifiers.kenyaNationalId || '',
               mhn: this.patient.openmrsModel.identifiers.find(identifier => identifier.identifierType.name === 'MTRH Hospital Number') ?
                 // tslint:disable-next-line:max-line-length

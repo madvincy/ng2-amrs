@@ -52,8 +52,8 @@ describe('Service: PatientIdentifierService', () => {
     const service: PatientIdentifierService = TestBed.get(PatientIdentifierService);
     const commonIdentifiers = service.commonIdentifierTypes();
     expect(commonIdentifiers[0]).toBe('KENYAN NATIONAL ID NUMBER');
-    expect(commonIdentifiers[1]).toBe('AMRS Medical Record Number');
-    expect(commonIdentifiers[2]).toBe('AMRS Universal ID');
+    expect(commonIdentifiers[1]).toBe('ICIMRS Medical Record Number');
+    expect(commonIdentifiers[2]).toBe('ICIMRS Universal ID');
     expect(commonIdentifiers[3]).toBe('CCC Number');
     expect(commonIdentifiers[4]).toBe('MTRH Hospital Number');
     expect(commonIdentifiers[5]).toBe('HEI');

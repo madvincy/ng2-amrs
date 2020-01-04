@@ -7,7 +7,7 @@ import { UtilsModule } from '../utils/utils.module';
 import { CohortMemberModule } from './cohort-member/cohort-member.module';
 import { CohortListComponent } from './cohort-list.component';
 import { cohortRouting } from './patient-list-cohort.routes';
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { AddCohortListComponent } from './add-cohort-list.component';
 import { EditCohortListComponent } from './edit-cohort-list.component';
 import { CohortListService } from './cohort-list.service';
@@ -27,7 +27,7 @@ import { ConfirmDialogModule, DialogModule } from 'primeng/primeng';
     FormsModule,
     cohortRouting,
     UtilsModule,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     CohortMemberModule,
     ConfirmDialogModule, DialogModule,
     NgxPaginationModule,

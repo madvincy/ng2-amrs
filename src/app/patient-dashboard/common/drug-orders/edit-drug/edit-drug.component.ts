@@ -289,14 +289,14 @@ export class EditDrugComponent implements OnInit {
       (patient) => {
         if (patient) {
           this.patient = patient;
-          const amrsId = _.find(this.patient.identifiers.openmrsModel,
+          const icimrsId = _.find(this.patient.identifiers.openmrsModel,
             (identifer: any) => {
               if (identifer.identifierType.uuid === '58a4732e-1359-11df-a1f1-0026b9348838') {
                 return true;
               }
             });
-          if (amrsId) {
-            this.patientIdentifer = amrsId.identifier;
+          if (icimrsId) {
+            this.patientIdentifer = icimrsId.identifier;
           }
         }
       }

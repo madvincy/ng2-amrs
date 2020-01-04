@@ -8,7 +8,7 @@ import { MatTabsModule } from '@angular/material';
 import { AgGridModule } from 'ag-grid-angular';
 import { DataListsModule } from '../shared/data-lists/data-lists.module';
 
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {
   ProgramEnrollmentResourceService
@@ -60,7 +60,7 @@ import { EnrollmentShortcutComponent } from './enrollment-shortcut/enrollment-sh
     RouterModule.forChild([]),
     CommonModule,
     FormsModule,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     DataListsModule,
     AgGridModule,
     NgSelectModule,

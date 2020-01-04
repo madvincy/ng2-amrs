@@ -85,14 +85,14 @@ export class LabTestOrdersComponent implements OnInit, OnDestroy {
       (patient) => {
         if (patient) {
           this.patient = patient;
-          const amrsId = _.find(this.patient.identifiers.openmrsModel,
+          const icimrsId = _.find(this.patient.identifiers.openmrsModel,
             (identifer: any) => {
               if (identifer.identifierType.uuid === '58a4732e-1359-11df-a1f1-0026b9348838') {
                 return true;
               }
             });
-          if (amrsId) {
-            this.patientIdentifer = amrsId.identifier;
+          if (icimrsId) {
+            this.patientIdentifer = icimrsId.identifier;
           }
           this.getLabOrdersByPatientUuid();
           this.getPatientLabOrders();
@@ -108,8 +108,8 @@ export class LabTestOrdersComponent implements OnInit, OnDestroy {
     const patientUuId = this.patient.uuid;
     this.orderResourceService.getOrdersByPatientUuid(patientUuId).pipe(
       take(1)).subscribe((result) => {
-        console.log('result', result);
-        // this.getCorrespingLabOrdersFromAmrs(result.results);
+        console.log('result', result.length);
+        // this.getCorrespingLabOrdersFromIcimrs(result.results);
         this.labPatient = result.results[0].patient;
         this.labEncouonters = result.results;
         this.labOrders = result.results;
@@ -161,7 +161,7 @@ export class LabTestOrdersComponent implements OnInit, OnDestroy {
   public postOrderToEid(order: any) {
     this.currentOrder = null;
     this.displayDialog = true;
-    this.currentOrder = this.getCorrespingLabOrdersFromAmrs(this.labEncouonters, order.orderNumber);
+    this.currentOrder = this.getCorrespingLabOrdersFromIcimrs(this.labEncouonters, order.orderNumber);
     // this.currentOrder = order;
   }
 
@@ -363,7 +363,7 @@ export class LabTestOrdersComponent implements OnInit, OnDestroy {
     //   });
   }
 
-  private getCorrespingLabOrdersFromAmrs(result, uuid) {
+  private getCorrespingLabOrdersFromIcimrs(result, uuid) {
     for (let i = 0; i < result.length; i++) {
       if (result[i].orderNumber === uuid) {
         this.currentOrder = null;

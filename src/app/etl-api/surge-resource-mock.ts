@@ -765,7 +765,7 @@ export class SurgeResourceServiceMock extends SurgeResourceService {
                             'alias': 'srb'
                         },
                         {
-                            'table': 'amrs.location',
+                            'table': 'icimrs.location',
                             'alias': 'l',
                             'join': {
                                 'type': 'INNER',
@@ -1187,7 +1187,7 @@ export class SurgeResourceServiceMock extends SurgeResourceService {
                                 'alias': 'srb'
                             },
                             {
-                                'table': 'amrs.location',
+                                'table': 'icimrs.location',
                                 'alias': 'l',
                                 'join': {
                                     'type': 'INNER',

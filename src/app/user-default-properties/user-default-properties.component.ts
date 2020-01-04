@@ -11,6 +11,7 @@ import {
   RetrospectiveDataEntryService
 } from '../retrospective-data-entry/services/retrospective-data-entry.service';
 import * as _ from 'lodash';
+import { ServicesOfferedProgramsConfigService } from '../etl-api/services-offered-programs-config.service';
 
 @Component({
   selector: 'user-default-properties',
@@ -23,8 +24,10 @@ export class UserDefaultPropertiesComponent implements OnInit {
   public query: string = '';
   public user: User;
   public filteredList: Array<any> = [];
-  public departments = [];
-  public selectedDepartment: string = '';
+  // public departments = [];
+  // public selectedDepartment: string = '';
+  public medicalServices = [];
+  public selectedService: string = '';
   public selectedIdx: number = -1;
   public location: any;
   public confirming: boolean = false;
@@ -35,12 +38,13 @@ export class UserDefaultPropertiesComponent implements OnInit {
   private retroSettings: any;
 
   constructor(private router: Router,
-              private route: ActivatedRoute,
-              private userService: UserService,
-              private localStorageService: LocalStorageService,
-              private departmentProgramService: DepartmentProgramsConfigService,
-              private retrospectiveDataEntryService: RetrospectiveDataEntryService,
-              private propertyLocationService: UserDefaultPropertiesService
+    private route: ActivatedRoute,
+    private userService: UserService,
+    private localStorageService: LocalStorageService,
+    // private departmentProgramService: DepartmentProgramsConfigService,
+    private servicesOfferedPrograms: ServicesOfferedProgramsConfigService,
+    private retrospectiveDataEntryService: RetrospectiveDataEntryService,
+    private propertyLocationService: UserDefaultPropertiesService
   ) {
 
   }
@@ -55,7 +59,7 @@ export class UserDefaultPropertiesComponent implements OnInit {
         this.propertyLocationService.setUserProperty('retroLocation',
           JSON.stringify(this.location));
       }
-      this.getDepartmentsLocations();
+      this.getServiceOfferedLocations();
     });
 
   }
@@ -67,42 +71,52 @@ export class UserDefaultPropertiesComponent implements OnInit {
 
   }
 
-  public selectDepartment(event: any) {
-    const deptObject = _.find(this.departments, (el) => {
+  // public selectDepartment(event: any) {
+  //   const deptObject = _.find(this.departments, (el) => {
+  //     return el.itemName === event;
+  //   });
+
+  //   const department = [deptObject];
+  //   this.selectedDepartment = event;
+  //   this.localStorageService.setItem('userDefaultDepartment', JSON.stringify(department));
+  // }
+  public selectMedicalService(event: any) {
+    const servObject = _.find(this.medicalServices, (el) => {
       return el.itemName === event;
     });
 
-    const department = [deptObject];
-    this.selectedDepartment = event;
-    this.localStorageService.setItem('userDefaultDepartment', JSON.stringify(department));
+    const service = [servObject];
+    this.selectedService = event;
+    this.localStorageService.setItem('userDefaultServiceOffered', JSON.stringify(service));
   }
 
   public select(item: any) {
     this.disable = false;
-    const location = JSON.stringify({uuid: item.value, display: item.label});
+    const location = JSON.stringify({ uuid: item.value, display: item.label });
     this.currentLocation = location;
     this.propertyLocationService.setUserProperty('userDefaultLocation', location);
     this.propertyLocationService.setUserProperty('retroLocation', JSON.stringify(item));
   }
 
-  private getDepartmentsLocations() {
-    this.currentLocation = this.propertyLocationService.getCurrentUserDefaultLocationObject();
-    if (!this.currentLocation) {
-      this.disable = true;
-    }
-    // this.departmentProgramService.getDartmentProgramsConfig().pipe(take(1)).subscribe((results) => {
-    //   if (results) {
-    //     this.mapDepartments(results);
-    //     this.setDepartmentLocation();
-    //   }
-    //   this.currentLocation = this.propertyLocationService.getCurrentUserDefaultLocationObject();
-    //   if (!this.currentLocation) {
-    //     this.disable = true;
-    //   }
-    // });
+  private getServiceOfferedLocations() {
+    // this.currentLocation = this.propertyLocationService.getCurrentUserDefaultLocationObject();
+    // if (!this.currentLocation) {
+    //   this.disable = true;
+    // }
+    // this.setLocation();
+    this.servicesOfferedPrograms.getserviceOfferedProgramsConfig().pipe(take(1)).subscribe((results) => {
+      if (results) {
+        this.mapServicesOffered(results);
+        this.setLocation();
+      }
+      this.currentLocation = this.propertyLocationService.getCurrentUserDefaultLocationObject();
+      if (!this.currentLocation) {
+        this.disable = true;
+      }
+    });
   }
 
-  private setDepartmentLocation() {
+  private setLocation() {
     this.propertyLocationService.getLocations().pipe(take(1)).subscribe((response) => {
       this.locations = response.results.map((location: any) => {
         if (location && !_.isNil(location.display)) {
@@ -110,31 +124,43 @@ export class UserDefaultPropertiesComponent implements OnInit {
         }
       });
       this.isBusy = false;
-      const department = JSON.parse(this.localStorageService.getItem('userDefaultDepartment'));
-      if (department !== null) {
-        this.selectedDepartment = department[0].itemName;
-      } else {
-        this.selectedDepartment = 'HEMATO-ONCOLOGY';
-        setTimeout(() => {
-          this.selectDepartment(this.selectedDepartment);
-        }, 1000);
+      // const department = JSON.parse(this.localStorageService.getItem('userDefaultDepartment'));
+      // if (department !== null) {
+      //   this.selectedDepartment = department[0].itemName;
+      // } else {
+      //   this.selectedDepartment = 'HEMATO-ONCOLOGY';
+      //   setTimeout(() => {
+      //     this.selectDepartment(this.selectedDepartment);
+      //   }, 1000);
 
-      }
+      // }
       this.retrospectiveDataEntryService.retroSettings.subscribe((retroSettings) => {
         this.retroSettings = retroSettings;
       });
     });
   }
 
-  private mapDepartments(results: any[]) {
-    _.each(results, (department, key: string) => {
-      const dept = {
-        'itemName': department.name,
+  // private mapDepartments(results: any[]) {
+  //   _.each(results, (department, key: string) => {
+  //     const dept = {
+  //       'itemName': department.name,
+  //       'id': key
+  //     };
+  //     this.departments.push(dept);
+  //     this.departments = _.filter(this.departments, (dep) => {
+  //       return !_.includes(['uud4', 'uud5'], dep.id);
+  //     });
+  //   });
+  // }
+    private mapServicesOffered(results: any[]) {
+    _.each(results, (service, key: string) => {
+      const srvce = {
+        'itemName': service.name,
         'id': key
       };
-      this.departments.push(dept);
-      this.departments = _.filter(this.departments, (dep) => {
-        return !_.includes(['uud4', 'uud5'], dep.id);
+      this.medicalServices.push(srvce);
+      this.medicalServices = _.filter(this.medicalServices, (ser) => {
+        return !_.includes(['uud4', 'uud5'], ser.id);
       });
     });
   }

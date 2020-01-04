@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 import * as Moment from 'moment';
 
-@Pipe({name: 'ngamrsAge'})
+@Pipe({name: 'ngicimrsAge'})
 export class AgePipe implements PipeTransform {
   transform(value: string): string {
     if (value) {

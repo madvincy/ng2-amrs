@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { GroupManagerSearchComponent } from './group-manager-search/group-manager-search.component';
 import { GroupManagerSearchResultsComponent } from './group-manager-search/group-manager-search-results.component';
 import { GroupDetailComponent } from './group-detail/group-detail.component';
@@ -29,7 +29,7 @@ import { PatientSearchModule } from '../patient-search/patient-search.module';
     imports: [
         CommonModule,
         FormsModule,
-        NgamrsSharedModule,
+        NgicimrsSharedModule,
         GroupManagerRouting,
         PatientSearchModule
      ],

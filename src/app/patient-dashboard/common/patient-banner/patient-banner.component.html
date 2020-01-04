@@ -23,9 +23,9 @@
     </div>
     <div class="row">
       <span style="margin-left:0px;">
-        <span *ngIf="searchIdentifiers?.ampathMrsUId"> <span class="id-label">MUI:</span>
-          {{ searchIdentifiers?.ampathMrsUId }} &nbsp;&nbsp;&nbsp;&nbsp; </span>
-        <span *ngIf="searchIdentifiers?.amrsMrn"> <span class="id-label">MRN:</span> {{ searchIdentifiers?.amrsMrn }}
+        <span *ngIf="searchIdentifiers?.iciMrsUId"> <span class="id-label">MUI:</span>
+          {{ searchIdentifiers?.iciMrsUId }} &nbsp;&nbsp;&nbsp;&nbsp; </span>
+        <span *ngIf="searchIdentifiers?.icimrsMrn"> <span class="id-label">MRN:</span> {{ searchIdentifiers?.icimrsMrn }}
           &nbsp;&nbsp;&nbsp;&nbsp; </span>
         <span *ngIf="searchIdentifiers?.cCC"> <span class="id-label">CCC:</span> {{ searchIdentifiers?.cCC }} </span>
         <span *ngIf="searchIdentifiers?.kenyaNationalId"> <span class="id-label">NID:</span>
@@ -75,9 +75,9 @@
       <span *ngIf="patient?.person.dead">Died on
         <strong>{{ patient?.person.deathDate | date: 'dd-MM-yyyy'}}</strong></span>
       <span style="margin-left:0px;">
-        <span *ngIf="searchIdentifiers?.ampathMrsUId"> <span class="id-label">MUI:</span>
-          {{ searchIdentifiers?.ampathMrsUId }} &nbsp;&nbsp;&nbsp;&nbsp; </span>
-        <span *ngIf="searchIdentifiers?.amrsMrn"> <span class="id-label">MRN:</span> {{ searchIdentifiers?.amrsMrn }}
+        <span *ngIf="searchIdentifiers?.iciMrsUId"> <span class="id-label">MUI:</span>
+          {{ searchIdentifiers?.iciMrsUId }} &nbsp;&nbsp;&nbsp;&nbsp; </span>
+        <span *ngIf="searchIdentifiers?.icimrsMrn"> <span class="id-label">MRN:</span> {{ searchIdentifiers?.icimrsMrn }}
           &nbsp;&nbsp;&nbsp;&nbsp; </span>
         <span *ngIf="searchIdentifiers?.cCC"> <span class="id-label">CCC:</span> {{ searchIdentifiers?.cCC }} </span>
         <span *ngIf="searchIdentifiers?.kenyaNationalId"> <span class="id-label">NID:</span>
@@ -138,7 +138,7 @@
                                             <span *ngIf="relationship?.relatedPerson?.gender">
                                               {{ relationship?.relatedPerson?.gender }} &nbsp;&nbsp;&nbsp;&nbsp; </span>
                                             <span *ngIf="relationship?.relatedPerson?.birthdate">
-                                              ({{ relationship?.relatedPerson?.birthdate | ngamrsAge  }} yo) &nbsp;&nbsp;&nbsp;&nbsp; </span>
+                                              ({{ relationship?.relatedPerson?.birthdate | ngicimrsAge  }} yo) &nbsp;&nbsp;&nbsp;&nbsp; </span>
                                             <span *ngIf="relationship?.relationshipType"> <span class="id-label">Type:</span>
                                               {{ relationship?.relationshipType  }} &nbsp;&nbsp;&nbsp;&nbsp;</span>
                                           </h4>

@@ -7,7 +7,7 @@ import { AgGridModule } from 'ag-grid-angular/main';
 import {
   DataAnalyticsDashboardOncologyRouting
 } from './data-analytics-oncology.routes';
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { DataListsModule } from '../../shared/data-lists/data-lists.module';
 import { DataAnalyticsDashboardService } from '../services/data-analytics-dashboard.services';
 
@@ -40,7 +40,7 @@ import {
   {
     imports: [
       DataAnalyticsDashboardOncologyRouting,
-      NgamrsSharedModule,
+      NgicimrsSharedModule,
       CommonModule,
       RouterModule,
       FormsModule,

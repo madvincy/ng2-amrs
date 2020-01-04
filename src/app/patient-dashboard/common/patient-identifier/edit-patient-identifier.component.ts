@@ -106,7 +106,7 @@ export class EditPatientIdentifierComponent implements OnInit, OnDestroy {
         // remove types that cannot be added more that once
         _.each(id, (_id) => {
           const hasId = _.includes([
-            '58a4732e-1359-11df-a1f1-0026b9348838', // AMRS Universal ID
+            '58a4732e-1359-11df-a1f1-0026b9348838', // ICIMRS Universal ID
             '58a47054-1359-11df-a1f1-0026b9348838', // KENYA NATIONAL ID NUMBER
             'ead42a8f-203e-4b11-a942-df03a460d617', // HEI
             'd1e5ef63-126f-4b1f-bd3f-496c16c4098d', // KUZA ID

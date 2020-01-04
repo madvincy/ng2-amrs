@@ -6,8 +6,8 @@ export const PATIENTS: Patient[] = [
         gender: 'F',
         dob: 1212345123,
         age: 34,
-        ampathMrsUId: 163238471 - 3,
-        amrsMrn: 456789,
+        iciMrsUId: 163238471 - 3,
+        icimrsMrn: 456789,
         cCC: 23445,
         kenyaNationalId: 16150 - 2013
     },
@@ -16,8 +16,8 @@ export const PATIENTS: Patient[] = [
         gender: 'M',
         dob: 1212345123,
         age: 34,
-        ampathMrsUId: 163238471 - 3,
-        amrsMrn: 456789,
+        iciMrsUId: 163238471 - 3,
+        icimrsMrn: 456789,
         cCC: 23445,
         kenyaNationalId: 16150 - 2013
     },
@@ -26,8 +26,8 @@ export const PATIENTS: Patient[] = [
         gender: 'F',
         dob: 1212345123,
         age: 34,
-        ampathMrsUId: 163238471 - 3,
-        amrsMrn: 456789,
+        iciMrsUId: 163238471 - 3,
+        icimrsMrn: 456789,
         cCC: 23445,
         kenyaNationalId: 16150 - 2013
     }

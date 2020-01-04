@@ -92,7 +92,7 @@ export class AppSettingsComponent implements OnInit {
 
   public changeServerSettings(row: any) {
     // change openmrs url
-    this.openmrsServer = row.amrsUrl;
+    this.openmrsServer = row.icimrsUrl;
     // change etl-server url
     this.etlServer = row.etlUrl;
 

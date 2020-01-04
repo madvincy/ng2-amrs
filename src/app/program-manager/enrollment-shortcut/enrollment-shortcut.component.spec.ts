@@ -101,8 +101,8 @@ const departmentProgramsConfigServiceStub = {
 const testPatient = new Patient({
   allIdentifiers: '749138740-8',
   commonIdentifiers: {
-    ampathMrsUId: '749138740-8',
-    amrsMrn: '',
+    iciMrsUId: '749138740-8',
+    icimrsMrn: '',
     cCC: '',
     kenyaNationalId: ''
   },

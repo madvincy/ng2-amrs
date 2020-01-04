@@ -15,6 +15,7 @@ import {
 import { PatientProgramResourceService } from '../../etl-api/patient-program-resource.service';
 import { LocalStorageService } from '../../utils/local-storage.service';
 import { ProgramManagerService } from '../program-manager.service';
+import { ServicesOfferedProgramsConfigService } from 'src/app/etl-api/services-offered-programs-config.service';
 
 @Component({
   selector: 'program-edit',
@@ -34,7 +35,8 @@ export class EditProgramComponent extends ProgramManagerBaseComponent implements
               public programService: ProgramService,
               public router: Router,
               public route: ActivatedRoute,
-              public departmentProgramService: DepartmentProgramsConfigService,
+              // public departmentProgramService: DepartmentProgramsConfigService,
+              public _servicesOfferedService: ServicesOfferedProgramsConfigService,
               public userDefaultPropertiesService: UserDefaultPropertiesService,
               public patientProgramResourceService: PatientProgramResourceService,
               public cdRef: ChangeDetectorRef,
@@ -44,7 +46,7 @@ export class EditProgramComponent extends ProgramManagerBaseComponent implements
       programService,
       router,
       route,
-      departmentProgramService,
+      _servicesOfferedService,
       userDefaultPropertiesService,
       patientProgramResourceService, cdRef, localStorageService);
   }
@@ -53,7 +55,7 @@ export class EditProgramComponent extends ProgramManagerBaseComponent implements
     this.steps = [1, 2, 3, 4];
     this.title = 'Select Programs to edit';
     this.route.params.subscribe((params) => {
-      this.getDepartmentConf();
+      this.getServiceOfferedConf();
       this.loadPatientProgramConfig().pipe(take(1)).subscribe((loaded) => {
         if (loaded) {
           this.mapEnrolledProgramsToDepartment(true);
@@ -198,7 +200,7 @@ export class EditProgramComponent extends ProgramManagerBaseComponent implements
           break;
         case 'other':
           this.title = 'Programs Successfully Stopped';
-          this.showMessage('The patient has been transferred to a Non-Ampath location successfully. All active programs ' +
+          this.showMessage('The patient has been transferred to a Non-Ici location successfully. All active programs ' +
             'in the current location have been stopped', 'info');
           break;
         case 'dc':
@@ -304,17 +306,17 @@ export class EditProgramComponent extends ProgramManagerBaseComponent implements
     }
   }
 
-  private stopPatientCurrentLocationPrograms(department: string) {
+  private stopPatientCurrentLocationPrograms(medicalServiceOffered: string) {
     const location = this.userDefaultPropertiesService.getCurrentUserDefaultLocationObject();
-    const departmentPrograms: any = _.find(this.enrolledProgramsByDepartment, (_department: any) => {
-      if (_department.name === department) {
-        _department.show = false;
-        return _department.name === department;
+    const medicalServicePrograms: any = _.find(this.enrolledProgramsByMedicalServiceOffered, (_medicalService: any) => {
+      if (_medicalService.name === medicalServiceOffered) {
+        _medicalService.show = false;
+        return _medicalService.name === medicalServiceOffered;
       }
     });
-    if (departmentPrograms) {
+    if (medicalServicePrograms) {
       this.programManagerService.editProgramEnrollments(
-        'stop', this.patient, departmentPrograms.programs, location)
+        'stop', this.patient, medicalServicePrograms.programs, location)
         .pipe(take(1)).subscribe((editedPrograms) => {
         this.patientService.reloadCurrentPatient();
         this.theChangeComplete = true;
@@ -327,17 +329,17 @@ export class EditProgramComponent extends ProgramManagerBaseComponent implements
     }
   }
 
-  private changePatientProgramLocations(department) {
-    const departmentPrograms: any = _.find(this.enrolledProgramsByDepartment, (_department: any) => {
-      _department.show = false;
-      if (_department.name === department) {
-        return _department.name === department;
+  private changePatientProgramLocations(medicalServiceOffered) {
+    const medicalservicePrograms: any = _.find(this.enrolledProgramsByMedicalServiceOffered, (_medicalService: any) => {
+      _medicalService.show = false;
+      if (_medicalService.name === medicalServiceOffered) {
+        return _medicalService.name === medicalServiceOffered;
       }
     });
 
-    if (departmentPrograms) {
+    if (medicalservicePrograms) {
       this.programManagerService.editProgramEnrollments(
-        'transfer', this.patient, departmentPrograms.programs, localStorage.getItem('transferLocation'))
+        'transfer', this.patient, medicalservicePrograms.programs, localStorage.getItem('transferLocation'))
         .pipe(take(1)).subscribe((editedPrograms) => {
         this.selectedLocation = (_.last(editedPrograms) as any).location;
         this.patientService.reloadCurrentPatient();

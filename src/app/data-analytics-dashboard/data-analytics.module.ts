@@ -12,7 +12,7 @@ import {
   TabViewModule
 } from 'primeng/primeng';
 import { DateTimePickerModule } from 'ngx-openmrs-formentry/';
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { AgGridModule } from 'ag-grid-angular';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 import { CalendarModule } from 'angular-calendar';
@@ -65,7 +65,7 @@ import { DataAnalyticsDashboardComponent } from './data-analytics.component';
     GrowlModule,
     AccordionModule,
     Angulartics2Module,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     DataAnalyticsHivModule,
     DataAnalyticsOncologyModule,
     AnalyticsPatientReferralProgramModule,

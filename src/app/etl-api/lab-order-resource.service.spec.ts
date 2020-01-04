@@ -35,7 +35,7 @@ describe('Lab Order Resource Service Unit Tests', () => {
 
   it('should make a call with the correct parameters', () => {
 
-    const location = 'ampath';
+    const location = 'ici';
     const payload = {
       'test': 'test'
     };
@@ -48,7 +48,7 @@ describe('Lab Order Resource Service Unit Tests', () => {
       });
 
     const appSettingsService = TestBed.get(AppSettingsService);
-    const req = httpMock.expectOne(appSettingsService.getEtlRestbaseurl().trim() + 'eid/order/ampath');
+    const req = httpMock.expectOne(appSettingsService.getEtlRestbaseurl().trim() + 'eid/order/ici');
     expect(req.request.url).toContain('eid/order');
     expect(req.request.method).toBe('POST');
     req.flush(expectedResults);

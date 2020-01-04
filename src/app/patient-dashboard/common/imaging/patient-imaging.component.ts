@@ -75,8 +75,8 @@ export class PatientImagingComponent implements OnInit, OnDestroy {
         this.loadingPatient = false;
         if (patient) {
           this.patient = patient;
-          this.patientIdentifier = this.patient.commonIdentifiers.amrsMrn ||
-            this.patient.commonIdentifiers.ampathMrsUId || this.patient.commonIdentifiers.cCC ||
+          this.patientIdentifier = this.patient.commonIdentifiers.icimrsMrn ||
+            this.patient.commonIdentifiers.iciMrsUId || this.patient.commonIdentifiers.cCC ||
             this.patient.commonIdentifiers.kenyaNationalId;
           this.getHistoricalPatientImagingResults(this.patientIdentifier);
 

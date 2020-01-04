@@ -21,7 +21,7 @@ import { MedicationHistoryComponent } from './hiv-summary/medication-history.com
 import { GeneXpertImagesComponent } from './genexpert-images/genexpert-images.component';
 import { PatientMonthlyStatusComponent
 } from './patient-status-change/patient-monthly-status.component';
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { PatientDashboardCommonModule } from '../common/patient-dashboard.common.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -41,7 +41,7 @@ import { HivSummaryResourceService } from '../../etl-api/hiv-summary-resource.se
     MessagesModule,
     SharedModule,
     Ng2Bs3ModalModule,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     OpenmrsApi,
     FormEntryModule,
     TabViewModule,

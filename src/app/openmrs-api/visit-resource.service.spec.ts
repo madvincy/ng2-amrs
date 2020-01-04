@@ -14,7 +14,7 @@ xdescribe('VisitResourceService', () => {
     let service: VisitResourceService;
 
     let httpMock: HttpTestingController;
-    const getUrl = 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/visit';
+    const getUrl = 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/visit';
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -63,7 +63,7 @@ xdescribe('VisitResourceService', () => {
 
             const result = service.getVisitByUuid(uuid, { v: '' }).subscribe();
 
-            const req = httpMock.expectOne('https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/visit/uuid?v=');
+            const req = httpMock.expectOne('https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/visit/uuid?v=');
             expect(req.request.method).toBe('GET');
             expect(req.request.urlWithParams).toContain('/ws/rest/v1/visit/' + uuid);
             expect(req.request.urlWithParams).toContain('v=');
@@ -77,7 +77,7 @@ xdescribe('VisitResourceService', () => {
                 expect(res).toEqual(singleResponse);
             });
 
-            const req = httpMock.expectOne('https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/visit/uuid?v=');
+            const req = httpMock.expectOne('https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/visit/uuid?v=');
             req.flush(singleResponse);
         }));
 

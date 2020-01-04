@@ -12,7 +12,7 @@ class MockAppSettingsService {
   }
 
   getEtlServer(): string {
-    return 'https://etl.ampath.or.ke/etl';
+    return 'https://etl.ici.or.ke/etl';
   }
 
 }

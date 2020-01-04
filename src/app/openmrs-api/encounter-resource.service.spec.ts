@@ -43,7 +43,7 @@ describe('EncounterResourceService', () => {
                     },
                     'form': {
                         'uuid': '4710fa02-46ee-421d-a951-9eb012e2e950',
-                        'name': 'AMPATH Pediatric Return Visit Form 4.4 with Mother-Baby Link'
+                        'name': 'ICI Pediatric Return Visit Form 4.4 with Mother-Baby Link'
                     },
                     'location': {
                         'uuid': '08feb5b6-1352-11df-a1f1-0026b9348838',
@@ -51,7 +51,7 @@ describe('EncounterResourceService', () => {
                         'links': [
                             {
                                 'rel': 'self',
-                                'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/'
+                                'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/'
                             }
                         ]
                     }
@@ -100,7 +100,7 @@ describe('EncounterResourceService', () => {
                 'links': [
                     {
                         'rel': 'self',
-                        'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/location'
+                        'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/location'
                     }
                 ]
             },
@@ -110,7 +110,7 @@ describe('EncounterResourceService', () => {
                 'links': [
                     {
                         'rel': 'self',
-                        'uri': 'https://amrs.ampath.or.ke:8443/amrs/ws/rest/v1/encountertype'
+                        'uri': 'https://icimrs.ici.or.ke:8443/icimrs/ws/rest/v1/encountertype'
                     }
                 ]
             }
@@ -158,7 +158,7 @@ describe('EncounterResourceService', () => {
                     'links': [
                         {
                             'rel': 'self',
-                            'uri': 'https://amrs.ampath.or.ke:8443/'
+                            'uri': 'https://icimrs.ici.or.ke:8443/'
                         }
                     ]
                 },
@@ -168,7 +168,7 @@ describe('EncounterResourceService', () => {
                     'links': [
                         {
                             'rel': 'self',
-                            'uri': 'https://amrs.ampath.or.ke:8443/'
+                            'uri': 'https://icimrs.ici.or.ke:8443/'
                         }
                     ]
                 }
@@ -211,7 +211,7 @@ describe('EncounterResourceService', () => {
                 'display': '',
                 'links': [
                     {
-                        'uri': 'https://test1.ampath.or.ke:8443/amrs/ws/rest/v1/',
+                        'uri': 'https://test1.ici.or.ke:8443/icimrs/ws/rest/v1/',
                         'rel': 'self'
                     }
                 ]
@@ -221,7 +221,7 @@ describe('EncounterResourceService', () => {
                 'display': 'Location-5',
                 'links': [
                     {
-                        'uri': 'https://test1.ampath.or.ke:8443/amrs/ws/rest/v1',
+                        'uri': 'https://test1.ici.or.ke:8443/icimrs/ws/rest/v1',
                         'rel': 'self'
                     }
                 ]
@@ -261,7 +261,7 @@ describe('EncounterResourceService', () => {
                 'display': '',
                 'links': [
                     {
-                        'uri': 'https://test1.ampath.or.ke:8443/amrs/ws/rest',
+                        'uri': 'https://test1.ici.or.ke:8443/icimrs/ws/rest',
                         'rel': 'self'
                     }
                 ]
@@ -271,7 +271,7 @@ describe('EncounterResourceService', () => {
                 'display': 'Location-5',
                 'links': [
                     {
-                        'uri': 'https://test1.ampath.or.ke:8443/amrs/ws/rest',
+                        'uri': 'https://test1.ici.or.ke:8443/icimrs/ws/rest',
                         'rel': 'self'
                     }
                 ]

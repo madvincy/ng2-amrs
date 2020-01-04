@@ -27,7 +27,7 @@ import {
   DropdownModule, ButtonModule, CalendarModule
 } from 'primeng/primeng';
 import { DataCacheService } from '../../shared/services/data-cache.service';
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { CacheService } from 'ionic-cache';
 import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 import { MatTabsModule } from '@angular/material';
@@ -93,7 +93,7 @@ describe('Component: ClinicFlowLocationStatsComponent', () => {
         DialogModule,
         CalendarModule,
         DataListsModule,
-        NgamrsSharedModule,
+        NgicimrsSharedModule,
         NgxMyDatePickerModule.forRoot(),
         MatTabsModule,
         CommonModule, Angulartics2Module,

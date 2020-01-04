@@ -18,7 +18,7 @@ import { VisitResourceService } from '../../../../openmrs-api/visit-resource.ser
 import { LocationResourceService } from '../../../../openmrs-api/location-resource.service';
 import { UserDefaultPropertiesModule } from '../../../../user-default-properties/user-default-properties.module';
 import { UserDefaultPropertiesService } from '../../../../user-default-properties/user-default-properties.service';
-import { NgamrsSharedModule } from '../../../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../../../shared/ngicimrs-shared.module';
 import { PatientDashboardModule } from '../../../patient-dashboard.module';
 import { FakeDefaultUserPropertiesFactory } from '../../formentry/mock/default-user-properties-factory.service.mock';
 import { TodayVisitsComponent } from './today-visits.component';
@@ -129,7 +129,7 @@ describe('TodayVisitsComponent', () => {
         UserDefaultPropertiesModule,
         DialogModule,
         FormsModule,
-        NgamrsSharedModule,
+        NgicimrsSharedModule,
         PatientDashboardModule,
         HttpClientTestingModule,
         BrowserAnimationsModule

@@ -139,7 +139,7 @@ export class DrugOrderService {
   }
   public printPdf(payload): Observable<any> {
     // const url = this.getUrl();
-    const url = 'https://ngx.ampath.or.ke/etl-server-test-internal9/generate';
+    const url = 'https://mrs.intercancer.com/etl-server-test-internal9/generate';
     console.log(url);
     return new Observable((observer: Subscriber<any>) => {
       //  console.log(this.http.post(url, payload));

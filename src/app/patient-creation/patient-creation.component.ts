@@ -635,7 +635,7 @@ export class PatientCreationComponent implements OnInit, OnDestroy {
       (data) => {
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < data.length; i++) {
-          if (data[i].name === 'AMRS Universal ID') {
+          if (data[i].name === 'ICIMRS Universal ID') {
             this.universal = {
               identifierType: data[i].uuid,
               identifierTypeName: data[i].name

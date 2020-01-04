@@ -10,7 +10,7 @@ import { ProgramService } from '../programs/program.service';
 import { GeneralLandingPageComponent } from './landing-page.component';
 import { Patient } from '../../models/patient.model';
 import { PanelModule, DialogModule } from 'primeng/primeng';
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { OpenmrsApi } from '../../openmrs-api/openmrs-api.module';
 import { CohortMemberModule } from '../../patient-list-cohort/cohort-member/cohort-member.module';
 import { LocationResourceService } from '../../openmrs-api/location-resource.service';

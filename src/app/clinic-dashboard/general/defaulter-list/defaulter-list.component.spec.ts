@@ -17,7 +17,7 @@ import { FakeAppFeatureAnalytics } from '../../../shared/app-analytics/app-featu
 import { AppSettingsService } from '../../../app-settings/app-settings.service';
 import { LocalStorageService } from '../../../utils/local-storage.service';
 import { NgBusyModule } from 'ng-busy';
-import { NgamrsSharedModule } from '../../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../../shared/ngicimrs-shared.module';
 import {
     DialogModule, CalendarModule
 } from 'primeng/primeng';
@@ -121,7 +121,7 @@ describe('Component: DefaulterListComponent', () => {
                 DialogModule,
                 CalendarModule,
                 DataListsModule,
-                NgamrsSharedModule]
+                NgicimrsSharedModule]
         });
     });
 

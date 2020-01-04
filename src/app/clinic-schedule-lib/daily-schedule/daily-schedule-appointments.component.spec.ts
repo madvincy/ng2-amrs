@@ -22,7 +22,7 @@ import { NgBusyModule } from 'ng-busy';
 import { DialogModule, CalendarModule } from 'primeng/primeng';
 import { CacheModule } from 'ionic-cache/dist/cache.module';
 import { DataCacheService } from '../../shared/services/data-cache.service';
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { DateTimePickerModule } from 'ngx-openmrs-formentry/';
 import {
   ProgramVisitEncounterSearchComponent
@@ -78,7 +78,7 @@ describe('Component: DailyScheduleAppointmentsComponent', () => {
         HttpClientTestingModule,
         DateTimePickerModule,
         AngularMultiSelectModule,
-        NgamrsSharedModule]
+        NgicimrsSharedModule]
     });
   });
 

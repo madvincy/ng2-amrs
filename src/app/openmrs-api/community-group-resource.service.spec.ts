@@ -249,7 +249,7 @@ describe('CommunityGroupService', () => {
     const loc_uuid = 'uuid';
     const groupnumber = 90;
     communityGroupService.generateGroupNumber(loc_uuid).subscribe();
-    const req = httpMock.expectOne(`https://ngx.ampath.or.ke/group-idgen/generategroupnumber/${loc_uuid}`);
+    const req = httpMock.expectOne(`https://mrs.intercancer.com/group-idgen/generategroupnumber/${loc_uuid}`);
     expect(req.request.method).toBe('GET');
     req.flush(groupnumber);
   });

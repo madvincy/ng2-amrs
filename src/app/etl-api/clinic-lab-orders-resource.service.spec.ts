@@ -75,7 +75,7 @@ describe('ClinicLabOrdersResourceService Tests', () => {
     inject([ClinicLabOrdersResourceService, HttpTestingController],
       (s: ClinicLabOrdersResourceService, httpMock: HttpTestingController) => {
 
-        const url = 'https://amrsreporting.ampath.or.ke:8002'
+        const url = 'https://icimrsreporting.ici.or.ke:8002'
           + '/etl/clinic-lab-orders?'
           + 'locationUuids=uuid'
           + '&endDate=2017-02-01'

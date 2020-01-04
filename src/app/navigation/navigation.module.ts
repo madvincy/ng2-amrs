@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { StaticNavBarComponent } from './static-navbar/static-navbar.component';
 import { NavigationService } from './navigation.service';
@@ -20,7 +20,7 @@ import { FormListService } from '../patient-dashboard/common/forms/form-list.ser
   imports: [
     RouterModule,
     CommonModule,
-    NgamrsSharedModule
+    NgicimrsSharedModule
   ],
   exports: [
     SideNavigationComponent,

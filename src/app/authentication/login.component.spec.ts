@@ -21,7 +21,7 @@ import { FormOrderMetaDataService } from '../patient-dashboard/common/forms/form
 import { FormSchemaService } from '../patient-dashboard/common/formentry/form-schema.service';
 import { FormSchemaCompiler } from 'ngx-openmrs-formentry';
 import { FormsResourceService } from '../openmrs-api/forms-resource.service';
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ToastrService, ToastrModule } from 'ngx-toastr';
 import { SwUpdate } from '@angular/service-worker';
@@ -68,7 +68,7 @@ describe('LoginComponent Unit Tests', () => {
     ],
     imports: [
       RouterTestingModule,
-      NgamrsSharedModule,
+      NgicimrsSharedModule,
       CookieModule.forRoot(),
       HttpClientTestingModule,
       ToastrModule.forRoot()

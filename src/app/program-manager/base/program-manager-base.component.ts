@@ -16,6 +16,7 @@ import { PatientProgramResourceService } from '../../etl-api/patient-program-res
 import { Patient } from '../../models/patient.model';
 import { Observable, Subject } from 'rxjs';
 import { LocalStorageService } from '../../utils/local-storage.service';
+import { ServicesOfferedProgramsConfigService } from 'src/app/etl-api/services-offered-programs-config.service';
 
 @Component({
   selector: 'program-manager-base',
@@ -23,7 +24,8 @@ import { LocalStorageService } from '../../utils/local-storage.service';
   styleUrls: []
 })
 export class ProgramManagerBaseComponent implements OnInit {
-  public department: string;
+  // public department: string;
+  public medicalService: string;
   public program: any;
   public title = 'Start Program';
   public steps: number[] = [1, 2, 3, 4, 5, 6];
@@ -46,7 +48,8 @@ export class ProgramManagerBaseComponent implements OnInit {
   public submittedEncounter: any = {};
   public selectedProgram: any;
   public errors: any[] = [];
-  public enrolledProgramsByDepartment: any[] = [];
+  // public enrolledProgramsByDepartment: any[] = [];
+  public enrolledProgramsByMedicalServiceOffered: any[] = [];
   public enrollmentCompleted  = false;
   public locations: any = [];
   public dateEnrolled: string;
@@ -60,18 +63,22 @@ export class ProgramManagerBaseComponent implements OnInit {
   public enrolledProgrames: any = [];
   public selectedLocation: any;
   public allPatientProgramVisitConfigs: any = {};
-  public programDepartments: any = [];
+  // public programDepartments: any = [];
+  public programMedicalServices: any = [];
   public programVisitConfig: any;
   public parentComponent = 'landing-page';
   public stepInfo: any = {};
-  public availableDepartmentPrograms: any[] = [];
-  public departmentConf: any[];
+  // public availableDepartmentPrograms: any[] = [];
+  public availableServicesOfferedPrograms: any[] = [];
+  // public departmentConf: any[];
+  public serviceOfferedConf: any[];
   public enrollmentEncounters: string[] = [];
   constructor(public patientService: PatientService,
               public programService: ProgramService,
               public router: Router,
               public route: ActivatedRoute,
-              public departmentProgramService: DepartmentProgramsConfigService,
+              // public departmentProgramService: DepartmentProgramsConfigService,
+              public _servicesOfferedService: ServicesOfferedProgramsConfigService,
               public userDefaultPropertiesService: UserDefaultPropertiesService,
               public patientProgramResourceService: PatientProgramResourceService,
               public cdRef: ChangeDetectorRef,
@@ -118,43 +125,52 @@ export class ProgramManagerBaseComponent implements OnInit {
           const enrolledProgrames = _.filter(this.patient.enrolledPrograms, (eProgram) => {
             return !_.isNull(eProgram.enrolledProgram);
           });
-          _.each(this.departmentConf, (config: any) => {
-            let deparmtentPrograms = _.intersectionWith(enrolledProgrames, config.programs,
-              (enrolledProgram: any, departmentProgram: any) => {
-              return enrolledProgram.programUuid === departmentProgram.uuid;
+          _.each(this.serviceOfferedConf, (config: any) => {
+            let medicalservicePrograms = _.intersectionWith(enrolledProgrames, config.programs,
+              (enrolledProgram: any, serviceOfferedProgram: any) => {
+              return enrolledProgram.programUuid === serviceOfferedProgram.uuid;
             });
             if (excludeCompleted) {
-              deparmtentPrograms = _.filter(deparmtentPrograms, (program) => {
+              medicalservicePrograms = _.filter(medicalservicePrograms, (program) => {
                 return _.isNil(program.dateCompleted);
               });
             }
-            if (deparmtentPrograms.length > 0) {
+            if (medicalservicePrograms.length > 0) {
               config['show'] = true;
-              deparmtentPrograms.sort(this.sortByDateEnrolled);
-              config.programs = deparmtentPrograms;
-              this.enrolledProgramsByDepartment.push(config);
+              medicalservicePrograms.sort(this.sortByDateEnrolled);
+              config.programs = medicalservicePrograms;
+              this.enrolledProgramsByMedicalServiceOffered.push(config);
             }
           });
         }
   }
 
-  public getDepartmentConf() {
-    this.departmentProgramService.getDartmentProgramsConfig().pipe(
-      take(1)).subscribe((results) => {
-        if (results) {
-          this.departmentConf = results;
-          this._filterDepartmentConfigByName();
-        }
-      });
+  // public getDepartmentConf() {
+  //   this.departmentProgramService.getDartmentProgramsConfig().pipe(
+  //     take(1)).subscribe((results) => {
+  //       if (results) {
+  //         this.departmentConf = results;
+  //         this._filterDepartmentConfigByName();
+  //       }
+  //     });
+  // }
+    public getServiceOfferedConf() {
+      this._servicesOfferedService.getserviceOfferedProgramsConfig().pipe(
+        take(1)).subscribe((results) => {
+          if (results) {
+            this.serviceOfferedConf = results;
+            this._filterServicesOfferedConfigByName();
+          }
+        });
   }
 
-  public getProgramsByDepartmentName(): any[] {
-    const department = _.find(this.departmentConf, (config: any) => {
-      return config.name === this.department;
+  public getProgramsByMedicalServiceName(): any[] {
+    const medicalService = _.find(this.serviceOfferedConf, (config: any) => {
+      return config.name === this.medicalService;
     });
-    if (department) {
+    if (medicalService) {
       // Remove already enrolled programs
-      return _.filter(department.programs, (program) => {
+      return _.filter(medicalService.programs, (program) => {
         const programs = _.map(this.availablePrograms,
           (a) => a.programUuid);
         return _.includes(programs, program.uuid);
@@ -299,12 +315,17 @@ export class ProgramManagerBaseComponent implements OnInit {
       };
     }
   }
-
-  private _filterDepartmentConfigByName() {
-    this.programDepartments = _.map(this.departmentConf, (config: any) => {
+  private _filterServicesOfferedConfigByName() {
+    this.programMedicalServices = _.map(this.serviceOfferedConf, (config: any) => {
       return {name: config.name};
     });
   }
+
+  // private _filterDepartmentConfigByName() {
+  //   this.programDepartments = _.map(this.departmentConf, (config: any) => {
+  //     return {name: config.name};
+  //   });
+  // }
 
   private sortByDateEnrolled(a: any, b: any) {
       if (new Date(a.enrolledProgram.dateEnrolled) < new Date(b.enrolledProgram.dateEnrolled)) {

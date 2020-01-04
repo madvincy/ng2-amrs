@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
       if (!window.location.host.match(new RegExp('localhost'))) {
         const urlObject = templates[0];
         this.appSettingsService.setEtlServer(urlObject['etlUrl']);
-        this.appSettingsService.setOpenmrsServer(urlObject['amrsUrl']);
+        this.appSettingsService.setOpenmrsServer(urlObject['icimrsUrl']);
       }
     }
 

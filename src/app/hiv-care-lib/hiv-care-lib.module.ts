@@ -18,7 +18,7 @@ import { Moh731ReportBaseComponent } from './moh-731-report/moh-731-report-base.
 import { EtlApi } from '../etl-api/etl-api.module';
 import { Moh731PatientListComponent } from './moh-731-report/moh-731-patientlist.component';
 import { DateTimePickerModule } from 'ngx-openmrs-formentry/';
-import { NgamrsSharedModule } from '../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../shared/ngicimrs-shared.module';
 import { MOHReportComponent } from './moh-731-report/moh-731-report-pdf-view.component';
 import { MOHReportService } from './moh-731-report/moh-731-report-pdf-view.service';
 import { LocationResourceService } from '../openmrs-api/location-resource.service';
@@ -115,7 +115,7 @@ import { DqaReportBaseComponent } from './dqa-reports/dqa-report-base/dqa-report
     AgGridModule.withComponents([]),
     FormsModule,
     DataListsModule,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     DateTimePickerModule,
     CommonModule,
     AccordionModule,
@@ -147,7 +147,7 @@ import { DqaReportBaseComponent } from './dqa-reports/dqa-report-base/dqa-report
     EtlApi,
     CommonModule,
     TabViewModule,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     MOHReportComponent,
     HivSummaryTabularComponent,
     PatientsRequiringVLBaseComponent,

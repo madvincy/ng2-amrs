@@ -8,7 +8,7 @@ import {
   DropdownModule, ButtonModule, CalendarModule
 } from 'primeng/primeng';
 import { CdmLandingPageComponent } from './landing-page/landing-page.component';
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Router } from '@angular/router';
 import { SessionStorageService } from '../../utils/session-storage.service';
@@ -21,7 +21,7 @@ import { CdmMedicationHistoryComponent } from './cdm-summary/medication-history.
   imports: [
     CommonModule,
     FormsModule,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     PanelModule,
     TabViewModule,
     NgxPaginationModule

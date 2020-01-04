@@ -60,7 +60,7 @@ describe('Service: HivSummary', () => {
     const patientUuid = 'de662c03-b9af-4f00-b10e-2bda0440b03b';
     const startIndex = 0;
 
-    const url = 'https://amrsreporting.ampath.or.ke:8002/etl/patient/'
+    const url = 'https://icimrsreporting.ici.or.ke:8002/etl/patient/'
       + patientUuid + '/hiv-summary?startIndex=0&limit=20';
     const req = httpMock.expectNone(url);
 

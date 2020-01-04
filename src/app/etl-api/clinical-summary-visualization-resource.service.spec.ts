@@ -181,7 +181,7 @@ describe('ClinicalSummaryVisualizationResourceService Tests', () => {
         inject([ClinicalSummaryVisualizationResourceService, HttpTestingController],
             (s: ClinicalSummaryVisualizationResourceService, httpMOck: HttpTestingController) => {
 
-                const url = 'https://amrsreporting.ampath.or.ke:8002'
+                const url = 'https://icimrsreporting.ici.or.ke:8002'
                     + '/etl/clinical-hiv-comparative-overview?startIndex=0&endDate='
                     + '2017-03-31T23:59:59.999%252B0300&gender=M,F&startDate='
                     + '2017-02-01&groupBy=groupByEndDate&indicator=indicator-123'

@@ -13,7 +13,7 @@ import { AdminDashboardClinicFlowComponent } from './clinic-flow/admin-dashboard
 import { HivCareLibModule } from '../../hiv-care-lib/hiv-care-lib.module';
 import { dataAnalyticsDashboardHivRouting } from './data-analytics-hiv.routes';
 import { KibanaLibModule } from '../../kibana-lib';
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { HivSummaryIndicatorsComponent } from './hiv-summary-indicators/hiv-summary-indicators';
 import {
   HivCareComparativeAnalyticsComponent
@@ -48,7 +48,7 @@ import { ReportingUtilitiesModule } from 'src/app/reporting-utilities/reporting-
     dataAnalyticsDashboardHivRouting,
     HivCareLibModule,
     DateTimePickerModule,
-    NgamrsSharedModule,
+    NgicimrsSharedModule,
     DataListsModule,
     CommonModule,
     FormsModule,

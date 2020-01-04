@@ -151,9 +151,9 @@ export class PatientDashboardComponent implements OnInit, OnDestroy, DoCheck {
       endDate: endDate,
       patientUuId: patient.person.uuid
     }));
-    batch.push(this.labsResourceService.getUpgradePatientLabResults({
-      patientUuid: patient.person.uuid
-    }));
+    // batch.push(this.labsResourceService.getUpgradePatientLabResults({
+    //   patientUuid: patient.person.uuid
+    // }));
     return combineLatest(batch);
   }
 

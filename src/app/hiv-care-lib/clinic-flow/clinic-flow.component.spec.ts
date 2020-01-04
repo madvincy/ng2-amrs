@@ -32,7 +32,7 @@ import { ClinicDashboardCacheService } from 'src/app/clinic-dashboard/services/c
 import { MockHivClinicFlowResourceService } from 'src/app/etl-api/hiv-clinic-flow-resource.service.mock';
 import { DataListsModule } from 'src/app/shared/data-lists/data-lists.module';
 import { AppSettingsService } from 'src/app/app-settings/app-settings.service';
-import { NgamrsSharedModule } from 'src/app/shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from 'src/app/shared/ngicimrs-shared.module';
 import { LocalStorageService } from 'src/app/utils/local-storage.service';
 import { DataCacheService } from 'src/app/shared/services/data-cache.service';
 import { AppFeatureAnalytics } from 'src/app/shared/app-analytics/app-feature-analytics.service';
@@ -111,7 +111,7 @@ beforeEach(() => {
       DialogModule,
       CalendarModule,
       DataListsModule,
-      NgamrsSharedModule,
+      NgicimrsSharedModule,
       NgxMyDatePickerModule.forRoot(),
       MatTabsModule,
       CommonModule,

@@ -18,7 +18,7 @@ import { DialogModule, CalendarModule } from 'primeng/primeng';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CacheModule, CacheService } from 'ionic-cache';
 import { DataCacheService } from '../../shared/services/data-cache.service';
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { DateTimePickerModule } from 'ngx-openmrs-formentry/';
 import {
   ProgramVisitEncounterSearchComponent
@@ -80,7 +80,7 @@ describe('Component: DailyScheduleNotReturned', () => {
         DateTimePickerModule,
         DataListsModule,
         AngularMultiSelectModule,
-        NgamrsSharedModule]
+        NgicimrsSharedModule]
     });
   });
 

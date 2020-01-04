@@ -8,7 +8,7 @@ import { SpyLocation } from '@angular/common/testing';
 import { Observable, of } from 'rxjs';
 import { DataListsModule } from '../../shared/data-lists/data-lists.module';
 import { AgGridModule } from 'ag-grid-angular';
-import { NgamrsSharedModule } from '../../shared/ngamrs-shared.module';
+import { NgicimrsSharedModule } from '../../shared/ngicimrs-shared.module';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HivMonthlySummaryIndicatorsPatientListComponent } from './patient-list.component';
 import { DateTimePickerModule } from 'ngx-openmrs-formentry/';
@@ -39,7 +39,7 @@ describe('Component: HivSummaryIndicatorsPatientListComponent', () => {
                 HivMonthlySummaryIndicatorsPatientListComponent
             ],
             imports: [
-                NgamrsSharedModule,
+                NgicimrsSharedModule,
                 CommonModule,
                 AgGridModule,
                 DataListsModule,

@@ -1,10 +1,11 @@
 
-import {take} from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, NavigationStart } from '@angular/router';
 import * as _ from 'lodash';
 import { PatientProgramEnrollmentService } from './../etl-api/patient-program-enrollment.service';
 import { DepartmentProgramsConfigService } from './../etl-api/department-programs-config.service';
+import { ServicesOfferedProgramsConfigService } from '../etl-api/services-offered-programs-config.service';
 
 @Component({
     selector: 'patients-program-enrollment',
@@ -24,11 +25,12 @@ export class PatientsProgramEnrollmentComponent implements OnInit {
         message: '' // default message
     };
 
-    public startDate  = '';
+    public startDate = '';
     public endDate = '';
     public selectedLocation: any;
     public replaceSummary = true;
     public departmentProgConfig: any = [];
+    public serviceOfferedProgConfig: any = [];
     public enrolledPatientList: any = [];
     public enrolledSummary: any = [];
     public error: any = {
@@ -38,24 +40,33 @@ export class PatientsProgramEnrollmentComponent implements OnInit {
 
     constructor(
         private _patientProgramEnrollmentService: PatientProgramEnrollmentService,
-        private _departmentProgramService: DepartmentProgramsConfigService,
+        // private _departmentProgramService: DepartmentProgramsConfigService,
+        private _servicesOfferedService: ServicesOfferedProgramsConfigService,
         private route: ActivatedRoute,
         private router: Router) {
     }
 
     public ngOnInit() {
-        this.getDepartmentConfig();
+        // this.getDepartmentConfig();
+        this.getServicesOfferedConfig();
     }
-
-    public getDepartmentConfig() {
-
-        this._departmentProgramService.getDartmentProgramsConfig().pipe(
-          take(1)).subscribe((results) => {
-            if (results) {
-              this.departmentProgConfig = results;
-            }
-          });
+    public getServicesOfferedConfig() {
+            this._servicesOfferedService.getserviceOfferedProgramsConfig().pipe(
+              take(1)).subscribe((results) => {
+                if (results) {
+                  this.serviceOfferedProgConfig = results;
+                }
+              });
     }
+    // public getDepartmentConfig() {
+
+    //     this._departmentProgramService.getDartmentProgramsConfig().pipe(
+    //       take(1)).subscribe((results) => {
+    //         if (results) {
+    //           this.departmentProgConfig = results;
+    //         }
+    //       });
+    // }
 
     public selectedFilter($event) {
 
@@ -82,15 +93,15 @@ export class PatientsProgramEnrollmentComponent implements OnInit {
         this.busyIndicator = {
             busy: true,
             message: 'Fetching Patient Enrollments...'
-         };
-         this.error = {
+        };
+        this.error = {
             'error': false,
             'message': ''
         };
 
         if (typeof params !== 'undefined') {
 
-                this._patientProgramEnrollmentService.getActivePatientEnrollmentSummary(params).pipe(
+            this._patientProgramEnrollmentService.getActivePatientEnrollmentSummary(params).pipe(
                 take(1)).subscribe((enrollmentSummary) => {
                     if (enrollmentSummary) {
                         this.processEnrollmentSummary(enrollmentSummary.result);
@@ -111,56 +122,56 @@ export class PatientsProgramEnrollmentComponent implements OnInit {
                     };
                 });
 
+        }
+
     }
 
-}
+    public processEnrollmentSummary(enrollmentSummary: any) {
 
-public processEnrollmentSummary(enrollmentSummary: any) {
+        const enrolledSummaryList = [];
+        let totalCount = 0;
 
-    const enrolledSummaryList = [];
-    let totalCount = 0;
+        _.each(enrollmentSummary, (summary: any) => {
 
-    _.each(enrollmentSummary, (summary: any) => {
+            const programUuid = summary.program_uuid;
+            const programName = summary.program_name;
+            const programCount = summary.enrollment_count;
 
-         const programUuid = summary.program_uuid;
-         const programName = summary.program_name;
-         const programCount = summary.enrollment_count;
+            _.each(this.departmentProgConfig, (department: any) => {
+                const programs = department.programs;
+                const departmentName = department.name;
+                _.each(programs, (program: any) => {
+                    const uuid = program.uuid;
+                    if (uuid === programUuid) {
 
-         _.each(this.departmentProgConfig, (department: any) => {
-            const programs = department.programs;
-            const departmentName = department.name;
-            _.each(programs, (program: any) => {
-                const uuid = program.uuid;
-                if (uuid === programUuid) {
+                        const summaryObj = {
+                            'dept': departmentName,
+                            'program': programName,
+                            'enrolled': programCount,
+                            'programUuid': uuid
+                        };
 
-                    const summaryObj = {
-                        'dept': departmentName,
-                        'program': programName,
-                        'enrolled': programCount,
-                        'programUuid': uuid
-                    };
+                        totalCount += programCount;
 
-                    totalCount += programCount;
-
-                    enrolledSummaryList.push(summaryObj);
-                }
+                        enrolledSummaryList.push(summaryObj);
+                    }
+                });
             });
-      });
 
-    });
+        });
 
-    const totalObj = {
-        'dept': 'Total',
-        'program': '#Total',
-        'enrolled': totalCount,
-        'programUuid': ''
-    };
+        const totalObj = {
+            'dept': 'Total',
+            'program': '#Total',
+            'enrolled': totalCount,
+            'programUuid': ''
+        };
 
-    enrolledSummaryList.push(totalObj);
+        enrolledSummaryList.push(totalObj);
 
-    this.enrolledSummary = enrolledSummaryList;
+        this.enrolledSummary = enrolledSummaryList;
 
-}
+    }
 
     public getQueryParams() {
 
@@ -197,10 +208,10 @@ public processEnrollmentSummary(enrollmentSummary: any) {
 
     public getProgramEnrollments($event) {
         this.router.navigate(['patient-list']
-        , {
-          relativeTo: this.route,
-          queryParams: $event
-        });
+            , {
+                relativeTo: this.route,
+                queryParams: $event
+            });
     }
 
 }

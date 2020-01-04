@@ -3,8 +3,8 @@ export class Patient {
   public gender: string;
   public dob: number;
   public age: number;
-  public ampathMrsUId: number;
-  public amrsMrn: number;
+  public iciMrsUId: number;
+  public icimrsMrn: number;
   public cCC: number;
   public kenyaNationalId: number;
 }

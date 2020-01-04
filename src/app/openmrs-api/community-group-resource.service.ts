@@ -198,7 +198,7 @@ export class CommunityGroupService {
    }
 
    public generateGroupNumber(locationUuid: string, test = 'true') {
-     const url =  `https://ngx.ampath.or.ke/group-idgen/generategroupnumber/${locationUuid}`;
+     const url =  `https://mrs.intercancer.com/group-idgen/generategroupnumber/${locationUuid}`;
      const credentials = this.sessionStorageService.getItem(Constants.CREDENTIALS_KEY);
      const params = new HttpParams().set('test', test);
      const headers = new HttpHeaders().set('Authorization', `Basic ${credentials}`);
