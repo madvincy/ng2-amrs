@@ -11,7 +11,7 @@ import {
   PatientReferralResourceService
 } from '../../etl-api/patient-referral-resource.service';
 import { LocalStorageService } from '../../utils/local-storage.service';
-import { SelectDepartmentService } from '../../shared/services/select-department.service';
+// import { SelectDepartmentService } from '../../shared/services/select-department.service';
 
 @Component({
   selector: 'patient-referral-report-base',
@@ -70,9 +70,7 @@ export class StrengthsPatientReferralBaseComponent implements OnInit {
   constructor(
     public patientReferralResourceService: PatientReferralResourceService,
     public dataAnalyticsDashboardService: DataAnalyticsDashboardService,
-    public localStorageService: LocalStorageService,
-    public selectDepartmentService: SelectDepartmentService) { }
-
+    public localStorageService: LocalStorageService) { }
   public ngOnInit() { }
 
   public resetErrorMessage() {
@@ -101,7 +99,7 @@ export class StrengthsPatientReferralBaseComponent implements OnInit {
         endDate: this.endDate
       };
 
-      const department = this.selectDepartmentService.getUserSetDepartment();
+      // const department = this.selectDepartmentService.getUserSetDepartment();
 
       this.encounteredError = false;
       this.errorMessage = '';
@@ -110,8 +108,7 @@ export class StrengthsPatientReferralBaseComponent implements OnInit {
       const params = {
         endDate: this.toDateString(this.endDate),
         startDate: this.toDateString(this.startDate),
-        locationUuids: filterLocation,
-        department: department
+        locationUuids: filterLocation
       };
 
       if (!_.isUndefined(this.programs)) {

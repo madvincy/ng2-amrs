@@ -152,15 +152,14 @@ export class StrengthsPatientReferralTabularComponent implements OnInit {
   public generatePatientListReport(data) {
     this.isLoading = true;
     const filterLocation = data.data.locationUuids ? data.data.locationUuids : null;
-    this.department = this.selectDepartmentService.getUserSetDepartment();
+    // this.department = this.selectDepartmentService.getUserSetDepartment();
     this.resourceService.getPatientReferralPatientList({
       endDate: this.toDateString(this._dates.endDate),
       locationUuids: filterLocation,
       startDate: this.toDateString(this._dates.startDate),
       programUuids: data.data.programUuids ? data.data.programUuids : null,
       startIndex: this.startIndex ? this.startIndex : null,
-      notificationStatus: null,
-      department: this.department
+      notificationStatus: null
     }).take(1).subscribe((report) => {
       this.patientData = report;
       // this.patientData ? this.patientData.concat(report) : report;

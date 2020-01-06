@@ -301,7 +301,7 @@ export class LabResultComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
     this.loadingPatient = true;
-    this.getCurrentDepartment();
+    this.getCurrentLayout();
     this.subscription = this.patientService.currentlyLoadedPatient.subscribe(
       (patient) => {
         this.loadingPatient = false;
@@ -322,31 +322,9 @@ export class LabResultComponent implements OnInit, OnDestroy {
     }
   }
 
-  public getCurrentDepartment() {
-    const defaultDepartment = this.selectDepartmentService.getUserSetDepartment();
-    this.currentDepartment = defaultDepartment;
-    this.setLabRows(this.currentDepartment);
-    this.setLabSummaryView(this.currentDepartment);
-  }
-  public setLabSummaryView(department) {
-    switch (department) {
-      case 'HEMATO-ONCOLOGY':
-        this.horizontalView = true;
-        break;
-      default:
-        this.horizontalView = false;
-    }
-  }
-
-  public setLabRows(department) {
-    switch (department) {
-      case 'HEMATO-ONCOLOGY':
-        this.labRows = this.oncRows;
-        break;
-      default:
-        this.labRows = this.generalRows;
-    }
-
+  public getCurrentLayout() {
+    this.horizontalView = true;
+    this.labRows = this.oncRows;
   }
 
   public mergeRows() {
@@ -404,7 +382,7 @@ export class LabResultComponent implements OnInit, OnDestroy {
 
 
   private createColumnDefs() {
-    this.setLabRows(this.currentDepartment);
+    this.labRows = this.oncRows;
     if (this.horizontalView === true) {
       this.createHorizontalColDef();
     } else {

@@ -6,7 +6,8 @@ import * as moment from 'moment';
 
 import { FormentryComponent } from './formentry.component';
 import { Patient } from '../../../models/patient.model';
-import { SelectDepartmentService } from 'src/app/shared/services/select-department.service';
+// import { SelectDepartmentService } from 'src/app/shared/services/select-department.service';
+import { SelectServiceOfferedService } from 'src/app/shared/services/select-service-offered.service';
 
 @Injectable()
 export class PatientTransferService {
@@ -15,7 +16,7 @@ export class PatientTransferService {
   private transferState: BehaviorSubject<any> = new BehaviorSubject(null);
 
   constructor(
-    private selectSetDepartmentService: SelectDepartmentService) { }
+    private selectedSetOfferedMedicalService: SelectServiceOfferedService) { }
 
   public handleProgramManagerRedirects(data: any, patient: Patient): BehaviorSubject<any> {
     this.patient = patient;
@@ -43,7 +44,6 @@ export class PatientTransferService {
         _.first(patientCareStatus).control.value === '67cd2f9f-228e-417d-94c4-d77e1a6c3453') {
           // all active programs should be stopped
           _.merge(queryParams, {
-            stop: this.selectSetDepartmentService.getUserSetDepartment(),
             notice: 'other'
           });
         }
@@ -51,7 +51,6 @@ export class PatientTransferService {
         // patient care status in transfer out form is ici
         if (_.first(patientCareStatus).control.value === 'a89c2e5c-1350-11df-a1f1-0026b9348838') {
           _.merge(queryParams, {
-            change: this.selectSetDepartmentService.getUserSetDepartment(),
             notice: 'location'
           });
         }

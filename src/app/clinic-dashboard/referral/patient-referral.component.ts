@@ -32,9 +32,8 @@ export class PatientReferralComponent extends PatientReferralBaseComponent
     private router: Router,
     public dataAnalyticsDashboardService: DataAnalyticsDashboardService,
     public localStorageService: LocalStorageService,
-    public selectDepartmentService: SelectDepartmentService,
     public patientReferralResourceService: PatientReferralResourceService) {
-      super(patientReferralResourceService, dataAnalyticsDashboardService, localStorageService, selectDepartmentService);
+      super(patientReferralResourceService, dataAnalyticsDashboardService, localStorageService);
     }
 
   public ngOnInit() {

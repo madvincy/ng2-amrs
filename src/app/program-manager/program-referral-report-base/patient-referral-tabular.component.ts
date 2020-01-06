@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 import {
   PatientReferralResourceService
 } from '../../etl-api/patient-referral-resource.service';
-import { SelectDepartmentService } from '../../shared/services/select-department.service';
+// import { SelectDepartmentService } from '../../shared/services/select-department.service';
 
 @Component({
   selector: 'patient-referral-tabular',
@@ -29,7 +29,7 @@ export class PatientReferralTabularComponent implements OnInit {
   public gridOptions: any = {
     columnDefs: []
   };
-  public department: any;
+  // public department: any;
 
   /* tslint:disable:no-input-rename */
   @Input('rowData')
@@ -87,7 +87,6 @@ export class PatientReferralTabularComponent implements OnInit {
 
   constructor(
     private router: Router,
-    public selectDepartmentService: SelectDepartmentService,
     public resourceService: PatientReferralResourceService) {
   }
 
@@ -152,15 +151,14 @@ export class PatientReferralTabularComponent implements OnInit {
   public generatePatientListReport(data) {
     this.isLoading = true;
     const filterLocation = data.data.locationUuids ? data.data.locationUuids : null;
-    this.department = this.selectDepartmentService.getUserSetDepartment();
+    // this.department = this.selectDepartmentService.getUserSetDepartment();
     this.resourceService.getPatientReferralPatientList({
       endDate: this.toDateString(this._dates.endDate),
       locationUuids: filterLocation,
       startDate: this.toDateString(this._dates.startDate),
       programUuids: data.data.programUuids ? data.data.programUuids : null,
       startIndex: this.startIndex ? this.startIndex : null,
-      notificationStatus: null,
-      department: this.department
+      notificationStatus: null
     }).take(1).subscribe((report) => {
       this.patientData = report;
       // this.patientData ? this.patientData.concat(report) : report;

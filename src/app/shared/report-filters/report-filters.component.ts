@@ -17,7 +17,7 @@ import { ProgramWorkFlowResourceService } from '../../openmrs-api/program-workfl
 declare var jQuery;
 require('ion-rangeslider');
 import { from } from 'rxjs';
-import { DepartmentProgramsConfigService } from '../../etl-api/department-programs-config.service';
+// import { DepartmentProgramsConfigService } from '../../etl-api/department-programs-config.service';
 import { ServicesOfferedProgramsConfigService } from '../../etl-api/services-offered-programs-config.service';
 import { SelectDepartmentService } from './../services/select-department.service';
 import { SelectServiceOfferedService } from './../services/select-service-offered.service';

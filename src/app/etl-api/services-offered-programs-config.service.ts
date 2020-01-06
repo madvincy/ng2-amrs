@@ -19,7 +19,7 @@ export class ServicesOfferedProgramsConfigService {
 
   public getserviceOfferedProgramsConfig(): Observable<any> {
 
-    const url = this.getBaseUrl() + 'servicesoffered-programs-config';
+    const url = this.getBaseUrl() + 'medicalservicesoffered-programs-config';
     const request = this.http.get(url);
 
     return this.cacheService.cacheRequest(url, '' , request);
@@ -28,7 +28,7 @@ export class ServicesOfferedProgramsConfigService {
 
   public getServicePrograms(service): Observable<any> {
     console.log(service);
-    const url = this.getBaseUrl() + 'service-programs';
+    const url = this.getBaseUrl() + 'medical-service-programs';
     const urlParams: HttpParams = new HttpParams()
     .set('service', service);
     urlParams.set('service', service);

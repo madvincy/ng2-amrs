@@ -1,5 +1,5 @@
 
-import {take} from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 /**
  * We're loading this component asynchronously
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
  */
 
 import { LocationResourceService } from '../openmrs-api/location-resource.service';
-import { ActivatedRoute, Router , NavigationEnd , NavigationStart } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { ClinicDashboardCacheService } from './services/clinic-dashboard-cache.service';
 import { UserDefaultPropertiesService } from '../user-default-properties/user-default-properties.service';
 import { LocalStorageService } from '../utils/local-storage.service';
@@ -28,11 +28,11 @@ export class ClinicDashboardComponent implements OnInit {
   public showLocationFilter = true;
 
   constructor(private locationResourceService: LocationResourceService,
-              private route: ActivatedRoute, private router: Router,
-              private clinicDashboardCacheService: ClinicDashboardCacheService,
-              private userDefaultProperties: UserDefaultPropertiesService,
-              private localStorageService: LocalStorageService
-            ) {
+    private route: ActivatedRoute, private router: Router,
+    private clinicDashboardCacheService: ClinicDashboardCacheService,
+    private userDefaultProperties: UserDefaultPropertiesService,
+    private localStorageService: LocalStorageService
+  ) {
     this.loaderStatus = false;
   }
 
@@ -42,22 +42,22 @@ export class ClinicDashboardComponent implements OnInit {
     // this.getUserDepartment();
     this.getUserServiceOffering();
     this.router.events
-    .filter(event => event instanceof NavigationEnd)
-    .subscribe((event) => {
-      this.hideShowLocationFilter();
-    });
+      .filter(event => event instanceof NavigationEnd)
+      .subscribe((event) => {
+        this.hideShowLocationFilter();
+      });
   }
 
-  public getUserDepartment() {
-    let department = this.localStorageService.getItem('userDefaultDepartment');
-    if (department === '[""]') {
-      department = 'HEMATO-ONCOLOGY';
-    }
-    // if (!department) {
-    //   this.router.navigate(['/user-default-properties']);
-    // }
-    this.selectedDepartment = JSON.parse(department);
-  }
+  // public getUserDepartment() {
+  //   let department = this.localStorageService.getItem('userDefaultDepartment');
+  //   if (department === '[""]') {
+  //     department = 'HEMATO-ONCOLOGY';
+  //   }
+  // if (!department) {
+  //   this.router.navigate(['/user-default-properties']);
+  // }
+  //   this.selectedDepartment = JSON.parse(department);
+  // }
   public getUserServiceOffering() {
     let service = this.localStorageService.getItem('userDefaultServiceOffered');
     if (service === '[""]') {
@@ -73,7 +73,7 @@ export class ClinicDashboardComponent implements OnInit {
     const currentUrl = this.router.url;
     let isHivViz = 1;
     if (currentUrl) {
-        isHivViz = currentUrl.indexOf('hiv-viz');
+      isHivViz = currentUrl.indexOf('hiv-viz');
     }
     if (isHivViz === -1) {
       this.showLocationFilter = true;
@@ -103,9 +103,6 @@ export class ClinicDashboardComponent implements OnInit {
             }
           } else {
             const userLocation = this.userDefaultProperties.getCurrentUserDefaultLocationObject();
-            const department = this.selectedDepartment.length > 0 ? this.selectedDepartment[0].itemName.toLowerCase() : 'general';
-            this.router.navigate(['/clinic-dashboard', userLocation.uuid,
-              department, 'daily-schedule']);
           }
         });
       });

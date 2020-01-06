@@ -32,11 +32,8 @@ export class ProgramReferralService {
   */
 
   public referPatient(patient, referralData: any) {
-    const department = this.selectDepartmentService.getUserSetDepartment();
+    const department = 'HEMATO-ONCOLOGY';
 
-    if (department === 'CDM') {
-      // Construct referralPayload
-    } else if (department === 'HEMATO-ONCOLOGY') {
       // Construct referralPayload
       const referralLocation = this.localStorageService.getItem('referralLocation');
       const referralVisitEncounter = this.localStorageService.getItem('referralVisitEncounter');
@@ -50,6 +47,5 @@ export class ProgramReferralService {
         programUuid: referralData.programUuid
       };
       return this.programManagerService.referPatient(payload);
-    }
   }
 }
