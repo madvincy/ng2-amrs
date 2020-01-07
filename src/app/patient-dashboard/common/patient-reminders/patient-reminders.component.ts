@@ -66,22 +66,22 @@ export class PatientRemindersComponent implements OnInit, OnDestroy {
         if (patient) {
           this.patient = patient;
           const patientUuid = patient.person.uuid;
-          if (!this.remindersLoaded) {
-            const sub2 = this.patientReminderService.getPatientReminders(patientUuid).subscribe(
-              (data) => {
-                this.remindersLoaded = true;
-                this.reminders = [];
-                if (!patient.person.dead && data && data.personUuid === patientUuid) {
-                  this.reminders = data.generatedReminders;
-                  this.constructReminders(this.reminders);
-                }
-              },
-              (error) => {
-                // console.error('error', error);
-                this.errorMessage = error;
-              });
-            this.subscriptions.push(sub2);
-          }
+          // if (!this.remindersLoaded) {
+          //   const sub2 = this.patientReminderService.getPatientReminders(patientUuid).subscribe(
+          //     (data) => {
+          //       this.remindersLoaded = true;
+          //       this.reminders = [];
+          //       if (!patient.person.dead && data && data.personUuid === patientUuid) {
+          //         this.reminders = data.generatedReminders;
+          //         this.constructReminders(this.reminders);
+          //       }
+          //     },
+          //     (error) => {
+          //       // console.error('error', error);
+          //       this.errorMessage = error;
+          //     });
+          //   this.subscriptions.push(sub2);
+          // }
         }
       });
     this.subscriptions.push(sub);

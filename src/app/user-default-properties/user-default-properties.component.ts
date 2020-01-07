@@ -101,7 +101,7 @@ export class UserDefaultPropertiesComponent implements OnInit {
   private getServiceOfferedLocations() {
     // this.currentLocation = this.propertyLocationService.getCurrentUserDefaultLocationObject();
     // if (!this.currentLocation) {
-    //   this.disable = true;
+    //   this.disable = true;h
     // }
     // this.setLocation();
     this.servicesOfferedPrograms.getserviceOfferedProgramsConfig().pipe(take(1)).subscribe((results) => {

@@ -22,7 +22,7 @@ export class FeedBackComponent implements OnInit, OnDestroy {
     public error = false;
     // public programDepartments: any = [];
     public programMedicalServices: any = [];
-    public department: string;
+    public medicalService: string;
     public selectedDepartment: string;
     public selectedMedicalService: string;
     public medicalServiceIsSelected = false;
