@@ -67,7 +67,6 @@ export class FeedBackComponent implements OnInit, OnDestroy {
         this.payload.medicalService = this.selectedMedicalService || 'Medical Sevice not selected';
         this.busy = this.feedBackService.postFeedback(this.payload).pipe(take(1)).subscribe((res) => {
             this.success = true;
-            console.log('this.payload', this.payload.phone);
             this.payload = {
                 name: '',
                 phone: '',

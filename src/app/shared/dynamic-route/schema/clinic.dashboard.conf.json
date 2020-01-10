@@ -6,9 +6,9 @@
   "nonProgramRoutes": [
   ],
   "programs": [],
-  "departments": [
+  "medicalServices": [
     {
-      "departmentName": "General",
+      "medicalServiceName": "General",
       "baseRoute": "general",
       "alias": "general",
       "routes": [
@@ -45,9 +45,9 @@
       ]
     },
     {
-      "departmentName": "HEMATO-ONCOLOGY",
-      "baseRoute": "hemato-oncology",
-      "alias": "hemato-oncology",
+      "medicalServiceName": "TREATMENT",
+      "baseRoute": "treatment",
+      "alias": "treatment",
       "routes": [
         {
           "url": "daily-schedule",

@@ -7,7 +7,7 @@ import { LocalStorageService } from '../../../utils/local-storage.service';
 @Injectable()
 export class ClinicRoutesFactory {
 
-  public selectedDepartment: any;
+  public selectedMedicalService: any;
 
   constructor(public routesProvider: RoutesProviderService,
   private _localStorageService: LocalStorageService) { }
@@ -17,22 +17,21 @@ export class ClinicRoutesFactory {
     if (locationUuid === null || locationUuid === undefined) {
       throw new Error('Location is required');
     }
-    let selectedDepartment: any;
-    const setDepartment: any = JSON.parse(this._localStorageService.getItem('userDefaultDepartment'));
-    selectedDepartment = setDepartment[0].itemName;
-    this.selectedDepartment = selectedDepartment;
-
+    let selectedMedicalService: any;
+    const setMedicalService: any = JSON.parse(this._localStorageService.getItem('userDefaultServiceOffered'));
+    selectedMedicalService = setMedicalService[0].itemName;
+    this.selectedMedicalService = selectedMedicalService;
     let clinicRoutesConfig: any = this.routesProvider.clinicDashboardConfig;
     clinicRoutesConfig = this.processSharedRoutes(clinicRoutesConfig);
 
     const routes: RouteModel[] = [];
-    if (Array.isArray(clinicRoutesConfig['departments'])) {
-      for (const department of clinicRoutesConfig.departments) {
-        const departmentName = department.departmentName;
-        if (departmentName === this.selectedDepartment) {
+    if (Array.isArray(clinicRoutesConfig['medicalServices'])) {
+      for (const medicalService of clinicRoutesConfig.medicalServices) {
+        const medicalServiceName = medicalService.medicalServiceName;
+        if (medicalServiceName === this.selectedMedicalService) {
 
             routes.push(
-              this.createClinicRouteModel(department, locationUuid)
+              this.createClinicRouteModel(medicalService, locationUuid)
             );
 
         }
@@ -44,21 +43,21 @@ export class ClinicRoutesFactory {
 
   public createAnalyticsDashboardRoutes(): RouteModel[] {
 
-    let selectedDepartment: any;
-    const setDepartment: any = JSON.parse(this._localStorageService.getItem('userDefaultDepartment'));
-    selectedDepartment = setDepartment[0].itemName;
-    this.selectedDepartment = selectedDepartment;
+    let selectedMedicalService: any;
+    const setMedicalService: any = JSON.parse(this._localStorageService.getItem('userDefaultServiceOffered'));
+    selectedMedicalService = setMedicalService[0].itemName;
+    this.selectedMedicalService = selectedMedicalService;
 
     let analyticsRoutesConfig: any = this.routesProvider.analyticsDashboardConfig;
     analyticsRoutesConfig = this.processSharedRoutes(analyticsRoutesConfig);
 
     const routes: RouteModel[] = [];
-    if (Array.isArray(analyticsRoutesConfig['departments'])) {
-      for (const department of analyticsRoutesConfig.departments) {
-        const departmentName = department.departmentName;
-        if (departmentName === this.selectedDepartment) {
+    if (Array.isArray(analyticsRoutesConfig['medicalServices'])) {
+      for (const medicalService of analyticsRoutesConfig.medicalServices) {
+        const medicalServiceName = medicalService.medicalServiceName;
+        if (medicalServiceName === this.selectedMedicalService) {
             routes.push(
-              this.createAnalyticsRouteModel(department)
+              this.createAnalyticsRouteModel(medicalService)
             );
         }
       }
@@ -80,8 +79,8 @@ export class ClinicRoutesFactory {
 
   private createClinicRouteModel(routInfo: any, locationUuid: string): RouteModel {
     const model = new RouteModel();
-    model.label = routInfo.departmentName;
-    model.initials = (routInfo.departmentName as string).charAt(0);
+    model.label = routInfo.medicalServiceName;
+    model.initials = (routInfo.medicalServiceName as string).charAt(0);
     model.url = 'clinic-dashboard/' + locationUuid + '/' + routInfo.alias;
     model.renderingInfo = {
       icon: 'fa fa-square-o'
@@ -92,8 +91,8 @@ export class ClinicRoutesFactory {
 
   private createAnalyticsRouteModel(routInfo: any): RouteModel {
     const model = new RouteModel();
-    model.label = routInfo.departmentName;
-    model.initials = (routInfo.departmentName as string).charAt(0);
+    model.label = routInfo.medicalServiceName;
+    model.initials = (routInfo.medicalServiceName as string).charAt(0);
     model.url = 'data-analytics/' + routInfo.alias;
     model.renderingInfo = {
       icon: 'fa fa-square-o'

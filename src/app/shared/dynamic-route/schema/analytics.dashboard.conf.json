@@ -17,8 +17,8 @@
       "isSideBarOpen": false
     },
     {
-      "url": "oncology-reports",
-      "label": "Oncology Reports",
+      "url": "treatment-reports",
+      "label": "Treatment Reports",
       "icon": "fa fa-bar-chart",
       "isSideBarOpen": false
     },
@@ -31,14 +31,14 @@
 
   ],
   "programs": [],
-  "departments": [
+  "medicalServices": [
     {
-      "departmentName": "HEMATO-ONCOLOGY",
-      "baseRoute": "hemato-oncology",
-      "alias": "hemato-oncology",
+      "medicalServiceName": "TREATMENT",
+      "baseRoute": "treatment",
+      "alias": "treatment",
       "routes": [{
-          "url": "oncology-reports",
-          "label": "Oncology Reports",
+          "url": "treatment-reports",
+          "label": "Treatment Reports",
           "icon": "fa fa-bar-chart",
           "isSideBarOpen": false
         },

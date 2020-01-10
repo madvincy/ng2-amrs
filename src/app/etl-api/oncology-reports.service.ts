@@ -19,14 +19,14 @@ export class OncologyReportService {
   }
 
   public getOncologyReports(): Observable<any> {
-    const url = this.getBaseUrl() + 'oncology-reports';
+    const url = this.getBaseUrl() + 'treatment-reports';
     const request = this.http.get(url);
 
     return this.cacheService.cacheRequest(url, '' , request);
   }
 
   public getSpecificOncologyReport(reportUuid): Observable<any> {
-    const url = this.getBaseUrl() + 'oncology-report';
+    const url = this.getBaseUrl() + 'treatment-report';
     let urlParams: HttpParams = new HttpParams();
 
     if (reportUuid && reportUuid !== '') {

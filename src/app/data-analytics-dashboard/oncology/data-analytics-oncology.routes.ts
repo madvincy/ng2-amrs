@@ -17,7 +17,7 @@ import { ChangeDepartmentComponent } from '../change-department/change-departmen
 
 const routes: Routes = [
   {
-    path: 'oncology-reports',
+    path: 'treatment-reports',
     children: [
       {
         path: '',
@@ -42,6 +42,35 @@ const routes: Routes = [
       {
         path: 'lung-cancer-treatment-numbers',
         component: OncologySummaryIndicatorsComponent
+      },
+      {
+        path: 'lung-cancer-screening-numbers',
+        component: OncologySummaryIndicatorsComponent
+      }
+    ]
+  },
+  {
+    path: 'screening-reports',
+    children: [
+      {
+        path: '',
+        component: OncologyReportsComponent
+      },
+      {
+        path: 'breast-cancer-screening-numbers',
+        component: OncologySummaryIndicatorsComponent,
+      },
+      {
+        path: 'cervical-cancer-screening-numbers',
+        component: OncologySummaryIndicatorsComponent,
+      },
+      {
+        path: ':screening-program/patient-list',
+        component: OncologySummaryIndicatorsPatientListComponent,
+      },
+      {
+        path: 'combined-breast-cervical-cancer-screening-numbers',
+        component: OncologySummaryIndicatorsComponent,
       },
       {
         path: 'lung-cancer-screening-numbers',
@@ -80,7 +109,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'select-department',
+    path: 'select-medicalService',
     component: ChangeDepartmentComponent
   }
 ];

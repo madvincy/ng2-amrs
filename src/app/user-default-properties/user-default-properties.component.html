@@ -30,7 +30,7 @@
       </div>
       <!-- Select  service-->
       <div class="form-group" style="margin-top: -20px;">
-        <label for="department">Which Medical Service Do You Want To See?</label><br />
+        <label for="medicalService">Which Medical Service Do You Want To See?</label><br />
         <mat-radio-group class="vertical-radio-group" [ngModel]="selectedService" (ngModelChange)="selectMedicalService($event)">
           <mat-radio-button class="vertical-radio-button" name="" *ngFor="let service of medicalServices;"
             [value]="service.itemName" color="primary">

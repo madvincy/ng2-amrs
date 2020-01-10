@@ -70,17 +70,17 @@ export class ClinicDashboardComponent implements OnInit {
   }
 
   public hideShowLocationFilter() {
-    const currentUrl = this.router.url;
-    let isHivViz = 1;
-    if (currentUrl) {
-      isHivViz = currentUrl.indexOf('hiv-viz');
-    }
-    if (isHivViz === -1) {
-      this.showLocationFilter = true;
-    } else {
-      this.showLocationFilter = false;
-    }
-
+    // const currentUrl = this.router.url;
+    // let isHivViz = 1;
+    // if (currentUrl) {
+    //   isHivViz = currentUrl.indexOf('hiv-viz');
+    // }
+    // if (isHivViz === -1) {
+    //   this.showLocationFilter = true;
+    // } else {
+    //   this.showLocationFilter = false;
+    // }
+    this.showLocationFilter = true;
   }
 
   public getLocations() {
@@ -95,6 +95,7 @@ export class ClinicDashboardComponent implements OnInit {
 
       this.route.params.subscribe((params) => {
         setTimeout(() => {
+          console.log(params);
           this.locationUuid = params['location_uuid'];
           if (this.locationUuid) {
             this.resolveSelectedLocationByUuid(this.locationUuid);

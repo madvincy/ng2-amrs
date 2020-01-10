@@ -9,7 +9,7 @@ import { LocalStorageService } from '../utils/local-storage.service';
 })
 export class DataAnalyticsDashboardComponent implements OnInit {
 
-  public selectedDepartment: any;
+  public selectedMedicalService: any;
 
   constructor(
     private router: Router,
@@ -17,32 +17,28 @@ export class DataAnalyticsDashboardComponent implements OnInit {
   ) {}
 
   public ngOnInit() {
-    this.selectedDepartment = this.getUserDepartment();
-    const department = this.selectedDepartment.length > 0 ? this.selectedDepartment[0].itemName.toLowerCase() : 'general';
-    switch (department) {
-      case 'hiv':
-        this.router.navigate(['/data-analytics', department, 'hiv-comparative-chart-analytics']);
+    this.selectedMedicalService = this.getUserMedicalService();
+    const medicalService = this.selectedMedicalService.length > 0 ? this.selectedMedicalService[0].itemName.toLowerCase() : 'general';
+    switch (medicalService) {
+      case 'treatment':
+        this.router.navigate(['/data-analytics', medicalService, 'treatment-reports']);
         break;
 
-      case 'hemato-oncology':
-        this.router.navigate(['/data-analytics', department, 'oncology-reports']);
-        break;
-
-      case 'cdm':
-        this.router.navigate(['/data-analytics', department, 'clinic-flow']);
+      case 'screening':
+        this.router.navigate(['/data-analytics', medicalService, 'screening-reports']);
         break;
     }
 
   }
 
-  public getUserDepartment() {
-    let department = this.localStorageService.getItem('userDefaultDepartment');
-    if (department === '[""]') {
-      department = undefined;
+  public getUserMedicalService() {
+    let medicalService = this.localStorageService.getItem('userDefaultServiceOffered');
+    if (medicalService === '[""]') {
+      medicalService = undefined;
     }
-    if (!department) {
+    if (!medicalService) {
       this.router.navigate(['/user-default-properties']);
     }
-    return JSON.parse(department);
+    return JSON.parse(medicalService);
   }
 }
