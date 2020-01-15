@@ -25,7 +25,7 @@ export class FormsResourceService {
     const params = new HttpParams()
     .set('v', 'custom:(uuid,name,encounterType:(uuid,name),version,' +
       'published,retired,resources:(uuid,name,dataType,valueReference))')
-      .set('q', 'POC');
+      .set('q', 'EICI');
 
     if (!this.forms.observers.length || forceRefresh) {
       this.http.get<any>(
