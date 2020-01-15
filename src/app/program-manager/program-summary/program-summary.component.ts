@@ -45,7 +45,7 @@ export class ProgramSummaryComponent extends ProgramManagerBaseComponent impleme
     this.getServiceOfferedConf();
     this.loadPatientProgramConfig().pipe(take(1)).subscribe((loaded) => {
       if (loaded) {
-        this.mapEnrolledProgramsToDepartment();
+        this.mapEnrolledProgramsToServiceOffered();
       }
     }, (error) => {
       this.loaded = true;

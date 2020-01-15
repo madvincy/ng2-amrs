@@ -11,12 +11,12 @@
   <program-wizard-step [name]="'Select Programs'">
     <div class="wizard-body component">
       <div class="step">
-        <ng-container *ngFor="let department of enrolledProgramsByDepartment">
-          <ng-container *ngIf="department.show">
+        <ng-container *ngFor="let medicalService of enrolledProgramsByMedicalServiceOffered">
+          <ng-container *ngIf="medicalService.show">
             <div class="step-name">
-              <h2><i class="fa fa-arrow-right"></i>{{department.name}}</h2>
+              <h2><i class="fa fa-arrow-right"></i>{{medicalService.name}}</h2>
             </div>
-            <ng-container *ngFor="let program of department.programs">
+            <ng-container *ngFor="let program of medicalService.programs">
               <blockquote class="step-details" style="border-left: 0;"
                           *ngIf="program && program.dateEnrolled && !program.dateCompleted">
                 <p><input name="program_{{program.enrolledProgram._openmrsModel.uuid}}" value="{{program.enrolledProgram._openmrsModel.uuid}}"
@@ -29,10 +29,10 @@
             </ng-container>
           </ng-container>
         </ng-container>
-        <p class="alert alert-danger" *ngIf="loaded && enrolledProgramsByDepartment.length === 0">
+        <p class="alert alert-danger" *ngIf="loaded && enrolledProgramsByMedicalServiceOffered.length === 0">
           The patient is not currently enrolled in any program
         </p>
-        <div *ngIf="enrolledProgramsByDepartment.length > 0" class="step-buttons">
+        <div *ngIf="enrolledProgramsByMedicalServiceOffered.length > 0" class="step-buttons">
           <button *ngIf="!theChangeComplete" type="button" class="btn btn-primary pull-right"
                   (click)="goToEditOptions()">Continue
           </button>

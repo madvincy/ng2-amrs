@@ -30,8 +30,6 @@ export class ClinicDashboardGuard implements CanActivate, CanDeactivate<ClinicDa
     if (component.name === 'ClinicDashboardComponent') {
       const userLocation = this.userDefaultProperties.getCurrentUserDefaultLocationObject();
       const locationUuid = routeSnapshot.params['location_uuid'];
-      console.log(userLocation);
-      console.log(locationUuid);
       if (locationUuid) {
         console.log(true);
         this.clinicDashboardCacheService.setCurrentClinic(locationUuid);

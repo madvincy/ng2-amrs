@@ -12,21 +12,13 @@ export const routes: Routes = [
     ],
     children: [
       {
-        path: 'hiv',
-        loadChildren: './hiv/data-analytics-hiv.module#DataAnalyticsHivModule'
-      },
-      {
-        path: 'hemato-oncology',
+        path: 'treatment',
         loadChildren: './oncology/data-analytics-oncology.module#DataAnalyticsOncologyModule'
       },
       {
         path: 'referral',
         loadChildren: './referral/referral-program.module#AnalyticsPatientReferralProgramModule'
-      },
-      {
-        path: 'cdm',
-        loadChildren: './cdm/data-analytics-cdm.module#DataAnalyticsCdmModule'
-      },
+      }
     ]
   }
 ];

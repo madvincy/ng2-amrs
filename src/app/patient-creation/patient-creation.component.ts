@@ -302,6 +302,7 @@ export class PatientCreationComponent implements OnInit, OnDestroy {
   }
 
   public setIdentifierType(identifierType) {
+    console.log(identifierType);
     this.patientIdentifierType = identifierType;
     this.commonIdentifier = '';
     this.identifierValidity = '';
@@ -635,7 +636,7 @@ export class PatientCreationComponent implements OnInit, OnDestroy {
       (data) => {
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < data.length; i++) {
-          if (data[i].name === 'ICIMRS Universal ID') {
+          if (data[i].name === 'EICI Universal ID') {
             this.universal = {
               identifierType: data[i].uuid,
               identifierTypeName: data[i].name
@@ -646,8 +647,7 @@ export class PatientCreationComponent implements OnInit, OnDestroy {
               label: data[i].name
             });
           }
-
-          if (data[i].uuid === '58a47054-1359-11df-a1f1-0026b9348838') {
+          if (data[i].uuid === '58a4732e-1359-11df-a1f1-0026b9348838') {
             this.commonIdentifierTypeFormats[data[i].uuid] = {
               format: '^[0-9]*$',
               checkdigit: data[i].checkDigit

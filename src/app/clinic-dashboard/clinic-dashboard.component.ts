@@ -104,6 +104,10 @@ export class ClinicDashboardComponent implements OnInit {
             }
           } else {
             const userLocation = this.userDefaultProperties.getCurrentUserDefaultLocationObject();
+            const medicalService = this.selectedServiceOffered.length > 0 ?
+            this.selectedServiceOffered[0].itemName.toLowerCase() : 'general';
+            this.router.navigate(['/clinic-dashboard', userLocation.uuid,
+            medicalService, 'daily-schedule']);
           }
         });
       });

@@ -13,7 +13,6 @@ export class ClinicRoutesFactory {
   private _localStorageService: LocalStorageService) { }
 
   public createClinicDashboardRoutes(locationUuid): RouteModel[] {
-
     if (locationUuid === null || locationUuid === undefined) {
       throw new Error('Location is required');
     }

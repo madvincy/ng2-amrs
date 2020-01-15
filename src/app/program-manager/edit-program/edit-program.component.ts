@@ -58,7 +58,7 @@ export class EditProgramComponent extends ProgramManagerBaseComponent implements
       this.getServiceOfferedConf();
       this.loadPatientProgramConfig().pipe(take(1)).subscribe((loaded) => {
         if (loaded) {
-          this.mapEnrolledProgramsToDepartment(true);
+          this.mapEnrolledProgramsToServiceOffered(true);
           this.setUserDefaultLocation();
           if (loaded && params['step']) {
             this.loadOnParamInit(params);

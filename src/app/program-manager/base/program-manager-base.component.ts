@@ -120,7 +120,7 @@ export class ProgramManagerBaseComponent implements OnInit {
     return programConfigLoaded;
   }
 
-  public mapEnrolledProgramsToDepartment(excludeCompleted: boolean = false) {
+  public mapEnrolledProgramsToServiceOffered(excludeCompleted: boolean = false) {
         if (this.enrolledProgrames) {
           const enrolledProgrames = _.filter(this.patient.enrolledPrograms, (eProgram) => {
             return !_.isNull(eProgram.enrolledProgram);
