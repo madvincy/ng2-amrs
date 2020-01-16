@@ -32,17 +32,17 @@ export class AppSettingsService {
 
   private templates = [
     {
-      name: 'ICIMRS POC',
+      name: 'e-ICI',
       icimrsUrl: '/icimrs',
       etlUrl: '/etl-latest/etl'
     },
     {
-      name: 'ICIMRS POC Beta',
+      name: 'e-ICI Beta',
       icimrsUrl: '/icimrs',
       etlUrl: 'https://mrs.intercancer.com/etl-server-beta/etl'
     },
     {
-      name: 'ICIMRS Test',
+      name: 'e-ICI Test',
       icimrsUrl: '/test-icimrs',
       etlUrl: '/etl-server-test-worcester/etl'
     }

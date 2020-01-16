@@ -104,7 +104,7 @@ export class FeedBackComponent implements OnInit, OnDestroy {
         public getMedicalServiceOfferedConf() {
         this._servicesOfferedService.getserviceOfferedProgramsConfig().pipe(
             take(1)).subscribe((results) => {
-                console.log('results===', results); if (results) {
+                 if (results) {
                     this.medicalServiceConf = results;
                     this._filterMedicalServiceConfigByName();
                 }
@@ -118,7 +118,7 @@ export class FeedBackComponent implements OnInit, OnDestroy {
     //     }
     // }
     public getSelectedMedicalService(medService) {
-        this.selectedDepartment = medService;
+        this.selectedMedicalService = medService;
         if (medService) {
             this.medicalServiceIsSelected = true;
         }
