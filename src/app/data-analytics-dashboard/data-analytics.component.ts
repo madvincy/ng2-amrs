@@ -27,6 +27,9 @@ export class DataAnalyticsDashboardComponent implements OnInit {
       case 'screening':
         this.router.navigate(['/data-analytics', medicalService, 'screening-reports']);
         break;
+      case 'research':
+        this.router.navigate(['/data-analytics', medicalService, 'screening-reports']);
+        break;
     }
 
   }

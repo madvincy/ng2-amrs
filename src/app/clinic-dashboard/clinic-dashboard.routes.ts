@@ -15,16 +15,14 @@ export const routes = [
         ],
         children: [
           {
-            path: 'cdm', loadChildren: './cdm/cdm-program.module#CdmModule'
-          },
-          {
             path: 'general', loadChildren: './general/general.module#GeneralModule'
           },
           {
-            path: 'hiv', loadChildren: './hiv/hiv-program.module#HivProgramModule'
+            path: 'treatment',
+            loadChildren: './oncology/oncology-program.module#OncologyProgramModule'
           },
           {
-            path: 'treatment',
+            path: 'screening',
             loadChildren: './oncology/oncology-program.module#OncologyProgramModule'
           },
           { path: '', redirectTo: 'general', pathMatch: 'prefix' }

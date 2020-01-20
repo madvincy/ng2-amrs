@@ -72,6 +72,16 @@ const clinicDashboardRoutes: Routes = [
         .then((mod) => mod.OncologyProgramModule)
       },
       {
+        path: 'research', loadChildren: () =>
+        System.import('./hemato-oncology/oncology-program.module')
+        .then((mod) => mod.OncologyProgramModule)
+      },
+      {
+        path: 'screening', loadChildren: () =>
+        System.import('./hemato-oncology/oncology-program.module')
+        .then((mod) => mod.OncologyProgramModule)
+      },
+      {
         path: '', redirectTo: 'general', pathMatch: 'prefix'
       }
     ],

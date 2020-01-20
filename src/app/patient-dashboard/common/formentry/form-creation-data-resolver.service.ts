@@ -44,7 +44,6 @@ export class FormCreationDataResolverService implements Resolve<any> {
               encounter: undefined,
               schema: compiledFormSchema,
               visit: undefined,
-              hivSummary: undefined,
               user: undefined,
               provider: undefined
             };
@@ -64,16 +63,16 @@ export class FormCreationDataResolverService implements Resolve<any> {
               dataRequiredToLoadForm.provider = {};
             }
 
-            this.getHivSummary(patientUuid)
-              .then((summaries) => {
-                dataRequiredToLoadForm.hivSummary = summaries;
-                this.processDataResolvingStep(dataRequiredToLoadForm, resolve);
+            // this.getHivSummary(patientUuid)
+            //   .then((summaries) => {
+            //     dataRequiredToLoadForm.hivSummary = summaries;
+            //     this.processDataResolvingStep(dataRequiredToLoadForm, resolve);
 
-              })
-              .catch((error) => {
-                dataRequiredToLoadForm.hivSummary = error;
-                this.processDataResolvingStep(dataRequiredToLoadForm, resolve);
-              });
+            //   })
+            //   .catch((error) => {
+            //     dataRequiredToLoadForm.hivSummary = error;
+            //     this.processDataResolvingStep(dataRequiredToLoadForm, resolve);
+            //   });
 
               this.getPreviousEncounter(selectedEncounter, compiledFormSchema)
               .then((encounter) => {
@@ -112,7 +111,6 @@ export class FormCreationDataResolverService implements Resolve<any> {
   private processDataResolvingStep(dataRequiredToLoadForm: any, finalAcceptFunc) {
     if (dataRequiredToLoadForm.encounter &&
       dataRequiredToLoadForm.visit &&
-      dataRequiredToLoadForm.hivSummary &&
       dataRequiredToLoadForm.provider) {
       // console.log('Data required to load forms', dataRequiredToLoadForm);
       finalAcceptFunc(dataRequiredToLoadForm);
@@ -180,24 +178,24 @@ export class FormCreationDataResolverService implements Resolve<any> {
     });
   }
 
-  private getHivSummary(patientUuid): Promise<Array<any>> {
-    return new Promise((resolve, reject) => {
-      if (patientUuid) {
-        this.hivSummaryResService.getHivSummary(patientUuid, 0, 5, true)
-          .subscribe(
-          (results) => {
-            resolve(results);
-          },
-          (error) => {
-            reject(error);
-          }
-          );
+  // private getHivSummary(patientUuid): Promise<Array<any>> {
+  //   return new Promise((resolve, reject) => {
+  //     if (patientUuid) {
+  //       this.hivSummaryResService.getHivSummary(patientUuid, 0, 5, true)
+  //         .subscribe(
+  //         (results) => {
+  //           resolve(results);
+  //         },
+  //         (error) => {
+  //           reject(error);
+  //         }
+  //         );
 
-      } else {
-        reject('Patient uuid required');
-      }
-    });
-  }
+  //     } else {
+  //       reject('Patient uuid required');
+  //     }
+  //   });
+  // }
 
   private upgradeConflictingValidations(schema) {
     for (const page of schema.pages) {

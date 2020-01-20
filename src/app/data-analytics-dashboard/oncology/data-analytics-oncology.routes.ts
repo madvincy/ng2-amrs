@@ -24,27 +24,7 @@ const routes: Routes = [
         component: OncologyReportsComponent
       },
       {
-        path: 'breast-cancer-screening-numbers',
-        component: OncologySummaryIndicatorsComponent,
-      },
-      {
-        path: 'cervical-cancer-screening-numbers',
-        component: OncologySummaryIndicatorsComponent,
-      },
-      {
-        path: ':screening-program/patient-list',
-        component: OncologySummaryIndicatorsPatientListComponent,
-      },
-      {
-        path: 'combined-breast-cervical-cancer-screening-numbers',
-        component: OncologySummaryIndicatorsComponent,
-      },
-      {
         path: 'lung-cancer-treatment-numbers',
-        component: OncologySummaryIndicatorsComponent
-      },
-      {
-        path: 'lung-cancer-screening-numbers',
         component: OncologySummaryIndicatorsComponent
       }
     ]
@@ -75,6 +55,15 @@ const routes: Routes = [
       {
         path: 'lung-cancer-screening-numbers',
         component: OncologySummaryIndicatorsComponent
+      }
+    ]
+  },
+  {
+    path: 'research-reports',
+    children: [
+      {
+        path: '',
+        component: OncologyReportsComponent
       }
     ]
   },

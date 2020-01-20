@@ -16,6 +16,14 @@ export const routes: Routes = [
         loadChildren: './oncology/data-analytics-oncology.module#DataAnalyticsOncologyModule'
       },
       {
+        path: 'screening',
+        loadChildren: './oncology/data-analytics-oncology.module#DataAnalyticsOncologyModule'
+      },
+      {
+        path: 'research',
+        loadChildren: './oncology/data-analytics-oncology.module#DataAnalyticsOncologyModule'
+      },
+      {
         path: 'referral',
         loadChildren: './referral/referral-program.module#AnalyticsPatientReferralProgramModule'
       }

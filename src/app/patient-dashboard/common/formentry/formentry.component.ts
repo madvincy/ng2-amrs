@@ -656,7 +656,7 @@ export class FormentryComponent implements OnInit, OnDestroy {
       this.setUpVisitEncountersDataObject();
 
       // for the case of hiv, set-up the hiv summary
-      this.setUpHivSummaryDataObject();
+      // this.setUpHivSummaryDataObject();
 
       if (this.encounter) { // editing existing form
         this.form = this.formFactory.createForm(schema, this.dataSources.dataSources);
