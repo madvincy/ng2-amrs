@@ -275,19 +275,20 @@
           <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
             <div class="form-group">
               <label for="address1" class="control-label">County</label>
-              <select class="form-control" [(ngModel)]="address1" name="county" (ngModelChange)="updateLocation($event)">
-                <option *ngFor="let county of counties" [value]="county">{{ county }}</option>
-              </select>
-              <div *ngIf="others">
-                  <label for="address1" class="control-label">County: Other (specify)</label>
-                <input type="text" id="address1" class="form-control" [(ngModel)]="address1" name="address1">
-              </div>
+              <ng-select class="sharp-corners" [multiple]="multiple" id="location-filter" (change)="updateLocation($event)"
+              [placeholder]="'Select county ...'"   bindLabel="name"
+              autofocus  bindValue="name"
+              [(ngModel)]="address1" [items]="counties">
+            </ng-select>
             </div>
           </div>
           <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
               <div class="form-group">
               <label for="address2" class="control-label">Sub County</label>
-              <input type="text" id="address2" class="form-control" [(ngModel)]="address2" name="address2">
+              <ng-select class="sharp-corners" [multiple]="multiple" id="location-filter"
+              [placeholder]="'Select county first then subcounty...'"
+              [(ngModel)]="address2" [items]="subCounties">
+            </ng-select>
               </div>
           </div>
           <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">

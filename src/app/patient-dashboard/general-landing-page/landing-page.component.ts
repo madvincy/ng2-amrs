@@ -216,6 +216,7 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
           this.programsBusy = false;
           this.patient = patient;
           this.setLastEnrolledPrograms();
+          console.log(patient.enrolledPrograms, 'wazi');
           this.enrolledProgrames = _.filter(patient.enrolledPrograms, 'isEnrolled');
           this.checkPatientReferrals();
         }
@@ -236,14 +237,14 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
     const completedPrograms = _.filter(this.patient.enrolledPrograms, 'dateCompleted');
     const programGroup: any = _.groupBy(completedPrograms, 'baseRoute');
     const newArr = [];
-    if (programGroup.hiv) {
-      newArr.push(_.max(programGroup.hiv));
+    if (programGroup.screening) {
+      newArr.push(_.max(programGroup.screening));
     }
-    if (programGroup.oncology) {
-      newArr.push(_.max(programGroup.oncology));
+    if (programGroup.treatment) {
+      newArr.push(_.max(programGroup.treatment));
     }
-    if (programGroup.cdm) {
-      newArr.push(_.max(programGroup.cdm));
+    if (programGroup.research) {
+      newArr.push(_.max(programGroup.research));
     }
     this.lastEnrolledPrograms = newArr;
   }

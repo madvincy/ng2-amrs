@@ -22,6 +22,7 @@ export class PatientRoutesFactory {
         if (program.published && (program.requiresPatientEnrollment === false ||
           this.patientIsInProgram(program.programUuid,
             patient.enrolledPrograms))) {
+              console.log(program);
           routes.push(
             this.createProgramRouteModel(program, patient.uuid)
           );
@@ -52,6 +53,8 @@ export class PatientRoutesFactory {
     model.renderingInfo = {
       icon: 'fa fa-square-o'
     };
+    console.log(routInfo);
+    console.log(model);
     this.createProgramChildRoutes(routInfo.routes, model);
     return model;
   }
@@ -71,6 +74,7 @@ export class PatientRoutesFactory {
 
   private createProgramChildRoutes(routInfo: any[], programRouteModel: RouteModel) {
     programRouteModel.childRoutes = [];
+    console.log(routInfo);
     routInfo.forEach((route) => {
       programRouteModel.childRoutes.push(this.createProgramChildRoute(route,
         programRouteModel));

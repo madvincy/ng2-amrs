@@ -84,6 +84,7 @@ export class PatientCreationComponent implements OnInit, OnDestroy {
   public latitude: string;
   public stateProvince: string;
   public others = false;
+  public kenyanCounties: any = require('./counties.json');
 
   public patientIdentifiers = [];
   public patientIdentifier: string;
@@ -94,6 +95,7 @@ export class PatientCreationComponent implements OnInit, OnDestroy {
   public commonAdded = false;
   public locations = [];
   public counties: any;
+  public subCounties = [];
   public identifiers = [];
   public patientResults: Patient[];
   public found = false;
@@ -589,8 +591,16 @@ export class PatientCreationComponent implements OnInit, OnDestroy {
     } else {
       this.others = false;
     }
+    this.updateSubcounties( this.address1);
   }
+public updateSubcounties (selectedCounty) {
+  this.counties.forEach(county => {
+    if (county.name === selectedCounty) {
+      this.subCounties = county.sub_counties;
+    }
+  });
 
+}
   public loadProgramManager(createdPatient) {
     this.modalRef.hide();
     this.router.navigate(['/patient-dashboard/patient/' + createdPatient.person.uuid +
@@ -671,6 +681,11 @@ export class PatientCreationComponent implements OnInit, OnDestroy {
   }
 
   private getLocations(): void {
+    this.counties = this.kenyanCounties;
+    console.log(this.counties);
+    // this.kenyanCounties.forEach(county => {
+    //   this.counties.push(county.name);
+    // });
     this.locationResourceService.getLocations().pipe(take(1)).subscribe(
       (locations: any[]) => {
         this.locations = [];
@@ -678,13 +693,13 @@ export class PatientCreationComponent implements OnInit, OnDestroy {
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < locations.length; i++) {
           this.locations.push({ label: locations[i].name, value: locations[i].uuid });
-          counties.push(locations[i].stateProvince);
+          // counties.push(locations[i].stateProvince);
         }
-        this.counties = _.uniq(counties);
-        this.counties = _.remove(this.counties, (n) => {
-          return n !== null || n === '';
-        });
-        this.counties.push('Other');
+        // this.counties = _.uniq(counties);
+        // this.counties = _.remove(this.counties, (n) => {
+        //   return n !== null || n === '';
+        // });
+        // this.counties.push('Other');
       },
       (error: any) => {
         console.error(error);
