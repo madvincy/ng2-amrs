@@ -88,11 +88,8 @@ export class Patient extends BaseModel {
       let filteredIdentifiers: any;
       const identifier = this._identifier;
       const kenyaNationalId = this.getIdentifierByType(identifier, 'KENYAN NATIONAL ID NUMBER');
-      const icimrsMrn = this.getIdentifierByType(identifier, 'ICIMRS Medical Record Number');
-      const iciMrsUId = this.getIdentifierByType(identifier, 'ICIMRS Universal ID');
-      const cCC = this.getIdentifierByType(identifier, 'CCC Number');
-      if ((kenyaNationalId) === undefined && (icimrsMrn) === undefined &&
-        (iciMrsUId) === undefined && (cCC) === undefined) {
+      const EICI_Id = this.getIdentifierByType(identifier, 'EICI Universal ID');
+      if ((kenyaNationalId) === undefined && (EICI_Id)) {
         if ((this._identifier[0].identifier)) {
           filteredIdentifiers = {'default': this._identifier[0].identifier};
         } else {
@@ -101,9 +98,7 @@ export class Patient extends BaseModel {
       } else {
         filteredIdentifiers = {
           'kenyaNationalId': kenyaNationalId,
-          'icimrsMrn': icimrsMrn,
-          'iciMrsUId': iciMrsUId,
-          'cCC': cCC
+          'EICI_Id': EICI_Id
         };
       }
       return filteredIdentifiers;
@@ -122,12 +117,9 @@ export class Patient extends BaseModel {
       const identifiers = this._identifier;
 
       const kenyaNationalId = this.getAllIdentifiersByType(identifiers, 'KENYAN NATIONAL ID NUMBER');
-      const icimrsMrn = this.getAllIdentifiersByType(identifiers, 'ICIMRS Medical Record Number');
-      const iciMrsUId = this.getAllIdentifiersByType(identifiers, 'ICIMRS Universal ID');
-      const cCC = this.getAllIdentifiersByType(identifiers, 'CCC Number');
+      const EICI_Id = this.getAllIdentifiersByType(identifiers, 'ICIMRS Medical Record Number');
 
-      if ((kenyaNationalId) === undefined && (icimrsMrn) === undefined &&
-        (iciMrsUId) === undefined && (cCC) === undefined) {
+      if ((kenyaNationalId) === undefined && (EICI_Id) === undefined) {
         if ((this._identifier[0].identifier)) {
           filteredIdentifiers = {'default': this._identifier[0].identifier};
         } else {
@@ -136,9 +128,7 @@ export class Patient extends BaseModel {
       } else {
         filteredIdentifiers = {
           'kenyaNationalId': this._fromArrayToCommaSeparatedString(kenyaNationalId),
-          'icimrsMrn': this._fromArrayToCommaSeparatedString(icimrsMrn),
-          'iciMrsUId': this._fromArrayToCommaSeparatedString(iciMrsUId),
-          'cCC': this._fromArrayToCommaSeparatedString(cCC)
+          'EICI_Id': this._fromArrayToCommaSeparatedString(EICI_Id),
         };
       }
       return filteredIdentifiers;

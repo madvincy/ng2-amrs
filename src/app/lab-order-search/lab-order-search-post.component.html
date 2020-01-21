@@ -38,24 +38,19 @@
 			</div>
 			<div class="row banner-right">
 				<div class="col-sm-3">
-					<span class="identifier">MUI : </span>
-					<span *ngIf="searchIdentifiers?.iciMrsUId"> {{ searchIdentifiers?.iciMrsUId }}</span>
-					<span *ngIf="searchIdentifiers?.iciMrsUId == null"> Not Available</span>
+					<span class="identifier"><i>e</i>-ICI ID: </span>
+					<span *ngIf="searchIdentifiers?.EICI_Id"> {{ searchIdentifiers?.EICI_Id }}</span>
+					<span *ngIf="searchIdentifiers?.EICI_Id == null"> Not Available</span>
 				</div>
 				<div class="col-sm-3">
-					<span class="identifier">MRN : </span>
-					<span *ngIf="searchIdentifiers?.icimrsMrn"> {{ searchIdentifiers?.icimrsMrn }}</span>
-					<span *ngIf="searchIdentifiers?.icimrsMrn == null"> Not Available</span>
+					<span class="identifier"><i>e</i>-ICI ID: </span>
+					<span *ngIf="searchIdentifiers?.default"> {{ searchIdentifiers?.default }}</span>
+					<span *ngIf="searchIdentifiers?.default == null"> Not Available</span>
 				</div>
 				<div class="col-sm-3">
 					<span class="identifier">NID : </span>
 					<span *ngIf="searchIdentifiers?.kenyaNationalId"> {{ searchIdentifiers?.kenyaNationalId }}</span>
 					<span *ngIf="searchIdentifiers?.kenyaNationalId == null"> Not Available</span>
-				</div>
-				<div class="col-sm-3">
-					<span class="identifier">CCC : </span>
-					<span *ngIf="searchIdentifiers?.cCC"> {{ searchIdentifiers?.cCC }}</span>
-					<span *ngIf="searchIdentifiers?.cCC == null"> Not Available</span>
 				</div>
 			</div>
       <div class="clear"></div>

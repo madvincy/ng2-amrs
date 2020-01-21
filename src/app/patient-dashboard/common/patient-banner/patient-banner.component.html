@@ -23,13 +23,12 @@
     </div>
     <div class="row">
       <span style="margin-left:0px;">
-        <span *ngIf="searchIdentifiers?.iciMrsUId"> <span class="id-label">MUI:</span>
-          {{ searchIdentifiers?.iciMrsUId }} &nbsp;&nbsp;&nbsp;&nbsp; </span>
-        <span *ngIf="searchIdentifiers?.icimrsMrn"> <span class="id-label">MRN:</span> {{ searchIdentifiers?.icimrsMrn }}
-          &nbsp;&nbsp;&nbsp;&nbsp; </span>
-        <span *ngIf="searchIdentifiers?.cCC"> <span class="id-label">CCC:</span> {{ searchIdentifiers?.cCC }} </span>
+        <span *ngIf="searchIdentifiers?.EICI_Id"> <span class="id-label"><i>e</i>-ICI ID:</span>
+          {{ searchIdentifiers?.EICI_Id }} &nbsp;&nbsp;&nbsp;&nbsp; </span> 
+          <span *ngIf="searchIdentifiers?.default"> <span class="id-label"><i>e</i>-ICI ID:</span>
+          {{ searchIdentifiers?.default }} &nbsp;&nbsp;&nbsp;&nbsp; </span> 
         <span *ngIf="searchIdentifiers?.kenyaNationalId"> <span class="id-label">NID:</span>
-          {{ searchIdentifiers?.kenyaNationalId }} </span>
+          {{ searchIdentifiers?.kenyaNationalId }}</span>
         <span *ngIf="attributes?.value"> <span class="id-label">Test Patient:</span> {{ attributes?.value }} </span>
         <span>
         <div *ngIf="patient" class="btn-group pull-right" dropdown>
@@ -75,11 +74,10 @@
       <span *ngIf="patient?.person.dead">Died on
         <strong>{{ patient?.person.deathDate | date: 'dd-MM-yyyy'}}</strong></span>
       <span style="margin-left:0px;">
-        <span *ngIf="searchIdentifiers?.iciMrsUId"> <span class="id-label">MUI:</span>
-          {{ searchIdentifiers?.iciMrsUId }} &nbsp;&nbsp;&nbsp;&nbsp; </span>
-        <span *ngIf="searchIdentifiers?.icimrsMrn"> <span class="id-label">MRN:</span> {{ searchIdentifiers?.icimrsMrn }}
-          &nbsp;&nbsp;&nbsp;&nbsp; </span>
-        <span *ngIf="searchIdentifiers?.cCC"> <span class="id-label">CCC:</span> {{ searchIdentifiers?.cCC }} </span>
+        <span *ngIf="searchIdentifiers?.EICI_Id"> <span class="id-label"><i>e</i>-ICI ID:</span>
+          {{ searchIdentifiers?.EICI_Id }} &nbsp;&nbsp;&nbsp;&nbsp; </span>
+          <span *ngIf="searchIdentifiers?.default"> <span class="id-label"><i>e</i>-ICI ID:</span>
+          {{ searchIdentifiers?.default }} &nbsp;&nbsp;&nbsp;&nbsp; </span> 
         <span *ngIf="searchIdentifiers?.kenyaNationalId"> <span class="id-label">NID:</span>
           {{ searchIdentifiers?.kenyaNationalId }} </span>
         <span *ngIf="attributes?.value"> <span class="id-label">Test Patient:</span> {{ attributes?.value }} </span>
