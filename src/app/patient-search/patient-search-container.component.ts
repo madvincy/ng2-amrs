@@ -24,7 +24,6 @@ export class PatientSearchContainerComponent implements OnInit {
 
   public ngOnInit() {
     this.patientservice.currentlyLoadedPatient.subscribe((patient) => {
-      console.log('patient', patient);
     });
 
   }

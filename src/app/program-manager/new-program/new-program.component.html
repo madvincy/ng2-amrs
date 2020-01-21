@@ -11,10 +11,10 @@
           <h2><i class="fa fa-arrow-right"></i> Select Department </h2>
         </div>
         <div class="step-details">
-          <mat-radio-group class="vertical-radio-group" [ngModel]="department" (ngModelChange)="selectDepartment($event)">
-            <mat-radio-button class="vertical-radio-button" name="department" *ngFor="let _department of programDepartments"
-              value="{{_department.name}}" color="primary">
-              {{_department.name}}
+          <mat-radio-group class="vertical-radio-group" [ngModel]="medicalService" (ngModelChange)="selectMedicalService($event)">
+            <mat-radio-button class="vertical-radio-button" name="medicalService" *ngFor="let _medService of programMedicalServices"
+              value="{{_medService.name}}" color="primary">
+              {{_medService.name}}
             </mat-radio-button>
           </mat-radio-group>
         </div>
@@ -27,13 +27,13 @@
   </program-wizard-step>
   <program-wizard-step [name]="'Program Selection Step'">
     <div class="wizard-body component">
-      <div class="step" *ngIf="availableDepartmentPrograms">
+      <div class="step" *ngIf="availableServicesOfferedPrograms">
         <div class="step-name">
           <h2><i class="fa fa-arrow-right"></i> Select Program </h2>
         </div>
         <div class="step-details">
           <mat-radio-group class="vertical-radio-group" [ngModel]="program" (ngModelChange)="selectProgram($event)">
-            <mat-radio-button class="vertical-radio-button" name="program" *ngFor="let _program of availableDepartmentPrograms | GroupByPriority"
+            <mat-radio-button class="vertical-radio-button" name="program" *ngFor="let _program of availableServicesOfferedPrograms | GroupByPriority"
               value="{{_program.uuid}}" color="primary">
               {{_program.name}}
             </mat-radio-button>

@@ -16,7 +16,8 @@ import { UserDefaultPropertiesService } from '../../user-default-properties';
 })
 export class GroupEnrollmentSummaryComponent implements OnInit, OnDestroy {
 
-  public departmentConf = require('../../program-visit-encounter-search/department-programs-config.json');
+  // public departmentConf = require('../../program-visit-encounter-search/department-programs-config.json');
+  public eiciServiceConf = require('../../program-visit-encounter-search/medical-service-programs-config.json');
   subscription: Subscription = new Subscription();
   groups: any[];
   patient: any;
@@ -56,8 +57,8 @@ export class GroupEnrollmentSummaryComponent implements OnInit, OnDestroy {
     _.forEach(this.groups, (group) => {
       const programUuid = this.groupResouceService.getGroupAttribute('programUuid', group.cohort.attributes);
       if (programUuid) {
-        _.forEach(this.departmentConf, (department) => {
-          const programs = department.programs;
+        _.forEach(this.eiciServiceConf, (service) => {
+          const programs = service.programs;
           _.forEach(programs, (program) => {
             if (_.isEqual(programUuid.value, program.uuid)) {
               group['program'] = program;

@@ -6,7 +6,8 @@
   </h4>
 
   <div style="margin: 4px 0px; padding: 4px;" class="container-fluid alert alert-info">
-    Do you wish to enroll patient into another program? <enrollment-shortcut class="pull-right" ></enrollment-shortcut>
+    Do you wish to enroll patient into another program?
+     <enrollment-shortcut class="pull-right" ></enrollment-shortcut>
   </div>
   <div class="program">
     <ng-container *ngFor="let row of enrolledProgrames; ">
@@ -27,15 +28,15 @@
           <div *ngIf="row.isEnrolled" class="program-info">
             <div class="program-snapshot">
               <div [ngSwitch]="row.baseRoute">
-                <hiv-snapshot (addBackground)="onAddBackground($event)" *ngSwitchCase="'hiv'"
+                <!-- <hiv-snapshot (addBackground)="onAddBackground($event)" *ngSwitchCase="'hiv'"
                               [patient]="patient" [program]="row.program">
                 </hiv-snapshot>
                 <cdm-snapshot (addBackground)="onAddBackground($event)" *ngSwitchCase="'cdm'"
                               [patient]="patient">
-                </cdm-snapshot>
+                </cdm-snapshot> -->
                 <oncology-snapshot
                   (addBackground)="onAddBackground($event)"
-                  *ngSwitchCase="'oncology'"
+                  *ngSwitchCase="'treatment'"
                   [patient]="patient"
                   [programUuid]="row.programUuid">
                 </oncology-snapshot>

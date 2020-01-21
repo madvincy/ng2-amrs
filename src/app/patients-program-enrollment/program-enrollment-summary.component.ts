@@ -37,7 +37,7 @@ export class ProgramEnrollmentSummaryComponent implements OnInit {
         }
     };
     public enrollmentSummaryColdef: any = [
-        { headerName: 'Department', field: 'dept', rowGroup: true , hide: true},
+        { headerName: 'e-ICI Service', field: 'dept', rowGroup: true , hide: true},
         { headerName: 'Program', field: 'program'},
         { headerName: '#Enrolled', field: 'enrolled' ,
         cellRenderer: (column) => {

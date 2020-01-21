@@ -53,9 +53,10 @@ export class ProgramSummaryComponent extends ProgramManagerBaseComponent impleme
     });
   }
 
-  public goToProgramLandingPage(department) {
-    const programs = department.programs;
+  public goToProgramLandingPage(medService) {
+    const programs = medService.programs;
     // just use the first program. Every program has a landing page url set in 'buttons' property
+    console.log(medService, 'taifa');
     const url = programs[0].buttons.landing.url;
     this.router.navigate([url], {});
   }
