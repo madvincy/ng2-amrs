@@ -3,7 +3,7 @@ import { LocalStorageService } from '../utils/local-storage.service';
 
 @Injectable()
 export class AppSettingsService {
-  public static readonly DEFAULT_OPENMRS_SERVER_URL = 'https://mrs.intercancer.com/icimrs';
+  public static readonly DEFAULT_OPENMRS_SERVER_URL = 'https://mrs.intercancer.com/openmrs';
   public static readonly DEFAULT_ETL_SERVER_URL = 'https://mrs.intercancer.com/etl-latest/etl';
   public static readonly OPENMRS_LIST_STORAGE_KEY = 'appSettings.openmrsServersList';
   public static readonly ETL_LIST_STORAGE_KEY = 'appSettings.etlServersList';
@@ -17,7 +17,7 @@ export class AppSettingsService {
     'http://localhost:8080/openmrs',
     // 'https://test2.ici.or.ke:8443/icimrs',
     // 'https://icimrs.ici.or.ke:8443/icimrs'
-    'https://mrs.intercancer.com/icimrs',
+    'https://mrs.intercancer.com/openmrs',
     'https://mrs.intercancer.com/test-icimrs'
   ];
 

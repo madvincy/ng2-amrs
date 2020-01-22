@@ -1,6 +1,6 @@
 {
-  "name": "ngx-icimrs",
-  "version": "2.12.0-SNAPSHOT",
+  "name": "ngx-eici",
+  "version": "0.0.1-SNAPSHOT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --port 3000",
@@ -12,7 +12,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-prod": "node version.js && bash ./scripts/ng.sh build --prod --aot --optimization=false",
-    "serve:prod": "http-server dist/ngx-icimrs/ -P https://mrs.intercancer.com",
+    "serve:prod": "http-server dist/ngx-eici/ -P https://mrs.intercancer.com",
     "prebuild": "node version.js",
     "prestart": "node version.js"
   },
