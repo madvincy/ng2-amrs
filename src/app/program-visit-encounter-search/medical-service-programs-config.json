@@ -42,6 +42,10 @@
             {
                 "uuid": "cad71628-692c-4d8f-8dac-b2e20bece27f",
                 "name": "CERVICAL CANCER SCREENING PROGRAM"
+            },
+            {
+                "uuid": "37ff4124-91fd-49e6-8261-057ccfb4fcd0",
+                "name": "ONCOLOGY SCREENING AND DIAGNOSIS PROGRAM"
             }
         ]
     },

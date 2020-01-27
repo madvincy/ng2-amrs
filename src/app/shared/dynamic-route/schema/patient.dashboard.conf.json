@@ -109,16 +109,6 @@
       "routes": []
     },
     {
-      "programName": "Lung Cancer Treatment Program",
-      "programUuid": "e8bc5036-1462-44fa-bcfe-ced21eae2790",
-      "baseRoute": "e8bc5036-1462-44fa-bcfe-ced21eae2790",
-      "alias": "treatment",
-      "published": true,
-      "shared-routes-class": "treatment",
-      "requiresPatientEnrollment": true,
-      "routes": []
-    },
-    {
       "programName": "Sickle Cell",
       "programUuid": "e48b266e-4d80-41f8-a56a-a8ce5449ebc6",
       "baseRoute": "e48b266e-4d80-41f8-a56a-a8ce5449ebc6",
@@ -345,6 +335,23 @@
         "url": "patient-imaging",
         "label": "Imaging",
         "icon": "icon-i-radiology"
+      }
+    ],
+    "screening": [
+      {
+        "url": "visit",
+        "label": "Visit",
+        "icon": "icon-i-outpatient"
+      },
+      {
+        "url": "patient-encounters",
+        "label": "Encounters",
+        "icon": "icon-i-immunizations"
+      },
+      {
+        "url": "patient-vitals",
+        "label": "Vitals",
+        "icon": "fa fa-heartbeat"
       }
     ]
   }

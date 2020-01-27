@@ -57,6 +57,7 @@ export class PatientDashboardComponent implements OnInit, OnDestroy, DoCheck {
         if (patientObject) {
           const routes = this.patientRoutesFactory
             .createPatientDashboardRoutes(patientObject);
+            console.log(routes);
           this.dynamicRoutesService.setPatientDashBoardRoutes(routes);
         }
       });

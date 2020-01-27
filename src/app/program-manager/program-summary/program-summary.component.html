@@ -21,7 +21,7 @@
     <ng-container *ngIf="medicalService.show">
       <tr>
         <td colspan="4">
-          <h3 style="margin-bottom: 0;">{{medicalService.name}} <a *ngIf="medicalService.programs?.length > 0" style="color: #fff !important;" class="btn btn-primary pull-right" (click)="goToProgramLandingPage(department)">View Summary</a></h3>
+          <h3 style="margin-bottom: 0;">{{medicalService.name}} <a *ngIf="medicalService.programs?.length > 0" style="color: #fff !important;" class="btn btn-primary pull-right" (click)="goToProgramLandingPage(medicalService)">View Summary</a></h3>
           <hr style="margin-top: 10px;margin-bottom: 10px;"/>
         </td>
       </tr>

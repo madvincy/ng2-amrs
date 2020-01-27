@@ -40,6 +40,18 @@
                   [patient]="patient"
                   [programUuid]="row.programUuid">
                 </oncology-snapshot>
+                <oncology-snapshot
+                (addBackground)="onAddBackground($event)"
+                *ngSwitchCase="'screening'"
+                [patient]="patient"
+                [programUuid]="row.programUuid">
+              </oncology-snapshot>
+              <oncology-snapshot
+              (addBackground)="onAddBackground($event)"
+              *ngSwitchCase="'research'"
+              [patient]="patient"
+              [programUuid]="row.programUuid">
+            </oncology-snapshot>
               </div>
             </div>
             <div class="clear clear-fix">&nbsp;</div>

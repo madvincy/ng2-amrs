@@ -33,12 +33,12 @@ export class AppSettingsService {
   private templates = [
     {
       name: 'e-ICI',
-      icimrsUrl: '/icimrs',
+      icimrsUrl: '/openmrs',
       etlUrl: '/etl-latest/etl'
     },
     {
       name: 'e-ICI Beta',
-      icimrsUrl: '/icimrs',
+      icimrsUrl: '/openmrs',
       etlUrl: 'https://mrs.intercancer.com/etl-server-beta/etl'
     },
     {
