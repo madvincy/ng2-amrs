@@ -284,7 +284,7 @@
       "routes": []
     },
     {
-      "programName": "Oncology Screening and Diagnosis",
+      "programName": "EICI Screening and Diagnosis",
       "programUuid": "37ff4124-91fd-49e6-8261-057ccfb4fcd0",
       "baseRoute": "37ff4124-91fd-49e6-8261-057ccfb4fcd0",
       "alias": "screening",

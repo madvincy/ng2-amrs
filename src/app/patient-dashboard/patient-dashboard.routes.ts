@@ -58,11 +58,6 @@ export const routes = [
             path: ':programClass/:program',
             redirectTo: ':programClass/:program/landing-page', pathMatch: 'full'
           },
-          {
-            path: 'hiv/:program/landing-page',
-            // HIV related programs Landing Page
-            component: HivSummaryComponent
-          },
           { // Oncology related Program Landing Page
             path: 'oncology/:program/landing-page',
             component: OncologySummaryComponent

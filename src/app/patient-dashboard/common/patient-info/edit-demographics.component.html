@@ -93,6 +93,14 @@
         </select>
       </div>
     </div>
+    <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+      <div [hidden]="dead" class="form-group">
+        <label for="clinicTrialValue">Set as Clinical Trial Patient <span class="pull-right" style="color: pink;"> *</span></label>
+        <select class="form-control" name="personClinicTrialSelect" [(ngModel)]="clinicTrialValue">
+          <option *ngFor="let trialValue of preferredOptions" [value]="trialValue.val">{{trialValue.label}}</option>
+        </select>
+      </div>
+    </div>
 
     <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
 

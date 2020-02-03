@@ -7,6 +7,13 @@ landing-page {
         width:70%;
     }
 }
+.example-card {
+  max-width: 800px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
 
 .program-header-wrapper {
   background-color: #203864;
@@ -300,4 +307,9 @@ span.seperator {
   margin-left: 20px;
   font-size: 24px;
   font-weight: bolder;
+}
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: 17.5px;
 }

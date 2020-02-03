@@ -36,6 +36,7 @@ export class EditDemographicsComponent implements OnInit, OnDestroy {
   public birthdateEstimated = false;
   public dead = false;
   public gender: any;
+  public clinicTrialValue = false;
   public deathDate: Date;
   public causesOfDeath: any = [];
   public causeOfDeath: any;
@@ -64,6 +65,12 @@ export class EditDemographicsComponent implements OnInit, OnDestroy {
   }
 
   public getPatient() {
+    const personAttributePayload = {
+      attributes: [{
+        value: this.clinicTrialValue,
+        attributeType: 'bebf87ff-2524-4ba2-82be-24e83a3d8150'
+      }]
+    };
     this.subscription = this.patientService.currentlyLoadedPatient.subscribe(
       (patient) => {
         this.patients = new Patient({});
@@ -72,6 +79,7 @@ export class EditDemographicsComponent implements OnInit, OnDestroy {
           this.givenName = (this.patients.person.preferredName as any).givenName;
           this.middleName = (this.patients.person.preferredName as any).middleName;
           this.familyName = (this.patients.person.preferredName as any).familyName;
+          this.clinicTrialValue = (patient.person.ifClinicalTrialPatient as any);
           this.birthDate = this.patients.person.birthdate;
           this.birthdateEstimated = this.patients.person.birthdateEstimated;
           this.ispreferred = (this.patients.person.preferredName as any).preferred;
@@ -221,7 +229,11 @@ export class EditDemographicsComponent implements OnInit, OnDestroy {
         causeOfDeath: this.causeOfDeath,
         gender: this.gender,
         birthdate: this.birthDate,
-        birthdateEstimated: this.birthdateEstimated
+        birthdateEstimated: this.birthdateEstimated,
+        attributes: [{
+          value: this.clinicTrialValue,
+          attributeType: 'bebf87ff-2524-4ba2-82be-24e83a3d8150'
+        }]
 
       };
       this.personResourceService.saveUpdatePerson(person.uuid, personNamePayload).pipe(take(1)).subscribe(

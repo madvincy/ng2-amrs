@@ -49,7 +49,12 @@
 .input-group-btn:last-child > .btn {
   border-radius: 3px;
 }
-
+.banner-danger {
+  color: orange;
+  width: 100%;
+  background-color: orange;
+  padding: 15px;
+}
 button.btn-primary {
   padding: 10px 16px !important;
 }

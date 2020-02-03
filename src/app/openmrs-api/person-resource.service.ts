@@ -20,7 +20,7 @@ export class PersonResourceService {
 
     let url = this.getUrl();
     url += '/' + uuid;
-
+console.log('test');
     const params: HttpParams = new HttpParams()
     .set('v', (v && v.length > 0) ? v : this.v);
     return this.http.get(url, {

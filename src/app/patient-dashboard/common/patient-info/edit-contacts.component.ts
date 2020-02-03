@@ -89,6 +89,7 @@ export class EditContactsComponent implements OnInit, OnDestroy {
     personAttributePayload.attributes = payLoad;
     this.filterUndefinedUuidFromPayLoad(personAttributePayload.attributes);
     this.personResourceService.saveUpdatePerson(person.uuid, personAttributePayload).subscribe(
+
       (success) => {
         if (success) {
           this.displaySuccessAlert('Contact saved successfully');

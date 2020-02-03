@@ -12,6 +12,7 @@ import { AppFeatureAnalytics } from '../../../shared/app-analytics/app-feature-a
 })
 export class PatientDemographicsComponent implements OnInit, OnDestroy {
   public patient: Patient = new Patient({});
+  public clinicTrialStatus = 'NO';
   public messageType: string;
   public message: string;
   public isVisible: boolean;
@@ -27,6 +28,8 @@ export class PatientDemographicsComponent implements OnInit, OnDestroy {
         this.patient = new Patient({});
         if (patient) {
           this.patient = patient;
+          this.determineClinicalTrial(this.patient);
+          console.log(this.patient);
         }
       }, (err) => {
 
@@ -35,6 +38,14 @@ export class PatientDemographicsComponent implements OnInit, OnDestroy {
           message: 'error fetching patient'
         });
       });
+  }
+  public determineClinicalTrial(patient) {
+    const currentPatientValue = (patient.person.ifClinicalTrialPatient as any);
+    if (currentPatientValue ===  true ) {
+      this.clinicTrialStatus = 'YES';
+    } else {
+      this.clinicTrialStatus = 'NO';
+    }
   }
   public ngOnInit() {
     this.getPatientDemographics();

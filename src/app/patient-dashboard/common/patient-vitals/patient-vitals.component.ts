@@ -10,6 +10,7 @@ import { PatientVitalsService } from './patient-vitals.service';
 import { Patient } from '../../../models/patient.model';
 import { LocalStorageService } from 'src/app/utils/local-storage.service';
 import { SelectDepartmentService } from 'src/app/shared/services/select-department.service';
+import { SelectServiceOfferedService } from 'src/app/shared/services/select-service-offered.service';
 
 @Component({
   selector: 'app-patient-vitals',
@@ -32,12 +33,13 @@ export class PatientVitalsComponent implements OnInit, OnDestroy {
 
   constructor(private patientVitalsService: PatientVitalsService,
     private patientService: PatientService,
-    private selectDepartmentService: SelectDepartmentService,
+    // private selectDepartmentService: SelectDepartmentService,
+    private selectServiceOfferedService: SelectServiceOfferedService,
     private localStorage: LocalStorageService) { }
 
   public ngOnInit() {
     this.getPatient();
-    this.getUserDefaultDepartment();
+  //  this.getUserDefaultEICIservice();
   }
 
   public ngOnDestroy(): void {
@@ -107,11 +109,16 @@ export class PatientVitalsComponent implements OnInit, OnDestroy {
     this.loadVitals(this.patientUuid, this.nextStartIndex);
   }
 
-  public getUserDefaultDepartment() {
-    if (this.selectDepartmentService.getUserSetDepartment() === 'HEMATO-ONCOLOGY') {
-      this.isDepartmentOncology = true;
-    }
-  }
+  // public getUserDefaultDepartment() {
+  //   if (this.selectDepartmentService.getUserSetDepartment() === 'HEMATO-ONCOLOGY') {
+  //     this.isDepartmentOncology = true;
+  //   }
+  // }
+  // public getUserDefaultEICIservice() {
+  //   if (this.selectServiceOfferedService.getUserSetServiceOffered() === 'HEMATO-ONCOLOGY') {
+  //     this.isDepartmentOncology = true;
+  //   }
+  // }
 
   /**
    * interpretEcogValuesForOncology

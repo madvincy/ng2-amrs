@@ -18,7 +18,7 @@ export class OncologyTriageSource extends CommonVitalsSource implements VitalSou
           label: 'ECOG:',
           value: this.translateValue(ob.value.uuid)
         });
-      case 'a8a6f71a-1350-11df-a1f1-0026b9348838':
+      case '5242AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA':
         return this.vitalModel.createVital({
           name: 'rr',
           label: 'RR (Breath/Min):',
@@ -30,18 +30,18 @@ export class OncologyTriageSource extends CommonVitalsSource implements VitalSou
           label: 'INR:',
           value: ob.value
         });
-      case '54cdaf35-95a3-420a-a13d-1dbcb70df213':
-        return this.vitalModel.createVital({
-          name: 'lcc',
-          label: 'LCC (cm):',
-          value: ob.value
-        });
-      case '4edfb236-1fc7-4296-b058-814662ed41fa':
-        return this.vitalModel.createVital({
-          name: 'rcc',
-          label: 'RCC (cm):',
-          value: ob.value
-        });
+      // case '54cdaf35-95a3-420a-a13d-1dbcb70df213':
+      //   return this.vitalModel.createVital({
+      //     name: 'lcc',
+      //     label: 'LCC (cm):',
+      //     value: ob.value
+      //   });
+      // case '4edfb236-1fc7-4296-b058-814662ed41fa':
+      //   return this.vitalModel.createVital({
+      //     name: 'rcc',
+      //     label: 'RCC (cm):',
+      //     value: ob.value
+      //   });
       default:
         return this.vitalModel;
     }

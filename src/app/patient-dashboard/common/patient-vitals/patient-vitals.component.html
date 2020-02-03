@@ -17,10 +17,10 @@
           <th *ngIf="patient && patient?.person.age < 5 ">Weight For Height</th>
           <th *ngIf="patient && patient?.person.age < 18 && patient?.person.age >= 5 ">BMI For Age</th>
           <th>BSA</th>
-          <th *ngIf="isDepartmentOncology">ECOG</th>
-          <th *ngIf="isDepartmentOncology">INR</th>
-          <th *ngIf="isDepartmentOncology">LCC</th>
-          <th *ngIf="isDepartmentOncology">RCC</th>
+          <th>ECOG</th>
+          <th>INR</th>
+          <th>LCC</th>
+          <th>RCC</th>
         </tr>
       </thead>
       <tr *ngFor="let vitals of vitals; let i = index;" class="vitals">
@@ -70,16 +70,16 @@
         <td>
           {{vitals.bsa  || '&nbsp;'}}
         </td>
-        <td *ngIf="isDepartmentOncology">
+        <td >
           {{vitals.ecog  || '&nbsp;'}}
         </td>
-        <td *ngIf="isDepartmentOncology">
+        <td>
           {{vitals.inr  || '&nbsp;'}}
         </td>
-        <td *ngIf="isDepartmentOncology">
+        <td>
           {{vitals.lcc  || '&nbsp;'}}
         </td>
-        <td *ngIf="isDepartmentOncology">
+        <td>
           {{vitals.rcc  || '&nbsp;'}}
         </td>
       </tr>

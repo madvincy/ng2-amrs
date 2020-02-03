@@ -32,6 +32,7 @@ export class PatientBannerComponent implements OnInit, OnDestroy, OnChanges {
   private subs = [];
   private patientServiceSubscription: Subscription;
   public relationships: any = [];
+  public bannerClass = 'banner-info';
   public relationship: Relationship;
   modalRef: BsModalRef;
   modalConfig = {
@@ -48,10 +49,13 @@ export class PatientBannerComponent implements OnInit, OnDestroy, OnChanges {
         this.patient = new Patient({});
         if (patient) {
           this.patient = patient;
+          const currentPatientValue = (this.patient.person.ifClinicalTrialPatient as any);
+          if (currentPatientValue ===  true ) {
+            this.bannerClass = 'banner-trial-patient';
+          }
           this.searchIdentifiers = patient.searchIdentifiers;
           const attributes = patient.person.attributes;
           _.each(attributes, (attribute) => {
-            // get the test patient attribute
             if (attribute.attributeType.uuid === '1e38f1ca-4257-4a03-ad5d-f4d972074e69') {
               this.attributes = attribute;
             }

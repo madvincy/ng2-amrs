@@ -96,6 +96,17 @@ export class Person extends BaseModel {
       }
     }
   }
+  public get ifClinicalTrialPatient() {
+    const PersonAttributeTypeUuid = 'bebf87ff-2524-4ba2-82be-24e83a3d8150';
+    if (this._attributes) {
+      const personAttribute = this.getPersonAttribute(PersonAttributeTypeUuid);
+      if (personAttribute) {
+        return personAttribute;
+      } else {
+        return '';
+      }
+    }
+  }
   public get alternativePhoneNumber() {
     const alternativePhoneNumberPersonAttributeTypeUuid = 'c725f524-c14a-4468-ac19-4a0e6661c930';
     if (this._attributes) {

@@ -36,6 +36,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PocHttpInteceptor } from '../shared/services/poc-http-interceptor';
 import { GeneralLandingPageComponent } from './general-landing-page/landing-page.component';
 import { PatientRegistrationModule } from '../patient-creation/patient-creation.module';
+import { PatientDashboardHomeComponent } from './patient-dashboard-home/patient-dashboard-home.component';
 
 @NgModule({
   imports: [
@@ -65,7 +66,8 @@ import { PatientRegistrationModule } from '../patient-creation/patient-creation.
   ],
   declarations: [
     PatientDashboardComponent,
-    GeneralLandingPageComponent
+    GeneralLandingPageComponent,
+    PatientDashboardHomeComponent
   ],
   providers: [
     PatientDashboardGuard,

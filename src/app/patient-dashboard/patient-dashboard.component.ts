@@ -57,7 +57,6 @@ export class PatientDashboardComponent implements OnInit, OnDestroy, DoCheck {
         if (patientObject) {
           const routes = this.patientRoutesFactory
             .createPatientDashboardRoutes(patientObject);
-            console.log(routes);
           this.dynamicRoutesService.setPatientDashBoardRoutes(routes);
         }
       });
@@ -84,8 +83,6 @@ export class PatientDashboardComponent implements OnInit, OnDestroy, DoCheck {
     this.adjustContainerOffsets();
   }
   public adjustContainerOffsets() {
-    // console.error(this.elRef);
-    // console.error('body', this.bodyElement);
     this.topOffset = this.containerElement.nativeElement.offsetTop;
     this.headerHeight = this.headerElement.nativeElement.clientHeight;
     this.leftOffset = this.bodyElement.nativeElement.offsetWidth - 2;

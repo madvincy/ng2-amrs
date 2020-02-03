@@ -37,11 +37,10 @@ export class TodaysVitalsComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.vitalSources = [
+    this.
+    vitalSources = [
       CommonVitalsSource,
-      HivTriageSource,
       OncologyTriageSource,
-      ZScoreSource
     ];
     this.subscribeToPatientChangeEvent();
   }
