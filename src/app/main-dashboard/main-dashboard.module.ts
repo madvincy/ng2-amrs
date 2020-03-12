@@ -28,6 +28,7 @@ import { CacheModule } from 'ionic-cache';
 import { NavigationModule } from '../navigation';
 import { RetrospectiveDataEntryModule
 } from '../retrospective-data-entry/retrospective-data-entry.module';
+import { TreatmentDashboardModule } from '../treatment-dashboard/treatment-dashboard.module';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { RetrospectiveDataEntryModule
     AgGridModule.withComponents([]),
     DataListsModule,
     LabOrderSearchModule,
+    TreatmentDashboardModule,
     UsefulLinksModule,
     UserDefaultPropertiesModule,
     RetrospectiveDataEntryModule

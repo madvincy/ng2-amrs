@@ -14,7 +14,7 @@
 								<input type="text" id="search-textbox" autocomplete="off" class="form-control input-lg search-texbox" [(ngModel)]="searchString" [ngModelOptions]="{standalone: true}"
 											(ngModelChange)="updatePatientCount($event)" placeholder="Enter the Patient Name or Identifier" autofocus="true">
 								<span class="input-group-btn">
-									<button [disabled]="isLoading" class="btn btn-primary btn-lg search_btn" (click)="loadPatient()">
+									<button [disabled]="isLoading" class="btn btn-primary2 btn-lg search_btn" (click)="loadPatient()">
 										<span><i class="glyphicon glyphicon-search"></i>Search</span>
 										<i *ngIf="isLoading" class="fa fa-spinner fa-spin fa-1x fa-fw"></i>
 									</button>

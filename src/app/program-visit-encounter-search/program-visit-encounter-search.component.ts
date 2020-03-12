@@ -15,6 +15,8 @@ import { LocalStorageService } from '../utils/local-storage.service';
 import { DepartmentProgramsConfigService } from './../etl-api/department-programs-config.service';
 import { SelectDepartmentService } from './../shared/services/select-department.service';
 import { ItemsList } from '@ng-select/ng-select/ng-select/items-list';
+import { SelectServiceOfferedService } from '../shared/services/select-service-offered.service';
+import { ServicesOfferedProgramsConfigService } from '../etl-api/services-offered-programs-config.service';
 
 @Component({
   selector: 'program-visit-encounter-search',
@@ -56,7 +58,7 @@ export class ProgramVisitEncounterSearchComponent implements OnInit, OnDestroy ,
                                   'maxHeight': 200
                                 };
     public loadingFilters  = true;
-    public myDepartment;
+    public myMedicalService;
     public showFilters  = true;
     public programVisitMap = new Map();
     public programMaps = new Map();
@@ -66,6 +68,7 @@ export class ProgramVisitEncounterSearchComponent implements OnInit, OnDestroy ,
     public visitTypeEncounterTypeMap =  new Map();
     public programVisitsConfig: any;
     public departmentPrograms: any;
+    public medicalServicePrograms: any;
     public selectedEncounterType: any;
     public selectedVisitType: any;
     public selectedProgramType;
@@ -86,6 +89,8 @@ export class ProgramVisitEncounterSearchComponent implements OnInit, OnDestroy ,
       private route: ActivatedRoute,
       private _patientProgramService: PatientProgramResourceService,
       private _departmentProgramService: DepartmentProgramsConfigService,
+      private _servicesOfferedProgramsConfigService: ServicesOfferedProgramsConfigService,
+      private selectServiceOfferedService: SelectServiceOfferedService,
       private selectDepartmentService: SelectDepartmentService
     ) {
 
@@ -222,6 +227,10 @@ public setFiltersFromUrlParams(params, mapObj) {
     //   });
 
     // }
+      public getCurrentMedicalService() {
+          this.myMedicalService =  this.selectServiceOfferedService.getUserSetServiceOffered();
+          this.getMedicalServicePrograms(this.myMedicalService);
+    }
     // public getDepartmentPrograms(department) {
 
     //     this._departmentProgramService.getDepartmentPrograms(department).pipe(
@@ -232,6 +241,17 @@ public setFiltersFromUrlParams(params, mapObj) {
     //     });
 
     // }
+        public getMedicalServicePrograms(medService) {
+
+        this._servicesOfferedProgramsConfigService.getServicePrograms(medService).pipe(
+        take(1))
+        .subscribe((result) => {
+          console.log(result);
+            this.medicalServicePrograms = result;
+            this.loadProgramFilter(result);
+        });
+
+    }
     public getProgramVisitsConfig() {
       return new Promise((resolve, reject) => {
 
@@ -240,7 +260,9 @@ public setFiltersFromUrlParams(params, mapObj) {
         .subscribe((response) => {
           if (response) {
             this.programVisitsConfig = JSON.parse(JSON.stringify(response));
+            console.log(this.programVisitsConfig);
             // this.getCurrentDepartment();
+            this.getCurrentMedicalService();
             this.setProgramVisitEncounterMaps();
             resolve('success');
           }
@@ -278,9 +300,10 @@ public setFiltersFromUrlParams(params, mapObj) {
       });
 
     }
-    public loadProgramFilter(departmentPrograms) {
+    public loadProgramFilter(medicalServicePrograms) {
+      console.log(medicalServicePrograms);
           const programsArray = [];
-          _.each(departmentPrograms, (program: any) => {
+          _.each(medicalServicePrograms, (program: any) => {
             const programUuid = program.uuid;
             const programName = program.name;
             const programObj = {
@@ -342,7 +365,7 @@ public setFiltersFromUrlParams(params, mapObj) {
           };
          this.encounterTypes.push(encounterTypeObj);
         });
-
+ 
       }
 
    }

@@ -4,7 +4,7 @@
             *ngFor='let route of routes'>
             <a routerLink="/{{route.url}}" (click)="viewChildRoutes(route)">
                 <span class="icon-menu">
-            <span style="color:lightskyblue" class="icon-menu-letter">{{route.initials}}</span>
+            <span style="color:white" class="icon-menu-letter">{{route.initials}}</span>
                 <span style="color:lightskyblue; margin-left: 5px;" class="icon-menu-icon"><i class="fa fa-square-o"></i></span>
                 </span>
                 <span style="color:lightskyblue" class="icon-menu-label">{{route.label}}</span>
@@ -14,10 +14,10 @@
     <ul *ngIf="viewingChildRoutes" class="sidebar-menu patient-dashboard">
         <li style='border-bottom: 0.5px solid lightgray;' (click)="viewProgramRoutes()">
             <span class="icon-menu">
-            <span style="color:lightskyblue" class="icon-menu-letter">..</span>
-            <span style="color:lightskyblue" class="icon-menu-icon"><i class="fa fa-level-up"></i></span>
+            <span style="color:white" class="icon-menu-letter">..</span>
+            <span style="color:white" class="icon-menu-icon"><i class="fa fa-level-up"></i></span>
             </span>
-            <span style="color:lightskyblue" class="icon-menu-label">{{selectedRoute.label}}</span>
+            <span style="color:white" class="icon-menu-label">{{selectedRoute.label}}</span>
         </li>
         <li routerLinkActive="active" *ngFor='let route of selectedRoute.childRoutes'>
             <a *ngIf="(route.label == 'Forms' && canViewFormsTab) || route.label != 'Forms'" routerLink="/{{route.url}}" (click)="collapseSideBar()">

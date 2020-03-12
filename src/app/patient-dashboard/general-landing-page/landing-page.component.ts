@@ -6,6 +6,8 @@ import { DatePipe } from '@angular/common';
 import * as _ from 'lodash';
 import * as moment from 'moment';
 import { Router } from '@angular/router';
+import { Helpers } from '../../utils/helpers';
+
 import { ProgramService } from '../programs/program.service';
 import { PatientService } from '../services/patient.service';
 import { Patient } from '../../models/patient.model';
@@ -21,6 +23,10 @@ import { PatientReferralResourceService } from '../../etl-api/patient-referral-r
 import { Encounter } from '../../models/encounter.model';
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { PatientVitalsService } from '../common/patient-vitals/patient-vitals.service';
+import { SelectServiceOfferedService } from 'src/app/shared/services/select-service-offered.service';
+import { LocalStorageService } from 'src/app/utils/local-storage.service';
+import { PatientEncounterService } from '../common/patient-encounters/patient-encounters.service';
 
 @Component({
   selector: 'landing-page',
@@ -48,20 +54,85 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
   public showVisitEncounterDetail = false;
   public loadingEncounter = false;
   public encounterViewed = false;
+  public encounters: Encounter[];
   public lastEnrolledPrograms: any = [];
   private _datePipe: DatePipe;
   private subscriptions: Subscription[] = [];
+  public loadingVitals = false;
+  public vitals: Array<any> = [];
+  public myMedicalService: string;
 
   constructor(private patientService: PatientService,
-              private patientReferralService: PatientReferralService,
-              private userDefaultPropertiesService: UserDefaultPropertiesService,
-              private patientProgramResourceService: PatientProgramResourceService,
-              private router: Router) {
+    private patientReferralService: PatientReferralService,
+    private userDefaultPropertiesService: UserDefaultPropertiesService,
+    private patientVitalsService: PatientVitalsService,
+    private selectServiceOfferedService: SelectServiceOfferedService,
+    private localStorage: LocalStorageService,
+    private patientEncounterService: PatientEncounterService,
+    private patientProgramResourceService: PatientProgramResourceService,
+    private router: Router) {
     this._datePipe = new DatePipe('en-US');
   }
 
   public ngOnInit() {
+    this.getCurrentMedicalService();
     this.loadProgramBatch();
+  }
+  public loadPatientEncounters(patientUuid) {
+    this.encounters = [];
+    this.patientEncounterService
+      .getEncountersByPatientUuid(patientUuid)
+      .subscribe(
+        (data) => {
+          this.encounters = data;
+          console.log(this.encounters);
+          // this.loadEncounterTypes(data);
+          // a trick to wait for the encounter list to render
+          setTimeout(() => {
+          }, 2000);
+        },
+        (err) => {
+          this.errors.push({
+            id: 'visit',
+            message: 'error fetching visit'
+          });
+        });
+  }
+  public loadVitals(patientUuid, nextStartIndex): void {
+    this.patientVitalsService.getVitals(this.patient, nextStartIndex).subscribe((data) => {
+      if (data) {
+        if (data.length > 0) {
+          const membersToCheck = ['weight', 'height', 'temp', 'oxygen_sat', 'systolic_bp',
+            'diastolic_bp', 'pulse'];
+          this.interpretEcogValuesForOncology(data);
+
+          for (const r in data) {
+            if (data.hasOwnProperty(r)) {
+              const encounter = data[r];
+              if (!Helpers.hasAllMembersUndefinedOrNull(encounter, membersToCheck)) {
+                this.vitals.push(encounter);
+              }
+            }
+          }
+          const size: number = data.length;
+          // this.isLoading = false;
+          // this.loadingVitals = false;
+        } else {
+          // this.dataLoaded = true;
+          // this.loadingVitals = false;
+        }
+      }
+      // this.isLoading = false;
+      this.loadPatientEncounters(patientUuid);
+    },
+
+      (err) => {
+        this.loadingVitals = false;
+        this.errors.push({
+          id: 'vitals',
+          message: 'error fetching patient'
+        });
+      });
   }
 
   public ngOnDestroy(): void {
@@ -69,7 +140,39 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
       element.unsubscribe();
     });
   }
-
+  public interpretEcogValuesForOncology(data: any) {
+    _.each(data, (element) => {
+      switch (element.ecog) {
+        case 1115: {
+          element.ecog = 0;
+          break;
+        }
+        case 6585: {
+          element.ecog = 1;
+          break;
+        }
+        case 6586: {
+          element.ecog = 2;
+          break;
+        }
+        case 6587: {
+          element.ecog = 3;
+          break;
+        }
+        case 6588: {
+          element.ecog = 4;
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+    });
+  }
+  public getCurrentMedicalService() {
+    this.myMedicalService =  this.selectServiceOfferedService.getUserSetServiceOffered();
+    console.log(this.myMedicalService);
+}
   public showReferralEncounter(row: any) {
     const visitEncounter = _.find(this.patient.encounters, (encounter) => {
       return encounter.location.uuid === row.referred_from_location_uuid
@@ -100,6 +203,7 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
   public patientHasBeenSeenInProgram(program) {
     if (!_.isUndefined(program.referred_to_location_uuid)) {
       const patientEncounters = this.patient.encounters;
+      console.log(this.patient);
       const location = this.userDefaultPropertiesService.getCurrentUserDefaultLocationObject();
       // patient was referred to this location
       if (location.uuid === program.referred_to_location_uuid) {
@@ -137,7 +241,6 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
     });
 
   }
-
   public getReferralLocation(enrolledPrograms: any[]) {
     const programBatch: Array<Observable<any>> = [];
     const location = this.userDefaultPropertiesService.getCurrentUserDefaultLocationObject();
@@ -185,7 +288,7 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
 
   public loadProgramManager() {
     this.router.navigate(['/patient-dashboard/patient/' + this.patient.uuid +
-    '/general/general/program-manager/new-program']);
+      '/general/general/program-manager/new-program']);
   }
 
   public viewSummary(program) {
@@ -194,7 +297,7 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
   }
 
   private hasValidVisitInReferredLocation(referralEncounter: any, encounters: any[],
-                                          locationUuid: string) {
+    locationUuid: string) {
     // search for visit encounters who's location is the referred to location
     const encounterWithVisit = _.find(encounters, (encounter) => {
       return !_.isNull(encounter.visit) && encounter.visit.location.uuid === locationUuid;
@@ -212,11 +315,14 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
     this.programsBusy = true;
     const sub = this.patientService.currentlyLoadedPatient.subscribe(
       (patient) => {
+        console.log(patient);
         if (patient) {
           this.programsBusy = false;
           this.patient = patient;
+          this.loadVitals(this.patient, 0);
           this.setLastEnrolledPrograms();
           this.enrolledProgrames = _.filter(patient.enrolledPrograms, 'isEnrolled');
+          console.log(this.enrolledProgrames);
           this.checkPatientReferrals();
         }
       }, (err) => {
@@ -262,7 +368,7 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
                 });
                 if (this.patientHasBeenSeenInProgram(program)) {
                   program.referral_completed = true;
-                  this.updateReferalNotificationStatus(program).pipe(take(1)).subscribe(() => {});
+                  this.updateReferalNotificationStatus(program).pipe(take(1)).subscribe(() => { });
                 }
               }
             });

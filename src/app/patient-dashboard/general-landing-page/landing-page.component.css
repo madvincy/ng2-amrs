@@ -2,6 +2,12 @@ landing-page {
   display: block;
   margin-bottom: 60px;
 }
+.panel-default>.panel-heading {
+  color: #fff;
+  border-bottom-width: thick;
+  background-color: #1b6dc1;
+  border-color: #41bc3f;
+}
 @media screen and (min-width:600px) {
     .program-header {
         width:70%;
@@ -18,6 +24,26 @@ landing-page {
 .program-header-wrapper {
   background-color: #203864;
   color: #ccc;
+}
+/* Create two unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.left {
+  width: 50%;
+}
+
+.right {
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .program .program-header, .program .program-footer{

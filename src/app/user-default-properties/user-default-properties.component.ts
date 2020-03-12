@@ -67,8 +67,12 @@ export class UserDefaultPropertiesComponent implements OnInit {
 
   public goToPatientSearch() {
     this.isLoading = true;
-    this.router.navigate(['patient-dashboard/patient-search']);
-
+    console.log(this.selectedService);
+       this.router.navigate(['patient-dashboard/patient-search']);
+    // if (this.selectedService === 'SCREENING') {
+    // } else if (this.selectedService === 'TREATMENT') {
+    //   this.router.navigate(['treatment-dashboard']);
+    // }
   }
 
   // public selectDepartment(event: any) {
@@ -90,7 +94,7 @@ export class UserDefaultPropertiesComponent implements OnInit {
     this.localStorageService.setItem('userDefaultServiceOffered', JSON.stringify(service));
   }
 
-  public select(item: any) {
+  public selectLocation(item: any) {
     this.disable = false;
     const location = JSON.stringify({ uuid: item.value, display: item.label });
     this.currentLocation = location;

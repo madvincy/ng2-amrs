@@ -26,6 +26,7 @@ export class OncologyReportsComponent implements OnInit {
   ) {}
 
   public ngOnInit() {
+    const sub = this.route.data.subscribe(v => console.log(v));
     this.getOncologyReports();
   }
 

@@ -47,4 +47,12 @@ hr {
 .vertical-selected-value {
   margin: 15px 0;
 }
-
+.panel-default>.panel-heading {
+  color: #eae9e9;
+  background-color: #2f8441;
+  border-color: #ddd;
+}
+.btn-info2 {
+  background-color: #2f8441;
+  border-color: #1b6dc1;
+}

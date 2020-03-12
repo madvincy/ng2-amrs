@@ -16,6 +16,7 @@ import { PatientListCohortModule } from '../patient-list-cohort/patient-list-coh
 import {
   RetrospectiveContainerComponent
 } from '../retrospective-data-entry/components/container/retrospective-container.component';
+import { TreatmentDashboardComponent } from '../treatment-dashboard/treatment-dashboard.component';
 export function patientDashboardModule() {
   return PatientDashboardModule;
 }
@@ -35,6 +36,10 @@ export const dashboardRoutes: Routes = [
       {
         path: 'clinic-dashboard',
         loadChildren: '../clinic-dashboard#ClinicDashboardModule'
+      },
+      {
+        path: 'treatment-dashboard',
+        component: TreatmentDashboardComponent
       },
       {
         path: 'patient-dashboard', loadChildren: '../patient-dashboard#PatientDashboardModule'

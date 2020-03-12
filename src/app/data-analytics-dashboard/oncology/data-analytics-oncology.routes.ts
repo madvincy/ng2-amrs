@@ -21,7 +21,10 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: OncologyReportsComponent
+        component: OncologyReportsComponent,
+        data: {
+          report: 'treatment-reports'
+        }
       },
       {
         path: 'lung-cancer-treatment-numbers',
@@ -34,7 +37,10 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: OncologyReportsComponent
+        component: OncologyReportsComponent,
+        data: {
+          report: 'screening-reports'
+        }
       },
       {
         path: 'breast-cancer-screening-numbers',

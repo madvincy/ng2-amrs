@@ -55,8 +55,13 @@
   background-color: orange;
   padding: 15px;
 }
-button.btn-primary {
+button.btn-primary2 {
   padding: 10px 16px !important;
+}
+.btn-primary2 {
+    background-color: #3fbb3d;
+    border-color: #1b6dc1;
+    color: white;
 }
 
 .form-control:focus {

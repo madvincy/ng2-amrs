@@ -77,19 +77,19 @@ body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active a,
 .main-header .sidebar-toggle,
 .main-header .sidebar-toggle:focus,
 .main-header .sidebar-toggle:active {
-  background-color: #203864;
+  background-color: #1b6dc1;;
 }
 
 .skin-black-light .main-sidebar .sidebar-menu li:first-child,
 .skin-black-light .sidebar-menu>li.active {
-  border-bottom: 1px solid lightskyblue !important;
+  border-bottom: 1px solid rgb(255, 255, 255) !important;
   margin-top: 0 !important;
 }
 
 .main-header .sidebar-toggle:focus,
 .main-header .sidebar-toggle:hover,
 .main-header .sidebar-toggle:active {
-  color: lightskyblue !important;
+  color: rgb(255, 255, 255) !important;
 }
 
 .component-wrapper {
