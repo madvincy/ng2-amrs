@@ -6,18 +6,20 @@
         Properties</h3>
       <hr />
       <div class="suggest-container form-group">
-        <!-- <div class="input-group">
-          <div class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></div>
-          <ng-select class="sharp-corners" placeholder="Please type to search" id="location" [(ngModel)]="location"
-            [items]="locations" (change)="select($event)"></ng-select>
-          <div *ngIf="isBusy" class="input-group-addon"><i class="fa fa-spinner fa-spin"></i></div>
-        </div> -->
         <div class="panel panel-default">
-          <div class="panel-heading"><label for="location">Select a Location</label></div>
+          <div class="panel-heading ">
+            <label class="pull-left" for="location">Select a Location</label> 
+            <span class="pull-right"><i class="glyphicon glyphicon-search" (click)="locationRadioButton = false"></i>Search</span></div>
           <div class="panel-body">
-            <div class="row">
+            <div *ngIf="!locationRadioButton" class="input-group">
+              <div class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></div>
+              <ng-select class="sharp-corners" placeholder="Please type to search" id="location" [(ngModel)]="location"
+                [items]="locations" (change)="selectLocation($event, false)"></ng-select>
+              <div *ngIf="isBusy" class="input-group-addon"><i class="fa fa-spinner fa-spin"></i></div>
+            </div>
+            <div class="row" *ngIf="locationRadioButton">
               <mat-radio-group class="vertical-radio-group" [(ngModel)]="location"  (ngModelChange)="selectLocation
-              ($event)">
+              ($event, true)">
                 <mat-radio-button class="vertical-radio-button" name="" *ngFor="let location of locations;"
                   [value]="location" color="primary">
                   {{location?.label}}

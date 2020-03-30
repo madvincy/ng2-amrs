@@ -21,6 +21,7 @@ import { ServicesOfferedProgramsConfigService } from '../etl-api/services-offere
 export class UserDefaultPropertiesComponent implements OnInit {
 
   public isBusy: boolean = false;
+  public locationRadioButton: boolean = true;
   public query: string = '';
   public user: User;
   public filteredList: Array<any> = [];
@@ -93,8 +94,12 @@ export class UserDefaultPropertiesComponent implements OnInit {
     this.selectedService = event;
     this.localStorageService.setItem('userDefaultServiceOffered', JSON.stringify(service));
   }
+  public enableSearchLocation() {
+    this.locationRadioButton = false;
+  }
 
-  public selectLocation(item: any) {
+  public selectLocation(item: any, locationRadio: boolean) {
+    this.locationRadioButton = locationRadio;
     this.disable = false;
     const location = JSON.stringify({ uuid: item.value, display: item.label });
     this.currentLocation = location;
