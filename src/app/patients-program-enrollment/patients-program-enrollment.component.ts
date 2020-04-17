@@ -29,7 +29,7 @@ export class PatientsProgramEnrollmentComponent implements OnInit {
     public endDate = '';
     public selectedLocation: any;
     public replaceSummary = true;
-    public departmentProgConfig: any = [];
+    public eiciServiceProgConfig: any = [];
     public serviceOfferedProgConfig: any = [];
     public enrolledPatientList: any = [];
     public enrolledSummary: any = [];
@@ -48,6 +48,7 @@ export class PatientsProgramEnrollmentComponent implements OnInit {
 
     public ngOnInit() {
         // this.getDepartmentConfig();
+        console.log('wasili');
         this.getServicesOfferedConfig();
     }
     public getServicesOfferedConfig() {
@@ -137,15 +138,15 @@ export class PatientsProgramEnrollmentComponent implements OnInit {
             const programName = summary.program_name;
             const programCount = summary.enrollment_count;
 
-            _.each(this.departmentProgConfig, (department: any) => {
-                const programs = department.programs;
-                const departmentName = department.name;
+            _.each(this.serviceOfferedProgConfig, (eiciService: any) => {
+                const programs = eiciService.programs;
+                const eiciServiceName = eiciService.name;
                 _.each(programs, (program: any) => {
                     const uuid = program.uuid;
                     if (uuid === programUuid) {
 
                         const summaryObj = {
-                            'dept': departmentName,
+                            'dept': eiciServiceName,
                             'program': programName,
                             'enrolled': programCount,
                             'programUuid': uuid

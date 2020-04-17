@@ -15,11 +15,13 @@
         </div>
            
         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-            <department-program-filter 
+            <!-- <department-program-filter 
             (filterSelected)="selectedFilter($event)"
             (filterReset)="filterReset($event)"
             >
-           </department-program-filter>
+           </department-program-filter> -->
+           <app-service-program-filter (filterSelected)="selectedFilter($event)"
+           (filterReset)="filterReset($event)"></app-service-program-filter>
         </div>
     </div>
     <hr class="intro-divider" />

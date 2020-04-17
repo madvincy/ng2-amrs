@@ -146,6 +146,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-mocha-reporter": "^2.2.5",
     "karma-parallel": "^0.3.1",
+    "node-sass": "^4.13.1",
     "protractor": "^5.4.0",
     "rxjs-tslint": "^0.1.5",
     "source-map-support": "^0.5.9",

@@ -58,6 +58,7 @@ import {
 } from './referral/patient-referral-program.module';
 import { ClinicRoutesFactory
 } from '../navigation/side-navigation/clinic-side-nav/clinic-side-nav-routes.factory';
+import { EiciServiceProgramFilterModule } from '../service-program-filter/eiciService-program-filter.module';
 
 @NgModule({
   declarations: [
@@ -102,6 +103,7 @@ import { ClinicRoutesFactory
     MatSlideToggleModule,
     ProgramVisitEncounterSearchModule,
     DepartmentProgramFilterModule,
+    EiciServiceProgramFilterModule,
     PatientProgramEnrollmentModule,
     NgxPaginationModule,
     PatientReferralProgramModule,

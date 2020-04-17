@@ -8,11 +8,13 @@ import { PatientsProgramEnrollmentComponent } from './patients-program-enrollmen
 import { PatientProgramEnrollmentService } from './../etl-api/patient-program-enrollment.service';
 import { ProgramEnrollmentPatientListComponent } from './program-enrollent-patient-list.component';
 import { ProgramEnrollmentSummaryComponent } from './program-enrollment-summary.component';
+import { EiciServiceProgramFilterModule } from '../service-program-filter/eiciService-program-filter.module';
 @NgModule({
     imports: [
         FormsModule,
         CommonModule,
         DepartmentProgramFilterModule,
+        EiciServiceProgramFilterModule,
         AgGridModule
     ],
     exports: [ PatientsProgramEnrollmentComponent],

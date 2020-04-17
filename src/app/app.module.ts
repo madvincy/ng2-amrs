@@ -66,7 +66,7 @@ interface StoreType {
     TitleCasePipe,
     NoContentComponent,
     PatientReminderCustomComponent,
-    FeedBackComponent
+    FeedBackComponent,
     ],
   imports: [ // import Angular's modules
     NoopAnimationsModule,

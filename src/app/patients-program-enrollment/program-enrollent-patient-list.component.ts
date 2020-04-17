@@ -1,7 +1,7 @@
 
-import {take} from 'rxjs/operators';
-import { Component, OnInit, OnDestroy , Output, EventEmitter, Input } from '@angular/core';
-import { Router, ActivatedRoute , Params } from '@angular/router';
+import { take } from 'rxjs/operators';
+import { Component, OnInit, OnDestroy, Output, EventEmitter, Input } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { PatientProgramEnrollmentService } from './../etl-api/patient-program-enrollment.service';
 import * as _ from 'lodash';
@@ -29,27 +29,31 @@ export class ProgramEnrollmentPatientListComponent implements OnInit, OnDestroy 
 
 
     public defaultEnrollmentColdef: any = [
-        { headerName: 'No', field: 'no' , width: 50},
-        { headerName: 'Identifier', field: 'identifier' , width: 250,
-        cellRenderer: (column) => {
-            return '<a href="javascript:void(0);" title="Identifiers">' + column.value + '</a>';
+        { headerName: 'No', field: 'no', width: 50 },
+        {
+            headerName: 'Identifier', field: 'identifier', width: 250,
+            cellRenderer: (column) => {
+                return '<a href="javascript:void(0);" title="Identifiers">' + column.value + '</a>';
+            },
+            onCellClicked: (column) => {
+                this.redirectTopatientInfo(column.data.patient_uuid);
+            }
         },
-        onCellClicked: (column) => {
-            this.redirectTopatientInfo(column.data.patient_uuid);
-        }
-        },
-        { headerName: 'Name', field: 'name' , width: 250 },
+        { headerName: 'Name', field: 'name', width: 250 },
         { headerName: 'Gender', field: 'gender', width: 100 },
         { headerName: 'Age', field: 'age', width: 100 },
-        { headerName: 'Program', field: 'program', width: 500,
-        cellRenderer : (params) => {
-            return '<span>' + params.value + '</span>';
-        },
-        cellStyle: {
-            'white-space': 'normal',
-            'fontsize': '14px !important',
-            'overflow-y': 'scroll',
-            'word-wrap': 'break-word'}}
+        {
+            headerName: 'Program', field: 'program', width: 500,
+            cellRenderer: (params) => {
+                return '<span>' + params.value + '</span>';
+            },
+            cellStyle: {
+                'white-space': 'normal',
+                'fontsize': '14px !important',
+                'overflow-y': 'scroll',
+                'word-wrap': 'break-word'
+            }
+        }
     ];
 
     public enrollmentColdef = [];
@@ -63,25 +67,25 @@ export class ProgramEnrollmentPatientListComponent implements OnInit, OnDestroy 
 
     public gridOptions: any = {
         enableColResize: true,
-        enableSorting : true,
-        enableFilter : true,
-        showToolPanel : false,
-        paginationPageSize : 300,
-        onGridSizeChanged : () => {
+        enableSorting: true,
+        enableFilter: true,
+        showToolPanel: false,
+        paginationPageSize: 300,
+        onGridSizeChanged: () => {
             // this.gridOptions.api.sizeColumnsToFit();
         },
-        getRowHeight : (params) => {
+        getRowHeight: (params) => {
             // assuming 50 characters per line, working how how many lines we need
             const height = params.data.program.length / 30;
-            if ( height > 1) {
-                   return (height + 1.5) * 10;
+            if (height > 1) {
+                return (height + 1.5) * 10;
             } else {
 
-                 return 25;
+                return 25;
             }
         },
-        getRowStyle : (params) => {
-            return {'font-size': '14px', 'cursor': 'pointer'};
+        getRowStyle: (params) => {
+            return { 'font-size': '14px', 'cursor': 'pointer' };
         }
     };
 
@@ -128,19 +132,19 @@ export class ProgramEnrollmentPatientListComponent implements OnInit, OnDestroy 
                     field: 'latest_vl_date'
                 },
                 {
-                  headerName: 'Previous VL',
-                  width: 75,
-                  field: 'previous_vl'
+                    headerName: 'Previous VL',
+                    width: 75,
+                    field: 'previous_vl'
                 },
                 {
-                  headerName: 'Previous VL Date',
-                  width: 150,
-                  field: 'previous_vl_date'
+                    headerName: 'Previous VL Date',
+                    width: 150,
+                    field: 'previous_vl_date'
                 },
                 {
-                  headerName: 'Nearest Center',
-                  width: 150,
-                  field: 'nearest_center'
+                    headerName: 'Nearest Center',
+                    width: 150,
+                    field: 'nearest_center'
                 }
             ];
             this.enrollmentColdef = _.concat(this.defaultEnrollmentColdef, hivColumns as Array<object>);
@@ -148,14 +152,14 @@ export class ProgramEnrollmentPatientListComponent implements OnInit, OnDestroy 
             this.enrollmentColdef = this.defaultEnrollmentColdef;
         }
         this._route
-        .queryParams
-        .subscribe((params) => {
-        if (params) {
-                this.getEnrolledPatientList(params);
-            }
-        }, (error) => {
-            console.error('Error', error);
-        });
+            .queryParams
+            .subscribe((params) => {
+                if (params) {
+                    this.getEnrolledPatientList(params);
+                }
+            }, (error) => {
+                console.error('Error', error);
+            });
     }
 
     public ngOnDestroy() {
@@ -166,18 +170,18 @@ export class ProgramEnrollmentPatientListComponent implements OnInit, OnDestroy 
         this.busyIndicator = {
             busy: true,
             message: 'Fetching Patient Enrollments...'
-         };
+        };
 
         if (params.startDate) {
-             this.startDate = params.startDate;
+            this.startDate = params.startDate;
         }
         if (params.endDate) {
-             this.endDate = params.endDate;
+            this.endDate = params.endDate;
         }
 
         if (typeof params !== 'undefined') {
 
-                this._patientProgramEnrollmentService.getActivePatientEnrollmentPatientList(params).pipe(
+            this._patientProgramEnrollmentService.getActivePatientEnrollmentPatientList(params).pipe(
                 take(1)).subscribe((enrollments) => {
                     if (enrollments) {
                         this.processEnrollments(enrollments.result);
@@ -189,11 +193,11 @@ export class ProgramEnrollmentPatientListComponent implements OnInit, OnDestroy 
                     };
                 });
 
+        }
+
     }
-
-}
     public processEnrollments(enrollments: any) {
-
+        console.log(enrollments);
         let i = 1;
         const trackPatientMap = new Map();
 
@@ -205,39 +209,39 @@ export class ProgramEnrollmentPatientListComponent implements OnInit, OnDestroy 
             if (enrollment.date_completed != null) {
 
                 completedDetail = '( Completed - ' +
-                Moment(enrollment.date_completed).format('DD-MMM-YYYY') + ') ';
+                    Moment(enrollment.date_completed).format('DD-MMM-YYYY') + ') ';
 
             }
 
             const enrollmentDateDetail = enrollment.program_name + '( Enrolled - ' +
-            Moment(enrollment.date_enrolled).format('DD-MMM-YYYY') + ')' +  completedDetail;
+                Moment(enrollment.date_enrolled).format('DD-MMM-YYYY') + ')' + completedDetail;
 
             if (typeof patientObjMap === 'undefined') {
 
-            const patient = {
-                no: i,
-                name: enrollment.person_name,
-                identifier: enrollment.identifiers,
-                program: enrollmentDateDetail,
-                patient_uuid : patientUuid,
-                age: enrollment.age,
-                gender: enrollment.gender,
-                phone_number: enrollment.phone_number,
-                last_appointment: enrollment.last_appointment,
-                latest_rtc_date: enrollment.latest_rtc_date,
-                cur_meds: enrollment.cur_meds,
-                latest_vl: enrollment.latest_vl,
-                latest_vl_date: enrollment.latest_vl_date
-            };
+                const patient = {
+                    no: i,
+                    name: enrollment.person_name,
+                    identifier: enrollment.identifiers,
+                    program: enrollmentDateDetail,
+                    patient_uuid: patientUuid,
+                    age: enrollment.age,
+                    gender: enrollment.gender,
+                    phone_number: enrollment.phone_number,
+                    last_appointment: enrollment.last_appointment,
+                    latest_rtc_date: enrollment.latest_rtc_date,
+                    cur_meds: enrollment.cur_meds,
+                    latest_vl: enrollment.latest_vl,
+                    latest_vl_date: enrollment.latest_vl_date
+                };
 
-            trackPatientMap.set(patientUuid, patient);
+                trackPatientMap.set(patientUuid, patient);
 
-            i++;
+                i++;
 
             } else {
-                  // add second program to program to enrollment detail
-                  patientObjMap.program = patientObjMap.program + ' </br>' + enrollmentDateDetail;
-                  trackPatientMap.set(patientUuid, patientObjMap);
+                // add second program to program to enrollment detail
+                patientObjMap.program = patientObjMap.program + ' </br>' + enrollmentDateDetail;
+                trackPatientMap.set(patientUuid, patientObjMap);
 
             }
         });
@@ -245,40 +249,40 @@ export class ProgramEnrollmentPatientListComponent implements OnInit, OnDestroy 
 
         this.sortPatientList(trackPatientMap);
 
- }
+    }
 
- public sortPatientList(patientMap) {
+    public sortPatientList(patientMap) {
 
-    const enrolledPatientList = [];
+        const enrolledPatientList = [];
 
-    patientMap.forEach((mapElement) => {
+        patientMap.forEach((mapElement) => {
 
-           enrolledPatientList.push(mapElement);
-    });
+            enrolledPatientList.push(mapElement);
+        });
 
-    this.enrolledPatientList = enrolledPatientList;
+        this.enrolledPatientList = enrolledPatientList;
 
-}
+    }
 
-public backToSummary() {
+    public backToSummary() {
 
-    this._location.back();
+        this._location.back();
 
-}
+    }
 
-public exportPatientListToCsv() {
+    public exportPatientListToCsv() {
         this.gridOptions.api.exportDataAsCsv();
-}
-public redirectTopatientInfo(patientUuid) {
+    }
+    public redirectTopatientInfo(patientUuid) {
 
         if (patientUuid === undefined || patientUuid === null) {
             return;
-          } else {
+        } else {
 
             this._router.navigate(['/patient-dashboard/patient/' + patientUuid +
-            '/general/general/landing-page']);
+                '/general/general/landing-page']);
 
-          }
-}
+        }
+    }
 
 }
