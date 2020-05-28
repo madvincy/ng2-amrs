@@ -8,6 +8,7 @@ export class User extends BaseModel {
   }
 
 
+  
   public get roleDisplay(): string {
 
     let roleDisplay = '';
@@ -21,7 +22,7 @@ export class User extends BaseModel {
 
         if (counter <= 1) {
           roleDisplay = roleDisplay.length === 0 ?
-            role.display : roleDisplay + ', ' + role.display;
+            role.name : roleDisplay + ', ' + role.name;
         }
         counter++;
       });

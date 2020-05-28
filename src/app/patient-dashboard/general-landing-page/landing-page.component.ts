@@ -84,8 +84,8 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
       .getEncountersByPatientUuid(patientUuid)
       .subscribe(
         (data) => {
-          this.encounters = data;
-          console.log(this.encounters);
+          // this.encounters = data;
+          console.log(data);
           // this.loadEncounterTypes(data);
           // a trick to wait for the encounter list to render
           setTimeout(() => {

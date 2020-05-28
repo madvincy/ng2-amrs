@@ -1,0 +1,49 @@
+<div class="box-body">
+  <div class="component-wrapper">
+    <h4 class="component-title"><span class="fa fa-heartbeat"></span> Bulk Patient Upload</h4>
+    <div style="margin-bottom:0.5cm;">
+<input type="file" (change)="onFileChange($event)" />
+    </div>
+    <table style="margin-top: 20px;" class="table table-bordered">
+      <thead>
+        <tr>
+          <!-- <th class="pointer" (click)="sort('dateActivated')">Date Created <i class="fa" [ngClass]="{'fa-sort': column != 'dateActivated', 
+                                                     'fa-sort-asc': (column == 'dateActivated' && !isDesc), 
+                                                     'fa-sort-desc': (column == 'dateActivated' && isDesc) }"
+              aria-hidden="true"> </i>
+          </th> -->
+          <th>given name</th>
+          <th>middle name</th>
+          <th>family name</th>
+          <th>gender</th>
+          <th>birthdate_estimated</th>
+          <th>birthdate</th>
+          <th>person.birthdate</th>
+          <th>person.address1</th>
+          <th>person.address2</th>
+          <th>person.address3</th>
+          <th>person.state_province</th>
+          <th>person.city_village</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let person of persons"
+          >
+          
+          <td>{{ person.first_name}}</td>
+             <td>{{person.middle_name}} </td>
+          <td>{{ person.family_name}}</td>
+          <td>{{ person.gender }}</td>
+          <td>{{ person.birthdate_estimated }}</td>
+         <td>person.birthdate</td>
+         <td>person.address1</td>
+         <td>person.address2</td>
+         <td>person.address3</td>
+         <td>person.state_province</td>
+         <td>person.city_village</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

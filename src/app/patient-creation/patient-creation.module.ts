@@ -20,6 +20,8 @@ import {
     LocationResourceService
 } from '../openmrs-api/location-resource.service';
 import { UserService } from '../openmrs-api/user.service';
+import { BulkPatientDataCreationComponent } from './bulk-patient-data-creation/bulk-patient-data-creation.component';
+import { NgxFileUploaderModule } from 'ngx-file-uploader';
 @NgModule({
     imports: [
         CommonModule,
@@ -28,10 +30,12 @@ import { UserService } from '../openmrs-api/user.service';
         DateTimePickerModule,
         NgSelectModule,
         NgxPaginationModule,
-        ModalModule
+        ModalModule,
+        NgxFileUploaderModule
     ],
     declarations: [
-        PatientCreationComponent
+        PatientCreationComponent,
+        BulkPatientDataCreationComponent
     ],
     exports: [
         PatientCreationComponent

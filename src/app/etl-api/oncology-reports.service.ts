@@ -18,8 +18,9 @@ export class OncologyReportService {
     return this.appSettingsService.getEtlRestbaseurl().trim();
   }
 
-  public getOncologyReports(): Observable<any> {
-    const url = this.getBaseUrl() + 'treatment-reports';
+  public getOncologyReports(eiciService): Observable<any> {
+    console.log(eiciService);
+    const url = this.getBaseUrl() + eiciService.report;
     const request = this.http.get(url);
 
     return this.cacheService.cacheRequest(url, '' , request);

@@ -12,7 +12,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-prod": "node version.js && bash ./scripts/ng.sh build --prod --aot --optimization=false",
-    "serve:prod": "http-server dist/ngx-eici/ -P https://mrs.intercancer.com",
+    "serve:prod": "http-server dist/ngx-eici/ -P https://mrs.intercancer.com/eici",
     "prebuild": "node version.js",
     "prestart": "node version.js"
   },
@@ -119,6 +119,7 @@
     "underscore": "^1.8.3",
     "web-animations-js": "^2.2.2",
     "webfont-medical-icons2": "^1.0.0",
+    "xlsx": "^0.13.3",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

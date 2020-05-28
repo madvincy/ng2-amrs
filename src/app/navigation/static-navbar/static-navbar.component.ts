@@ -27,10 +27,10 @@ export class StaticNavBarComponent implements OnInit {
 
   public ngOnInit() {
     this.setUserLocation();
-    const department = this.localStore.getItem('userDefaultDepartment');
-    if (department) {
-      this.department = JSON.parse(department)[0].itemName;
-    }
+    // const department = this.localStore.getItem('userDefaultDepartment');
+    // if (department) {
+    //   this.department = JSON.parse(department)[0].itemName;
+    // }
   }
   public logout() {
     this.router.navigateByUrl('/login').then((result) => {
@@ -41,6 +41,7 @@ export class StaticNavBarComponent implements OnInit {
   }
   private setUserLocation() {
     this.user = this.userService.getLoggedInUser();
+    console.log(this.user);
     this.userDefaultSettingsService.locationSubject.subscribe((location) => {
       if (location) {
         this.userLocation = JSON.parse(location) ? JSON.parse(location).display : '';

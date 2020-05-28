@@ -4,7 +4,7 @@ const PROXY_CONFIG = [
             "/etl-server-test-internal5",
             "/icimrs"
         ],
-        target: "https://mrs.intercancer.com",
+        target: "https://mrs.intercancer.com/eici",
         secure: false
     },
     {

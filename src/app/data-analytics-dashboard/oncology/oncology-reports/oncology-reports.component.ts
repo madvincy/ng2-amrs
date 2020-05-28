@@ -6,6 +6,7 @@ import * as _ from 'lodash';
 import * as Moment from 'moment';
 
 import { OncologyReportService } from '../../../etl-api/oncology-reports.service';
+import { LocalStorageService } from 'src/app/utils/local-storage.service';
 
 @Component({
   selector: 'oncology-reports',
@@ -15,6 +16,7 @@ import { OncologyReportService } from '../../../etl-api/oncology-reports.service
 export class OncologyReportsComponent implements OnInit {
   public title  = 'Oncology Reports';
   public oncologyReports: any;
+  public reportType: any;
   public specificOncologyReport: any;
   public startDate: string = Moment().startOf('year').format('YYYY-MM-DD');
   public endDate: string = Moment().endOf('month').format('YYYY-MM-DD');
@@ -22,16 +24,21 @@ export class OncologyReportsComponent implements OnInit {
   constructor(
     private oncologyReportService: OncologyReportService,
     private router: Router,
+    private localStorageService: LocalStorageService,
     private route: ActivatedRoute
   ) {}
 
   public ngOnInit() {
-    const sub = this.route.data.subscribe(v => console.log(v));
-    this.getOncologyReports();
+    let reportType: any;
+    const sub = this.route.data.subscribe(v => reportType = v
+    );
+    console.log(reportType);
+    this.getOncologyReports(reportType);
   }
 
-  public getOncologyReports() {
-    this.oncologyReportService.getOncologyReports().pipe(
+  public getOncologyReports(reportType) {
+    // let service = this.localStorageService.getItem('userDefaultServiceOffered');
+    this.oncologyReportService.getOncologyReports(reportType).pipe(
       take(1)).subscribe((result) => {
         this.oncologyReports = result;
       }

@@ -34,6 +34,8 @@ import { EditProgramComponent } from '../program-manager/edit-program/edit-progr
 import { GroupEnrollmentSummaryComponent } from './group-enrollment/group-enrollment-summary.component';
 import { OncologySummaryComponent } from './oncology/oncology-summary/oncology-summary.component';
 import { DrugOrdersComponent} from './common/drug-orders/drug-orders/drug-orders.component';
+import { BulkPatientDataCreationComponent } from '../patient-creation/bulk-patient-data-creation/bulk-patient-data-creation.component';
+import { AppointmentsSchedulingComponent } from '../appointments-scheduling/appointments-scheduling.component';
 
 
 
@@ -174,6 +176,14 @@ export const routes = [
       {
         path: 'patient-registration',
         component: PatientCreationComponent
+      },
+      {
+        path: 'patient-appointments',
+        component: AppointmentsSchedulingComponent
+      },
+      {
+        path: 'bulk-patient-upload',
+        component: BulkPatientDataCreationComponent
       }
     ]
   }
