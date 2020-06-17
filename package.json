@@ -1,5 +1,5 @@
 {
-  "name": "ngx-eici",
+  "name": "eici",
   "version": "0.0.1-SNAPSHOT",
   "scripts": {
     "ng": "ng",
@@ -12,7 +12,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-prod": "node version.js && bash ./scripts/ng.sh build --prod --aot --optimization=false",
-    "serve:prod": "http-server dist/ngx-eici/ -P https://mrs.intercancer.com/eici",
+    "serve:prod": "http-server dist/eici/ -P https://mrs.intercancer.com/eici",
     "prebuild": "node version.js",
     "prestart": "node version.js"
   },

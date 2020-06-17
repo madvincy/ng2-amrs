@@ -37,6 +37,7 @@ export class EditRetroVisitProviderComponent implements OnInit {
         });
         this.providers = filtered.map((p: any) => {
           if (!_.isNil(p.display)) {
+            console.log(p);
             return {
               value: p.uuid,
               label: p.display,

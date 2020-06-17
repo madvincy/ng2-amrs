@@ -165,6 +165,7 @@ export class PatientCreationComponent implements OnInit, OnDestroy {
   public updateBirthDate(birthDate) {
     this.disable = true;
     this.birthDate = birthDate;
+    console.log(birthDate);
     this.ageEstimate = this.getAge(this.birthDate);
 
     if (moment(this.birthDate).isAfter(new Date())) {
@@ -317,6 +318,7 @@ export class PatientCreationComponent implements OnInit, OnDestroy {
   }
 
   public setIdentifierLocation(location) {
+    console.log(location);
     this.identifierLocation = location.value;
   }
 

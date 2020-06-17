@@ -184,6 +184,7 @@ export class Person extends BaseModel {
   public get addresses(): PersonAddress {
     if (this._address === null || this._address === undefined) {
       this.initializeNavigationProperty('');
+      console.log(this._openmrsModel.addresses);
       this._address = new PersonAddress(this._openmrsModel.addresses);
     }
     return this._address;

@@ -79,6 +79,14 @@
             <p *ngFor="let event of day.events;" [ngStyle]="{'margin': '5px'}" (click)="navigateToDaily(event)" [ngClass]="event.class">{{event.title}}</p>
         
           </ng-template> -->
+          <ng-template #customCellTemplate let-day="day" let-locale="locale">
+            <div class="cal-cell-top">
+              <span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+            </div>
+        
+            <p *ngFor="let event of day.events;" [ngStyle]="{'margin': '5px'}" (click)="navigateToDaily(event)" [ngClass]="event.class">{{event.title}}</p>
+        
+          </ng-template>
           <mwl-calendar-month-view [activeDayIsOpen]="activeDayIsOpen" [cellTemplate]="customCellTemplate" (dayClicked)="dayClicked($event.day)"
             [viewDate]="viewDate"  [events]="events" (beforeViewRender)="beforeMonthViewRender($event)">
           </mwl-calendar-month-view>

@@ -329,6 +329,7 @@
           <td>
             {{vitals.bsa  || '&nbsp;'}}
           </td>
+          <td *ngIf= "vitals.length === 0">{{noData}}</td>
           <!-- <td >
             {{vitals.ecog  || '&nbsp;'}}
           </td> -->

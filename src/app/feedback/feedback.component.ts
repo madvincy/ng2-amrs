@@ -60,7 +60,7 @@ export class FeedBackComponent implements OnInit, OnDestroy {
 
     public sendFeedBack() {
         this.validatePhoneNumberField(this.payload.phone);
-        this.payload.name = this.userService.getLoggedInUser().person.display;
+        this.payload.name = this.userService.getLoggedInUser().display;
         const location = this.userDefaultPropertiesService.getCurrentUserDefaultLocationObject()
             || {};
         this.payload.location = location.display || 'Default location not set';
@@ -91,16 +91,6 @@ export class FeedBackComponent implements OnInit, OnDestroy {
     public dismissError() {
         this.error = false;
     }
-    // public getDepartmentConf() {
-    //     this.departmentProgramService.getDartmentProgramsConfig().pipe(
-    //         take(1)).subscribe((results) => {
-    //             console.log('results===', results); if (results) {
-    //                 this.departmentConf = results;
-    //                 this._filterDepartmentConfigByName();
-    //             }
-    //         });
-
-    // }
         public getMedicalServiceOfferedConf() {
         this._servicesOfferedService.getserviceOfferedProgramsConfig().pipe(
             take(1)).subscribe((results) => {
@@ -111,12 +101,6 @@ export class FeedBackComponent implements OnInit, OnDestroy {
             });
 
     }
-    // public getSelectedDepartment(dep) {
-    //     this.selectedDepartment = dep;
-    //     if (dep) {
-    //         this.departmentIsSelected = true;
-    //     }
-    // }
     public getSelectedMedicalService(medService) {
         this.selectedMedicalService = medService;
         if (medService) {

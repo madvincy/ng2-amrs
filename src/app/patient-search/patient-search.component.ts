@@ -132,6 +132,7 @@ export class PatientSearchComponent implements OnInit, OnDestroy {
       this.subscription = this.patientSearchService.searchPatient(this.searchString, false)
         .subscribe(
         (data) => {
+          console.log(data);
           this.isLoading = false;
           const searchTerm = this.searchString;
           this.onResultsFound(data);

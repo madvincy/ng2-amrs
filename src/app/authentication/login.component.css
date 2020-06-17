@@ -539,7 +539,7 @@ body {
   text-align: center;
   z-index: 9;
   box-sizing: border-box;
-  background-image: url("../../assets/img/healthcare-analytics-1200.jpg");
+  /* background-image: url("./assets/img/healthcare-analytics-1200.jpg"); */
 
 }
 .btn-primary2 {

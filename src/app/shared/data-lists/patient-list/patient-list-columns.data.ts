@@ -70,29 +70,9 @@ export class PatientListColumns {
                 field: 'latest_rtc_date'
             },
             {
-                headerName: 'Current Regimen',
+                headerName: 'Current Medication',
                 width: 200,
                 field: 'cur_meds'
-            },
-            {
-                headerName: 'Latest VL',
-                width: 75,
-                field: 'latest_vl'
-            },
-            {
-                headerName: 'Latest VL Date',
-                width: 150,
-                field: 'latest_vl_date'
-            },
-            {
-              headerName: 'Previous VL',
-              width: 75,
-              field: 'previous_vl'
-            },
-            {
-              headerName: 'Previous VL Date',
-              width: 150,
-              field: 'previous_vl_date'
             },
             {
               headerName: 'Nearest Center',

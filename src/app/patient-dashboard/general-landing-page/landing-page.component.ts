@@ -61,6 +61,7 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
   public loadingVitals = false;
   public vitals: Array<any> = [];
   public myMedicalService: string;
+  public noData: string = 'No Patient Data Available'
 
   constructor(private patientService: PatientService,
     private patientReferralService: PatientReferralService,

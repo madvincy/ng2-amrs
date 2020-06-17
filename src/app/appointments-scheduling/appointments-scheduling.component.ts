@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -53,7 +53,35 @@ export class AppointmentsSchedulingComponent implements OnInit {
   public trackEncounterTypes: any = [];
   private subs: Subscription[] = [];
   private _datePipe: DatePipe;
+  public referred: any[] = [];
+  public errors: any[] = [];
+  public isResetButton: boolean = true;
+  public totalPatients: number;
+  public isLoading: boolean = false;
+  public dataLoaded: boolean = false;
+  public hasConductedSearch = false;
+  public page: number = 1;
+  public adjustInputMargin: string = '240px';
+  public subscription: Subscription;
+  public referralSubscription: Subscription;
+  public title: string = 'Patient Search';
+  public errorMessage: string = '';
+  public noMatchingResults: boolean = false;
+  public lastSearchString: string = '';
+  public providerUuid: string = '';
 
+  @Output() public patientSelected: EventEmitter<any> = new EventEmitter<any>();
+  @Input() public hideResults: boolean = false;
+  @Input() public hideRegistration: boolean = false;
+
+  private _searchString: string;
+  public get searchString(): string {
+    return this._searchString;
+  }
+  public set searchString(v: string) {
+    this._searchString = v;
+    // this.hasConductedSearch = false;
+  }
   constructor() { }
 
   ngOnInit() {
@@ -70,5 +98,18 @@ export class AppointmentsSchedulingComponent implements OnInit {
   public dayClicked({date, events}: {date: Date, events: CalendarEvent[]}): void {
 
   }
+//  public updatePatientCount(search) {
+//     if (this.totalPatients > 0 && search.length > 0) {
+//         this.totalPatients = 0;
 
+//     }
+//     this.noMatchingResults = false;
+//   }
+  public loadPatient(): void {
+  }
+
+  public resetSearchList() {
+  }
+  public updatePatientCount(search) {
+  }
 }

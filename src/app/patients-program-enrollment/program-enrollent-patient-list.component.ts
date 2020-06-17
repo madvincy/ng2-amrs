@@ -117,31 +117,6 @@ export class ProgramEnrollmentPatientListComponent implements OnInit, OnDestroy 
                     field: 'latest_rtc_date'
                 },
                 {
-                    headerName: 'Current Regimen',
-                    width: 400,
-                    field: 'cur_meds'
-                },
-                {
-                    headerName: 'Latest VL',
-                    width: 100,
-                    field: 'latest_vl'
-                },
-                {
-                    headerName: 'Latest VL Date',
-                    width: 150,
-                    field: 'latest_vl_date'
-                },
-                {
-                    headerName: 'Previous VL',
-                    width: 75,
-                    field: 'previous_vl'
-                },
-                {
-                    headerName: 'Previous VL Date',
-                    width: 150,
-                    field: 'previous_vl_date'
-                },
-                {
                     headerName: 'Nearest Center',
                     width: 150,
                     field: 'nearest_center'
