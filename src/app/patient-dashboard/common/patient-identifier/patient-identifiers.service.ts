@@ -55,40 +55,25 @@ export class PatientIdentifierService {
     return [
       {
         label: 'KENYAN NATIONAL ID NUMBER', format: null, checkdigit: null,
-        val: '58a47054-1359-11df-a1f1-0026b9348838'
+        val: '58a47054-1359-11df-a1f1-0026b9348839'
       },
       {
-        label: 'ICIMRS Medical Record Number', format: null, checkdigit: 1,
-        val: '58a46e2e-1359-11df-a1f1-0026b9348838'
-      },
-      {
-        label: 'ICIMRS Universal ID', format: null, checkdigit: 1,
+        label: 'EICI Universal ID', format: null, checkdigit: 1,
         val: '58a4732e-1359-11df-a1f1-0026b9348838'
+      }, 
+      {
+        label: 'NHIF Number', format: null, checkdigit: 0,
+        val: '7e0b36c0-ad6e-423e-9a0e-f18455bac5d5'
       },
       {
-        label: 'CCC Number', format: '^\\d{5}-\\d{5}$', checkdigit: null,
-        val: 'f2d6ff1a-8440-4d35-a150-1d4b5a930c5e'
+        label: 'ICI Clinic Number', format: 'ICI-\d{1,4}/\d{1,2}/\d{4}', checkdigit: 0,
+        val: 'e4207b60-5524-4cea-90cd-3c5549a9c229'
       },
       {
-        label: 'MTRH Hospital Number', format: null, checkdigit: 0,
-        val: '43f78399-ca5d-4c1e-acb7-b30fc327283f'
-      },
-      {
-        label: 'HEI', format: '^\\d{5}-\\d{4}-\\d{4}$', checkdigit: 0,
-        val: 'ead42a8f-203e-4b11-a942-df03a460d617'
-      },
-      {
-        label: 'KUZA ID', format: '^KUZA\\d{5}$', checkdigit: 0,
-        val: 'd1e5ef63-126f-4b1f-bd3f-496c16c4098d'
-      },
-      {
-        label: 'Zuri Health ID', format: null, checkdigit: 0,
-        val: '9cae9c8a-2821-4aa7-8064-30508e9f62ec'
-      },
-      {
-        label: 'NAT', format: 'NAT-\\d{5}$', checkdigit: 0,
-        val: '22ee6ad7-58fb-4382-9af2-c6a553f3d56a'
+        label: 'MeTRH Oncology Clinic Number', format: 'ONC-\d{1,4}/\d{1,3}', checkdigit: 0,
+        val: '2b02a92f-4ced-4476-9fa4-71f9ed974adb'
       }
+      
     ];
   }
 }

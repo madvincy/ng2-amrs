@@ -2,6 +2,7 @@ import { Vital } from '../../../../models/vital.model';
 import { CommonVitalsSource } from './common-vitals.source';
 import { VitalSourceInterface } from './vital-source.interface';
 import { Patient } from '../../../../models/patient.model';
+import * as _ from 'lodash';
 
 export class OncologyTriageSource extends CommonVitalsSource implements VitalSourceInterface {
 
@@ -30,6 +31,12 @@ export class OncologyTriageSource extends CommonVitalsSource implements VitalSou
           label: 'INR:',
           value: ob.value
         });
+     case 'b21e54fe-584e-4d5c-887e-6bd35da60bfd':
+     return this.vitalModel.createVital({
+      name: 'bsa',
+      label: 'BSA:',
+      value: _.round(ob.value, 3)
+    });
       // case '54cdaf35-95a3-420a-a13d-1dbcb70df213':
       //   return this.vitalModel.createVital({
       //     name: 'lcc',

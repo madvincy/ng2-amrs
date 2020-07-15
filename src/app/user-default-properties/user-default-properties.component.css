@@ -56,3 +56,18 @@ hr {
   background-color: #2f8441;
   border-color: #1b6dc1;
 }
+.text-primary {
+  color: #2E8441;
+}
+.mat-radio-button.mat-primary .mat-radio-inner-circle {
+  background-color: #2E8441;
+}
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #2E8441;
+}
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #2f8440;
+}
+.mat-radio-button.mat-primary .mat-radio-inner-circle {
+  background-color: #2f8440;
+}

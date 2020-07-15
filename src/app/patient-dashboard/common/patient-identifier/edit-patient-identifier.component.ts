@@ -106,12 +106,11 @@ export class EditPatientIdentifierComponent implements OnInit, OnDestroy {
         // remove types that cannot be added more that once
         _.each(id, (_id) => {
           const hasId = _.includes([
-            '58a4732e-1359-11df-a1f1-0026b9348838', // ICIMRS Universal ID
-            '58a47054-1359-11df-a1f1-0026b9348838', // KENYA NATIONAL ID NUMBER
-            'ead42a8f-203e-4b11-a942-df03a460d617', // HEI
-            'd1e5ef63-126f-4b1f-bd3f-496c16c4098d', // KUZA ID
-            '9cae9c8a-2821-4aa7-8064-30508e9f62ec', // ZURI ID
-            'f2d6ff1a-8440-4d35-a150-1d4b5a930c5e' // CCC number
+            '58a4732e-1359-11df-a1f1-0026b9348838', // EICI Universal ID
+            '58a47054-1359-11df-a1f1-0026b9348839', // KENYA NATIONAL ID NUMBER
+            '7e0b36c0-ad6e-423e-9a0e-f18455bac5d5',
+            'e4207b60-5524-4cea-90cd-3c5549a9c229',
+            '2b02a92f-4ced-4476-9fa4-71f9ed974adb'
           ], _id.identifierType.uuid);
           if (hasId) {
             _.remove(this.commonIdentifierTypes, (idType: any) => idType.val === _id.identifierType.uuid);

@@ -159,7 +159,7 @@
       "routes": []
     },
     {
-      "programName": "General Oncology",
+      "programName": "General Treatment Program",
       "programUuid": "725b5193-3452-43fc-aca3-6a80432d9bfa",
       "baseRoute": "725b5193-3452-43fc-aca3-6a80432d9bfa",
       "alias": "treatment",

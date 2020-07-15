@@ -63,7 +63,8 @@ export class BulkPatientDataCreationComponent implements OnInit {
       }, {});
       if (jsonData.data) {
         this.persons = jsonData.data;
-        this.createPatients(this.persons);
+        // this.createPatients(this.persons);
+        
         // console.log(this.persons);
       }
     }

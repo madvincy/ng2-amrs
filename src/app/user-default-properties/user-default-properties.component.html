@@ -12,13 +12,13 @@
             <!-- <span class="pull-right"><i class="glyphicon glyphicon-search" (click)="locationRadioButton = false"></i>Search</span></div> -->
           </div>
           <div class="panel-body">
-            <!-- <div *ngIf="!locationRadioButton" class="input-group">
+            <div class="input-group">
               <div class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></div>
               <ng-select class="sharp-corners" placeholder="Please type to search" id="location" [(ngModel)]="location"
                 [items]="locations" (change)="selectLocation($event, false)"></ng-select>
               <div *ngIf="isBusy" class="input-group-addon"><i class="fa fa-spinner fa-spin"></i></div>
-            </div> -->
-            <div class="row" *ngIf="locationRadioButton">
+            </div>
+            <!-- <div class="row" *ngIf="locationRadioButton">
               <mat-radio-group class="vertical-radio-group" [(ngModel)]="location"  (ngModelChange)="selectLocation
               ($event, true)">
                 <mat-radio-button class="vertical-radio-button" name="" *ngFor="let location of locations;"
@@ -27,7 +27,7 @@
                 </mat-radio-button>
               </mat-radio-group>
               <div *ngIf="isBusy" class="input-group-addon"><i class="fa fa-spinner fa-spin"></i></div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="float pull-left">

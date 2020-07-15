@@ -110,7 +110,7 @@ export class UserDefaultPropertiesComponent implements OnInit {
   private getServiceOfferedLocations() {
     // this.currentLocation = this.propertyLocationService.getCurrentUserDefaultLocationObject();
     // if (!this.currentLocation) {
-    //   this.disable = true;h
+    //   this.disable = true;
     // }
     // this.setLocation();
     this.servicesOfferedPrograms.getserviceOfferedProgramsConfig().pipe(take(1)).subscribe((results) => {
@@ -133,34 +133,11 @@ export class UserDefaultPropertiesComponent implements OnInit {
         }
       });
       this.isBusy = false;
-      // const department = JSON.parse(this.localStorageService.getItem('userDefaultDepartment'));
-      // if (department !== null) {
-      //   this.selectedDepartment = department[0].itemName;
-      // } else {
-      //   this.selectedDepartment = 'HEMATO-ONCOLOGY';
-      //   setTimeout(() => {
-      //     this.selectDepartment(this.selectedDepartment);
-      //   }, 1000);
-
-      // }
       this.retrospectiveDataEntryService.retroSettings.subscribe((retroSettings) => {
         this.retroSettings = retroSettings;
       });
     });
   }
-
-  // private mapDepartments(results: any[]) {
-  //   _.each(results, (department, key: string) => {
-  //     const dept = {
-  //       'itemName': department.name,
-  //       'id': key
-  //     };
-  //     this.departments.push(dept);
-  //     this.departments = _.filter(this.departments, (dep) => {
-  //       return !_.includes(['uud4', 'uud5'], dep.id);
-  //     });
-  //   });
-  // }
     private mapServicesOffered(results: any[]) {
     _.each(results, (service, key: string) => {
       const srvce = {
