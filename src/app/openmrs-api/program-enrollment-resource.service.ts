@@ -2,8 +2,8 @@
 import { HttpParams, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import {throwError as observableThrowError,  Observable, Subject } from 'rxjs';
-import {catchError, map, flatMap} from 'rxjs/operators';
+import { throwError as observableThrowError, Observable, Subject } from 'rxjs';
+import { catchError, map, flatMap } from 'rxjs/operators';
 import { AppSettingsService } from '../app-settings/app-settings.service';
 
 // TODO inject service
@@ -33,8 +33,8 @@ export class ProgramEnrollmentResourceService {
     }
 
     const params: HttpParams = new HttpParams()
-    .set('v', v)
-    .set('patient', uuid);
+      .set('v', v)
+      .set('patient', uuid);
 
     return this.http.get(url, {
       params: params
@@ -54,7 +54,7 @@ export class ProgramEnrollmentResourceService {
     }
 
     const params: HttpParams = new HttpParams()
-    .set('v', v);
+      .set('v', v);
     url = url + '/' + uuid;
 
     return this.http.get(url, {
@@ -76,7 +76,8 @@ export class ProgramEnrollmentResourceService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const locationChange = 'location';
     if (payload['dateCompleted'] && (change !== locationChange) || !change) {
-      return this.http.post(url, JSON.stringify(payload), {headers}).pipe(
+      // console.log(payload);
+      return this.http.post(url, JSON.stringify(payload), { headers }).pipe(
         flatMap((program) => {
           this.broadcastUnenrolledProgram(program);
           return Observable.of(program);
@@ -85,7 +86,7 @@ export class ProgramEnrollmentResourceService {
 
     } else {
 
-      return this.http.post(url, JSON.stringify(payload), {headers}).pipe(
+      return this.http.post(url, JSON.stringify(payload), { headers }).pipe(
         catchError(this.handleError));
     }
   }

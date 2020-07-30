@@ -167,7 +167,8 @@
             <tbody>
                <tr>
                  <td><strong>Phone Number :</strong> {{patient.person.patientPhoneNumber}}</td>
-                 <td><strong>County :</strong> {{patient.person.preferredAddress.address1}}</td>
+                 <td><strong>County :</strong> {{patient._openmrsModel.person.preferredAddress.address1}}</td>
+
                  <!-- <td class="{{ patient.person.dead ? 'text-danger' : '' }}"><strong>Deceased : </strong><span *ngIf="patient.person.dead" class="{{ patient.person.dead ? 'text-danger' : '' }}"><strong>Yes</strong></span><span *ngIf="!patient.person.dead">No</span></td> -->
                </tr>
                <!-- <tr>

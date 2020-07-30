@@ -82,9 +82,10 @@ export class ProgramService {
       dateCompleted: dateCompleted,
       location: locationUuid
     };
-
+    // console.log(payLoad);
     // delete dateCompleted property  if the dateCompleted is null at enrollment
-    if (!payLoad.dateCompleted || enrollmentUuid === '') {
+    if (enrollmentUuid === '') {
+      console.log('cheers');
       delete payLoad['dateCompleted'];
     }
 
@@ -97,6 +98,7 @@ export class ProgramService {
       delete payLoad['patient'];
       delete payLoad['program'];
     }
+    // console.log(payLoad);
     // console.log('Program Enrollment Payload ', JSON.stringify(payLoad));
     return payLoad;
 

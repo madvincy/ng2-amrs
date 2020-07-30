@@ -22,6 +22,8 @@ import {
 import { UserService } from '../openmrs-api/user.service';
 import { BulkPatientDataCreationComponent } from './bulk-patient-data-creation/bulk-patient-data-creation.component';
 import { NgxFileUploaderModule } from 'ngx-file-uploader';
+import { BulkPatientComponent } from './bulk-patient/bulk-patient.component';
+import { TabViewModule } from 'primeng/primeng';
 @NgModule({
     imports: [
         CommonModule,
@@ -29,13 +31,15 @@ import { NgxFileUploaderModule } from 'ngx-file-uploader';
         FormsModule,
         DateTimePickerModule,
         NgSelectModule,
+        TabViewModule,
         NgxPaginationModule,
         ModalModule,
         NgxFileUploaderModule
     ],
     declarations: [
         PatientCreationComponent,
-        BulkPatientDataCreationComponent
+        BulkPatientDataCreationComponent,
+        BulkPatientComponent
     ],
     exports: [
         PatientCreationComponent

@@ -263,6 +263,7 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
           observer.error(error);
         });
     }).first();
+ 
   }
 
   public fetchPatientProgramVisitConfigs() {

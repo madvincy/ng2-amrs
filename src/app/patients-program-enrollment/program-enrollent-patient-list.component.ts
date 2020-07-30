@@ -98,8 +98,9 @@ export class ProgramEnrollmentPatientListComponent implements OnInit, OnDestroy 
     }
 
     public ngOnInit() {
-        const userDefaultDepartment: any = JSON.parse(this.localStorageService.getItem('userDefaultDepartment'));
-        if (userDefaultDepartment[0].itemName === 'HIV') {
+        let service: any = this.localStorageService.getItem('userDefaultServiceOffered');
+        console.log(service)
+        if (service[0].itemName === 'TREATMENT') {
             const hivColumns = [
                 {
                     headerName: 'Phone Number',
@@ -110,16 +111,6 @@ export class ProgramEnrollmentPatientListComponent implements OnInit, OnDestroy 
                     headerName: 'Latest Appointment',
                     width: 200,
                     field: 'last_appointment'
-                },
-                {
-                    headerName: 'Latest RTC Date',
-                    width: 150,
-                    field: 'latest_rtc_date'
-                },
-                {
-                    headerName: 'Nearest Center',
-                    width: 150,
-                    field: 'nearest_center'
                 }
             ];
             this.enrollmentColdef = _.concat(this.defaultEnrollmentColdef, hivColumns as Array<object>);

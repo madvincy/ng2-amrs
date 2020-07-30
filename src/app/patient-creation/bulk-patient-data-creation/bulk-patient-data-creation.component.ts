@@ -8,6 +8,8 @@ import { UserService } from 'src/app/openmrs-api/user.service';
 import { take } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { ProgramManagerService } from 'src/app/program-manager/program-manager.service';
+import { PatientSearchService } from 'src/app/patient-search/patient-search.service';
 
 
 @Component({
@@ -40,21 +42,24 @@ export class BulkPatientDataCreationComponent implements OnInit {
 
   constructor(
     private patientCreationService: PatientCreationService,
+    private patientSearchService: PatientSearchService,
     private patientCreationResourceService: PatientCreationResourceService,
     private userService: UserService,
+    private programManagerService: ProgramManagerService,
     private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
     this.userId = this.userService.getLoggedInUser().openmrsModel.systemId;
   }
-  onFileChange(ev) {
+  onFileChange(ev, datatype) {
     let workBook = null;
     let jsonData = null;
     const reader = new FileReader();
     const file = ev.target.files[0];
     reader.onload = (event) => {
       const data = reader.result;
+      if (datatype === 'patient') {
       workBook = XLSX.read(data, { type: 'binary' });
       jsonData = workBook.SheetNames.reduce((initial, name) => {
         const sheet = workBook.Sheets[name];
@@ -63,11 +68,19 @@ export class BulkPatientDataCreationComponent implements OnInit {
       }, {});
       if (jsonData.data) {
         this.persons = jsonData.data;
-        // this.createPatients(this.persons);
-        
-        // console.log(this.persons);
+          this.createPatients(this.persons);      
+        console.log(this.persons);
       }
-    }
+    }else if (datatype === 'programs') {
+     const patientNprograms = JSON.parse(data.toString());
+     patientNprograms.forEach(enrolledPrograms => {
+      //  console.log(patientNpg);
+      this.searchPatient(enrolledPrograms);
+     });
+
+      
+  }
+}
     reader.readAsBinaryString(file);
   }
   public createPatients(patient) {
@@ -183,6 +196,7 @@ export class BulkPatientDataCreationComponent implements OnInit {
   }
   public uploadPatients() {
     let count = 0;
+    console.log(this.payloads);
     this.payloads.forEach(payload => {
       setTimeout(() => {
         count = count + 1;
@@ -203,15 +217,6 @@ export class BulkPatientDataCreationComponent implements OnInit {
         });
   }
   public getCreator(userName) {
-    //would use uuid but they dont exist by the uuid
-  //   this.userService.getUserByUuid(useruuid).pipe(
-  //     take(1)).subscribe((result) => {
-  //       const specificCreator = {
-  //         'id': result.uuid,
-  //         'itemName': result.person.display
-  //       };
-  //     });
-  // });
   console.log(userName);
   //only use on kakamega
   this.userService
@@ -230,4 +235,89 @@ export class BulkPatientDataCreationComponent implements OnInit {
   public createFailedSheet() {
    console.log(this.failedPayloads, 'failed');
   }
+  public enrollPatientToProgram(program, patientuuid) {
+    // console.log(program.location.uuid);
+    // console.log(patientuuid);
+    const payload = {
+      programUuid: program.program.uuid,
+      patient: {person: {
+      uuid: patientuuid}},
+      dateEnrolled: program.dateEnrolled,
+      dateCompleted: program.dateCompleted,
+      location: '7bc85590-2de6-4780-b4d8-f167b71c1834',
+      enrollmentUuid: ''
+    };
+    //  console.log(program.dateCompleted);
+    //  console.log(program.program);
+    this.enrollUpdatePatientProgram (payload, patientuuid);
+    // console.log(enrollment);
+
+      }
+      public enrollUpdatePatientProgram (payload,  patientuuid) {
+         this.programManagerService.enrollPatient(payload).subscribe((enrollment) => {
+            if(payload.dateCompleted) {
+
+    const dateCompletedPayload = 
+     {
+      programUuid: payload.programUuid,
+      patient: {person: {
+      uuid: patientuuid}},
+      dateCompleted: payload.dateCompleted,
+      dateEnrolled: payload.dateEnrolled,
+      location: '7bc85590-2de6-4780-b4d8-f167b71c1834',
+      enrollmentUuid: enrollment.uuid
+    };
+      this.programManagerService.enrollPatient(dateCompletedPayload).subscribe((dateCompletedPayload) => { });
+        // this.enrollPatientToProgram(, patientuuid)
+             };
+
+            });
+
+      }
+      public searchPatient(patient) {
+        // console.log(patient);
+        if(patient.programs.length > 0) {
+          // console.log(patient.programs[0]._openmrsModel.patient.person.preferredName.display);
+          setTimeout(() => {
+          this.patientSearchService.searchPatient(patient.programs[0]._openmrsModel.patient.person.preferredName.display, false)
+            .subscribe(
+              (data) => {
+                if (data.length !== 0) {
+                  patient.programs.forEach(program => {
+                    if(data.length == 1 ) {
+                      // console.log(program._openmrsModel);
+                      this.enrollPatientToProgram(program._openmrsModel, data[0].uuid);
+
+                    } else {
+                      data.forEach(patientFound => {
+                      this.enrollPatientToProgram(program._openmrsModel, patientFound.uuid)
+                      });
+                    }
+                  });
+                
+                } else {
+                }
+              },
+              (error) => {
+              }
+            );
+        }, 500);
+        }
+
+        // setTimeout(() => {
+        //   this.patientSearchService.searchPatient(patient.Name, false)
+        //     .subscribe(
+        //       (data) => {
+        //         if (data.length !== 0) {
+
+        //           console.log(patient.Name, 'found')
+        //           const dateFormat = 'MMM dd, yyyy';
+        //         } else {
+        //         }
+        //       },
+        //       (error) => {
+        //       }
+        //     );
+        // }, 500);
+      }
 }

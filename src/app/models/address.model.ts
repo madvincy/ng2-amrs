@@ -16,6 +16,9 @@ export class PersonAddress extends BaseModel {
   }
   @serializable()
   public get address1(): string {
+    if (!this._openmrsModel.address1) {
+      return '';
+    }
     return this._openmrsModel.address1;
   }
   public set address1(v: string) {
