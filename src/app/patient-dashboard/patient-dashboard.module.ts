@@ -37,6 +37,7 @@ import { PocHttpInteceptor } from '../shared/services/poc-http-interceptor';
 import { GeneralLandingPageComponent } from './general-landing-page/landing-page.component';
 import { PatientRegistrationModule } from '../patient-creation/patient-creation.module';
 import { PatientDashboardHomeComponent } from './patient-dashboard-home/patient-dashboard-home.component';
+import { HivSummaryLatestComponent } from './hiv/hiv-summary/hiv-summary-latest.component';
 
 @NgModule({
   imports: [
@@ -69,6 +70,8 @@ import { PatientDashboardHomeComponent } from './patient-dashboard-home/patient-
     GeneralLandingPageComponent,
     PatientDashboardHomeComponent
   ],
+  exports: [
+  ],
   providers: [
     PatientDashboardGuard,
     PatientSearchService,
@@ -86,8 +89,6 @@ import { PatientDashboardHomeComponent } from './patient-dashboard-home/patient-
       multi: true
     }
   ],
-  exports: [
-  ]
 })
 export class PatientDashboardModule {
   public static routes = routes;

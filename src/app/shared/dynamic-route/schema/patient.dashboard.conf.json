@@ -52,6 +52,11 @@
           "icon": "icon-i-administration"
         },
         {
+          "url": "orders",
+          "label": "Order Reports",
+          "icon": "icon-i-immunizations"
+        },
+        {
           "url": "patient-imaging",
           "label": "Imaging",
           "icon": "icon-i-radiology"
@@ -320,6 +325,11 @@
         "url": "drug-orders",
         "label": "Drug Orders",
         "icon": "icon-i-pharmacy"
+      },
+      {
+        "url": "orders",
+        "label": "Order Reports",
+        "icon": "icon-i-immunizations"
       },
       {
         "url": "patient-imaging",

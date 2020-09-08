@@ -69,7 +69,7 @@ export class OncologyProgramSnapshotComponent implements OnInit, OnDestroy {
         this.loadingSummary = false;
         this.hasData = false;
         this.hasError = true;
-        console.error('Error fetching   Patient summary: ', error);
+        console.error('Error fetching oncology summary: ', error);
         this.errors.push({
           id: 'summary',
           message: 'Error Fetching Summary'

@@ -38,8 +38,6 @@ export class ClinicDashboardComponent implements OnInit {
 
   public ngOnInit() {
     this.hideShowLocationFilter();
-    this.getLocations();
-    // this.getUserDepartment();
     this.getUserServiceOffering();
     this.router.events
       .filter(event => event instanceof NavigationEnd)
@@ -60,13 +58,15 @@ export class ClinicDashboardComponent implements OnInit {
   // }
   public getUserServiceOffering() {
     let service = this.localStorageService.getItem('userDefaultServiceOffered');
+    console.log('service', service);
     if (service === '[""]') {
-      service = undefined;
+      service = 'screening';
     }
     if (!service) {
       this.router.navigate(['/user-default-properties']);
     }
     this.selectedServiceOffered = JSON.parse(service);
+    this.getLocations();
   }
 
   public hideShowLocationFilter() {

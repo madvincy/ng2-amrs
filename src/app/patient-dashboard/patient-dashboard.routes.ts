@@ -36,6 +36,8 @@ import { OncologySummaryComponent } from './oncology/oncology-summary/oncology-s
 import { DrugOrdersComponent} from './common/drug-orders/drug-orders/drug-orders.component';
 import { BulkPatientDataCreationComponent } from '../patient-creation/bulk-patient-data-creation/bulk-patient-data-creation.component';
 import { AppointmentsSchedulingComponent } from '../appointments-scheduling/appointments-scheduling.component';
+import { PatientImagingReportsComponent } from './common/patient-imaging-reports/patient-imaging-reports.component';
+
 
 
 
@@ -124,6 +126,7 @@ export const routes = [
           { path: ':programClass/:program/lab-orders', component: LabOrdersComponent },
           { path: ':programClass/:program/drug-orders', component: DrugOrdersComponent },
           { path: ':programClass/:program/clinical-notes', component: ClinicalNotesComponent },
+          { path: ':programClass/:program/orders', component: PatientImagingReportsComponent },
           { path: ':programClass/:program/visit', component: TodayVisitsComponent },
           { path: ':programClass/:program/locator-map', component: LocatorMapComponent },
           {

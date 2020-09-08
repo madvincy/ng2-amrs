@@ -98,6 +98,7 @@ import {
 import { PatientCareStatusResourceService } from '../../etl-api/patient-care-status-resource.service';
 import { PatientIdentifierService } from './patient-identifier/patient-identifiers.service';
 import { EditContactsComponent } from './patient-info/edit-contacts.component';
+
 import {
   HivPatientClinicalSummaryService
 } from '../hiv/patient-clinical-summaries/hiv-patient-clinical-summary.service';
@@ -166,6 +167,13 @@ import { EditDrugComponent } from './drug-orders/edit-drug/edit-drug.component';
 
 
 
+
+import { PatientImagingReportsComponent } from './patient-imaging-reports/patient-imaging-reports.component';
+import { ProcedureOrdersService } from './patient-imaging-reports/procedure-orders/procedure-orders.service';
+import { FeedBackService } from 'src/app/feedback/feedback.service';
+import { ProcedureOrdersComponent } from './patient-imaging-reports/procedure-orders/procedure-orders.component';
+import { ProceduresFilterPipe } from './patient-imaging-reports/procedure-orders/procedures-filter.pipe';
+import { ImagingCommentsComponent } from './patient-imaging-reports/imaging-comments/imaging-comments.component';
 @NgModule({
   imports: [
     HttpClientModule,
@@ -222,7 +230,9 @@ import { EditDrugComponent } from './drug-orders/edit-drug/edit-drug.component';
     MatTableModule,
     MatToolbarModule,
     PatientInfoComponent,
-        PatientEncountersComponent,
+    HivSummaryLatestComponent,
+    ProcedureOrdersComponent ,
+    PatientEncountersComponent,
     PatientVitalsComponent,
     FormsComponent,
     LabDataSummaryComponent,
@@ -275,9 +285,11 @@ import { EditDrugComponent } from './drug-orders/edit-drug/edit-drug.component';
   declarations: [
     VisitSummaryComponent,
     PatientInfoComponent,
+    HivSummaryLatestComponent,
     PatientEncountersComponent,
     PatientVitalsComponent,
     FormsComponent,
+    ProcedureOrdersComponent,
     LabDataSummaryComponent,
     LabOrdersComponent,
     ClinicalNotesComponent,
@@ -315,6 +327,7 @@ import { EditDrugComponent } from './drug-orders/edit-drug/edit-drug.component';
     LocatorMapComponent,
     SecurePipe,
     AgePipe,
+    ProceduresFilterPipe,
     VisitEncountersListComponent,
     VisitEncountersComponent,
     VisitDetailsComponent,
@@ -336,7 +349,11 @@ import { EditDrugComponent } from './drug-orders/edit-drug/edit-drug.component';
     DrugOrderSetDraftComponent,
     EditDrugComponent,
     PatientImagingComponent,
-   ],
+    PatientImagingReportsComponent,
+    PatientImagingComponent,
+    ProcedureOrdersComponent,
+    ImagingCommentsComponent],
+    schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -348,6 +365,7 @@ import { EditDrugComponent } from './drug-orders/edit-drug/edit-drug.component';
     PatientSearchService,
     AppFeatureAnalytics,
     PatientService,
+    FeedBackService,
     PatientPreviousEncounterService,
     HivSummaryService,
     FormListService,
@@ -360,6 +378,7 @@ import { EditDrugComponent } from './drug-orders/edit-drug/edit-drug.component';
     FromentryGuard,
     FormCreationDataResolverService,
     FormSubmissionService,
+    ProcedureOrdersService,
     PatientReminderService,
     DraftedFormsService,
     TodaysVitalsService,
@@ -368,6 +387,7 @@ import { EditDrugComponent } from './drug-orders/edit-drug/edit-drug.component';
     HivPatientClinicalSummaryService,
     DatePipe,
     ZeroVlPipe,
+    ProceduresFilterPipe,
     PatientIdentifierService,
     PatientRelationshipTypeService,
     FormentryReferralsHandlerService,
@@ -379,7 +399,6 @@ import { EditDrugComponent } from './drug-orders/edit-drug/edit-drug.component';
     DrugsFilterPipe,
     DrugSetFilterPipe,
     DrugOrderService
-  ],
-  schemas: [NO_ERRORS_SCHEMA]
+  ]
 })
 export class PatientDashboardCommonModule { }

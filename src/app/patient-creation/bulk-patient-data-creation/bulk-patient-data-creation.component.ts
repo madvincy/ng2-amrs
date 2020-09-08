@@ -22,20 +22,20 @@ export class BulkPatientDataCreationComponent implements OnInit {
   public patients: Patient[];
   public referred: any[] = [];
   public errors: any[] = [];
-  public isResetButton: boolean = true;
+  public isResetButton = true;
   public totalPatients: number;
-  public isLoading: boolean = false;
-  public dataLoaded: boolean = false;
+  public isLoading = false;
+  public dataLoaded = false;
   public hasConductedSearch = false;
-  public page: number = 1;
-  public adjustInputMargin: string = '240px';
+  public page = 1;
+  public adjustInputMargin = '240px';
   public subscription: Subscription;
   public referralSubscription: Subscription;
-  public title: string = 'Patient Search';
-  public errorMessage: string = '';
-  public noMatchingResults: boolean = false;
-  public lastSearchString: string = '';
-  public providerUuid: string = '';
+  public title = 'Patient Search';
+  public errorMessage = '';
+  public noMatchingResults = false;
+  public lastSearchString = '';
+  public providerUuid = '';
   public userId;
   public payloads: any = [];
   public failedPayloads: any = [];
@@ -60,40 +60,40 @@ export class BulkPatientDataCreationComponent implements OnInit {
     reader.onload = (event) => {
       const data = reader.result;
       if (datatype === 'patient') {
-      workBook = XLSX.read(data, { type: 'binary' });
-      jsonData = workBook.SheetNames.reduce((initial, name) => {
-        const sheet = workBook.Sheets[name];
-        initial[name] = XLSX.utils.sheet_to_json(sheet);
-        return initial;
-      }, {});
-      if (jsonData.data) {
-        this.persons = jsonData.data;
-          this.createPatients(this.persons);      
-        console.log(this.persons);
+        workBook = XLSX.read(data, { type: 'binary' });
+        jsonData = workBook.SheetNames.reduce((initial, name) => {
+          const sheet = workBook.Sheets[name];
+          initial[name] = XLSX.utils.sheet_to_json(sheet);
+          return initial;
+        }, {});
+        if (jsonData.data) {
+          this.persons = jsonData.data;
+          this.createPatients(this.persons);
+          console.log(this.persons);
+        }
+      } else if (datatype === 'programs') {
+        const patientNprograms = JSON.parse(data.toString());
+        patientNprograms.forEach(enrolledPrograms => {
+          //  console.log(patientNpg);
+          this.searchPatient(enrolledPrograms);
+        });
+      } else if ( datatype === 'encounter') {
+        const patientNecounters = JSON.parse(data.toString());
+        patientNecounters.forEach(patientEncounter => {
+          console.log(patientEncounter);
+        });
       }
-    }else if (datatype === 'programs') {
-     const patientNprograms = JSON.parse(data.toString());
-     patientNprograms.forEach(enrolledPrograms => {
-      //  console.log(patientNpg);
-      this.searchPatient(enrolledPrograms);
-     });
-
-      
-  }
-}
+    };
     reader.readAsBinaryString(file);
   }
   public createPatients(patient) {
-   
-    let patientIdentifiers = [];
-    let patientIdentifier = '';
     patient.forEach(person => {
       // generating identifiers
       const ids = [];
       const attributes = [];
       this.patientCreationService.generateIdentifier(this.userId).pipe(take(1)).subscribe((data: any) => {
-        console.log(person.HospitalNumber)
-        if(data) {
+        console.log(person.HospitalNumber);
+        if (data) {
           ids.push({
             identifierType: '58a4732e-1359-11df-a1f1-0026b9348838',
             identifier: data.identifier,
@@ -101,7 +101,7 @@ export class BulkPatientDataCreationComponent implements OnInit {
             preferred: true
           });
         }
-        if(person.KenyaNationalId){
+        if (person.KenyaNationalId) {
           ids.push({
             identifierType: '58a47054-1359-11df-a1f1-0026b934883',
             identifier: person.KenyaNationalId,
@@ -109,14 +109,14 @@ export class BulkPatientDataCreationComponent implements OnInit {
             preferred: false
           });
         }
-        if(person.HospitalNumber) {
+        if (person.HospitalNumber) {
           ids.push({
             identifierType: '3dd5882d-6de9-4784-b350-79c0d3da3883',
             identifier: person.HospitalNumber,
             location: '7bc85590-2de6-4780-b4d8-f167b71c1834',
             preferred: false
           });
-          
+
         }
       });
       // this.errorAlert = false;
@@ -169,7 +169,7 @@ export class BulkPatientDataCreationComponent implements OnInit {
             address1: person.address1 || null,
             address2: person.address2 || null,
             address3: person.address3 || null,
-            address4: person.address4 ,
+            address4: person.address4,
             address5: person.address5,
             address6: person.address6,
             address7: person.address7,
@@ -191,7 +191,7 @@ export class BulkPatientDataCreationComponent implements OnInit {
       };
       setTimeout(() => {
         this.payloads.push(payload);
-      }, 300);     
+      }, 300);
     });
   }
   public uploadPatients() {
@@ -201,47 +201,50 @@ export class BulkPatientDataCreationComponent implements OnInit {
       setTimeout(() => {
         count = count + 1;
         console.log('count')
-        this.createNewPatient(payload); 
-      }, 200); 
+        this.createNewPatient(payload);
+      }, 200);
     });
   }
   public createNewPatient(payload) {
-        this.patientCreationResourceService.savePatient(payload).pipe(
-        take(1)).subscribe((success) => {
-          if(success) {
-            console.log('patient created')
-          }
-        }, (err) => {
-          this.failedPayloads.push(payload);
-            console.log('error', payload);
-        });
+    this.patientCreationResourceService.savePatient(payload).pipe(
+      take(1)).subscribe((success) => {
+        if (success) {
+          console.log('patient created')
+        }
+      }, (err) => {
+        this.failedPayloads.push(payload);
+        console.log('error', payload);
+      });
   }
   public getCreator(userName) {
-  console.log(userName);
-  //only use on kakamega
-  this.userService
-  .searchUsers(userName).pipe(
-    take(1)).subscribe((results) => {
-      if (results[0] && results[0].uuid ) {
-        console.log(results[0].uuid)
-        return results[0].uuid;
-      } else {
-        return '6564deb6-46ae-4b0d-af15-8fb31bde6c9b';
-      }
-    });
-    
+    console.log(userName);
+    // only use on kakamega
+    this.userService
+      .searchUsers(userName).pipe(
+        take(1)).subscribe((results) => {
+          if (results[0] && results[0].uuid) {
+            console.log(results[0].uuid);
+            return results[0].uuid;
+          } else {
+            return '6564deb6-46ae-4b0d-af15-8fb31bde6c9b';
+          }
+        });
+
 
   }
   public createFailedSheet() {
-   console.log(this.failedPayloads, 'failed');
+    console.log(this.failedPayloads, 'failed');
   }
   public enrollPatientToProgram(program, patientuuid) {
     // console.log(program.location.uuid);
     // console.log(patientuuid);
     const payload = {
       programUuid: program.program.uuid,
-      patient: {person: {
-      uuid: patientuuid}},
+      patient: {
+        person: {
+          uuid: patientuuid
+        }
+      },
       dateEnrolled: program.dateEnrolled,
       dateCompleted: program.dateCompleted,
       location: '7bc85590-2de6-4780-b4d8-f167b71c1834',
@@ -249,75 +252,88 @@ export class BulkPatientDataCreationComponent implements OnInit {
     };
     //  console.log(program.dateCompleted);
     //  console.log(program.program);
-    this.enrollUpdatePatientProgram (payload, patientuuid);
+    this.enrollUpdatePatientProgram(payload, patientuuid);
     // console.log(enrollment);
 
-      }
-      public enrollUpdatePatientProgram (payload,  patientuuid) {
-         this.programManagerService.enrollPatient(payload).subscribe((enrollment) => {
-            if(payload.dateCompleted) {
+  }
+  public enrollUpdatePatientProgram(payload, patientuuid) {
+    this.programManagerService.enrollPatient(payload).subscribe((enrollment) => {
+      if (payload.dateCompleted) {
 
-    const dateCompletedPayload = 
-     {
-      programUuid: payload.programUuid,
-      patient: {person: {
-      uuid: patientuuid}},
-      dateCompleted: payload.dateCompleted,
-      dateEnrolled: payload.dateEnrolled,
-      location: '7bc85590-2de6-4780-b4d8-f167b71c1834',
-      enrollmentUuid: enrollment.uuid
-    };
-      this.programManagerService.enrollPatient(dateCompletedPayload).subscribe((dateCompletedPayload) => { });
+        const dateCompletedPayload =
+        {
+          programUuid: payload.programUuid,
+          patient: {
+            person: {
+              uuid: patientuuid
+            }
+          },
+          dateCompleted: payload.dateCompleted,
+          dateEnrolled: payload.dateEnrolled,
+          location: '7bc85590-2de6-4780-b4d8-f167b71c1834',
+          enrollmentUuid: enrollment.uuid
+        };
+        this.programManagerService.enrollPatient(dateCompletedPayload).subscribe((dateCompletedPayload) => { });
         // this.enrollPatientToProgram(, patientuuid)
-             };
+      };
 
-            });
+    });
 
-      }
-      public searchPatient(patient) {
-        // console.log(patient);
-        if(patient.programs.length > 0) {
-          // console.log(patient.programs[0]._openmrsModel.patient.person.preferredName.display);
-          setTimeout(() => {
-          this.patientSearchService.searchPatient(patient.programs[0]._openmrsModel.patient.person.preferredName.display, false)
-            .subscribe(
-              (data) => {
-                if (data.length !== 0) {
-                  patient.programs.forEach(program => {
-                    if(data.length == 1 ) {
-                      // console.log(program._openmrsModel);
-                      this.enrollPatientToProgram(program._openmrsModel, data[0].uuid);
+  }
+  public searchPatient(patient) {
+    // console.log(patient);
+    if (patient.programs.length > 0) {
+      // console.log(patient.programs[0]._openmrsModel.patient.person.preferredName.display);
+      setTimeout(() => {
+        this.patientSearchService.searchPatient(patient.programs[0]._openmrsModel.patient.person.preferredName.display, false)
+          .subscribe(
+            (data) => {
+              if (data.length !== 0) {
+                patient.programs.forEach(program => {
+                  if (data.length == 1) {
+                    // console.log(program._openmrsModel);
+                    this.enrollPatientToProgram(program._openmrsModel, data[0].uuid);
 
-                    } else {
-                      data.forEach(patientFound => {
+                  } else {
+                    data.forEach(patientFound => {
                       this.enrollPatientToProgram(program._openmrsModel, patientFound.uuid)
-                      });
-                    }
-                  });
-                
-                } else {
-                }
-              },
-              (error) => {
+                    });
+                  }
+                });
+
+              } else {
               }
-            );
-        }, 500);
-        }
+            },
+            (error) => {
+            }
+          );
+      }, 500);
+    }
 
-        // setTimeout(() => {
-        //   this.patientSearchService.searchPatient(patient.Name, false)
-        //     .subscribe(
-        //       (data) => {
-        //         if (data.length !== 0) {
+    // setTimeout(() => {
+    //   this.patientSearchService.searchPatient(patient.Name, false)
+    //     .subscribe(
+    //       (data) => {
+    //         if (data.length !== 0) {
 
-        //           console.log(patient.Name, 'found')
-        //           const dateFormat = 'MMM dd, yyyy';
-        //         } else {
-        //         }
-        //       },
-        //       (error) => {
-        //       }
-        //     );
-        // }, 500);
-      }
+    //           console.log(patient.Name, 'found')
+    //           const dateFormat = 'MMM dd, yyyy';
+    //         } else {
+    //         }
+    //       },
+    //       (error) => {
+    //       }
+    //     );
+    // }, 500);
+  }
+  public extractVisits() {
+    //get & create patient visits
+    console.log()
+    //get and create patient encounters & Obs then attach obs to visit
+
+    //close visits
+
+    //get and create patient
+
+  }
 }

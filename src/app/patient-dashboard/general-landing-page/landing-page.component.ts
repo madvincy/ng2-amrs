@@ -61,7 +61,9 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
   public loadingVitals = false;
   public vitals: Array<any> = [];
   public myMedicalService: string;
-  public noData: string = 'No Patient Data Available'
+  private treatmentUuid = '725b5193-3452-43fc-aca3-6a80432d9bfa';
+  public noData = 'No Patient Data Available';
+  public encounterTypes: any = [];
 
   constructor(private patientService: PatientService,
     private patientReferralService: PatientReferralService,
@@ -82,12 +84,11 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
   public loadPatientEncounters(patientUuid) {
     this.encounters = [];
     this.patientEncounterService
-      .getEncountersByPatientUuid(patientUuid)
+      .getEncountersByPatientUuid(this.patient.person.uuid)
       .subscribe(
         (data) => {
-          // this.encounters = data;
-          console.log(data);
-          // this.loadEncounterTypes(data);
+          this.encounters = data;
+          this.loadEncounterTypes(data);
           // a trick to wait for the encounter list to render
           setTimeout(() => {
           }, 2000);
@@ -98,6 +99,25 @@ export class GeneralLandingPageComponent implements OnInit, OnDestroy {
             message: 'error fetching visit'
           });
         });
+  }
+  public loadEncounterTypes(encounters) {
+    if (encounters.length > 0) {
+      encounters.forEach((encounter) => {
+        this.encounterTypes.push(encounter.encounterType.display);
+      });
+
+      this.sortEncounterTpes();
+    }
+
+  }
+  public sortEncounterTpes() {
+
+    const newUniqueEncounterTypes = _.uniq(this.encounterTypes);
+
+    const sortByAlphOrder = _.sortBy(newUniqueEncounterTypes);
+
+    this.encounterTypes = sortByAlphOrder;
+
   }
   public loadVitals(patientUuid, nextStartIndex): void {
     this.patientVitalsService.getVitals(this.patient, nextStartIndex).subscribe((data) => {

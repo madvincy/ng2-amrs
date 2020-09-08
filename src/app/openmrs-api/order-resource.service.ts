@@ -1,13 +1,16 @@
 
-import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { AppSettingsService } from '../app-settings/app-settings.service';
-import { Observable } from 'rxjs';
-import * as _ from 'lodash';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+
+import * as _ from 'lodash';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import { AppSettingsService } from '../app-settings/app-settings.service';
 
 @Injectable()
 export class OrderResourceService {
+  
 
   public v: string = 'custom:(display,uuid,orderNumber,orderType,accessionNumber,' +
   'orderReason,orderReasonNonCoded,urgency,careSetting,action,' +
@@ -22,7 +25,6 @@ export class OrderResourceService {
   }
 
   public getUrl(): string {
-
     return this.appSettingsService.getOpenmrsRestbaseurl().trim() + 'order';
   }
 
@@ -32,7 +34,7 @@ export class OrderResourceService {
     let url = this.getUrl();
     url += '/' + orderId;
     const params: HttpParams = new HttpParams()
-    .set('v', (v && v.length > 0) ? v : this.v);
+      .set('v', (v && v.length > 0) ? v : this.v);
 
     return this.http.get(url, {
       params: params
@@ -65,13 +67,12 @@ export class OrderResourceService {
 
 
   public getOrderByUuid(uuid: string, cached: boolean = false, v: string = null): Observable<any> {
-
     let url = this.getUrl();
     url += '/' + uuid;
     this.v = 'full';
 
     const params: HttpParams = new HttpParams()
-    .set('v', (v && v.length > 0) ? v : this.v);
+      .set('v', (v && v.length > 0) ? v : this.v);
     return this.http.get(url, {
       params: params
     }).pipe(map((response) => {
@@ -99,8 +100,8 @@ export class OrderResourceService {
     } else {
       return { orderVoided: true };
     }
-
   }
+
   public getAllOrdersByPatientUuuid(patientUuid: string, careSettingUuid: string,
     cached: boolean = false, v: string = null): Observable<any> {
 

@@ -41,7 +41,6 @@ export class StaticNavBarComponent implements OnInit {
   }
   private setUserLocation() {
     this.user = this.userService.getLoggedInUser();
-    console.log(this.user);
     this.userDefaultSettingsService.locationSubject.subscribe((location) => {
       if (location) {
         this.userLocation = JSON.parse(location) ? JSON.parse(location).display : '';

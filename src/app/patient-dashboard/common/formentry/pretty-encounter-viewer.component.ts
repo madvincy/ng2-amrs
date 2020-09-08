@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Input, Inject, ɵConsole } from '@angular/core';
 import { EncounterResourceService } from '../../../openmrs-api/encounter-resource.service';
 import { FormSchemaService } from './form-schema.service';
 import { EncounterAdapter, FormFactory, Form, DataSources } from 'ngx-openmrs-formentry';
@@ -79,6 +79,7 @@ export class PrettyEncounterViewerComponent implements OnInit {
         this.form = undefined;
         this.encounterResourceService.getEncounterByUuid(encounterUuid).pipe(
             flatMap((encounterWithObs) => {
+                console.log(encounterWithObs);
                 this.patient = new Patient(encounterWithObs.patient);
                 this.selectedEncounter = encounterWithObs;
                 this.wireDataSources();

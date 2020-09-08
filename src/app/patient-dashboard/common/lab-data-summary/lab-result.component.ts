@@ -106,15 +106,6 @@ export class LabResultComponent implements OnInit, OnDestroy {
   };
 
   public oncRows = {
-    'hiv_viral_load': {
-      'test': 'HIV VL'
-    },
-    'cd4_count': {
-      'test': 'CD4'
-    },
-    'cd4_percent': {
-      'test': 'CD4%'
-    },
     'rbc': {
       'test': 'RBC',
       'toolTip': 'Red Blood Cell Count (10^6/µL)'

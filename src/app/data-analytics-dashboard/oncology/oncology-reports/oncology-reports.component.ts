@@ -14,7 +14,7 @@ import { LocalStorageService } from 'src/app/utils/local-storage.service';
   styleUrls: ['./oncology-reports.component.css']
 })
 export class OncologyReportsComponent implements OnInit {
-  public title  = 'Oncology Reports';
+  public title  = 'Reports';
   public oncologyReports: any;
   public reportType: any;
   public specificOncologyReport: any;

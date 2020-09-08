@@ -33,7 +33,8 @@ import { OncologyProgramSnapshotComponent
     NgxPaginationModule
   ],
   exports: [
-    OncologyLandingPageComponent, OncologySummaryComponent, OncologyProgramSnapshotComponent
+    OncologyLandingPageComponent, OncologyDiagnosisHistoryComponent, OncologySummaryComponent, OncologyMedicationHistoryComponent,
+     OncologyProgramSnapshotComponent
   ],
   declarations: [
     OncologyLandingPageComponent, OncologySummaryComponent, OncologySummaryLatestComponent,

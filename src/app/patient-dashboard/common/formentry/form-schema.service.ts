@@ -24,6 +24,7 @@ export class FormSchemaService {
    * @memberOf FormSchemaService
    */
   public getFormSchemaByUuid(formUuid: string, cached: boolean = true): ReplaySubject<any> {
+    console.log(formUuid);
     const formSchema: ReplaySubject<any> = new ReplaySubject(1);
     const cachedCompiledSchema: any = this.getCachedCompiledSchemaByUuid(formUuid);
     if (cachedCompiledSchema && cached === true) {
@@ -32,12 +33,14 @@ export class FormSchemaService {
       this.getFormSchemaByUuidFromServer(formUuid)
         .subscribe(
         (unCompiledSchema: any) => {
+          console.log(unCompiledSchema.form);
           const form: any = unCompiledSchema.form;
           const referencedComponents: any = unCompiledSchema.referencedComponents;
           // add from metadata to the uncompiled schema
           this.formsResourceService.getFormMetaDataByUuid(formUuid)
             .subscribe(
             (formMetadataObject: any) => {
+              console.log(formMetadataObject.pages);
               formMetadataObject.pages = form.pages || [];
               formMetadataObject.referencedForms = form.referencedForms || [];
               formMetadataObject.processor = form.processor;

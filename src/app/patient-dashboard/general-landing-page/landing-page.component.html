@@ -231,10 +231,7 @@
           <div class="panel panel-default">
           <div class="panel-heading">Diagnosis</div>
           <div class="panel-body">
-          
-        </div>
-        <div class="panel-footer">
-          see all
+            <oncology-diagnosis-history [programUuid]="treatmentUuid"></oncology-diagnosis-history>
         </div>
         </div>
       </div>
@@ -331,18 +328,6 @@
             {{vitals.bsa  || '&nbsp;'}}
           </td>
           <td *ngIf= "vitals.length === 0">{{noData}}</td>
-          <!-- <td >
-            {{vitals.ecog  || '&nbsp;'}}
-          </td> -->
-          <!-- <td>
-            {{vitals.inr  || '&nbsp;'}}
-          </td>
-          <td>
-            {{vitals.lcc  || '&nbsp;'}}
-          </td>
-          <td>
-            {{vitals.rcc  || '&nbsp;'}}
-          </td> -->
         </tr>
       </table>
       <div *ngFor="let error of errors" class="alert alert-danger alert-dismissible">
@@ -363,31 +348,26 @@
             <th>Form</th>
             <th>Provider</th>
             <th> Provider Location</th>
-            <th colspan="2">Actions</th>
+            <!-- <th colspan="2">Actions</th> -->
           </tr>
         </thead>
         <tbody>
-          <tr style="cursor: pointer;" *ngFor="let encounter of encounters  |  encounterTypeFilter:encounterFilterTypeArray | paginate: { itemsPerPage: 10, currentPage: page }; let i = index;">
+          <tr style="cursor: pointer;" *ngFor="let encounter of encounters | paginate: { itemsPerPage: 10, currentPage: page }; let i = index;">
             <td>{{encounter.encounterDatetime | date: 'MMM dd, yyyy hh:mm a'}}</td>
             <td>{{encounter.encounterType.display}}</td>
             <td><span *ngIf="encounter.form">{{encounter.form.name}}</span></td>
             <td>{{encounter.provider.display | patientEncounterProviderPipe}}</td>
             <td>{{encounter.location.display}}</td>
-            <td>
+            <!-- <td>
               <a *ngIf="(encounter && encounter.form && encounter.form.name && encounter.form.name.indexOf('EICI') >= 0)" (click)="editEncounter(encounter)">
                               <span class="glyphicon text-primary glyphicon-edit"></span>
                           </a>
             </td>
-            <!-- <td>
-              <a *ngIf="(encounter && encounter.form && encounter.form.name && encounter.form.name && encounter.form.name.indexOf('EICI') >= 0)"  type="button" (click)="showEncounterViewer(encounter)">
-                <span class="glyphicon glyphicon-list-alt"></span>
-              </a>
-              </td> -->
             <td>
               <a type="button" (click)="showEncounterObservations(encounter)" data-target="#encounter_modal" data-toggle="modal">
                               <span class="glyphicon text-primary glyphicon-eye-open"></span>
                           </a>
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </table>
@@ -406,7 +386,7 @@
       <h3 class="panel-title">Medication</h3>
     </div>
     <div class="panel-body">
-      Panel content
+      <oncology-medication-history [programUuid]="treatmentUuid"></oncology-medication-history>
     </div>
   </div>
   <div class="panel panel-default">
@@ -419,7 +399,7 @@
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">Conditions </h3>
+      <h3 class="panel-title">Imaging </h3>
     </div>
     <div class="panel-body">
       Panel content
